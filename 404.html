@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="zensical-0.0.52">
     
     
       
@@ -23,10 +23,15 @@
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="/assets/stylesheets/classic/main.4c04d108.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="/assets/stylesheets/classic/palette.7dc9a0ad.min.css">
       
       
 
@@ -40,14 +45,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
       <link rel="stylesheet" href="/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -68,8 +73,12 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
+      
+        <a href="#__skip" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -83,12 +92,12 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Israeli Digital Humanities Index Schema" class="md-header__button md-logo" aria-label="Israeli Digital Humanities Index Schema" data-md-component="logo">
+    <a href="/" title="Israeli Digital Humanities Index Schema" class="md-header__button md-logo" aria-label="Israeli Digital Humanities Index Schema" data-md-component="logo">
       
-  <img src="/logo.png" alt="logo">
+  <img src="/logo.png" alt="Israeli Digital Humanities Index Schema">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
@@ -142,47 +151,20 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -208,9 +190,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Israeli Digital Humanities Index Schema" class="md-nav__button md-logo" aria-label="Israeli Digital Humanities Index Schema" data-md-component="logo">
+    <a href="/" title="Israeli Digital Humanities Index Schema" class="md-nav__button md-logo" aria-label="Israeli Digital Humanities Index Schema" data-md-component="logo">
       
-  <img src="/logo.png" alt="logo">
+  <img src="/logo.png" alt="Israeli Digital Humanities Index Schema">
 
     </a>
     Israeli Digital Humanities Index Schema
@@ -225,15 +207,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Israeli Digital Humanities Index Schema
-  
+  Israeli Digital Humanities Index Schema
 
     
   </span>
@@ -251,16 +232,65 @@
   
   
   
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Source files
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Source files
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="/source-files/" class="md-nav__link">
+      <a href="/source-files/idhi.linkml/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Source files
-  
+  IDHI LinkML schema
 
     
   </span>
@@ -268,6 +298,95 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/source-files/json-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  JSON Schema
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/source-files/owl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OWL/RDF ontology
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/source-files/typescript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  TypeScript definitions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -302,8 +421,7 @@
   <span class="md-ellipsis">
     
   
-    Classes
-  
+  Classes
 
     
   </span>
@@ -318,8 +436,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Classes
-  
+  Classes
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -338,8 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Class: AcademicInstitution
-  
+  Class: AcademicInstitution
 
     
   </span>
@@ -366,8 +482,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Affiliation
-  
+  Class: Affiliation
 
     
   </span>
@@ -394,8 +509,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Agent
-  
+  Class: Agent
 
     
   </span>
@@ -422,8 +536,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Authorship
-  
+  Class: Authorship
 
     
   </span>
@@ -450,8 +563,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Catalog
-  
+  Class: Catalog
 
     
   </span>
@@ -478,8 +590,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Company
-  
+  Class: Company
 
     
   </span>
@@ -506,8 +617,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Dataset
-  
+  Class: Dataset
 
     
   </span>
@@ -534,8 +644,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Event
-  
+  Class: Event
 
     
   </span>
@@ -562,8 +671,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Facility
-  
+  Class: Facility
 
     
   </span>
@@ -590,8 +698,7 @@
   <span class="md-ellipsis">
     
   
-    Class: FacilityAffiliation
-  
+  Class: FacilityAffiliation
 
     
   </span>
@@ -618,8 +725,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Funder
-  
+  Class: Funder
 
     
   </span>
@@ -646,8 +752,7 @@
   <span class="md-ellipsis">
     
   
-    Class: GLAMInstitution
-  
+  Class: GLAMInstitution
 
     
   </span>
@@ -674,8 +779,7 @@
   <span class="md-ellipsis">
     
   
-    Class: IndexContainer
-  
+  Class: IndexContainer
 
     
   </span>
@@ -702,8 +806,7 @@
   <span class="md-ellipsis">
     
   
-    Class: LangString
-  
+  Class: LangString
 
     
   </span>
@@ -730,8 +833,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Location
-  
+  Class: Location
 
     
   </span>
@@ -758,8 +860,7 @@
   <span class="md-ellipsis">
     
   
-    Class: NamedThing
-  
+  Class: NamedThing
 
     
   </span>
@@ -786,8 +887,7 @@
   <span class="md-ellipsis">
     
   
-    Class: NonProfit
-  
+  Class: NonProfit
 
     
   </span>
@@ -814,8 +914,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Organization
-  
+  Class: Organization
 
     
   </span>
@@ -842,8 +941,7 @@
   <span class="md-ellipsis">
     
   
-    Class: OrganizationProjectRole
-  
+  Class: OrganizationProjectRole
 
     
   </span>
@@ -870,8 +968,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Person
-  
+  Class: Person
 
     
   </span>
@@ -898,8 +995,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Project
-  
+  Class: Project
 
     
   </span>
@@ -926,8 +1022,7 @@
   <span class="md-ellipsis">
     
   
-    Class: ProjectParticipation
-  
+  Class: ProjectParticipation
 
     
   </span>
@@ -954,8 +1049,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Publication
-  
+  Class: Publication
 
     
   </span>
@@ -982,8 +1076,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Relationship
-  
+  Class: Relationship
 
     
   </span>
@@ -1010,8 +1103,7 @@
   <span class="md-ellipsis">
     
   
-    Class: ResearchCenter
-  
+  Class: ResearchCenter
 
     
   </span>
@@ -1038,8 +1130,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Service
-  
+  Class: Service
 
     
   </span>
@@ -1066,8 +1157,7 @@
   <span class="md-ellipsis">
     
   
-    Class: TimePeriod
-  
+  Class: TimePeriod
 
     
   </span>
@@ -1094,8 +1184,7 @@
   <span class="md-ellipsis">
     
   
-    Class: Tool
-  
+  Class: Tool
 
     
   </span>
@@ -1145,8 +1234,7 @@
   <span class="md-ellipsis">
     
   
-    Enums
-  
+  Enums
 
     
   </span>
@@ -1161,8 +1249,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Enums
-  
+  Enums
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1181,8 +1268,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: AuthorshipRoleEnum
-  
+  Enum: AuthorshipRoleEnum
 
     
   </span>
@@ -1209,8 +1295,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: DigitalHumanitiesActivityEnum
-  
+  Enum: DigitalHumanitiesActivityEnum
 
     
   </span>
@@ -1237,8 +1322,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: EventTypeEnum
-  
+  Enum: EventTypeEnum
 
     
   </span>
@@ -1265,8 +1349,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: LanguageEnum
-  
+  Enum: LanguageEnum
 
     
   </span>
@@ -1293,8 +1376,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: LicenseEnum
-  
+  Enum: LicenseEnum
 
     
   </span>
@@ -1321,8 +1403,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: OrgProjectRoleEnum
-  
+  Enum: OrgProjectRoleEnum
 
     
   </span>
@@ -1349,8 +1430,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: OrganizationTypeEnum
-  
+  Enum: OrganizationTypeEnum
 
     
   </span>
@@ -1377,8 +1457,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: PersonOrgRoleEnum
-  
+  Enum: PersonOrgRoleEnum
 
     
   </span>
@@ -1405,8 +1484,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: ProjectRoleEnum
-  
+  Enum: ProjectRoleEnum
 
     
   </span>
@@ -1433,8 +1511,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: PublicationTypeEnum
-  
+  Enum: PublicationTypeEnum
 
     
   </span>
@@ -1461,8 +1538,7 @@
   <span class="md-ellipsis">
     
   
-    Enum: ToolServiceTypeEnum
-  
+  Enum: ToolServiceTypeEnum
 
     
   </span>
@@ -1512,8 +1588,7 @@
   <span class="md-ellipsis">
     
   
-    Schemas
-  
+  Schemas
 
     
   </span>
@@ -1528,8 +1603,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Schemas
-  
+  Schemas
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1548,8 +1622,7 @@
   <span class="md-ellipsis">
     
   
-    idhi
-  
+  idhi
 
     
   </span>
@@ -1599,8 +1672,7 @@
   <span class="md-ellipsis">
     
   
-    Slots
-  
+  Slots
 
     
   </span>
@@ -1615,8 +1687,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Slots
-  
+  Slots
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1635,8 +1706,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: additional_urls
-  
+  Slot: additional_urls
 
     
   </span>
@@ -1663,8 +1733,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: address
-  
+  Slot: address
 
     
   </span>
@@ -1691,8 +1760,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: affiliation_role
-  
+  Slot: affiliation_role
 
     
   </span>
@@ -1719,8 +1787,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: affiliations
-  
+  Slot: affiliations
 
     
   </span>
@@ -1747,8 +1814,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: author
-  
+  Slot: author
 
     
   </span>
@@ -1775,8 +1841,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: author_order
-  
+  Slot: author_order
 
     
   </span>
@@ -1803,8 +1868,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: authorship_role
-  
+  Slot: authorship_role
 
     
   </span>
@@ -1831,8 +1895,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: authorships
-  
+  Slot: authorships
 
     
   </span>
@@ -1859,8 +1922,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: begin_date
-  
+  Slot: begin_date
 
     
   </span>
@@ -1887,8 +1949,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: catalogs
-  
+  Slot: catalogs
 
     
   </span>
@@ -1915,8 +1976,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: code_repository
-  
+  Slot: code_repository
 
     
   </span>
@@ -1943,8 +2003,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: contact_email
-  
+  Slot: contact_email
 
     
   </span>
@@ -1971,8 +2030,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: datasets
-  
+  Slot: datasets
 
     
   </span>
@@ -1999,8 +2057,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: date_issued
-  
+  Slot: date_issued
 
     
   </span>
@@ -2027,8 +2084,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: description
-  
+  Slot: description
 
     
   </span>
@@ -2055,8 +2111,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: digital_humanities_activities
-  
+  Slot: digital_humanities_activities
 
     
   </span>
@@ -2083,8 +2138,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: distribution_url
-  
+  Slot: distribution_url
 
     
   </span>
@@ -2111,8 +2165,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: documentation_url
-  
+  Slot: documentation_url
 
     
   </span>
@@ -2139,8 +2192,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: doi
-  
+  Slot: doi
 
     
   </span>
@@ -2167,8 +2219,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: emails
-  
+  Slot: emails
 
     
   </span>
@@ -2195,8 +2246,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: end_date
-  
+  Slot: end_date
 
     
   </span>
@@ -2223,8 +2273,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: event_type
-  
+  Slot: event_type
 
     
   </span>
@@ -2251,8 +2300,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: events
-  
+  Slot: events
 
     
   </span>
@@ -2279,8 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: facilities
-  
+  Slot: facilities
 
     
   </span>
@@ -2307,8 +2354,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: facility
-  
+  Slot: facility
 
     
   </span>
@@ -2335,8 +2381,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: facility_affiliations
-  
+  Slot: facility_affiliations
 
     
   </span>
@@ -2363,8 +2408,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: family_name
-  
+  Slot: family_name
 
     
   </span>
@@ -2391,8 +2435,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: funding_amount
-  
+  Slot: funding_amount
 
     
   </span>
@@ -2419,8 +2462,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: given_name
-  
+  Slot: given_name
 
     
   </span>
@@ -2447,8 +2489,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: homepage
-  
+  Slot: homepage
 
     
   </span>
@@ -2475,8 +2516,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: id
-  
+  Slot: id
 
     
   </span>
@@ -2503,8 +2543,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: identifiers
-  
+  Slot: identifiers
 
     
   </span>
@@ -2531,8 +2570,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: language
-  
+  Slot: language
 
     
   </span>
@@ -2559,8 +2597,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: latitude
-  
+  Slot: latitude
 
     
   </span>
@@ -2587,8 +2624,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: license
-  
+  Slot: license
 
     
   </span>
@@ -2615,8 +2651,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: location
-  
+  Slot: location
 
     
   </span>
@@ -2643,8 +2678,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: locations
-  
+  Slot: locations
 
     
   </span>
@@ -2671,8 +2705,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: longitude
-  
+  Slot: longitude
 
     
   </span>
@@ -2699,8 +2732,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: member
-  
+  Slot: member
 
     
   </span>
@@ -2727,8 +2759,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: name
-  
+  Slot: name
 
     
   </span>
@@ -2755,8 +2786,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: orcid
-  
+  Slot: orcid
 
     
   </span>
@@ -2783,8 +2813,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: org_project_role
-  
+  Slot: org_project_role
 
     
   </span>
@@ -2811,8 +2840,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: organization
-  
+  Slot: organization
 
     
   </span>
@@ -2839,8 +2867,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: organization_roles
-  
+  Slot: organization_roles
 
     
   </span>
@@ -2867,8 +2894,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: organization_type
-  
+  Slot: organization_type
 
     
   </span>
@@ -2895,8 +2921,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: organizations
-  
+  Slot: organizations
 
     
   </span>
@@ -2923,8 +2948,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: outputs_datasets
-  
+  Slot: outputs_datasets
 
     
   </span>
@@ -2951,8 +2975,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: outputs_publications
-  
+  Slot: outputs_publications
 
     
   </span>
@@ -2979,8 +3002,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: outputs_tools
-  
+  Slot: outputs_tools
 
     
   </span>
@@ -3007,8 +3029,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: parent_organization
-  
+  Slot: parent_organization
 
     
   </span>
@@ -3035,8 +3056,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: part_of
-  
+  Slot: part_of
 
     
   </span>
@@ -3063,8 +3083,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: participant
-  
+  Slot: participant
 
     
   </span>
@@ -3091,8 +3110,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: participation_role
-  
+  Slot: participation_role
 
     
   </span>
@@ -3119,8 +3137,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: persons
-  
+  Slot: persons
 
     
   </span>
@@ -3147,8 +3164,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: presented_at
-  
+  Slot: presented_at
 
     
   </span>
@@ -3175,8 +3191,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: programming_language
-  
+  Slot: programming_language
 
     
   </span>
@@ -3203,8 +3218,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: project
-  
+  Slot: project
 
     
   </span>
@@ -3231,8 +3245,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: project_participations
-  
+  Slot: project_participations
 
     
   </span>
@@ -3259,8 +3272,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: project_period
-  
+  Slot: project_period
 
     
   </span>
@@ -3287,8 +3299,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: projects
-  
+  Slot: projects
 
     
   </span>
@@ -3315,8 +3326,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: provider
-  
+  Slot: provider
 
     
   </span>
@@ -3343,8 +3353,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: publication
-  
+  Slot: publication
 
     
   </span>
@@ -3371,8 +3380,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: publication_type
-  
+  Slot: publication_type
 
     
   </span>
@@ -3399,8 +3407,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: publications
-  
+  Slot: publications
 
     
   </span>
@@ -3427,8 +3434,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: published_in
-  
+  Slot: published_in
 
     
   </span>
@@ -3455,8 +3461,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: publisher
-  
+  Slot: publisher
 
     
   </span>
@@ -3483,8 +3488,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: research_disciplines
-  
+  Slot: research_disciplines
 
     
   </span>
@@ -3511,8 +3515,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: ror
-  
+  Slot: ror
 
     
   </span>
@@ -3539,8 +3542,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: same_as
-  
+  Slot: same_as
 
     
   </span>
@@ -3567,8 +3569,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: service_type
-  
+  Slot: service_type
 
     
   </span>
@@ -3595,8 +3596,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: services
-  
+  Slot: services
 
     
   </span>
@@ -3623,8 +3623,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: services_offered
-  
+  Slot: services_offered
 
     
   </span>
@@ -3651,8 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: start_date
-  
+  Slot: start_date
 
     
   </span>
@@ -3679,8 +3677,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: studied_periods
-  
+  Slot: studied_periods
 
     
   </span>
@@ -3707,8 +3704,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: studied_places
-  
+  Slot: studied_places
 
     
   </span>
@@ -3735,8 +3731,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: themes
-  
+  Slot: themes
 
     
   </span>
@@ -3763,8 +3758,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: time_periods
-  
+  Slot: time_periods
 
     
   </span>
@@ -3791,8 +3785,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: tool_type
-  
+  Slot: tool_type
 
     
   </span>
@@ -3819,8 +3812,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: tools
-  
+  Slot: tools
 
     
   </span>
@@ -3847,8 +3839,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: tools_provided
-  
+  Slot: tools_provided
 
     
   </span>
@@ -3875,8 +3866,7 @@
   <span class="md-ellipsis">
     
   
-    Slot: value
-  
+  Slot: value
 
     
   </span>
@@ -3926,8 +3916,7 @@
   <span class="md-ellipsis">
     
   
-    Source files
-  
+  Types
 
     
   </span>
@@ -3942,179 +3931,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Source files
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/source-files/json-schema/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    JSON Schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/source-files/linkml/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Original LinkML schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/source-files/owl/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    OWL/RDF ontology
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/source-files/typescript/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TypeScript definitions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Types
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Types
-  
+  Types
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4133,8 +3950,7 @@
   <span class="md-ellipsis">
     
   
-    Boolean
-  
+  Boolean
 
     
   </span>
@@ -4161,8 +3977,7 @@
   <span class="md-ellipsis">
     
   
-    Curie
-  
+  Curie
 
     
   </span>
@@ -4189,8 +4004,7 @@
   <span class="md-ellipsis">
     
   
-    Date
-  
+  Date
 
     
   </span>
@@ -4217,8 +4031,7 @@
   <span class="md-ellipsis">
     
   
-    DateOrDatetime
-  
+  DateOrDatetime
 
     
   </span>
@@ -4245,8 +4058,7 @@
   <span class="md-ellipsis">
     
   
-    Datetime
-  
+  Datetime
 
     
   </span>
@@ -4273,8 +4085,7 @@
   <span class="md-ellipsis">
     
   
-    Decimal
-  
+  Decimal
 
     
   </span>
@@ -4301,8 +4112,7 @@
   <span class="md-ellipsis">
     
   
-    Double
-  
+  Double
 
     
   </span>
@@ -4329,8 +4139,7 @@
   <span class="md-ellipsis">
     
   
-    Float
-  
+  Float
 
     
   </span>
@@ -4357,8 +4166,7 @@
   <span class="md-ellipsis">
     
   
-    Integer
-  
+  Integer
 
     
   </span>
@@ -4385,8 +4193,7 @@
   <span class="md-ellipsis">
     
   
-    Jsonpath
-  
+  Jsonpath
 
     
   </span>
@@ -4413,8 +4220,7 @@
   <span class="md-ellipsis">
     
   
-    Jsonpointer
-  
+  Jsonpointer
 
     
   </span>
@@ -4441,8 +4247,7 @@
   <span class="md-ellipsis">
     
   
-    Ncname
-  
+  Ncname
 
     
   </span>
@@ -4469,8 +4274,7 @@
   <span class="md-ellipsis">
     
   
-    Nodeidentifier
-  
+  Nodeidentifier
 
     
   </span>
@@ -4497,8 +4301,7 @@
   <span class="md-ellipsis">
     
   
-    Objectidentifier
-  
+  Objectidentifier
 
     
   </span>
@@ -4525,8 +4328,7 @@
   <span class="md-ellipsis">
     
   
-    Sparqlpath
-  
+  Sparqlpath
 
     
   </span>
@@ -4553,8 +4355,7 @@
   <span class="md-ellipsis">
     
   
-    String
-  
+  String
 
     
   </span>
@@ -4581,8 +4382,7 @@
   <span class="md-ellipsis">
     
   
-    Time
-  
+  Time
 
     
   </span>
@@ -4609,8 +4409,7 @@
   <span class="md-ellipsis">
     
   
-    Uri
-  
+  Uri
 
     
   </span>
@@ -4637,8 +4436,7 @@
   <span class="md-ellipsis">
     
   
-    Uriorcurie
-  
+  Uriorcurie
 
     
   </span>
@@ -4668,10 +4466,12 @@
               
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
+                  
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -4716,8 +4516,8 @@
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -4735,10 +4535,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.sections", "navigation.top", "search.suggest"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"/","features":["navigation.sections","navigation.top","search.suggest"],"search":"/assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="/assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="/assets/javascripts/bundle.ed145cee.min.js"></script>
       
     
   </body>
