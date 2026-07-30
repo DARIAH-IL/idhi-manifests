@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  sanity:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,8 +34,11 @@ jobs:
             build/
             gen/
 
-      - name: Fetch pages deployment branch
-        run: git fetch origin gh-pages:refs/remotes/origin/gh-pages
+      - name: Build docs site
+        run: uv run zensical build --clean
 
       - name: Deploy pages
-        run: uv run mkdocs gh-deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/docs-site

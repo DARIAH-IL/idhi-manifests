@@ -1,0 +1,47 @@
+[project]
+site_name = "Israeli Digital Humanities Index Schema"
+copyright = "This documentation site is a work in progress and subject to change as it is reviewed and refined."
+docs_dir = "docs"
+site_dir = "build/docs-site"
+extra_css = ["stylesheets/extra.css"]
+
+[project.theme]
+variant = "classic"
+logo = "logo.png"
+favicon = "favicon.png"
+features = [
+  "navigation.sections",
+  "navigation.top",
+  "search.suggest",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "deep orange"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "deep orange"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to light mode"
+
+[project.markdown_extensions.admonition]
+
+[project.markdown_extensions.tables]
+
+[project.markdown_extensions.md_in_html]
+
+[project.markdown_extensions.pymdownx.snippets]
+base_path = [".", "gen"]
+check_paths = true
+
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]

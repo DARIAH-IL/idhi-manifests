@@ -109,7 +109,7 @@ uv sync
 | Package  | Why |
 |----------|-----|
 | `linkml` | The linter (`linkml lint`) and generators (`gen-json-schema`, `gen-typescript`, `gen-owl`, `gen-docs`) |
-| `mkdocs-material` | Static documentation site built from the `gen-docs` markdown (see `mkdocs.yml`) |
+| `zensical` | Static documentation site built from the `gen-docs` markdown (see `zensical.toml`) |
 | `rdflib` | Parses the pinned SKOS vocabulary dumps; `scripts/materialize.py` uses it to expand the dynamic enums into static ones for the generators |
 
 There is nothing else to install; every command below runs inside the managed environment via `uv run`.
@@ -146,7 +146,7 @@ make gen-owl
 make gen-docs
 make gen-all      # all of the gen-* targets above
 
-# Documentation site (mkdocs, from the gen-docs markdown):
+# Documentation site (zensical, from the gen-docs markdown):
 make docs-site    # build the static site into build/docs-site/ (including source files)
 make docs-serve   # live-reload dev server at http://127.0.0.1:8000
 

@@ -39,10 +39,10 @@ gen-favicon:
 gen-all: gen-materialize gen-json-schema gen-typescript gen-owl gen-docs
 
 docs-site: gen-docs gen-favicon
-	uv run mkdocs build
+	uv run zensical build --clean
 
 docs-serve: gen-docs gen-favicon
-	uv run mkdocs serve
+	uv run zensical serve
 
 validate:
 ifndef DATA
