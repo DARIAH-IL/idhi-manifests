@@ -1,5 +1,9 @@
 # IDHI Manifests
 
+[Visit the deployed documentation.](https://dariah-il.github.io/idhi-manifests/)
+
+![logo](docs/favicon.png)
+
 `idhi.linkml.yaml` is a [**LinkML schema**](https://linkml.io/): a machine-readable manifest that defines what entities exist in the Israeli Digital Humanities Index, what fields they have, what values those fields may take, and how everything maps to established web ontologies. From this one file we generate [JSON Schema](https://json-schema.org/), [TypeScript](https://www.typescriptlang.org/) types, and [OWL/RDF](https://www.w3.org/TR/owl2-rdf-based-semantics/) (for linked-data publication).
 
 ## The four building blocks
