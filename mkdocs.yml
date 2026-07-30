@@ -1,0 +1,17 @@
+site_name: Israeli Digital Humanities Index Schema
+docs_dir: docs
+site_dir: build/docs-site
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

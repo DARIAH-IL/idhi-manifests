@@ -1,0 +1,436 @@
+---
+search:
+  boost: 10.0
+---
+
+# Class: Tool 
+
+
+_A reusable software tool, typically produced by a project (schema:SoftwareApplication). Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead._
+
+
+
+<div data-search-exclude markdown="1">
+
+
+
+URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Tool
+    click Tool href "../../classes/Tool/"
+      NamedThing <|-- Tool
+        click NamedThing href "../../classes/NamedThing/"
+      
+      Tool : additional_urls
+        
+      Tool : code_repository
+        
+      Tool : contact_email
+        
+      Tool : description
+        
+          
+    
+        
+        
+        Tool --> "*" LangString : description
+        click LangString href "../../classes/LangString/"
+    
+
+        
+      Tool : digital_humanities_activities
+        
+          
+    
+        
+        
+        Tool --> "*" DigitalHumanitiesActivityEnum : digital_humanities_activities
+        click DigitalHumanitiesActivityEnum href "../../enums/DigitalHumanitiesActivityEnum/"
+    
+
+        
+      Tool : documentation_url
+        
+      Tool : homepage
+        
+      Tool : id
+        
+      Tool : identifiers
+        
+      Tool : license
+        
+          
+    
+        
+        
+        Tool --> "0..1" LicenseEnum : license
+        click LicenseEnum href "../../enums/LicenseEnum/"
+    
+
+        
+      Tool : name
+        
+          
+    
+        
+        
+        Tool --> "*" LangString : name
+        click LangString href "../../classes/LangString/"
+    
+
+        
+      Tool : programming_language
+        
+      Tool : same_as
+        
+      Tool : tool_type
+        
+          
+    
+        
+        
+        Tool --> "0..1" ToolServiceTypeEnum : tool_type
+        click ToolServiceTypeEnum href "../../enums/ToolServiceTypeEnum/"
+    
+
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* [NamedThing](../classes/NamedThing.md)
+    * **Tool**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [schema:SoftwareApplication](http://schema.org/SoftwareApplication) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [tool_type](../slots/tool_type.md) | 0..1 <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | The delivery form of the tool (web app, library, CLI | direct |
+| [code_repository](../slots/code_repository.md) | 0..1 <br/> [Uri](../types/Uri.md) | Source-code repository URL (GitHub, GitLab | direct |
+| [programming_language](../slots/programming_language.md) | 0..1 <br/> [String](../types/String.md) | Main implementation language(s), comma-free single value preferred | direct |
+| [license](../slots/license.md) | 0..1 <br/> [LicenseEnum](../enums/LicenseEnum.md) | The license under which the tool or dataset is released | direct |
+| [documentation_url](../slots/documentation_url.md) | 0..1 <br/> [Uri](../types/Uri.md) | User or developer documentation for the tool or service (manual, wiki, API re... | direct |
+| [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | direct |
+| [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | direct |
+| [digital_humanities_activities](../slots/digital_humanities_activities.md) | * <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities practiced in this project, tool or ser... | direct |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
+| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
+| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Facility](../classes/Facility.md) | [tools_provided](../slots/tools_provided.md) | range | [Tool](../classes/Tool.md) |
+| [Project](../classes/Project.md) | [outputs_tools](../slots/outputs_tools.md) | range | [Tool](../classes/Tool.md) |
+| [IndexContainer](../classes/IndexContainer.md) | [tools](../slots/tools.md) | range | [Tool](../classes/Tool.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://idhi.co.il/linkml/idhi
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | schema:SoftwareApplication |
+| native | idhi:Tool |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Tool
+description: A reusable software tool, typically produced by a project (schema:SoftwareApplication).
+  Use Tool for software that others can install, run or call; for a human-mediated
+  offering use Service instead.
+from_schema: https://idhi.co.il/linkml/idhi
+is_a: NamedThing
+slots:
+- tool_type
+- code_repository
+- programming_language
+- license
+- documentation_url
+- additional_urls
+- contact_email
+- digital_humanities_activities
+slot_usage:
+  id:
+    name: id
+    structured_pattern:
+      syntax: ^idhi:tool:{shortid}$
+      interpolated: true
+class_uri: schema:SoftwareApplication
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Tool
+description: A reusable software tool, typically produced by a project (schema:SoftwareApplication).
+  Use Tool for software that others can install, run or call; for a human-mediated
+  offering use Service instead.
+from_schema: https://idhi.co.il/linkml/idhi
+is_a: NamedThing
+slot_usage:
+  id:
+    name: id
+    structured_pattern:
+      syntax: ^idhi:tool:{shortid}$
+      interpolated: true
+attributes:
+  tool_type:
+    name: tool_type
+    description: The delivery form of the tool (web app, library, CLI...). Pick the
+      single value describing how users primarily consume it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:applicationCategory
+    owner: Tool
+    domain_of:
+    - Tool
+    range: ToolServiceTypeEnum
+  code_repository:
+    name: code_repository
+    description: Source-code repository URL (GitHub, GitLab...), if open.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:codeRepository
+    owner: Tool
+    domain_of:
+    - Tool
+    range: uri
+  programming_language:
+    name: programming_language
+    description: Main implementation language(s), comma-free single value preferred.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:programmingLanguage
+    owner: Tool
+    domain_of:
+    - Tool
+    range: string
+  license:
+    name: license
+    description: The license under which the tool or dataset is released. Required
+      for anything advertised as reusable; omit only if genuinely unknown.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:license
+    owner: Tool
+    domain_of:
+    - Tool
+    - Dataset
+    range: LicenseEnum
+  documentation_url:
+    name: documentation_url
+    description: User or developer documentation for the tool or service (manual,
+      wiki, API reference).
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:softwareHelp
+    owner: Tool
+    domain_of:
+    - Tool
+    - Service
+    range: uri
+  additional_urls:
+    name: additional_urls
+    description: Further relevant web pages beyond the homepage (blog, social-media
+      profile, registry entry, press coverage...). For records describing the same
+      entity in other systems use same_as instead.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: foaf:page
+    owner: Tool
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Event
+    range: uri
+    multivalued: true
+  contact_email:
+    name: contact_email
+    description: A published contact address for the entity (office, team or service-desk
+      mailbox). For a person's own addresses use 'emails'.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:email
+    owner: Tool
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Event
+    range: string
+  digital_humanities_activities:
+    name: digital_humanities_activities
+    description: Digital-humanities research activities practiced in this project,
+      tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable
+      concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple
+      values are expected. This is the primary DH-facet for discovery.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:subject
+    owner: Tool
+    domain_of:
+    - Project
+    - Tool
+    - Service
+    range: DigitalHumanitiesActivityEnum
+    multivalued: true
+  id:
+    name: id
+    description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
+      \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
+      \ Minted by IDHI at record creation and never reused or changed. The class token\
+      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
+      ); each concrete class enforces its own token via slot_usage. External identifiers\
+      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
+      \ here."
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:identifier
+    identifier: true
+    owner: Tool
+    domain_of:
+    - NamedThing
+    range: string
+    required: true
+    pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
+    structured_pattern:
+      syntax: ^idhi:tool:{shortid}$
+      interpolated: true
+  name:
+    name: name
+    description: Multilingual name/title. Provide at least one language; English,
+      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
+      for projects, tools and services, use the name the team itself uses.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: skos:prefLabel
+    owner: Tool
+    domain_of:
+    - NamedThing
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  description:
+    name: description
+    description: Multilingual free-text description (a few sentences aimed at index
+      visitors, not internal notes).
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:description
+    owner: Tool
+    domain_of:
+    - NamedThing
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  homepage:
+    name: homepage
+    description: Public landing page of the entity, if one exists.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: foaf:homepage
+    owner: Tool
+    domain_of:
+    - NamedThing
+    range: uri
+  identifiers:
+    name: identifiers
+    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
+      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:identifier
+    owner: Tool
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    multivalued: true
+  same_as:
+    name: same_as
+    description: URIs of records in OTHER systems describing the same real-world entity
+      (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
+      entity's own pages (use homepage).
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:sameAs
+    owner: Tool
+    domain_of:
+    - NamedThing
+    range: uri
+    multivalued: true
+class_uri: schema:SoftwareApplication
+
+```
+</details></div>

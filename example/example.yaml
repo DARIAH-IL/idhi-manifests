@@ -1,0 +1,180 @@
+# Golden example data for the IDHI schema.
+# Must ALWAYS validate:
+#   make validate DATA=example/example.yaml
+# Extend this file whenever a schema feature is added, so CI exercises it.
+
+persons:
+  - id: idhi:person:x7k2m9
+    name:
+      - {language: en, value: Rina Cohen}
+      - {language: he, value: רינה כהן}
+    orcid: ORCID:0000-0002-1825-0097
+    emails:
+      - rina.cohen@example.ac.il
+    given_name: Rina
+    family_name: Cohen
+    affiliations:
+      - member: idhi:person:x7k2m9
+        organization: idhi:organization:k3v9p2
+        affiliation_role: PROFESSOR
+        start_date: "2015-10-01"
+    project_participations:
+      - participant: idhi:person:x7k2m9
+        project: idhi:project:a83bq1
+        participation_role: PRINCIPAL_INVESTIGATOR
+        start_date: "2022-10-01"
+    authorships:
+      - author: idhi:person:x7k2m9
+        publication: idhi:publication:p4w8n1
+        author_order: 1
+        authorship_role: AUTHOR
+
+organizations:
+  - id: idhi:organization:k3v9p2
+    name:
+      - {language: en, value: Example University}
+      - {language: he, value: אוניברסיטת דוגמה}
+      - {language: ar, value: جامعة المثال}
+    ror: ROR:04aj4c181
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.example.ac.il
+    contact_email: info@example.ac.il
+    location: idhi:location:t2r5c8
+  - id: idhi:organization:f9d3h6
+    name:
+      - {language: en, value: Example Research Fund}
+    organization_type: FUNDER
+
+facilities:
+  - id: idhi:facility:l8m2q4
+    name:
+      - {language: en, value: Example DH Lab}
+    homepage: https://dhlab.example.ac.il
+    additional_urls:
+      - https://twitter.com/exampledhlab
+    contact_email: dhlab@example.ac.il
+    facility_affiliations:
+      - facility: idhi:facility:l8m2q4
+        organization: idhi:organization:k3v9p2
+        start_date: "2019-01-01"
+    services_offered:
+      - idhi:service:s6b1z3
+    tools_provided:
+      - idhi:tool:g5j7x2
+
+projects:
+  - id: idhi:project:a83bq1
+    name:
+      - {language: en, value: Example Genizah Fragments Project}
+    description:
+      - {language: en, value: Computational analysis of medieval manuscript fragments.}
+    homepage: https://genizah.example.ac.il
+    additional_urls:
+      - https://blog.example.ac.il/genizah
+    contact_email: genizah-project@example.ac.il
+    digital_humanities_activities:
+      - tadirah:analyzing
+      - tadirah:enriching
+    research_disciplines:
+      - {language: en, value: history}
+    project_period: idhi:time_period:w1e4r7
+    studied_periods:
+      - idhi:time_period:m3d9k5
+    studied_places:
+      - idhi:location:t2r5c8
+    organization_roles:
+      - organization: idhi:organization:k3v9p2
+        project: idhi:project:a83bq1
+        org_project_role: HOST
+      - organization: idhi:organization:f9d3h6
+        project: idhi:project:a83bq1
+        org_project_role: FUNDER
+    outputs_tools:
+      - idhi:tool:g5j7x2
+    outputs_datasets:
+      - idhi:dataset:d7y2u9
+    outputs_publications:
+      - idhi:publication:p4w8n1
+
+tools:
+  - id: idhi:tool:g5j7x2
+    name:
+      - {language: en, value: FragmentMatcher}
+    tool_type: WEB_APPLICATION
+    code_repository: https://github.com/example/fragmentmatcher
+    programming_language: Python
+    license: MIT
+    homepage: https://fragmentmatcher.example.ac.il
+    documentation_url: https://fragmentmatcher.example.ac.il/docs
+    digital_humanities_activities:
+      - tadirah:analyzing
+
+services:
+  - id: idhi:service:s6b1z3
+    name:
+      - {language: en, value: Manuscript digitization on demand}
+    service_type: DIGITIZATION_SERVICE
+    provider: idhi:organization:k3v9p2
+    documentation_url: https://library.example.ac.il/digitization-guide
+    contact_email: digitization@example.ac.il
+
+publications:
+  - id: idhi:publication:p4w8n1
+    name:
+      - {language: en, value: Matching Genizah fragments at scale}
+    doi: DOI:10.1234/example.5678
+    publication_type: coar:c_6501
+    date_issued: "2024-03-15"
+    published_in:
+      - {language: en, value: Journal of Example Digital Humanities}
+    presented_at:
+      - idhi:event:e2c6v0
+
+events:
+  - id: idhi:event:e2c6v0
+    name:
+      - {language: en, value: Example DH Israel Conference 2025}
+    event_type: CONFERENCE
+    homepage: https://dhconf2025.example.org
+    start_date: "2025-06-10"
+    end_date: "2025-06-12"
+    location: idhi:location:t2r5c8
+
+locations:
+  - id: idhi:location:t2r5c8
+    name:
+      - {language: en, value: Jerusalem}
+      - {language: he, value: ירושלים}
+      - {language: ar, value: القدس}
+    latitude: 31.7683
+    longitude: 35.2137
+
+time_periods:
+  - id: idhi:time_period:w1e4r7
+    name:
+      - {language: en, value: Project runtime 2022-2026}
+    begin_date: "2022-10-01"
+    end_date: "2026-09-30"
+  - id: idhi:time_period:m3d9k5
+    name:
+      - {language: en, value: Medieval period}
+    begin_date: "0900"
+
+catalogs:
+  - id: idhi:catalog:c8n4b2
+    name:
+      - {language: en, value: Example Fragments Archive}
+    publisher: idhi:organization:k3v9p2
+    datasets:
+      - idhi:dataset:d7y2u9
+
+datasets:
+  - id: idhi:dataset:d7y2u9
+    name:
+      - {language: en, value: Annotated fragment images}
+    publisher: idhi:organization:k3v9p2
+    license: CC_BY_4_0
+    date_issued: "2024-01-10"
+    distribution_url: https://data.idhi.co.il/fragments/v1.zip
+    themes:
+      - {language: en, value: manuscripts}

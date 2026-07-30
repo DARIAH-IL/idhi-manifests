@@ -1,0 +1,11 @@
+extends: recommended
+rules:
+  standard_naming:
+    level: warning
+    permissible_values_upper_case: true
+    exclude:
+      - en
+      - he
+      - ar
+  canonical_prefixes:
+    level: disabled
