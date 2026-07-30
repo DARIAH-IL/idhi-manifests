@@ -5,6 +5,9 @@ on:
       - main
     paths:
       - 'docs/**'
+      - 'idhi.linkml.yaml'
+      - 'gen/**'
+      - 'Makefile'
       - 'mkdocs.yml'
   workflow_dispatch:
 

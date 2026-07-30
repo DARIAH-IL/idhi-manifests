@@ -147,7 +147,7 @@ make gen-docs
 make gen-all      # all of the gen-* targets above
 
 # Documentation site (mkdocs, from the gen-docs markdown):
-make docs-site    # build the static site into build/docs-site/
+make docs-site    # build the static site into build/docs-site/ (including source files)
 make docs-serve   # live-reload dev server at http://127.0.0.1:8000
 
 # Validate a data file against the schema:
@@ -155,3 +155,5 @@ make validate DATA=example/example.yaml
 ```
 
 The generator targets read `GEN_INPUT` (default: `build/idhi.materialized.linkml.yaml`, the git-ignored intermediate produced by `make gen-materialize`); pass `GEN_INPUT=idhi.linkml.yaml` to generate from the raw, unmaterialized schema. Generator outputs land in `gen/`. `make sanity` runs the full pipeline (same as `./scripts/sanity.sh`).
+
+The documentation site’s **Source files** page renders the committed `idhi.linkml.yaml` source schema and the committed JSON Schema, TypeScript, and OWL/RDF outputs from `gen/` with syntax highlighting. The pages inject those repository files at site-build time, so they always show the committed source rather than copied artifacts.
