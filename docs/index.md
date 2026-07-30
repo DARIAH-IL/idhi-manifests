@@ -8,13 +8,6 @@ Name: idhi
 
 
 
-## Schema Diagram
-
-```mermaid
-None
-```
-
-
 ## Classes
 
 | Class | Description |
