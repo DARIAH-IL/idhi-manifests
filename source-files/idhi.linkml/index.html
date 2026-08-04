@@ -376,33 +376,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../typescript/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  TypeScript definitions
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -3935,7 +3908,7 @@
   <span class="md-ellipsis">
     
   
-  Types
+  Subsets
 
     
   </span>
@@ -3947,6 +3920,90 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Subsets
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subsets/ToplevelEntity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Subset: ToplevelEntity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Types
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4565,6 +4622,12 @@
 <span class="w">  </span><span class="nt">orcid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]&quot;</span>
 <span class="w">  </span><span class="nt">ror</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0[a-hj-km-np-tv-z0-9]{6}[0-9]{2}&quot;</span>
 
+<span class="c1"># ------------------------- SUBSETS ----------------------------------</span>
+<span class="nt">subsets</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">toplevel_entity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">Primary first-class entities in the IDHI index — those that carry their own IDHI URN and are listed directly in IndexContainer.</span>
+
 <span class="c1"># ========================= CLASSES ===================================</span>
 <span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># ---- Abstract superclass -----------------------------------------</span>
@@ -4608,6 +4671,7 @@
 <span class="w">      </span><span class="no">A human agent in the DH index: researcher, developer, librarian, student, etc.</span>
 <span class="w">      </span><span class="no">Create a Person record once per human being and reference it everywhere by id; do not duplicate people per project.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Person</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4630,6 +4694,7 @@
 <span class="w">      </span><span class="no">Use the subclasses below only as optional sugar when a single, unambiguous type applies.</span>
 <span class="w">      </span><span class="no">All organizations — including instances of the subclasses — use the idhi:organization:&lt;shortid&gt; URN form.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Organization</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4676,6 +4741,7 @@
 <span class="w">      </span><span class="no">A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations (CERIF Facility).</span>
 <span class="w">      </span><span class="no">Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cerif:Facility</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4695,6 +4761,7 @@
 <span class="w">      </span><span class="no">A Digital Humanities research project, classified by TaDiRAH research activities and by research discipline.</span>
 <span class="w">      </span><span class="no">This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Project</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4721,6 +4788,7 @@
 <span class="w">      </span><span class="no">A reusable software tool, typically produced by a project (schema:SoftwareApplication).</span>
 <span class="w">      </span><span class="no">Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:SoftwareApplication</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4742,6 +4810,7 @@
 <span class="w">      </span><span class="no">A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support).</span>
 <span class="w">      </span><span class="no">Use Service when the offering requires the provider to act; use Tool for self-service software.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Service</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4761,6 +4830,7 @@
 <span class="w">      </span><span class="no">An academic publication (BIBO document): journal article, book, chapter, conference paper, thesis, report, etc.</span>
 <span class="w">      </span><span class="no">The precise kind is given by publication_type (COAR resource type).</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bibo:Document</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4782,6 +4852,7 @@
 <span class="w">      </span><span class="no">A scholarly event: conference, workshop, seminar, lecture, hackathon or exhibition.</span>
 <span class="w">      </span><span class="no">Use Event for time-bounded gatherings; recurring series should be modeled as one Event per occurrence.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Event</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4801,6 +4872,7 @@
 <span class="w">      </span><span class="no">A place, optionally with geographic coordinates.</span>
 <span class="w">      </span><span class="no">Used both for where things ARE (org/facility/event location) and for places STUDIED by a project (studied_places).</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Place</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4818,6 +4890,7 @@
 <span class="w">      </span><span class="no">Deliberately reused for two purposes: a project&#39;s runtime (project_period) and historical periods studied by a project (studied_periods), e.g. &quot;Second Temple period&quot;.</span>
 <span class="w">      </span><span class="no">For historical periods, prefer linking same_as to a PeriodO or Wikidata URI.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edm:TimeSpan</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4832,6 +4905,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">A digital archive / catalog of resources (DCAT Catalog), i.e. a curated collection of datasets and records with its own identity, such as a digital archive portal.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:Catalog</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
@@ -4847,6 +4921,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">A dataset produced or curated by a project (DCAT Dataset): corpora, databases, image collections, annotation sets, etc.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:Dataset</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
