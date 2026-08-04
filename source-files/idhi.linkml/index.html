@@ -3851,6 +3851,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: type
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/value/" class="md-nav__link">
         
   
@@ -4638,6 +4665,7 @@
 <span class="w">      </span><span class="no">Provides the IDHI URN id, multilingual name/description, homepage and alternate identifiers. Never instantiated directly; every concrete entity inherits from it and constrains the id&#39;s class token via slot_usage.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Thing</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
@@ -4673,6 +4701,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Person</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Person&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:person:{shortid}$&quot;</span>
@@ -4696,6 +4726,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Organization</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Organization&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:organization:{shortid}$&quot;</span>
@@ -4743,6 +4775,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cerif:Facility</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Facility&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:facility:{shortid}$&quot;</span>
@@ -4763,6 +4797,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Project</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Project&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:project:{shortid}$&quot;</span>
@@ -4790,6 +4826,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:SoftwareApplication</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Tool&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:tool:{shortid}$&quot;</span>
@@ -4812,6 +4850,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Service</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Service&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:service:{shortid}$&quot;</span>
@@ -4832,6 +4872,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bibo:Document</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Publication&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:publication:{shortid}$&quot;</span>
@@ -4854,6 +4896,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Event</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Event&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:event:{shortid}$&quot;</span>
@@ -4874,6 +4918,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Place</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Location&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:location:{shortid}$&quot;</span>
@@ -4892,6 +4938,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edm:TimeSpan</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:TimePeriod&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:time_period:{shortid}$&quot;</span>
@@ -4907,6 +4955,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:Catalog</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Catalog&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:catalog:{shortid}$&quot;</span>
@@ -4923,6 +4973,8 @@
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:Dataset</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Dataset&quot;</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:dataset:{shortid}$&quot;</span>
@@ -5072,6 +5124,11 @@
 <span class="c1"># ========================= SLOTS =====================================</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># --- identity / shared ---</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Discriminator carrying the class URI; used for polymorphic serialization and deserialization.</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
