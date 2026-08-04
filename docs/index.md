@@ -176,3 +176,4 @@ Name: idhi
 
 | Subset | Description |
 | --- | --- |
+| [ToplevelEntity](subsets/ToplevelEntity.md) | Primary first-class entities in the IDHI index — those that carry their own I... |

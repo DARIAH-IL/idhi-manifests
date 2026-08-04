@@ -185,6 +185,12 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -229,6 +235,8 @@ description: An organization of any kind. Its kind (academic institution, GLAM, 
   canonical machine-readable discriminator. Use the subclasses below only as optional
   sugar when a single, unambiguous type applies. All organizations — including instances
   of the subclasses — use the idhi:organization:<shortid> URN form.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Agent
 slots:
@@ -259,6 +267,8 @@ description: An organization of any kind. Its kind (academic institution, GLAM, 
   canonical machine-readable discriminator. Use the subclasses below only as optional
   sugar when a single, unambiguous type applies. All organizations — including instances
   of the subclasses — use the idhi:organization:<shortid> URN form.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Agent
 slot_usage:

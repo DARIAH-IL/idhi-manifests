@@ -157,6 +157,12 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -199,6 +205,8 @@ name: Tool
 description: A reusable software tool, typically produced by a project (schema:SoftwareApplication).
   Use Tool for software that others can install, run or call; for a human-mediated
   offering use Service instead.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -229,6 +237,8 @@ name: Tool
 description: A reusable software tool, typically produced by a project (schema:SoftwareApplication).
   Use Tool for software that others can install, run or call; for a human-mediated
   offering use Service instead.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

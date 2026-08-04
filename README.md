@@ -112,7 +112,7 @@ uv sync
 
 | Package  | Why |
 |----------|-----|
-| `linkml` | The linter (`linkml lint`) and generators (`gen-json-schema`, `gen-typescript`, `gen-owl`, `gen-docs`) |
+| `linkml` | The linter (`linkml lint`) and generators (`gen-json-schema`, `gen-owl`, `gen-docs`) |
 | `zensical` | Static documentation site built from the `gen-docs` markdown (see `zensical.toml`) |
 | `rdflib` | Parses the pinned SKOS vocabulary dumps; `scripts/materialize.py` uses it to expand the dynamic enums into static ones for the generators |
 
@@ -145,7 +145,6 @@ Each pipeline step is a `make` target:
 make lint
 make gen-materialize
 make gen-json-schema
-make gen-typescript
 make gen-owl
 make gen-docs
 make gen-all      # all of the gen-* targets above

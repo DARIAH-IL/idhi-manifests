@@ -5,7 +5,7 @@ DOCS = docs
 MATERIALIZED = $(BUILD)/idhi.materialized.linkml.yaml
 GEN_INPUT ?= $(MATERIALIZED)
 
-.PHONY: sanity lint gen-all gen-materialize gen-json-schema gen-typescript gen-owl gen-docs gen-favicon docs-site docs-serve validate
+.PHONY: sanity lint gen-all gen-materialize gen-json-schema gen-owl gen-docs gen-favicon docs-site docs-serve validate
 
 sanity:
 	./scripts/sanity.sh
@@ -21,10 +21,6 @@ gen-json-schema:
 	@mkdir -p $(GEN)
 	uv run gen-json-schema $(GEN_INPUT) > $(GEN)/idhi.schema.json
 
-gen-typescript:
-	@mkdir -p $(GEN)
-	uv run gen-typescript --gen-type-utils $(GEN_INPUT) > $(GEN)/idhi.ts
-
 gen-owl:
 	@mkdir -p $(GEN)
 	uv run gen-owl $(GEN_INPUT) > $(GEN)/idhi.owl.ttl
@@ -36,7 +32,7 @@ gen-docs:
 gen-favicon:
 	magick $(DOCS)/logo.png -background white -flatten -gravity center -extent "%[fx:max(w,h)*1.15]x%[fx:max(w,h)*1.15]" -resize 128x128 \( -size 128x128 xc:none -draw "roundrectangle 0,0,127,127,24,24" \) -compose DstIn -composite $(DOCS)/favicon.png
 
-gen-all: gen-materialize gen-json-schema gen-typescript gen-owl gen-docs
+gen-all: gen-materialize gen-json-schema gen-owl gen-docs
 
 docs-site: gen-docs gen-favicon
 	uv run zensical build --clean

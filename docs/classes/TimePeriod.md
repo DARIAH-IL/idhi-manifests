@@ -112,6 +112,12 @@ URI: [edm:TimeSpan](http://www.europeana.eu/schemas/edm/TimeSpan)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -155,6 +161,8 @@ description: 'A time span (EDM TimeSpan). Deliberately reused for two purposes: 
   project''s runtime (project_period) and historical periods studied by a project
   (studied_periods), e.g. "Second Temple period". For historical periods, prefer linking
   same_as to a PeriodO or Wikidata URI.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -180,6 +188,8 @@ description: 'A time span (EDM TimeSpan). Deliberately reused for two purposes: 
   project''s runtime (project_period) and historical periods studied by a project
   (studied_periods), e.g. "Second Temple period". For historical periods, prefer linking
   same_as to a PeriodO or Wikidata URI.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

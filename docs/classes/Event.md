@@ -141,6 +141,12 @@ URI: [schema:Event](http://schema.org/Event)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -183,6 +189,8 @@ name: Event
 description: 'A scholarly event: conference, workshop, seminar, lecture, hackathon
   or exhibition. Use Event for time-bounded gatherings; recurring series should be
   modeled as one Event per occurrence.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -211,6 +219,8 @@ name: Event
 description: 'A scholarly event: conference, workshop, seminar, lecture, hackathon
   or exhibition. Use Event for time-bounded gatherings; recurring series should be
   modeled as one Event per occurrence.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

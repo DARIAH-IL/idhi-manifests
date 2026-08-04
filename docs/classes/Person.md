@@ -156,6 +156,12 @@ URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -198,6 +204,8 @@ name: Person
 description: 'A human agent in the DH index: researcher, developer, librarian, student,
   etc. Create a Person record once per human being and reference it everywhere by
   id; do not duplicate people per project.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Agent
 slots:
@@ -227,6 +235,8 @@ name: Person
 description: 'A human agent in the DH index: researcher, developer, librarian, student,
   etc. Create a Person record once per human being and reference it everywhere by
   id; do not duplicate people per project.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Agent
 slot_usage:

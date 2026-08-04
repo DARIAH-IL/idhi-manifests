@@ -175,6 +175,12 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -217,6 +223,8 @@ name: Publication
 description: 'An academic publication (BIBO document): journal article, book, chapter,
   conference paper, thesis, report, etc. The precise kind is given by publication_type
   (COAR resource type).'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -247,6 +255,8 @@ name: Publication
 description: 'An academic publication (BIBO document): journal article, book, chapter,
   conference paper, thesis, report, etc. The precise kind is given by publication_type
   (COAR resource type).'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

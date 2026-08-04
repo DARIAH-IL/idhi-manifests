@@ -132,6 +132,12 @@ URI: [schema:Place](http://schema.org/Place)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -173,6 +179,8 @@ URI: [schema:Place](http://schema.org/Place)
 name: Location
 description: A place, optionally with geographic coordinates. Used both for where
   things ARE (org/facility/event location) and for places STUDIED by a project (studied_places).
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -197,6 +205,8 @@ class_uri: schema:Place
 name: Location
 description: A place, optionally with geographic coordinates. Used both for where
   things ARE (org/facility/event location) and for places STUDIED by a project (studied_places).
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

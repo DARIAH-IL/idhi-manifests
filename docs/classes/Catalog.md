@@ -140,6 +140,12 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -182,6 +188,8 @@ name: Catalog
 description: A digital archive / catalog of resources (DCAT Catalog), i.e. a curated
   collection of datasets and records with its own identity, such as a digital archive
   portal.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -207,6 +215,8 @@ name: Catalog
 description: A digital archive / catalog of resources (DCAT Catalog), i.e. a curated
   collection of datasets and records with its own identity, such as a digital archive
   portal.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

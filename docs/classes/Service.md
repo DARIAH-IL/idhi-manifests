@@ -150,6 +150,12 @@ URI: [schema:Service](http://schema.org/Service)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -193,6 +199,8 @@ description: A reusable, human- or organization-mediated service offered by a fa
   or organization (e.g., digitization on demand, OCR consulting, data curation support).
   Use Service when the offering requires the provider to act; use Tool for self-service
   software.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -222,6 +230,8 @@ description: A reusable, human- or organization-mediated service offered by a fa
   or organization (e.g., digitization on demand, OCR consulting, data curation support).
   Use Service when the offering requires the provider to act; use Tool for self-service
   software.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

@@ -159,6 +159,12 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -202,6 +208,8 @@ description: A physical or virtual facility such as a DH lab, digitization studi
   or research infrastructure, affiliated with one or more organizations (CERIF Facility).
   Use Facility when the unit offers services/tools and has its own identity distinct
   from its host organization; otherwise just use the Organization.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -231,6 +239,8 @@ description: A physical or virtual facility such as a DH lab, digitization studi
   or research infrastructure, affiliated with one or more organizations (CERIF Facility).
   Use Facility when the unit offers services/tools and has its own identity distinct
   from its host organization; otherwise just use the Organization.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

@@ -148,6 +148,12 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -189,6 +195,8 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 name: Dataset
 description: 'A dataset produced or curated by a project (DCAT Dataset): corpora,
   databases, image collections, annotation sets, etc.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -215,6 +223,8 @@ class_uri: dcat:Dataset
 name: Dataset
 description: 'A dataset produced or curated by a project (DCAT Dataset): corpora,
   databases, image collections, annotation sets, etc.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:

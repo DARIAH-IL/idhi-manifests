@@ -235,6 +235,12 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 
 
 
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
+
+
 
 
 
@@ -277,6 +283,8 @@ name: Project
 description: A Digital Humanities research project, classified by TaDiRAH research
   activities and by research discipline. This is the central entity of the index;
   people, organizations, outputs and studied periods/places all hang off it.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slots:
@@ -312,6 +320,8 @@ name: Project
 description: A Digital Humanities research project, classified by TaDiRAH research
   activities and by research discipline. This is the central entity of the index;
   people, organizations, outputs and studied periods/places all hang off it.
+in_subset:
+- toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:
