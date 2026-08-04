@@ -36,7 +36,6 @@ echo "fetched and cached in vocab/, see README.md), then runs all generators."
 make gen-all || die "gen-all failed"
 ok "materialized dynamic enums -> $MATERIALIZED"
 ok "JSON Schema -> $GEN/idhi.schema.json"
-ok "TypeScript types -> $GEN/idhi.ts"
 ok "OWL/Turtle -> $GEN/idhi.owl.ttl"
 ok "Docs -> docs/"
 

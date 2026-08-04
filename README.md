@@ -4,7 +4,7 @@
 
 ![logo](docs/favicon.png)
 
-`idhi.linkml.yaml` is a [**LinkML schema**](https://linkml.io/): a machine-readable manifest that defines what entities exist in the Israeli Digital Humanities Index, what fields they have, what values those fields may take, and how everything maps to established web ontologies. From this one file we generate [JSON Schema](https://json-schema.org/), [TypeScript](https://www.typescriptlang.org/) types, and [OWL/RDF](https://www.w3.org/TR/owl2-rdf-based-semantics/) (for linked-data publication).
+`idhi.linkml.yaml` is a [**LinkML schema**](https://linkml.io/): a machine-readable manifest that defines what entities exist in the Israeli Digital Humanities Index, what fields they have, what values those fields may take, and how everything maps to established web ontologies. From this one file we generate [JSON Schema](https://json-schema.org/) and [OWL/RDF](https://www.w3.org/TR/owl2-rdf-based-semantics/) (for linked-data publication).
 
 ## The four building blocks
 
@@ -50,7 +50,7 @@ IDHI uses two flavors:
   - `DigitalHumanitiesActivityEnum`: any concept reachable from the seven [TaDiRAH 2.0](https://vocabs.dariah.eu/tadirah/en/) top activities via `skos:narrower` — i.e. the whole taxonomy, always in sync with [DARIAH](https://www.dariah.eu/)'s publication.
   - `PublicationTypeEnum`: any concept from the [COAR Resource Types](https://vocabularies.coar-repositories.org/resource_types/) vocabulary.
 
-  Dynamic enums keep a single source of truth (no hand-copied duplication), but generators can't see through them — so the build **materializes** them into static enums with `scripts/materialize.py` before generating JSON Schema / TypeScript. See "Build & tooling" below.
+  Dynamic enums keep a single source of truth (no hand-copied duplication), but generators can't see through them — so the build **materializes** them into static enums with `scripts/materialize.py` before generating JSON Schema and OWL/RDF. See "Build & tooling" below.
 
 ## Identifiers
 
@@ -159,4 +159,4 @@ make validate DATA=example/example.yaml
 
 The generator targets read `GEN_INPUT` (default: `build/idhi.materialized.linkml.yaml`, the git-ignored intermediate produced by `make gen-materialize`); pass `GEN_INPUT=idhi.linkml.yaml` to generate from the raw, unmaterialized schema. Generator outputs land in `gen/`. `make sanity` runs the full pipeline (same as `./scripts/sanity.sh`).
 
-The documentation site’s **Source files** page renders the committed `idhi.linkml.yaml` source schema and the committed JSON Schema, TypeScript, and OWL/RDF outputs from `gen/` with syntax highlighting. The pages inject those repository files at site-build time, so they always show the committed source rather than copied artifacts.
+The documentation site’s **Source files** page renders the committed `idhi.linkml.yaml` source schema and the committed JSON Schema and OWL/RDF outputs from `gen/` with syntax highlighting. The pages inject those repository files at site-build time, so they always show the committed source rather than copied artifacts.
