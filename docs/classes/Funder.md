@@ -96,6 +96,8 @@ URI: [schema:FundingScheme](http://schema.org/FundingScheme)
         
       Funder : same_as
         
+      Funder : type
+        
       
 ```
 
@@ -127,6 +129,7 @@ URI: [schema:FundingScheme](http://schema.org/FundingScheme)
 | [location](../slots/location.md) | 0..1 <br/> [Location](../classes/Location.md) | Where the organization, facility or event is physically situated | [Organization](../classes/Organization.md) |
 | [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | [Organization](../classes/Organization.md) |
 | [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | [Organization](../classes/Organization.md) |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -282,6 +285,19 @@ attributes:
     - Service
     - Event
     range: string
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Funder
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:Organization
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

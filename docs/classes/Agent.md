@@ -66,6 +66,8 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
         
       Agent : same_as
         
+      Agent : type
+        
       
 ```
 
@@ -91,6 +93,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -166,6 +169,18 @@ from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 abstract: true
 attributes:
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Agent
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

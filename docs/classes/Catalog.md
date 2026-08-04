@@ -90,6 +90,8 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
     
 
         
+      Catalog : type
+        
       
 ```
 
@@ -116,6 +118,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 | [datasets](../slots/datasets.md) | * <br/> [Dataset](../classes/Dataset.md) | The datasets this catalog aggregates (by id) | direct |
 | [publisher](../slots/publisher.md) | 0..1 <br/> [Organization](../classes/Organization.md) | The organization publishing the catalog, dataset or publication (by IDHI URN) | direct |
 | [themes](../slots/themes.md) | * <br/> [LangString](../classes/LangString.md) | Thematic keywords for the catalog/dataset, multilingual | direct |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -197,6 +200,9 @@ slots:
 - publisher
 - themes
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Catalog
   id:
     name: id
     structured_pattern:
@@ -220,6 +226,9 @@ in_subset:
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Catalog
   id:
     name: id
     structured_pattern:
@@ -265,6 +274,19 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Catalog
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:Catalog
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

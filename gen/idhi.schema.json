@@ -100,9 +100,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "AcademicInstitution",
@@ -205,9 +211,14 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Agent",
@@ -355,9 +366,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Catalog",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Catalog",
@@ -463,9 +480,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Company",
@@ -565,9 +588,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Dataset",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Dataset",
@@ -850,9 +879,15 @@
                         "string",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Event",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Event",
@@ -983,9 +1018,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Facility",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Facility",
@@ -1127,9 +1168,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Funder",
@@ -1235,9 +1282,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "GLAMInstitution",
@@ -1495,9 +1548,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Location",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Location",
@@ -1560,9 +1619,14 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "NamedThing",
@@ -1668,9 +1732,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "NonProfit",
@@ -1787,9 +1857,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Organization",
@@ -1967,9 +2043,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Person",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Person",
@@ -2167,9 +2249,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Project",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Project",
@@ -2349,9 +2437,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Publication",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Publication",
@@ -2598,9 +2692,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:Organization",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "ResearchCenter",
@@ -2710,9 +2810,15 @@
                 "service_type": {
                     "$ref": "#/$defs/ToolServiceTypeEnum",
                     "description": "The kind of service offered (digitization, consulting...)."
+                },
+                "type": {
+                    "const": "idhi:Service",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Service",
@@ -2790,9 +2896,15 @@
                         "array",
                         "null"
                     ]
+                },
+                "type": {
+                    "const": "idhi:TimePeriod",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "TimePeriod",
@@ -2914,9 +3026,15 @@
                 "tool_type": {
                     "$ref": "#/$defs/ToolServiceTypeEnum",
                     "description": "The delivery form of the tool (web app, library, CLI...). Pick the single value describing how users primarily consume it."
+                },
+                "type": {
+                    "const": "idhi:Tool",
+                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "id"
             ],
             "title": "Tool",

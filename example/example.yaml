@@ -4,7 +4,8 @@
 # Extend this file whenever a schema feature is added, so CI exercises it.
 
 persons:
-  - id: idhi:person:x7k2m9
+  - type: idhi:Person
+    id: idhi:person:x7k2m9
     name:
       - {language: en, value: Rina Cohen}
       - {language: he, value: רינה כהן}
@@ -30,7 +31,8 @@ persons:
         authorship_role: AUTHOR
 
 organizations:
-  - id: idhi:organization:k3v9p2
+  - type: idhi:Organization
+    id: idhi:organization:k3v9p2
     name:
       - {language: en, value: Example University}
       - {language: he, value: אוניברסיטת דוגמה}
@@ -40,13 +42,15 @@ organizations:
     homepage: https://www.example.ac.il
     contact_email: info@example.ac.il
     location: idhi:location:t2r5c8
-  - id: idhi:organization:f9d3h6
+  - type: idhi:Organization
+    id: idhi:organization:f9d3h6
     name:
       - {language: en, value: Example Research Fund}
     organization_type: FUNDER
 
 facilities:
-  - id: idhi:facility:l8m2q4
+  - type: idhi:Facility
+    id: idhi:facility:l8m2q4
     name:
       - {language: en, value: Example DH Lab}
     homepage: https://dhlab.example.ac.il
@@ -63,7 +67,8 @@ facilities:
       - idhi:tool:g5j7x2
 
 projects:
-  - id: idhi:project:a83bq1
+  - type: idhi:Project
+    id: idhi:project:a83bq1
     name:
       - {language: en, value: Example Genizah Fragments Project}
     description:
@@ -97,7 +102,8 @@ projects:
       - idhi:publication:p4w8n1
 
 tools:
-  - id: idhi:tool:g5j7x2
+  - type: idhi:Tool
+    id: idhi:tool:g5j7x2
     name:
       - {language: en, value: FragmentMatcher}
     tool_type: WEB_APPLICATION
@@ -110,7 +116,8 @@ tools:
       - tadirah:analyzing
 
 services:
-  - id: idhi:service:s6b1z3
+  - type: idhi:Service
+    id: idhi:service:s6b1z3
     name:
       - {language: en, value: Manuscript digitization on demand}
     service_type: DIGITIZATION_SERVICE
@@ -119,7 +126,8 @@ services:
     contact_email: digitization@example.ac.il
 
 publications:
-  - id: idhi:publication:p4w8n1
+  - type: idhi:Publication
+    id: idhi:publication:p4w8n1
     name:
       - {language: en, value: Matching Genizah fragments at scale}
     doi: DOI:10.1234/example.5678
@@ -131,7 +139,8 @@ publications:
       - idhi:event:e2c6v0
 
 events:
-  - id: idhi:event:e2c6v0
+  - type: idhi:Event
+    id: idhi:event:e2c6v0
     name:
       - {language: en, value: Example DH Israel Conference 2025}
     event_type: CONFERENCE
@@ -141,7 +150,8 @@ events:
     location: idhi:location:t2r5c8
 
 locations:
-  - id: idhi:location:t2r5c8
+  - type: idhi:Location
+    id: idhi:location:t2r5c8
     name:
       - {language: en, value: Jerusalem}
       - {language: he, value: ירושלים}
@@ -150,18 +160,21 @@ locations:
     longitude: 35.2137
 
 time_periods:
-  - id: idhi:time_period:w1e4r7
+  - type: idhi:TimePeriod
+    id: idhi:time_period:w1e4r7
     name:
       - {language: en, value: Project runtime 2022-2026}
     begin_date: "2022-10-01"
     end_date: "2026-09-30"
-  - id: idhi:time_period:m3d9k5
+  - type: idhi:TimePeriod
+    id: idhi:time_period:m3d9k5
     name:
       - {language: en, value: Medieval period}
     begin_date: "0900"
 
 catalogs:
-  - id: idhi:catalog:c8n4b2
+  - type: idhi:Catalog
+    id: idhi:catalog:c8n4b2
     name:
       - {language: en, value: Example Fragments Archive}
     publisher: idhi:organization:k3v9p2
@@ -169,7 +182,8 @@ catalogs:
       - idhi:dataset:d7y2u9
 
 datasets:
-  - id: idhi:dataset:d7y2u9
+  - type: idhi:Dataset
+    id: idhi:dataset:d7y2u9
     name:
       - {language: en, value: Annotated fragment images}
     publisher: idhi:organization:k3v9p2

@@ -94,6 +94,8 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
     
 
         
+      Dataset : type
+        
       
 ```
 
@@ -122,6 +124,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | [date_issued](../slots/date_issued.md) | 0..1 <br/> [Date](../types/Date.md) | Formal publication date (or year-01-01 if only the year is known) | direct |
 | [distribution_url](../slots/distribution_url.md) | 0..1 <br/> [Uri](../types/Uri.md) | Direct download or access URL for the dataset | direct |
 | [themes](../slots/themes.md) | * <br/> [LangString](../classes/LangString.md) | Thematic keywords for the catalog/dataset, multilingual | direct |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -206,6 +209,9 @@ slots:
 - distribution_url
 - themes
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Dataset
   id:
     name: id
     structured_pattern:
@@ -228,6 +234,9 @@ in_subset:
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Dataset
   id:
     name: id
     structured_pattern:
@@ -294,6 +303,19 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Dataset
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:Dataset
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

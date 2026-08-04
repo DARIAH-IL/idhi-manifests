@@ -182,6 +182,7 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 
 
+
 ## Classes in subset
 
 | Class | Description |

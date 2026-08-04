@@ -118,6 +118,8 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
       Publication : same_as
         
+      Publication : type
+        
       
 ```
 
@@ -149,6 +151,7 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 | [publisher](../slots/publisher.md) | 0..1 <br/> [Organization](../classes/Organization.md) | The organization publishing the catalog, dataset or publication (by IDHI URN) | direct |
 | [part_of](../slots/part_of.md) | 0..1 <br/> [Uriorcurie](../types/Uriorcurie.md) | The containing work (book for a chapter, proceedings for a paper), by IDHI UR... | direct |
 | [presented_at](../slots/presented_at.md) | * <br/> [Event](../classes/Event.md) | Event(s) in the index where this publication was presented (by IDHI URN), e | direct |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -237,6 +240,9 @@ slots:
 - part_of
 - presented_at
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Publication
   id:
     name: id
     structured_pattern:
@@ -260,6 +266,9 @@ in_subset:
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Publication
   id:
     name: id
     structured_pattern:
@@ -367,6 +376,19 @@ attributes:
     - Publication
     range: Event
     multivalued: true
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Publication
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:Publication
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

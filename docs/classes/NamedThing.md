@@ -79,6 +79,8 @@ URI: [schema:Thing](http://schema.org/Thing)
         
       NamedThing : same_as
         
+      NamedThing : type
+        
       
 ```
 
@@ -112,6 +114,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | direct |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | direct |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | direct |
@@ -175,6 +178,7 @@ description: Root class for any identifiable IDHI entity. Provides the IDHI URN 
 from_schema: https://idhi.co.il/linkml/idhi
 abstract: true
 slots:
+- type
 - id
 - name
 - description
@@ -198,6 +202,18 @@ description: Root class for any identifiable IDHI entity. Provides the IDHI URN 
 from_schema: https://idhi.co.il/linkml/idhi
 abstract: true
 attributes:
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: NamedThing
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

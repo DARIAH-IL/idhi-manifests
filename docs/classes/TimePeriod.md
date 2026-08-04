@@ -61,6 +61,8 @@ URI: [edm:TimeSpan](http://www.europeana.eu/schemas/edm/TimeSpan)
         
       TimePeriod : same_as
         
+      TimePeriod : type
+        
       
 ```
 
@@ -86,6 +88,7 @@ URI: [edm:TimeSpan](http://www.europeana.eu/schemas/edm/TimeSpan)
 | ---  | --- | --- | --- |
 | [begin_date](../slots/begin_date.md) | 0..1 <br/> [String](../types/String.md) | Start of the time span | direct |
 | [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, relationship or time period | direct |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -169,6 +172,9 @@ slots:
 - begin_date
 - end_date
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:TimePeriod
   id:
     name: id
     structured_pattern:
@@ -193,6 +199,9 @@ in_subset:
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:TimePeriod
   id:
     name: id
     structured_pattern:
@@ -224,6 +233,19 @@ attributes:
     - TimePeriod
     - Relationship
     range: date
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: TimePeriod
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:TimePeriod
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

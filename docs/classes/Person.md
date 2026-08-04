@@ -98,6 +98,8 @@ URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
         
       Person : same_as
         
+      Person : type
+        
       
 ```
 
@@ -129,6 +131,7 @@ URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
 | [affiliations](../slots/affiliations.md) | * <br/> [Affiliation](../classes/Affiliation.md) | The person's institutional affiliations, as reified Affiliation objects (orga... | direct |
 | [project_participations](../slots/project_participations.md) | * <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | The person's project involvements, as reified ProjectParticipation objects ca... | direct |
 | [authorships](../slots/authorships.md) | * <br/> [Authorship](../classes/Authorship.md) | The person's publication contributions, as reified Authorship objects carryin... | direct |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -217,6 +220,9 @@ slots:
 - project_participations
 - authorships
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Person
   id:
     name: id
     structured_pattern:
@@ -240,6 +246,9 @@ in_subset:
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Agent
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Person
   id:
     name: id
     structured_pattern:
@@ -340,6 +349,19 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Person
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:Person
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

@@ -87,6 +87,8 @@ URI: [schema:Event](http://schema.org/Event)
         
       Event : start_date
         
+      Event : type
+        
       
 ```
 
@@ -116,6 +118,7 @@ URI: [schema:Event](http://schema.org/Event)
 | [location](../slots/location.md) | 0..1 <br/> [Location](../classes/Location.md) | Where the organization, facility or event is physically situated | direct |
 | [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | direct |
 | [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | direct |
+| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
 | [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
@@ -201,6 +204,9 @@ slots:
 - additional_urls
 - contact_email
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Event
   id:
     name: id
     structured_pattern:
@@ -224,6 +230,9 @@ in_subset:
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: NamedThing
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Event
   id:
     name: id
     structured_pattern:
@@ -311,6 +320,19 @@ attributes:
     - Service
     - Event
     range: string
+  type:
+    name: type
+    description: Discriminator carrying the class URI; used for polymorphic serialization
+      and deserialization.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: rdf:type
+    owner: Event
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    equals_string: idhi:Event
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

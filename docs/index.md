@@ -127,6 +127,7 @@ Name: idhi
 | [tool_type](slots/tool_type.md) | The delivery form of the tool (web app, library, CLI |
 | [tools](slots/tools.md) | All Tool records in the index |
 | [tools_provided](slots/tools_provided.md) | Tools this facility maintains or gives access to (by id) |
+| [type](slots/type.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... |
 | [value](slots/value.md) | The text itself, in the language given by 'language' |
 
 
