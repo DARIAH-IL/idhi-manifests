@@ -4683,80 +4683,80 @@
 <tbody>
 <tr>
 <td><a href="../../slots/name/">name</a></td>
-<td>1..* <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td>Multilingual name/title</td>
+<td><span title="Required: one or more values">1..*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/service_type/">service_type</a></td>
-<td>0..1 <br/> <a href="../../enums/ToolServiceTypeEnum/">ToolServiceTypeEnum</a></td>
-<td>The kind of service offered (digitization, consulting</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../enums/ToolServiceTypeEnum/">ToolServiceTypeEnum</a></td>
+<td><span title="The kind of service offered (digitization, consulting...).">The kind of service offered (digitization, consulting</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/provider/">provider</a></td>
-<td>0..1 <br/> <a href="../../classes/Organization/">Organization</a></td>
-<td>The organization formally responsible for delivering the service (the one you...</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../classes/Organization/">Organization</a></td>
+<td><span title="The organization formally responsible for delivering the service (the one you'd contact or contract with) — set this even when the service is listed under a Facility.">The organization formally responsible for delivering the service (the one you...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/documentation_url/">documentation_url</a></td>
-<td>0..1 <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>User or developer documentation for the tool or service (manual, wiki, API re...</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="User or developer documentation for the tool or service (manual, wiki, API reference).">User or developer documentation for the tool or service (manual, wiki, API re...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/additional_urls/">additional_urls</a></td>
-<td>* <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>Further relevant web pages beyond the homepage (blog, social-media profile, r...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/contact_email/">contact_email</a></td>
-<td>0..1 <br/> <a href="../../types/String/">String</a></td>
-<td>A published contact address for the entity (office, team or service-desk mail...</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/digital_humanities_activities/">digital_humanities_activities</a></td>
-<td>* <br/> <a href="../../enums/DigitalHumanitiesActivityEnum/">DigitalHumanitiesActivityEnum</a></td>
-<td>Digital-humanities research activities practiced in this project, tool or ser...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../enums/DigitalHumanitiesActivityEnum/">DigitalHumanitiesActivityEnum</a></td>
+<td><span title="Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/type/">type</a></td>
-<td>1 <br/> <a href="../../types/Curie/">Curie</a></td>
-<td>Discriminator identifying the record's class; used for polymorphic serializat...</td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/Curie/">Curie</a></td>
+<td><span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/id/">id</a></td>
-<td>1 <br/> <a href="../../types/String/">String</a></td>
-<td>The entity's primary identifier: an IDHI URN of the form</td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id&gt;&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here."&gt;The entity's primary identifier: an IDHI URN of the form</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/description/">description</a></td>
-<td>* <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td>Multilingual free-text description (a few sentences aimed at index visitors, ...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/homepage/">homepage</a></td>
-<td>0..1 <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>Public landing page of the entity, if one exists</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="Public landing page of the entity, if one exists.">Public landing page of the entity, if one exists</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/same_as/">same_as</a></td>
-<td>* <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>URIs of records in OTHER systems describing the same real-world entity (Wikid...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).">URIs of records in OTHER systems describing the same real-world entity (Wikid...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/tags/">tags</a></td>
-<td>* <br/> <a href="../../types/String/">String</a></td>
-<td>Free-text tags for discovery, filtering and grouping; usable on any top-level...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.">Free-text tags for discovery, filtering and grouping; usable on any top-level...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 </tbody>

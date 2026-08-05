@@ -4675,80 +4675,80 @@
 <tbody>
 <tr>
 <td><a href="../../slots/given_name/">given_name</a></td>
-<td>0..1 <br/> <a href="../../types/String/">String</a></td>
-<td>Given (first) name, in the person's preferred romanization</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form.">Given (first) name, in the person's preferred romanization</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/family_name/">family_name</a></td>
-<td>0..1 <br/> <a href="../../types/String/">String</a></td>
-<td>Family (last) name, in the person's preferred romanization</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.">Family (last) name, in the person's preferred romanization</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/orcid/">orcid</a></td>
-<td>0..1 <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>The person's persistent researcher identifier</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="The person's persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.">The person's persistent researcher identifier</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/emails/">emails</a></td>
-<td>* <br/> <a href="../../types/String/">String</a></td>
-<td>Contact email addresses (zero or more)</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Contact email addresses (zero or more). Only record addresses the person has agreed to publish in the index.">Contact email addresses (zero or more)</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/affiliations/">affiliations</a></td>
-<td>* <br/> <a href="../../classes/Affiliation/">Affiliation</a></td>
-<td>The person's institutional affiliations, as reified Affiliation objects (orga...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Affiliation/">Affiliation</a></td>
+<td><span title="The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement — that goes in project_participations.">The person's institutional affiliations, as reified Affiliation objects (orga...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/project_participations/">project_participations</a></td>
-<td>* <br/> <a href="../../classes/ProjectParticipation/">ProjectParticipation</a></td>
-<td>The person's project involvements, as reified ProjectParticipation objects ca...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/ProjectParticipation/">ProjectParticipation</a></td>
+<td><span title="The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates.">The person's project involvements, as reified ProjectParticipation objects ca...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/authorships/">authorships</a></td>
-<td>* <br/> <a href="../../classes/Authorship/">Authorship</a></td>
-<td>The person's publication contributions, as reified Authorship objects carryin...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Authorship/">Authorship</a></td>
+<td><span title="The person's publication contributions, as reified Authorship objects carrying byline order and role.">The person's publication contributions, as reified Authorship objects carryin...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/type/">type</a></td>
-<td>1 <br/> <a href="../../types/Curie/">Curie</a></td>
-<td>Discriminator identifying the record's class; used for polymorphic serializat...</td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/Curie/">Curie</a></td>
+<td><span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/id/">id</a></td>
-<td>1 <br/> <a href="../../types/String/">String</a></td>
-<td>The entity's primary identifier: an IDHI URN of the form</td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id&gt;&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here."&gt;The entity's primary identifier: an IDHI URN of the form</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/description/">description</a></td>
-<td>* <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td>Multilingual free-text description (a few sentences aimed at index visitors, ...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/homepage/">homepage</a></td>
-<td>0..1 <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>Public landing page of the entity, if one exists</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="Public landing page of the entity, if one exists.">Public landing page of the entity, if one exists</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/same_as/">same_as</a></td>
-<td>* <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>URIs of records in OTHER systems describing the same real-world entity (Wikid...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).">URIs of records in OTHER systems describing the same real-world entity (Wikid...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/tags/">tags</a></td>
-<td>* <br/> <a href="../../types/String/">String</a></td>
-<td>Free-text tags for discovery, filtering and grouping; usable on any top-level...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.">Free-text tags for discovery, filtering and grouping; usable on any top-level...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 </tbody>

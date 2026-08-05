@@ -4709,92 +4709,92 @@
 <tbody>
 <tr>
 <td><a href="../../slots/name/">name</a></td>
-<td>1..* <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td>Multilingual name/title</td>
+<td><span title="Required: one or more values">1..*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/doi/">doi</a></td>
-<td>0..1 <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>The publication's persistent identifier</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.">The publication's persistent identifier</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/publication_type/">publication_type</a></td>
-<td>0..1 <br/> <a href="../../enums/PublicationTypeEnum/">PublicationTypeEnum</a></td>
-<td>The kind of publication (journal article, book part, conference paper, thesis</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../enums/PublicationTypeEnum/">PublicationTypeEnum</a></td>
+<td><span title="The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value.">The kind of publication (journal article, book part, conference paper, thesis</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/authorships/">authorships</a></td>
-<td>* <br/> <a href="../../classes/Authorship/">Authorship</a></td>
-<td>The person's publication contributions, as reified Authorship objects carryin...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Authorship/">Authorship</a></td>
+<td><span title="The person's publication contributions, as reified Authorship objects carrying byline order and role.">The person's publication contributions, as reified Authorship objects carryin...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/date_issued/">date_issued</a></td>
-<td>0..1 <br/> <a href="../../types/Date/">Date</a></td>
-<td>Formal publication date (or year-01-01 if only the year is known)</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Date/">Date</a></td>
+<td><span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/published_in/">published_in</a></td>
-<td>* <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td>Name of the journal, book or proceedings the publication appeared in, as free...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Name of the journal, book or proceedings the publication appeared in, as free multilingual text. If the container work has its own IDHI record or external URI, also link it via part_of.">Name of the journal, book or proceedings the publication appeared in, as free...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/publisher/">publisher</a></td>
-<td>0..1 <br/> <a href="../../classes/Organization/">Organization</a></td>
-<td>The organization publishing the dataset or publication (by IDHI URN)</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../classes/Organization/">Organization</a></td>
+<td><span title="The organization publishing the dataset or publication (by IDHI URN).">The organization publishing the dataset or publication (by IDHI URN)</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/part_of/">part_of</a></td>
-<td>0..1 <br/> <a href="../../types/Uriorcurie/">Uriorcurie</a></td>
-<td>The containing work (book for a chapter, proceedings for a paper), by IDHI UR...</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uriorcurie/">Uriorcurie</a></td>
+<td><span title="The containing work (book for a chapter, proceedings for a paper), by IDHI URN or external URI.">The containing work (book for a chapter, proceedings for a paper), by IDHI UR...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/presented_at/">presented_at</a></td>
-<td>* <br/> <a href="../../classes/Event/">Event</a></td>
-<td>Event(s) in the index where this publication was presented (by IDHI URN), e</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Event/">Event</a></td>
+<td><span title="Event(s) in the index where this publication was presented (by IDHI URN), e.g. the conference where the paper was given. Distinct from published_in, the container it appeared in.">Event(s) in the index where this publication was presented (by IDHI URN), e</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/type/">type</a></td>
-<td>1 <br/> <a href="../../types/Curie/">Curie</a></td>
-<td>Discriminator identifying the record's class; used for polymorphic serializat...</td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/Curie/">Curie</a></td>
+<td><span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/id/">id</a></td>
-<td>1 <br/> <a href="../../types/String/">String</a></td>
-<td>The entity's primary identifier: an IDHI URN of the form</td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id&gt;&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here."&gt;The entity's primary identifier: an IDHI URN of the form</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/description/">description</a></td>
-<td>* <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td>Multilingual free-text description (a few sentences aimed at index visitors, ...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/homepage/">homepage</a></td>
-<td>0..1 <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>Public landing page of the entity, if one exists</td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="Public landing page of the entity, if one exists.">Public landing page of the entity, if one exists</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/same_as/">same_as</a></td>
-<td>* <br/> <a href="../../types/Uri/">Uri</a></td>
-<td>URIs of records in OTHER systems describing the same real-world entity (Wikid...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/Uri/">Uri</a></td>
+<td><span title="URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).">URIs of records in OTHER systems describing the same real-world entity (Wikid...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../../slots/tags/">tags</a></td>
-<td>* <br/> <a href="../../types/String/">String</a></td>
-<td>Free-text tags for discovery, filtering and grouping; usable on any top-level...</td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.">Free-text tags for discovery, filtering and grouping; usable on any top-level...</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 </tbody>

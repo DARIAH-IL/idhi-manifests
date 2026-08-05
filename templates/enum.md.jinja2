@@ -9,6 +9,8 @@ search:
     {%- set title = gen.name(element) -%}
 {%- endif -%}
 
+{% from "description_cell.md.jinja2" import description_cell -%}
+
 {% macro render_enum_expression(expr) -%}
 {%- if expr.reachable_from %}
 - **Reachable from**{% if expr.reachable_from.source_ontology %} {{ gen.uri_link(expr.reachable_from.source_ontology) }}{% endif %}
@@ -132,7 +134,7 @@ URI: {{ gen.uri_link(element) }}
 | Value | Meaning | Description | Additional Info |
 | --- | --- | --- | --- |
 {% for pv in element.permissible_values.values() -%}
-| {{ pv.text }} | {% if pv.meaning %}{{ gen.uri_link(pv.meaning) }}{% else %}None{% endif %} | {{ pv.description|enshorten }} |
+| {{ pv.text }} | {% if pv.meaning %}{{ gen.uri_link(pv.meaning) }}{% else %}None{% endif %} | {{ description_cell(pv.description) }} |
 {%- if pv.title %} Title: {{ pv.title }}<br>{% endif -%}
 {%- if pv.is_a %} Is-A: {{ gen.link(pv.is_a) }}<br>{% endif -%}
 {%- if pv.mixins %} Mixins: {{ gen.links(pv.mixins) | join(', ') }}<br>{% endif -%}
@@ -143,7 +145,7 @@ URI: {{ gen.uri_link(element) }}
 | Value | Meaning | Description |
 | --- | --- | --- |
 {% for pv in element.permissible_values.values() -%}
-| {{ pv.text }} | {% if pv.meaning %}{{ gen.uri_link(pv.meaning) }}{% else %}None{% endif %} | {{ pv.description|enshorten }} |
+| {{ pv.text }} | {% if pv.meaning %}{{ gen.uri_link(pv.meaning) }}{% else %}None{% endif %} | {{ description_cell(pv.description) }} |
 {% endfor %}
 {%- endif %}
 {% else %}
@@ -182,7 +184,7 @@ _This is a dynamic enum_
 | Name | Description |
 | ---  | --- |
 {% for s in schemaview.get_slots_by_enum(element.name) -%}
-| {{ gen.link(s) }} | {{ s.description|enshorten }} |
+| {{ gen.link(s) }} | {{ description_cell(s.description) }} |
 {% endfor %}
 {% endif %}
 
