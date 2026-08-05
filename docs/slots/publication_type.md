@@ -6,7 +6,7 @@ search:
 # Slot: publication_type 
 
 
-_The kind of publication, as a COAR resource-type concept (journal article, book part, conference paper, thesis...). Pick the most specific applicable concept._
+_The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value._
 
 
 
@@ -25,7 +25,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Publication](../classes/Publication.md) | An academic publication (BIBO document): journal article, book, chapter, conf... |  no  |
+| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 
 
 
@@ -85,8 +85,8 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 <details>
 ```yaml
 name: publication_type
-description: The kind of publication, as a COAR resource-type concept (journal article,
-  book part, conference paper, thesis...). Pick the most specific applicable concept.
+description: The kind of publication (journal article, book part, conference paper,
+  thesis...). Pick the most specific applicable value.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcterms:type

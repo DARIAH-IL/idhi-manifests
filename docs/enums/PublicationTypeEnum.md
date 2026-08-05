@@ -9,7 +9,7 @@ search:
 
 
 
-_The kind of publication, as any concept from the COAR Resource Types vocabulary (the de-facto repository standard, required by OpenAIRE) — e.g. coar:c_6501 (journal article), coar:c_3248 (book part), coar:c_5794 (conference paper), coar:c_46ec (thesis)._
+_The kind of publication, including journal article, book part, conference paper and thesis._
 
 
 
@@ -144,7 +144,7 @@ URI: [idhi:enum/PublicationTypeEnum](https://idhi.co.il/linkml/enum/PublicationT
 
 | Name | Description |
 | ---  | --- |
-| [publication_type](../slots/publication_type.md) | The kind of publication, as a COAR resource-type concept (journal article, bo... |
+| [publication_type](../slots/publication_type.md) | The kind of publication (journal article, book part, conference paper, thesis |
 
 
 
@@ -191,10 +191,8 @@ annotations:
   source_format:
     tag: source_format
     value: n-triples
-description: The kind of publication, as any concept from the COAR Resource Types
-  vocabulary (the de-facto repository standard, required by OpenAIRE) — e.g. coar:c_6501
-  (journal article), coar:c_3248 (book part), coar:c_5794 (conference paper), coar:c_46ec
-  (thesis).
+description: The kind of publication, including journal article, book part, conference
+  paper and thesis.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 permissible_values:

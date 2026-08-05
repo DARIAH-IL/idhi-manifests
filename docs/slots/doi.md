@@ -6,7 +6,7 @@ search:
 # Slot: doi 
 
 
-_The publication's DOI, as CURIE (DOI:10.1234/abcd) or full URL. A supplementary external identifier — the record's primary id is always the IDHI URN. Record whenever one exists; it is the preferred dedup key._
+_The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key._
 
 
 
@@ -25,7 +25,7 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Publication](../classes/Publication.md) | An academic publication (BIBO document): journal article, book, chapter, conf... |  no  |
+| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 
 
 
@@ -38,7 +38,7 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](../types/Uriorcurie.md) |
+| Range | [Uri](../types/Uri.md) |
 | Domain Of | [Publication](../classes/Publication.md) |
 | Slot URI | [bibo:doi](http://purl.org/ontology/bibo/doi) |
 
@@ -46,6 +46,15 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 
 | Property | Value |
 | --- | --- |
+<details>
+<summary>Additional Constraints</summary>
+**Structured Pattern:**
+
+- **Syntax:** `https://doi.org/{doi}`
+- **Interpolated:** True
+
+</details>
+
 
 
 
@@ -85,15 +94,17 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 <details>
 ```yaml
 name: doi
-description: The publication's DOI, as CURIE (DOI:10.1234/abcd) or full URL. A supplementary
-  external identifier — the record's primary id is always the IDHI URN. Record whenever
-  one exists; it is the preferred dedup key.
+description: The publication's persistent identifier. Record it whenever one exists;
+  it is the preferred deduplication key.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: bibo:doi
 domain_of:
 - Publication
-range: uriorcurie
+range: uri
+structured_pattern:
+  syntax: https://doi.org/{doi}
+  interpolated: true
 
 ```
 </details></div>

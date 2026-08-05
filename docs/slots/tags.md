@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: name 
+# Slot: tags 
 
 
-_Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses._
+_Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it._
 
 
 
@@ -14,7 +14,7 @@ _Multilingual name/title. Provide at least one language; English, Hebrew and Ara
 
 
 
-URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
+URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,6 +25,9 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Entity](../classes/Entity.md) | Root class for any identifiable IDHI entity |  no  |
+| [Agent](../classes/Agent.md) | A person or an organization |  no  |
+| [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |  no  |
 | [Organization](../classes/Organization.md) | An organization of any kind |  no  |
 | [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
 | [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
@@ -45,16 +48,15 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Publication](../classes/Publication.md), [Event](../classes/Event.md), [Dataset](../classes/Dataset.md) |
-| Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
+| Range | [String](../types/String.md) |
+| Domain Of | [Entity](../classes/Entity.md) |
+| Slot URI | [dcat:keyword](http://www.w3.org/ns/dcat#keyword) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
-| Minimum Cardinality | 1 |
 
 
 
@@ -83,8 +85,8 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | skos:prefLabel |
-| native | idhi:name |
+| self | dcat:keyword |
+| native | idhi:tags |
 
 
 
@@ -93,27 +95,18 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 
 <details>
 ```yaml
-name: name
-description: Multilingual name/title. Provide at least one language; English, Hebrew
-  and Arabic variants are each a separate LangString. Preferably a sortable name for
-  organizations; for projects, tools and services, use the name the team itself uses.
+name: tags
+description: Free-text tags for discovery, filtering and grouping; usable on any top-level
+  entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept
+  in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags
+  can later be reconciled against it.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
-slot_uri: skos:prefLabel
+slot_uri: dcat:keyword
 domain_of:
-- Organization
-- Facility
-- Project
-- Tool
-- Service
-- Publication
-- Event
-- Dataset
-range: LangString
+- Entity
+range: string
 multivalued: true
-inlined: true
-inlined_as_list: true
-minimum_cardinality: 1
 
 ```
 </details></div>

@@ -6,7 +6,7 @@ search:
 # Slot: studied_places 
 
 
-_Geographic focus of the research (places studied), as Location records — distinct from where the project team sits._
+_Geographic focus of the research (places studied), as free multilingual labels — distinct from where the project team sits._
 
 
 
@@ -25,7 +25,7 @@ URI: [dcterms:spatial](http://purl.org/dc/terms/spatial)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 
@@ -38,7 +38,7 @@ URI: [dcterms:spatial](http://purl.org/dc/terms/spatial)
 
 | Property | Value |
 | --- | --- |
-| Range | [Location](../classes/Location.md) |
+| Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Project](../classes/Project.md) |
 | Slot URI | [dcterms:spatial](http://purl.org/dc/terms/spatial) |
 
@@ -86,15 +86,17 @@ URI: [dcterms:spatial](http://purl.org/dc/terms/spatial)
 <details>
 ```yaml
 name: studied_places
-description: Geographic focus of the research (places studied), as Location records
-  — distinct from where the project team sits.
+description: Geographic focus of the research (places studied), as free multilingual
+  labels — distinct from where the project team sits.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcterms:spatial
 domain_of:
 - Project
-range: Location
+range: LangString
 multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details></div>

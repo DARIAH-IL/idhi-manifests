@@ -1,129 +1,15 @@
 {
     "$defs": {
-        "AcademicInstitution": {
-            "additionalProperties": false,
-            "description": "A university or college.",
-            "properties": {
-                "additional_urls": {
-                    "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "contact_email": {
-                    "description": "A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organization_type": {
-                    "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "AcademicInstitution",
-            "type": "object"
-        },
         "Affiliation": {
             "additionalProperties": false,
-            "description": "A person's employment/membership at an organization, with a position and dates (CERIF cfPerson_OrganisationUnit). Use for the person's institutional home(s), independent of any project.",
+            "description": "A person's employment or membership at an organization, with a position and dates. Use for the person's institutional home(s), independent of any project.",
             "properties": {
                 "affiliation_role": {
                     "$ref": "#/$defs/PersonOrgRoleEnum",
                     "description": "The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment."
                 },
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -139,7 +25,7 @@
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
@@ -156,7 +42,7 @@
         },
         "Agent": {
             "additionalProperties": false,
-            "description": "A person or organization (a FOAF Agent). Abstract; use Person or Organization.",
+            "description": "A person or an organization.",
             "properties": {
                 "description": {
                     "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
@@ -177,29 +63,9 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:[a-z_]+:[0-9a-z]{4,12}$",
                     "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 },
                 "same_as": {
                     "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
@@ -212,8 +78,18 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "type": {
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -244,7 +120,7 @@
                     "description": "The kind of contribution. AUTHOR is the default for byline authors; use EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named non-byline contributions."
                 },
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -256,7 +132,7 @@
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
@@ -282,222 +158,20 @@
             "title": "AuthorshipRoleEnum",
             "type": "string"
         },
-        "Catalog": {
-            "additionalProperties": false,
-            "description": "A digital archive / catalog of resources (DCAT Catalog), i.e. a curated collection of datasets and records with its own identity, such as a digital archive portal.",
-            "properties": {
-                "datasets": {
-                    "description": "The datasets this catalog aggregates (by id).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:catalog:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "publisher": {
-                    "description": "The organization publishing the catalog, dataset or publication (by IDHI URN).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "themes": {
-                    "description": "Thematic keywords for the catalog/dataset, multilingual.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Catalog",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "Catalog",
-            "type": "object"
-        },
-        "Company": {
-            "additionalProperties": false,
-            "description": "A commercial company.",
-            "properties": {
-                "additional_urls": {
-                    "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "contact_email": {
-                    "description": "A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organization_type": {
-                    "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "Company",
-            "type": "object"
-        },
         "Dataset": {
             "additionalProperties": false,
-            "description": "A dataset produced or curated by a project (DCAT Dataset): corpora, databases, image collections, annotation sets, etc.",
+            "description": "A dataset, digital archive or catalog produced or curated by a project: corpora, databases, image collections, annotation sets and collections of metadata records. Use Dataset for both research data and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.",
             "properties": {
+                "datasets": {
+                    "description": "Datasets aggregated by a Dataset that functions as a catalog (by id).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "date_issued": {
                     "description": "Formal publication date (or year-01-01 if only the year is known).",
                     "format": "date",
@@ -533,36 +207,27 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:dataset:[0-9a-z]{4,12}$",
                     "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 },
                 "license": {
                     "$ref": "#/$defs/LicenseEnum",
                     "description": "The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown."
                 },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
                     ]
                 },
                 "publisher": {
-                    "description": "The organization publishing the catalog, dataset or publication (by IDHI URN).",
+                    "description": "The organization publishing the dataset or publication (by IDHI URN).",
                     "type": [
                         "string",
                         "null"
@@ -579,8 +244,18 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "themes": {
-                    "description": "Thematic keywords for the catalog/dataset, multilingual.",
+                    "description": "Thematic keywords for the dataset, multilingual.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
@@ -590,8 +265,7 @@
                     ]
                 },
                 "type": {
-                    "const": "idhi:Dataset",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -603,7 +277,7 @@
             "type": "object"
         },
         "DigitalHumanitiesActivityEnum": {
-            "description": "Digital-humanities research activities, as any TaDiRAH 2.0 research-activity concept: the 7 top concepts (Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing) or any narrower concept reachable beneath them via skos:narrower (e.g. tadirah:topicModeling).",
+            "description": "Digital-humanities research activities: Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing, and their more specific subactivities.",
             "enum": [
                 "tadirah:abstractThinking",
                 "tadirah:academicPublishing",
@@ -777,6 +451,66 @@
             "title": "DigitalHumanitiesActivityEnum",
             "type": "string"
         },
+        "Entity": {
+            "additionalProperties": false,
+            "description": "Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.",
+            "properties": {
+                "description": {
+                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "homepage": {
+                    "description": "Public landing page of the entity, if one exists.",
+                    "format": "uri",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "pattern": "^idhi:[a-z_]+:[0-9a-z]{4,12}$",
+                    "type": "string"
+                },
+                "same_as": {
+                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
+                    "items": {
+                        "format": "uri",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "id"
+            ],
+            "title": "Entity",
+            "type": "object"
+        },
         "Event": {
             "additionalProperties": false,
             "description": "A scholarly event: conference, workshop, seminar, lecture, hackathon or exhibition. Use Event for time-bounded gatherings; recurring series should be modeled as one Event per occurrence.",
@@ -786,6 +520,16 @@
                     "items": {
                         "format": "uri",
                         "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "address": {
+                    "description": "Postal address, multilingual.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
                     },
                     "type": [
                         "array",
@@ -810,7 +554,7 @@
                     ]
                 },
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -830,32 +574,26 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:event:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
+                "location": {
+                    "description": "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/LangString"
                     },
                     "type": [
                         "array",
                         "null"
                     ]
                 },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
@@ -873,16 +611,26 @@
                     ]
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "type": {
                     "const": "idhi:Event",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -908,13 +656,23 @@
         },
         "Facility": {
             "additionalProperties": false,
-            "description": "A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations (CERIF Facility). Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization.",
+            "description": "A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations. Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization.",
             "properties": {
                 "additional_urls": {
                     "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
                     "items": {
                         "format": "uri",
                         "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "address": {
+                    "description": "Postal address, multilingual.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
                     },
                     "type": [
                         "array",
@@ -957,32 +715,26 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:facility:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
+                "location": {
+                    "description": "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/LangString"
                     },
                     "type": [
                         "array",
                         "null"
                     ]
                 },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
@@ -1009,6 +761,16 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "tools_provided": {
                     "description": "Tools this facility maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.",
                     "items": {
@@ -1021,7 +783,7 @@
                 },
                 "type": {
                     "const": "idhi:Facility",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -1037,7 +799,7 @@
             "description": "A facility's affiliation with an organization. Use one instance per hosting/owning organization; joint labs get several.",
             "properties": {
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -1053,7 +815,7 @@
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
@@ -1068,250 +830,34 @@
             "title": "FacilityAffiliation",
             "type": "object"
         },
-        "Funder": {
+        "Funding": {
             "additionalProperties": false,
-            "description": "A funding body (foundation, council, government program).",
+            "description": "A funding award for a project, identifying the organization that provides it and its amount when public. It is inlined within the funded Project and has no independent ID.",
             "properties": {
-                "additional_urls": {
-                    "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
+                "funding_amount": {
+                    "description": "Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.",
                     "type": [
-                        "array",
+                        "number",
                         "null"
                     ]
                 },
-                "contact_email": {
-                    "description": "A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organization_type": {
-                    "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                "funding_organization": {
+                    "description": "The organization that provides this funding award (by IDHI URN).",
                     "type": "string"
                 }
             },
             "required": [
-                "type",
-                "id"
+                "funding_organization"
             ],
-            "title": "Funder",
-            "type": "object"
-        },
-        "GLAMInstitution": {
-            "additionalProperties": false,
-            "description": "A gallery, library, archive or museum.",
-            "properties": {
-                "additional_urls": {
-                    "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "contact_email": {
-                    "description": "A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organization_type": {
-                    "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "GLAMInstitution",
+            "title": "Funding",
             "type": "object"
         },
         "IndexContainer": {
             "additionalProperties": false,
             "description": "Top-level holder for all IDHI records. Big entities live exactly once in these lists; everything else references them by their IDHI URN.",
             "properties": {
-                "catalogs": {
-                    "description": "All Catalog records in the index.",
-                    "items": {
-                        "$ref": "#/$defs/Catalog"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "datasets": {
-                    "description": "All Dataset records in the index.",
+                    "description": "All Dataset records in the index, including digital archives and catalogs.",
                     "items": {
                         "$ref": "#/$defs/Dataset"
                     },
@@ -1334,16 +880,6 @@
                     "description": "All Facility records in the index.",
                     "items": {
                         "$ref": "#/$defs/Facility"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "locations": {
-                    "description": "All Location records in the index.",
-                    "items": {
-                        "$ref": "#/$defs/Location"
                     },
                     "type": [
                         "array",
@@ -1400,16 +936,6 @@
                         "null"
                     ]
                 },
-                "time_periods": {
-                    "description": "All TimePeriod records in the index.",
-                    "items": {
-                        "$ref": "#/$defs/TimePeriod"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "tools": {
                     "description": "All Tool records in the index.",
                     "items": {
@@ -1426,14 +952,14 @@
         },
         "LangString": {
             "additionalProperties": false,
-            "description": "A single language-tagged text value. Instances are combined in a multivalued slot to give English/Hebrew/Arabic variants of one field. Follows the LinkML community rdf:langString convention. Use one LangString per language; do not repeat a language within the same field.",
+            "description": "A single language-tagged text value. Instances are combined in a multivalued slot to give English/Hebrew/Arabic variants of one field. Use one LangString per language; do not repeat a language within the same field.",
             "properties": {
                 "language": {
                     "$ref": "#/$defs/LanguageEnum",
                     "description": "BCP-47 language tag of the value (en, he or ar)."
                 },
                 "value": {
-                    "description": "The text itself, in the language given by 'language'.",
+                    "description": "A localized text, in the language given by 'language'.",
                     "type": "string"
                 }
             },
@@ -1455,7 +981,7 @@
             "type": "string"
         },
         "LicenseEnum": {
-            "description": "Common licenses for tools and datasets. `meaning:` records the canonical URI (SPDX for software licenses, creativecommons.org for CC). Extend as needed; keep meanings canonical.",
+            "description": "Common licenses for tools and datasets. Extend as needed with canonical meanings.",
             "enum": [
                 "CC_BY_4_0",
                 "CC_BY_SA_4_0",
@@ -1466,285 +992,6 @@
             ],
             "title": "LicenseEnum",
             "type": "string"
-        },
-        "Location": {
-            "additionalProperties": false,
-            "description": "A place, optionally with geographic coordinates. Used both for where things ARE (org/facility/event location) and for places STUDIED by a project (studied_places).",
-            "properties": {
-                "address": {
-                    "description": "Postal address, multilingual.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:location:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "latitude": {
-                    "description": "WGS84 latitude in decimal degrees.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "longitude": {
-                    "description": "WGS84 longitude in decimal degrees.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Location",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "Location",
-            "type": "object"
-        },
-        "NamedThing": {
-            "additionalProperties": false,
-            "description": "Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual name/description, homepage and alternate identifiers. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.",
-            "properties": {
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:[a-z_]+:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "NamedThing",
-            "type": "object"
-        },
-        "NonProfit": {
-            "additionalProperties": false,
-            "description": "A non-profit / NGO.",
-            "properties": {
-                "additional_urls": {
-                    "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "contact_email": {
-                    "description": "A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organization_type": {
-                    "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "NonProfit",
-            "type": "object"
         },
         "OrgProjectRoleEnum": {
             "description": "An organization's role in a project (one instance per role).",
@@ -1759,13 +1006,23 @@
         },
         "Organization": {
             "additionalProperties": false,
-            "description": "An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type, which is the canonical machine-readable discriminator. Use the subclasses below only as optional sugar when a single, unambiguous type applies. All organizations \u2014 including instances of the subclasses \u2014 use the idhi:organization:<shortid> URN form.",
+            "description": "An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form.",
             "properties": {
                 "additional_urls": {
                     "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
                     "items": {
                         "format": "uri",
                         "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "address": {
+                    "description": "Postal address, multilingual.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
                     },
                     "type": [
                         "array",
@@ -1798,29 +1055,12 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
@@ -1829,9 +1069,20 @@
                         "null"
                     ]
                 },
+                "name": {
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
+                    },
+                    "minItems": 1,
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "organization_type": {
                     "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
+                    "description": "The kind of organization. Always set it."
                 },
                 "parent_organization": {
                     "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
@@ -1841,7 +1092,9 @@
                     ]
                 },
                 "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
+                    "description": "The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
+                    "format": "uri",
+                    "pattern": "https://ror.org/0[a-hj-km-np-tv-z0-9]{6}[0-9]{2}",
                     "type": [
                         "string",
                         "null"
@@ -1858,9 +1111,19 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "type": {
                     "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -1873,10 +1136,10 @@
         },
         "OrganizationProjectRole": {
             "additionalProperties": false,
-            "description": "An organization's engagement in a project (CERIF cfProject_OrganisationUnit). Use one instance per role: an organization that both hosts and funds a project gets two instances.",
+            "description": "An organization's engagement in a project. Use one instance per role: an organization that both hosts and funds a project gets two instances.",
             "properties": {
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -1896,7 +1159,7 @@
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
@@ -1926,7 +1189,7 @@
         },
         "Person": {
             "additionalProperties": false,
-            "description": "A human agent in the DH index: researcher, developer, librarian, student, etc. Create a Person record once per human being and reference it everywhere by id; do not duplicate people per project.",
+            "description": "A human agent in the DH index: researcher, developer, librarian, student, etc.",
             "properties": {
                 "affiliations": {
                     "description": "The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement \u2014 that goes in project_participations.",
@@ -1969,14 +1232,14 @@
                     ]
                 },
                 "family_name": {
-                    "description": "Family (last) name, in the person's preferred romanization. Explicitly optional \u2014 the authoritative multilingual display name lives in 'name'.",
+                    "description": "Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "given_name": {
-                    "description": "Given (first) name, in the person's preferred romanization. Explicitly optional \u2014 the authoritative multilingual display name lives in 'name'.",
+                    "description": "Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form.",
                     "type": [
                         "string",
                         "null"
@@ -1991,33 +1254,14 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:person:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "orcid": {
-                    "description": "The person's ORCID iD, as CURIE (ORCID:0000-0002-1825-0097) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.",
-                    "pattern": "ORCID:\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]",
+                    "description": "The person's persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.",
+                    "format": "uri",
+                    "pattern": "https://orcid.org/\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]",
                     "type": [
                         "string",
                         "null"
@@ -2044,9 +1288,19 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "type": {
                     "const": "idhi:Person",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -2072,7 +1326,7 @@
         },
         "Project": {
             "additionalProperties": false,
-            "description": "A Digital Humanities research project, classified by TaDiRAH research activities and by research discipline. This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it.",
+            "description": "A Digital Humanities research project, classified by its research activities and disciplines. This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it.",
             "properties": {
                 "additional_urls": {
                     "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
@@ -2103,7 +1357,7 @@
                     ]
                 },
                 "digital_humanities_activities": {
-                    "description": "Digital-humanities research activities practiced in this project, tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple values are expected. This is the primary DH-facet for discovery.",
+                    "description": "Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
                     "items": {
                         "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
                     },
@@ -2112,10 +1366,21 @@
                         "null"
                     ]
                 },
-                "funding_amount": {
-                    "description": "Total awarded funding, if public, in ILS unless noted in the project description. Omit rather than guess.",
+                "end_date": {
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
+                    "format": "date",
                     "type": [
-                        "number",
+                        "string",
+                        "null"
+                    ]
+                },
+                "funding": {
+                    "description": "Funding awards received by the project. Use one entry for each funding organization and award.",
+                    "items": {
+                        "$ref": "#/$defs/Funding"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -2128,25 +1393,16 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:project:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
@@ -2202,15 +1458,8 @@
                         "null"
                     ]
                 },
-                "project_period": {
-                    "description": "The project's OWN runtime (when the research is/was conducted). Do not confuse with studied_periods.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "research_disciplines": {
-                    "description": "Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled SKOS scheme is a planned upgrade.",
+                    "description": "Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
@@ -2230,10 +1479,18 @@
                         "null"
                     ]
                 },
+                "start_date": {
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "studied_periods": {
-                    "description": "Historical period(s) the project studies (e.g. Ottoman period), as TimePeriod records \u2014 distinct from project_period.",
+                    "description": "Historical period(s) the project studies (e.g. Ottoman period), as free multilingual labels \u2014 distinct from the project's own start_date/end_date.",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/LangString"
                     },
                     "type": [
                         "array",
@@ -2241,7 +1498,17 @@
                     ]
                 },
                 "studied_places": {
-                    "description": "Geographic focus of the research (places studied), as Location records \u2014 distinct from where the project team sits.",
+                    "description": "Geographic focus of the research (places studied), as free multilingual labels \u2014 distinct from where the project team sits.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
                     "items": {
                         "type": "string"
                     },
@@ -2252,7 +1519,7 @@
                 },
                 "type": {
                     "const": "idhi:Project",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -2268,7 +1535,7 @@
             "description": "A person's participation in a project. Create one instance per (person, project, role) combination; if a person changed roles over time, create one instance per role with start/end dates.",
             "properties": {
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -2288,7 +1555,7 @@
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
@@ -2319,7 +1586,7 @@
         },
         "Publication": {
             "additionalProperties": false,
-            "description": "An academic publication (BIBO document): journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type (COAR resource type).",
+            "description": "An academic publication: journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type.",
             "properties": {
                 "authorships": {
                     "description": "The person's publication contributions, as reified Authorship objects carrying byline order and role.",
@@ -2350,7 +1617,9 @@
                     ]
                 },
                 "doi": {
-                    "description": "The publication's DOI, as CURIE (DOI:10.1234/abcd) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record whenever one exists; it is the preferred dedup key.",
+                    "description": "The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.",
+                    "format": "uri",
+                    "pattern": "https://doi.org/.+",
                     "type": [
                         "string",
                         "null"
@@ -2365,25 +1634,16 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:publication:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
@@ -2408,7 +1668,7 @@
                 },
                 "publication_type": {
                     "$ref": "#/$defs/PublicationTypeEnum",
-                    "description": "The kind of publication, as a COAR resource-type concept (journal article, book part, conference paper, thesis...). Pick the most specific applicable concept."
+                    "description": "The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value."
                 },
                 "published_in": {
                     "description": "Name of the journal, book or proceedings the publication appeared in, as free multilingual text. If the container work has its own IDHI record or external URI, also link it via part_of.",
@@ -2421,7 +1681,7 @@
                     ]
                 },
                 "publisher": {
-                    "description": "The organization publishing the catalog, dataset or publication (by IDHI URN).",
+                    "description": "The organization publishing the dataset or publication (by IDHI URN).",
                     "type": [
                         "string",
                         "null"
@@ -2438,9 +1698,19 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "type": {
                     "const": "idhi:Publication",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -2452,7 +1722,7 @@
             "type": "object"
         },
         "PublicationTypeEnum": {
-            "description": "The kind of publication, as any concept from the COAR Resource Types vocabulary (the de-facto repository standard, required by OpenAIRE) \u2014 e.g. coar:c_6501 (journal article), coar:c_3248 (book part), coar:c_5794 (conference paper), coar:c_46ec (thesis).",
+            "description": "The kind of publication, including journal article, book part, conference paper and thesis.",
             "enum": [
                 "coar:1YTN-RJZE",
                 "coar:2H0M-X761",
@@ -2570,10 +1840,10 @@
         },
         "Relationship": {
             "additionalProperties": false,
-            "description": "Abstract base for reified, role-bearing relationships, following the CERIF link-entity and schema.org Role patterns. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly.",
+            "description": "Abstract base for reified, role-bearing relationships. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly.",
             "properties": {
                 "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
                     "format": "date",
                     "type": [
                         "string",
@@ -2581,7 +1851,7 @@
                     ]
                 },
                 "start_date": {
-                    "description": "Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
                     "format": "date",
                     "type": [
                         "string",
@@ -2590,120 +1860,6 @@
                 }
             },
             "title": "Relationship",
-            "type": "object"
-        },
-        "ResearchCenter": {
-            "additionalProperties": false,
-            "description": "A research center or institute.",
-            "properties": {
-                "additional_urls": {
-                    "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "contact_email": {
-                    "description": "A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "location": {
-                    "description": "Where the organization, facility or event is physically situated.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organization_type": {
-                    "$ref": "#/$defs/OrganizationTypeEnum",
-                    "description": "The kind of organization. This enum value \u2014 not the optional subclasses \u2014 is the canonical discriminator; always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ror": {
-                    "description": "The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier \u2014 the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:Organization",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "ResearchCenter",
             "type": "object"
         },
         "Service": {
@@ -2739,7 +1895,7 @@
                     ]
                 },
                 "digital_humanities_activities": {
-                    "description": "Digital-humanities research activities practiced in this project, tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple values are expected. This is the primary DH-facet for discovery.",
+                    "description": "Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
                     "items": {
                         "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
                     },
@@ -2765,25 +1921,16 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:service:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
@@ -2811,9 +1958,19 @@
                     "$ref": "#/$defs/ToolServiceTypeEnum",
                     "description": "The kind of service offered (digitization, consulting...)."
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "type": {
                     "const": "idhi:Service",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -2824,95 +1981,9 @@
             "title": "Service",
             "type": "object"
         },
-        "TimePeriod": {
-            "additionalProperties": false,
-            "description": "A time span (EDM TimeSpan). Deliberately reused for two purposes: a project's runtime (project_period) and historical periods studied by a project (studied_periods), e.g. \"Second Temple period\". For historical periods, prefer linking same_as to a PeriodO or Wikidata URI.",
-            "properties": {
-                "begin_date": {
-                    "description": "Start of the time span. A string (not date) on purpose: historical periods need values like \"-0100\" or \"circa 1500\". Prefer ISO 8601 / EDTF where possible.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "end_date": {
-                    "description": "End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.",
-                    "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "homepage": {
-                    "description": "Public landing page of the entity, if one exists.",
-                    "format": "uri",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
-                    "pattern": "^idhi:time_period:[0-9a-z]{4,12}$",
-                    "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
-                    "items": {
-                        "$ref": "#/$defs/LangString"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "same_as": {
-                    "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
-                    "items": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "const": "idhi:TimePeriod",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "id"
-            ],
-            "title": "TimePeriod",
-            "type": "object"
-        },
         "Tool": {
             "additionalProperties": false,
-            "description": "A reusable software tool, typically produced by a project (schema:SoftwareApplication). Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.",
+            "description": "A reusable software tool, typically produced by a project. Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.",
             "properties": {
                 "additional_urls": {
                     "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
@@ -2951,7 +2022,7 @@
                     ]
                 },
                 "digital_humanities_activities": {
-                    "description": "Digital-humanities research activities practiced in this project, tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple values are expected. This is the primary DH-facet for discovery.",
+                    "description": "Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
                     "items": {
                         "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
                     },
@@ -2977,29 +2048,20 @@
                     ]
                 },
                 "id": {
-                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name (Organization subclasses use \"organization\"); each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
+                    "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:tool:[0-9a-z]{4,12}$",
                     "type": "string"
-                },
-                "identifiers": {
-                    "description": "Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 },
                 "license": {
                     "$ref": "#/$defs/LicenseEnum",
                     "description": "The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown."
                 },
                 "name": {
-                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name (e.g. \"Smith, John\" rather than \"John Smith\") for people and organizations; for projects, tools and services, use the name the team itself uses.",
+                    "description": "Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.",
                     "items": {
                         "$ref": "#/$defs/LangString"
                     },
+                    "minItems": 1,
                     "type": [
                         "array",
                         "null"
@@ -3023,13 +2085,23 @@
                         "null"
                     ]
                 },
+                "tags": {
+                    "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "tool_type": {
                     "$ref": "#/$defs/ToolServiceTypeEnum",
                     "description": "The delivery form of the tool (web app, library, CLI...). Pick the single value describing how users primarily consume it."
                 },
                 "type": {
                     "const": "idhi:Tool",
-                    "description": "Discriminator carrying the class URI; used for polymorphic serialization and deserialization.",
+                    "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
                 }
             },
@@ -3062,18 +2134,8 @@
     "description": "Top-level holder for all IDHI records. Big entities live exactly once in these lists; everything else references them by their IDHI URN.",
     "metamodel_version": "1.11.0",
     "properties": {
-        "catalogs": {
-            "description": "All Catalog records in the index.",
-            "items": {
-                "$ref": "#/$defs/Catalog"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
         "datasets": {
-            "description": "All Dataset records in the index.",
+            "description": "All Dataset records in the index, including digital archives and catalogs.",
             "items": {
                 "$ref": "#/$defs/Dataset"
             },
@@ -3096,16 +2158,6 @@
             "description": "All Facility records in the index.",
             "items": {
                 "$ref": "#/$defs/Facility"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "locations": {
-            "description": "All Location records in the index.",
-            "items": {
-                "$ref": "#/$defs/Location"
             },
             "type": [
                 "array",
@@ -3156,16 +2208,6 @@
             "description": "All Service records in the index.",
             "items": {
                 "$ref": "#/$defs/Service"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "time_periods": {
-            "description": "All TimePeriod records in the index.",
-            "items": {
-                "$ref": "#/$defs/TimePeriod"
             },
             "type": [
                 "array",

@@ -90,8 +90,8 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 | [participant](../slots/participant.md) | 1 <br/> [Person](../classes/Person.md) | The person taking part in the project (by IDHI URN) | direct |
 | [project](../slots/project.md) | 1 <br/> [Project](../classes/Project.md) | The project side of the relationship (by IDHI URN) | direct |
 | [participation_role](../slots/participation_role.md) | 0..1 <br/> [ProjectRoleEnum](../enums/ProjectRoleEnum.md) | The person's function within the project team | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event or of a relationship's validity (e | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, relationship or time period | [Relationship](../classes/Relationship.md) |
+| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
 
 
 
@@ -212,27 +212,28 @@ attributes:
     range: ProjectRoleEnum
   start_date:
     name: start_date
-    description: Start of the event or of a relationship's validity (e.g. when a person
-      joined a project or organization).
+    description: Start of the event, of the project's runtime, or of a relationship's
+      validity (e.g. when a person joined a project or organization).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: ProjectParticipation
     domain_of:
+    - Project
     - Event
     - Relationship
     range: date
   end_date:
     name: end_date
-    description: End of the event, relationship or time period. Omit for ongoing relationships
-      and open-ended periods.
+    description: End of the event, project runtime or relationship. Omit for ongoing
+      relationships and open-ended projects.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: ProjectParticipation
     domain_of:
+    - Project
     - Event
-    - TimePeriod
     - Relationship
     range: date
 class_uri: cerif:Project_Person

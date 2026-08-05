@@ -6,7 +6,7 @@ search:
 # Slot: research_disciplines 
 
 
-_Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled SKOS scheme is a planned upgrade._
+_Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade._
 
 
 
@@ -25,7 +25,7 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 
@@ -87,7 +87,7 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 ```yaml
 name: research_disciplines
 description: Humanities discipline(s) of the project (history, linguistics, archaeology...).
-  Free multilingual text for now; a controlled SKOS scheme is a planned upgrade.
+  Free multilingual text for now; a controlled vocabulary is a planned upgrade.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcterms:subject

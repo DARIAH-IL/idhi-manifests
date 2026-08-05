@@ -25,7 +25,7 @@ URI: [schema:codeRepository](http://schema.org/codeRepository)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project (schema:SoftwareApp... |  no  |
+| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
 
 
 

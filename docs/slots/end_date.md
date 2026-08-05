@@ -6,7 +6,7 @@ search:
 # Slot: end_date 
 
 
-_End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods._
+_End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects._
 
 
 
@@ -25,12 +25,12 @@ URI: [schema:endDate](http://schema.org/endDate)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
-| [TimePeriod](../classes/TimePeriod.md) | A time span (EDM TimeSpan) |  no  |
-| [Relationship](../classes/Relationship.md) | Abstract base for reified, role-bearing relationships, following the CERIF li... |  no  |
+| [Relationship](../classes/Relationship.md) | Abstract base for reified, role-bearing relationships |  no  |
 | [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation in a project |  no  |
-| [Affiliation](../classes/Affiliation.md) | A person's employment/membership at an organization, with a position and date... |  no  |
-| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project (CERIF cfProject_OrganisationUnit) |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, with a position and d... |  no  |
+| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project |  no  |
 | [Authorship](../classes/Authorship.md) | A person's contribution to a publication, with author order and role |  no  |
 | [FacilityAffiliation](../classes/FacilityAffiliation.md) | A facility's affiliation with an organization |  no  |
 
@@ -46,7 +46,7 @@ URI: [schema:endDate](http://schema.org/endDate)
 | Property | Value |
 | --- | --- |
 | Range | [Date](../types/Date.md) |
-| Domain Of | [Event](../classes/Event.md), [TimePeriod](../classes/TimePeriod.md), [Relationship](../classes/Relationship.md) |
+| Domain Of | [Project](../classes/Project.md), [Event](../classes/Event.md), [Relationship](../classes/Relationship.md) |
 | Slot URI | [schema:endDate](http://schema.org/endDate) |
 
 ### Cardinality and Requirements
@@ -92,14 +92,14 @@ URI: [schema:endDate](http://schema.org/endDate)
 <details>
 ```yaml
 name: end_date
-description: End of the event, relationship or time period. Omit for ongoing relationships
-  and open-ended periods.
+description: End of the event, project runtime or relationship. Omit for ongoing relationships
+  and open-ended projects.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: schema:endDate
 domain_of:
+- Project
 - Event
-- TimePeriod
 - Relationship
 range: date
 

@@ -6,7 +6,7 @@ search:
 # Class: Publication 
 
 
-_An academic publication (BIBO document): journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type (COAR resource type)._
+_An academic publication: journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type._
 
 
 
@@ -24,8 +24,8 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
  classDiagram
     class Publication
     click Publication href "../../classes/Publication/"
-      NamedThing <|-- Publication
-        click NamedThing href "../../classes/NamedThing/"
+      Entity <|-- Publication
+        click Entity href "../../classes/Entity/"
       
       Publication : authorships
         
@@ -57,15 +57,13 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
       Publication : id
         
-      Publication : identifiers
-        
       Publication : name
         
           
     
         
         
-        Publication --> "*" LangString : name
+        Publication --> "1..*" LangString : name
         click LangString href "../../classes/LangString/"
     
 
@@ -118,6 +116,8 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
       Publication : same_as
         
+      Publication : tags
+        
       Publication : type
         
       
@@ -128,7 +128,7 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 
 
 ## Inheritance
-* [NamedThing](../classes/NamedThing.md)
+* [Entity](../classes/Entity.md)
     * **Publication**
 
 
@@ -143,21 +143,21 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [doi](../slots/doi.md) | 0..1 <br/> [Uriorcurie](../types/Uriorcurie.md) | The publication's DOI, as CURIE (DOI:10 | direct |
-| [publication_type](../slots/publication_type.md) | 0..1 <br/> [PublicationTypeEnum](../enums/PublicationTypeEnum.md) | The kind of publication, as a COAR resource-type concept (journal article, bo... | direct |
+| [name](../slots/name.md) | 1..* <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
+| [doi](../slots/doi.md) | 0..1 <br/> [Uri](../types/Uri.md) | The publication's persistent identifier | direct |
+| [publication_type](../slots/publication_type.md) | 0..1 <br/> [PublicationTypeEnum](../enums/PublicationTypeEnum.md) | The kind of publication (journal article, book part, conference paper, thesis | direct |
 | [authorships](../slots/authorships.md) | * <br/> [Authorship](../classes/Authorship.md) | The person's publication contributions, as reified Authorship objects carryin... | direct |
 | [date_issued](../slots/date_issued.md) | 0..1 <br/> [Date](../types/Date.md) | Formal publication date (or year-01-01 if only the year is known) | direct |
 | [published_in](../slots/published_in.md) | * <br/> [LangString](../classes/LangString.md) | Name of the journal, book or proceedings the publication appeared in, as free... | direct |
-| [publisher](../slots/publisher.md) | 0..1 <br/> [Organization](../classes/Organization.md) | The organization publishing the catalog, dataset or publication (by IDHI URN) | direct |
+| [publisher](../slots/publisher.md) | 0..1 <br/> [Organization](../classes/Organization.md) | The organization publishing the dataset or publication (by IDHI URN) | direct |
 | [part_of](../slots/part_of.md) | 0..1 <br/> [Uriorcurie](../types/Uriorcurie.md) | The containing work (book for a chapter, proceedings for a paper), by IDHI UR... | direct |
 | [presented_at](../slots/presented_at.md) | * <br/> [Event](../classes/Event.md) | Event(s) in the index where this publication was presented (by IDHI URN), e | direct |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
-| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
-| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
-| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
-| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | [Entity](../classes/Entity.md) |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [Entity](../classes/Entity.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [Entity](../classes/Entity.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [Entity](../classes/Entity.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [Entity](../classes/Entity.md) |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | [Entity](../classes/Entity.md) |
 
 
 
@@ -223,14 +223,14 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 <details>
 ```yaml
 name: Publication
-description: 'An academic publication (BIBO document): journal article, book, chapter,
-  conference paper, thesis, report, etc. The precise kind is given by publication_type
-  (COAR resource type).'
+description: 'An academic publication: journal article, book, chapter, conference
+  paper, thesis, report, etc. The precise kind is given by publication_type.'
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slots:
+- name
 - doi
 - publication_type
 - authorships
@@ -258,13 +258,12 @@ class_uri: bibo:Document
 <details>
 ```yaml
 name: Publication
-description: 'An academic publication (BIBO document): journal article, book, chapter,
-  conference paper, thesis, report, etc. The precise kind is given by publication_type
-  (COAR resource type).'
+description: 'An academic publication: journal article, book, chapter, conference
+  paper, thesis, report, etc. The precise kind is given by publication_type.'
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slot_usage:
   type:
     name: type
@@ -275,23 +274,48 @@ slot_usage:
       syntax: ^idhi:publication:{shortid}$
       interpolated: true
 attributes:
+  name:
+    name: name
+    description: Multilingual name/title. Provide at least one language; English,
+      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+      name for organizations; for projects, tools and services, use the name the team
+      itself uses.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: skos:prefLabel
+    owner: Publication
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Publication
+    - Event
+    - Dataset
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
   doi:
     name: doi
-    description: The publication's DOI, as CURIE (DOI:10.1234/abcd) or full URL. A
-      supplementary external identifier — the record's primary id is always the IDHI
-      URN. Record whenever one exists; it is the preferred dedup key.
+    description: The publication's persistent identifier. Record it whenever one exists;
+      it is the preferred deduplication key.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: bibo:doi
     owner: Publication
     domain_of:
     - Publication
-    range: uriorcurie
+    range: uri
+    structured_pattern:
+      syntax: https://doi.org/{doi}
+      interpolated: true
   publication_type:
     name: publication_type
-    description: The kind of publication, as a COAR resource-type concept (journal
-      article, book part, conference paper, thesis...). Pick the most specific applicable
-      concept.
+    description: The kind of publication (journal article, book part, conference paper,
+      thesis...). Pick the most specific applicable value.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:type
@@ -341,15 +365,13 @@ attributes:
     inlined_as_list: true
   publisher:
     name: publisher
-    description: The organization publishing the catalog, dataset or publication (by
-      IDHI URN).
+    description: The organization publishing the dataset or publication (by IDHI URN).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:publisher
     owner: Publication
     domain_of:
     - Publication
-    - Catalog
     - Dataset
     range: Organization
   part_of:
@@ -378,15 +400,15 @@ attributes:
     multivalued: true
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Publication
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
     equals_string: idhi:Publication
   id:
@@ -394,39 +416,22 @@ attributes:
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
     owner: Publication
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
     structured_pattern:
       syntax: ^idhi:publication:{shortid}$
       interpolated: true
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: Publication
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -436,7 +441,7 @@ attributes:
     slot_uri: dcterms:description
     owner: Publication
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -449,20 +454,8 @@ attributes:
     slot_uri: foaf:homepage
     owner: Publication
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: Publication
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -473,8 +466,22 @@ attributes:
     slot_uri: schema:sameAs
     owner: Publication
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Publication
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: bibo:Document
 

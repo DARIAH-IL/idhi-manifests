@@ -60,7 +60,6 @@ For any change to `idhi.linkml.yaml`:
 - Do not "fix" the shared `end_date` slot by duplicating it per class unless the linker/generators actually fail; it is shared by design.
 - Do not add `id_prefixes` (ORCID/ROR/DOI) back onto classes — that was removed deliberately when the URN scheme was introduced (v0.3.0).
 - Do not convert dynamic enums to static in `idhi.linkml.yaml` — materialization happens only in `build/` via `scripts/materialize.py`.
-- `begin_date` on TimePeriod is a string ON PURPOSE (historical/EDTF dates); do not "correct" it to `date`.
 - Generated artifacts (JSON Schema, OWL) must come from the MATERIALIZED schema, not the raw one, or TaDiRAH/COAR constraints silently vanish.
 
 ## Escalate to a human when

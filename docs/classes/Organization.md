@@ -6,7 +6,7 @@ search:
 # Class: Organization 
 
 
-_An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type, which is the canonical machine-readable discriminator. Use the subclasses below only as optional sugar when a single, unambiguous type applies. All organizations — including instances of the subclasses — use the idhi:organization:<shortid> URN form._
+_An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form._
 
 
 
@@ -27,22 +27,18 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
       Agent <|-- Organization
         click Agent href "../../classes/Agent/"
       
-
-      Organization <|-- AcademicInstitution
-        click AcademicInstitution href "../../classes/AcademicInstitution/"
-      Organization <|-- GLAMInstitution
-        click GLAMInstitution href "../../classes/GLAMInstitution/"
-      Organization <|-- ResearchCenter
-        click ResearchCenter href "../../classes/ResearchCenter/"
-      Organization <|-- Funder
-        click Funder href "../../classes/Funder/"
-      Organization <|-- Company
-        click Company href "../../classes/Company/"
-      Organization <|-- NonProfit
-        click NonProfit href "../../classes/NonProfit/"
-      
-
       Organization : additional_urls
+        
+      Organization : address
+        
+          
+    
+        
+        
+        Organization --> "*" LangString : address
+        click LangString href "../../classes/LangString/"
+    
+
         
       Organization : contact_email
         
@@ -61,16 +57,14 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
         
       Organization : id
         
-      Organization : identifiers
-        
       Organization : location
         
           
     
         
         
-        Organization --> "0..1" Location : location
-        click Location href "../../classes/Location/"
+        Organization --> "*" LangString : location
+        click LangString href "../../classes/LangString/"
     
 
         
@@ -80,7 +74,7 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
     
         
         
-        Organization --> "*" LangString : name
+        Organization --> "1..*" LangString : name
         click LangString href "../../classes/LangString/"
     
 
@@ -111,6 +105,8 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
         
       Organization : same_as
         
+      Organization : tags
+        
       Organization : type
         
       
@@ -121,15 +117,9 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 
 
 ## Inheritance
-* [NamedThing](../classes/NamedThing.md)
+* [Entity](../classes/Entity.md)
     * [Agent](../classes/Agent.md)
         * **Organization**
-            * [AcademicInstitution](../classes/AcademicInstitution.md)
-            * [GLAMInstitution](../classes/GLAMInstitution.md)
-            * [ResearchCenter](../classes/ResearchCenter.md)
-            * [Funder](../classes/Funder.md)
-            * [Company](../classes/Company.md)
-            * [NonProfit](../classes/NonProfit.md)
 
 
 ## Class Properties
@@ -143,19 +133,20 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ror](../slots/ror.md) | 0..1 <br/> [Uriorcurie](../types/Uriorcurie.md) | The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL | direct |
+| [name](../slots/name.md) | 1..* <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
+| [ror](../slots/ror.md) | 0..1 <br/> [Uri](../types/Uri.md) | The organization's persistent registry identifier | direct |
 | [organization_type](../slots/organization_type.md) | 0..1 <br/> [OrganizationTypeEnum](../enums/OrganizationTypeEnum.md) | The kind of organization | direct |
 | [parent_organization](../slots/parent_organization.md) | 0..1 <br/> [Organization](../classes/Organization.md) | The larger organization this one is part of (e | direct |
-| [location](../slots/location.md) | 0..1 <br/> [Location](../classes/Location.md) | Where the organization, facility or event is physically situated | direct |
+| [location](../slots/location.md) | * <br/> [LangString](../classes/LangString.md) | Place name where the organization, facility or event is physically situated (... | direct |
+| [address](../slots/address.md) | * <br/> [LangString](../classes/LangString.md) | Postal address, multilingual | direct |
 | [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | direct |
 | [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | direct |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
-| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
-| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
-| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
-| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | [Entity](../classes/Entity.md) |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [Entity](../classes/Entity.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [Entity](../classes/Entity.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [Entity](../classes/Entity.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [Entity](../classes/Entity.md) |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | [Entity](../classes/Entity.md) |
 
 
 
@@ -166,18 +157,12 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Organization](../classes/Organization.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
-| [AcademicInstitution](../classes/AcademicInstitution.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
-| [GLAMInstitution](../classes/GLAMInstitution.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
-| [ResearchCenter](../classes/ResearchCenter.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
-| [Funder](../classes/Funder.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
-| [Company](../classes/Company.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
-| [NonProfit](../classes/NonProfit.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
 | [Service](../classes/Service.md) | [provider](../slots/provider.md) | range | [Organization](../classes/Organization.md) |
 | [Publication](../classes/Publication.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
-| [Catalog](../classes/Catalog.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [Dataset](../classes/Dataset.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [Affiliation](../classes/Affiliation.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
+| [Funding](../classes/Funding.md) | [funding_organization](../slots/funding_organization.md) | range | [Organization](../classes/Organization.md) |
 | [FacilityAffiliation](../classes/FacilityAffiliation.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [organizations](../slots/organizations.md) | range | [Organization](../classes/Organization.md) |
 
@@ -234,19 +219,19 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 ```yaml
 name: Organization
 description: An organization of any kind. Its kind (academic institution, GLAM, research
-  center, funder, company, non-profit) is given by organization_type, which is the
-  canonical machine-readable discriminator. Use the subclasses below only as optional
-  sugar when a single, unambiguous type applies. All organizations — including instances
-  of the subclasses — use the idhi:organization:<shortid> URN form.
+  center, funder, company, non-profit) is given by organization_type. All organizations
+  use the idhi:organization:<shortid> URN form.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Agent
 slots:
+- name
 - ror
 - organization_type
 - parent_organization
 - location
+- address
 - additional_urls
 - contact_email
 slot_usage:
@@ -269,10 +254,8 @@ class_uri: foaf:Organization
 ```yaml
 name: Organization
 description: An organization of any kind. Its kind (academic institution, GLAM, research
-  center, funder, company, non-profit) is given by organization_type, which is the
-  canonical machine-readable discriminator. Use the subclasses below only as optional
-  sugar when a single, unambiguous type applies. All organizations — including instances
-  of the subclasses — use the idhi:organization:<shortid> URN form.
+  center, funder, company, non-profit) is given by organization_type. All organizations
+  use the idhi:organization:<shortid> URN form.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
@@ -287,23 +270,48 @@ slot_usage:
       syntax: ^idhi:organization:{shortid}$
       interpolated: true
 attributes:
+  name:
+    name: name
+    description: Multilingual name/title. Provide at least one language; English,
+      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+      name for organizations; for projects, tools and services, use the name the team
+      itself uses.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: skos:prefLabel
+    owner: Organization
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Publication
+    - Event
+    - Dataset
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
   ror:
     name: ror
-    description: The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL.
-      A supplementary external identifier — the record's primary id is always the
-      IDHI URN. Record it whenever the organization is registered in ROR — most universities
-      and research institutes are.
+    description: The organization's persistent registry identifier. It supplements
+      the IDHI record id. Record it whenever the organization is registered in ROR
+      — most universities and research institutes are.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:identifier
     owner: Organization
     domain_of:
     - Organization
-    range: uriorcurie
+    range: uri
+    structured_pattern:
+      syntax: https://ror.org/{ror}
+      interpolated: true
   organization_type:
     name: organization_type
-    description: The kind of organization. This enum value — not the optional subclasses
-      — is the canonical discriminator; always set it.
+    description: The kind of organization. Always set it.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:type
@@ -325,7 +333,8 @@ attributes:
     range: Organization
   location:
     name: location
-    description: Where the organization, facility or event is physically situated.
+    description: Place name where the organization, facility or event is physically
+      situated (e.g. a city), as free multilingual text.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:location
@@ -334,7 +343,25 @@ attributes:
     - Organization
     - Facility
     - Event
-    range: Location
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  address:
+    name: address
+    description: Postal address, multilingual.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:address
+    owner: Organization
+    domain_of:
+    - Organization
+    - Facility
+    - Event
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   additional_urls:
     name: additional_urls
     description: Further relevant web pages beyond the homepage (blog, social-media
@@ -371,15 +398,15 @@ attributes:
     range: string
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Organization
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
     equals_string: idhi:Organization
   id:
@@ -387,39 +414,22 @@ attributes:
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
     owner: Organization
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
     structured_pattern:
       syntax: ^idhi:organization:{shortid}$
       interpolated: true
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: Organization
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -429,7 +439,7 @@ attributes:
     slot_uri: dcterms:description
     owner: Organization
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -442,20 +452,8 @@ attributes:
     slot_uri: foaf:homepage
     owner: Organization
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: Organization
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -466,8 +464,22 @@ attributes:
     slot_uri: schema:sameAs
     owner: Organization
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Organization
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: foaf:Organization
 

@@ -93,8 +93,8 @@ URI: [schema:Role](http://schema.org/Role)
 | [publication](../slots/publication.md) | 1 <br/> [Publication](../classes/Publication.md) | The publication contributed to (by IDHI URN) | direct |
 | [author_order](../slots/author_order.md) | 0..1 <br/> [Integer](../types/Integer.md) | Position in the byline; 1 = first author | direct |
 | [authorship_role](../slots/authorship_role.md) | 0..1 <br/> [AuthorshipRoleEnum](../enums/AuthorshipRoleEnum.md) | The kind of contribution | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event or of a relationship's validity (e | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, relationship or time period | [Relationship](../classes/Relationship.md) |
+| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
 
 
 
@@ -223,27 +223,28 @@ attributes:
     range: AuthorshipRoleEnum
   start_date:
     name: start_date
-    description: Start of the event or of a relationship's validity (e.g. when a person
-      joined a project or organization).
+    description: Start of the event, of the project's runtime, or of a relationship's
+      validity (e.g. when a person joined a project or organization).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Authorship
     domain_of:
+    - Project
     - Event
     - Relationship
     range: date
   end_date:
     name: end_date
-    description: End of the event, relationship or time period. Omit for ongoing relationships
-      and open-ended periods.
+    description: End of the event, project runtime or relationship. Omit for ongoing
+      relationships and open-ended projects.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Authorship
     domain_of:
+    - Project
     - Event
-    - TimePeriod
     - Relationship
     range: date
 class_uri: schema:Role

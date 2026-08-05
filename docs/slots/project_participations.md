@@ -26,7 +26,7 @@ URI: [idhi:slot/project_participations](https://idhi.co.il/linkml/slot/project_p
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |  no  |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 

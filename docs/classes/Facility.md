@@ -6,7 +6,7 @@ search:
 # Class: Facility 
 
 
-_A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations (CERIF Facility). Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization._
+_A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations. Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization._
 
 
 
@@ -24,10 +24,21 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
  classDiagram
     class Facility
     click Facility href "../../classes/Facility/"
-      NamedThing <|-- Facility
-        click NamedThing href "../../classes/NamedThing/"
+      Entity <|-- Facility
+        click Entity href "../../classes/Entity/"
       
       Facility : additional_urls
+        
+      Facility : address
+        
+          
+    
+        
+        
+        Facility --> "*" LangString : address
+        click LangString href "../../classes/LangString/"
+    
+
         
       Facility : contact_email
         
@@ -57,16 +68,14 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
       Facility : id
         
-      Facility : identifiers
-        
       Facility : location
         
           
     
         
         
-        Facility --> "0..1" Location : location
-        click Location href "../../classes/Location/"
+        Facility --> "*" LangString : location
+        click LangString href "../../classes/LangString/"
     
 
         
@@ -76,7 +85,7 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
     
         
         
-        Facility --> "*" LangString : name
+        Facility --> "1..*" LangString : name
         click LangString href "../../classes/LangString/"
     
 
@@ -93,6 +102,8 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         click Service href "../../classes/Service/"
     
 
+        
+      Facility : tags
         
       Facility : tools_provided
         
@@ -115,7 +126,7 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 
 ## Inheritance
-* [NamedThing](../classes/NamedThing.md)
+* [Entity](../classes/Entity.md)
     * **Facility**
 
 
@@ -130,19 +141,20 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [name](../slots/name.md) | 1..* <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
 | [facility_affiliations](../slots/facility_affiliations.md) | * <br/> [FacilityAffiliation](../classes/FacilityAffiliation.md) | The organization(s) hosting or owning this facility, as reified FacilityAffil... | direct |
-| [location](../slots/location.md) | 0..1 <br/> [Location](../classes/Location.md) | Where the organization, facility or event is physically situated | direct |
+| [location](../slots/location.md) | * <br/> [LangString](../classes/LangString.md) | Place name where the organization, facility or event is physically situated (... | direct |
+| [address](../slots/address.md) | * <br/> [LangString](../classes/LangString.md) | Postal address, multilingual | direct |
 | [services_offered](../slots/services_offered.md) | * <br/> [Service](../classes/Service.md) | Services this facility offers to researchers | direct |
 | [tools_provided](../slots/tools_provided.md) | * <br/> [Tool](../classes/Tool.md) | Tools this facility maintains or gives access to (by id) | direct |
 | [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | direct |
 | [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | direct |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
-| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
-| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
-| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
-| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | [Entity](../classes/Entity.md) |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [Entity](../classes/Entity.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [Entity](../classes/Entity.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [Entity](../classes/Entity.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [Entity](../classes/Entity.md) |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | [Entity](../classes/Entity.md) |
 
 
 
@@ -208,16 +220,18 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 ```yaml
 name: Facility
 description: A physical or virtual facility such as a DH lab, digitization studio
-  or research infrastructure, affiliated with one or more organizations (CERIF Facility).
-  Use Facility when the unit offers services/tools and has its own identity distinct
-  from its host organization; otherwise just use the Organization.
+  or research infrastructure, affiliated with one or more organizations. Use Facility
+  when the unit offers services/tools and has its own identity distinct from its host
+  organization; otherwise just use the Organization.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slots:
+- name
 - facility_affiliations
 - location
+- address
 - services_offered
 - tools_provided
 - additional_urls
@@ -242,13 +256,13 @@ class_uri: cerif:Facility
 ```yaml
 name: Facility
 description: A physical or virtual facility such as a DH lab, digitization studio
-  or research infrastructure, affiliated with one or more organizations (CERIF Facility).
-  Use Facility when the unit offers services/tools and has its own identity distinct
-  from its host organization; otherwise just use the Organization.
+  or research infrastructure, affiliated with one or more organizations. Use Facility
+  when the unit offers services/tools and has its own identity distinct from its host
+  organization; otherwise just use the Organization.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slot_usage:
   type:
     name: type
@@ -259,6 +273,30 @@ slot_usage:
       syntax: ^idhi:facility:{shortid}$
       interpolated: true
 attributes:
+  name:
+    name: name
+    description: Multilingual name/title. Provide at least one language; English,
+      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+      name for organizations; for projects, tools and services, use the name the team
+      itself uses.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: skos:prefLabel
+    owner: Facility
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Publication
+    - Event
+    - Dataset
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
   facility_affiliations:
     name: facility_affiliations
     description: The organization(s) hosting or owning this facility, as reified FacilityAffiliation
@@ -274,7 +312,8 @@ attributes:
     inlined_as_list: true
   location:
     name: location
-    description: Where the organization, facility or event is physically situated.
+    description: Place name where the organization, facility or event is physically
+      situated (e.g. a city), as free multilingual text.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:location
@@ -283,7 +322,25 @@ attributes:
     - Organization
     - Facility
     - Event
-    range: Location
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  address:
+    name: address
+    description: Postal address, multilingual.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:address
+    owner: Facility
+    domain_of:
+    - Organization
+    - Facility
+    - Event
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   services_offered:
     name: services_offered
     description: Services this facility offers to researchers. Reference Service records
@@ -343,15 +400,15 @@ attributes:
     range: string
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Facility
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
     equals_string: idhi:Facility
   id:
@@ -359,39 +416,22 @@ attributes:
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
     owner: Facility
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
     structured_pattern:
       syntax: ^idhi:facility:{shortid}$
       interpolated: true
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: Facility
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -401,7 +441,7 @@ attributes:
     slot_uri: dcterms:description
     owner: Facility
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -414,20 +454,8 @@ attributes:
     slot_uri: foaf:homepage
     owner: Facility
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: Facility
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -438,8 +466,22 @@ attributes:
     slot_uri: schema:sameAs
     owner: Facility
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Facility
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: cerif:Facility
 

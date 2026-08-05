@@ -25,7 +25,7 @@ URI: [idhi:slot/organization_roles](https://idhi.co.il/linkml/slot/organization_
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 

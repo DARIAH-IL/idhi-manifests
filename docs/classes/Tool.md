@@ -6,7 +6,7 @@ search:
 # Class: Tool 
 
 
-_A reusable software tool, typically produced by a project (schema:SoftwareApplication). Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead._
+_A reusable software tool, typically produced by a project. Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead._
 
 
 
@@ -24,8 +24,8 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
  classDiagram
     class Tool
     click Tool href "../../classes/Tool/"
-      NamedThing <|-- Tool
-        click NamedThing href "../../classes/NamedThing/"
+      Entity <|-- Tool
+        click Entity href "../../classes/Entity/"
       
       Tool : additional_urls
         
@@ -61,8 +61,6 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
       Tool : id
         
-      Tool : identifiers
-        
       Tool : license
         
           
@@ -80,7 +78,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
     
         
         
-        Tool --> "*" LangString : name
+        Tool --> "1..*" LangString : name
         click LangString href "../../classes/LangString/"
     
 
@@ -88,6 +86,8 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
       Tool : programming_language
         
       Tool : same_as
+        
+      Tool : tags
         
       Tool : tool_type
         
@@ -110,7 +110,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 
 ## Inheritance
-* [NamedThing](../classes/NamedThing.md)
+* [Entity](../classes/Entity.md)
     * **Tool**
 
 
@@ -125,6 +125,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [name](../slots/name.md) | 1..* <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
 | [tool_type](../slots/tool_type.md) | 0..1 <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | The delivery form of the tool (web app, library, CLI | direct |
 | [code_repository](../slots/code_repository.md) | 0..1 <br/> [Uri](../types/Uri.md) | Source-code repository URL (GitHub, GitLab | direct |
 | [programming_language](../slots/programming_language.md) | 0..1 <br/> [String](../types/String.md) | Main implementation language(s), comma-free single value preferred | direct |
@@ -133,13 +134,12 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 | [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | direct |
 | [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | * <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities practiced in this project, tool or ser... | direct |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
-| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
-| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
-| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
-| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | [Entity](../classes/Entity.md) |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [Entity](../classes/Entity.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [Entity](../classes/Entity.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [Entity](../classes/Entity.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [Entity](../classes/Entity.md) |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | [Entity](../classes/Entity.md) |
 
 
 
@@ -205,14 +205,15 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 <details>
 ```yaml
 name: Tool
-description: A reusable software tool, typically produced by a project (schema:SoftwareApplication).
-  Use Tool for software that others can install, run or call; for a human-mediated
-  offering use Service instead.
+description: A reusable software tool, typically produced by a project. Use Tool for
+  software that others can install, run or call; for a human-mediated offering use
+  Service instead.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slots:
+- name
 - tool_type
 - code_repository
 - programming_language
@@ -240,13 +241,13 @@ class_uri: schema:SoftwareApplication
 <details>
 ```yaml
 name: Tool
-description: A reusable software tool, typically produced by a project (schema:SoftwareApplication).
-  Use Tool for software that others can install, run or call; for a human-mediated
-  offering use Service instead.
+description: A reusable software tool, typically produced by a project. Use Tool for
+  software that others can install, run or call; for a human-mediated offering use
+  Service instead.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slot_usage:
   type:
     name: type
@@ -257,6 +258,30 @@ slot_usage:
       syntax: ^idhi:tool:{shortid}$
       interpolated: true
 attributes:
+  name:
+    name: name
+    description: Multilingual name/title. Provide at least one language; English,
+      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+      name for organizations; for projects, tools and services, use the name the team
+      itself uses.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: skos:prefLabel
+    owner: Tool
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Publication
+    - Event
+    - Dataset
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
   tool_type:
     name: tool_type
     description: The delivery form of the tool (web app, library, CLI...). Pick the
@@ -349,9 +374,8 @@ attributes:
   digital_humanities_activities:
     name: digital_humanities_activities
     description: Digital-humanities research activities practiced in this project,
-      tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable
-      concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple
-      values are expected. This is the primary DH-facet for discovery.
+      tool or service. Prefer the most specific applicable activity; multiple values
+      are expected. This is the primary DH-facet for discovery.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -364,15 +388,15 @@ attributes:
     multivalued: true
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Tool
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
     equals_string: idhi:Tool
   id:
@@ -380,39 +404,22 @@ attributes:
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
     owner: Tool
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
     structured_pattern:
       syntax: ^idhi:tool:{shortid}$
       interpolated: true
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: Tool
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -422,7 +429,7 @@ attributes:
     slot_uri: dcterms:description
     owner: Tool
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -435,20 +442,8 @@ attributes:
     slot_uri: foaf:homepage
     owner: Tool
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: Tool
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -459,8 +454,22 @@ attributes:
     slot_uri: schema:sameAs
     owner: Tool
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Tool
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: schema:SoftwareApplication
 

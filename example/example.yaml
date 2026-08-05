@@ -6,10 +6,7 @@
 persons:
   - type: idhi:Person
     id: idhi:person:x7k2m9
-    name:
-      - {language: en, value: Rina Cohen}
-      - {language: he, value: רינה כהן}
-    orcid: ORCID:0000-0002-1825-0097
+    orcid: https://orcid.org/0000-0002-1825-0097
     emails:
       - rina.cohen@example.ac.il
     given_name: Rina
@@ -37,11 +34,14 @@ organizations:
       - {language: en, value: Example University}
       - {language: he, value: אוניברסיטת דוגמה}
       - {language: ar, value: جامعة المثال}
-    ror: ROR:04aj4c181
+    ror: https://ror.org/04aj4c181
     organization_type: ACADEMIC_INSTITUTION
     homepage: https://www.example.ac.il
     contact_email: info@example.ac.il
-    location: idhi:location:t2r5c8
+    location:
+      - {language: en, value: Jerusalem}
+      - {language: he, value: ירושלים}
+      - {language: ar, value: القدس}
   - type: idhi:Organization
     id: idhi:organization:f9d3h6
     name:
@@ -82,11 +82,17 @@ projects:
       - tadirah:enriching
     research_disciplines:
       - {language: en, value: history}
-    project_period: idhi:time_period:w1e4r7
+    tags:
+      - genizah
+      - manuscript studies
+      - paleography
+    start_date: "2022-10-01"
+    end_date: "2026-09-30"
     studied_periods:
-      - idhi:time_period:m3d9k5
+      - {language: en, value: Medieval period}
     studied_places:
-      - idhi:location:t2r5c8
+      - {language: en, value: Jerusalem}
+      - {language: he, value: ירושלים}
     organization_roles:
       - organization: idhi:organization:k3v9p2
         project: idhi:project:a83bq1
@@ -94,6 +100,9 @@ projects:
       - organization: idhi:organization:f9d3h6
         project: idhi:project:a83bq1
         org_project_role: FUNDER
+    funding:
+      - funding_organization: idhi:organization:f9d3h6
+        funding_amount: 150000
     outputs_tools:
       - idhi:tool:g5j7x2
     outputs_datasets:
@@ -114,6 +123,9 @@ tools:
     documentation_url: https://fragmentmatcher.example.ac.il/docs
     digital_humanities_activities:
       - tadirah:analyzing
+    tags:
+      - image matching
+      - computer vision
 
 services:
   - type: idhi:Service
@@ -130,7 +142,7 @@ publications:
     id: idhi:publication:p4w8n1
     name:
       - {language: en, value: Matching Genizah fragments at scale}
-    doi: DOI:10.1234/example.5678
+    doi: https://doi.org/10.1234/example.5678
     publication_type: coar:c_6501
     date_issued: "2024-03-15"
     published_in:
@@ -147,41 +159,20 @@ events:
     homepage: https://dhconf2025.example.org
     start_date: "2025-06-10"
     end_date: "2025-06-12"
-    location: idhi:location:t2r5c8
-
-locations:
-  - type: idhi:Location
-    id: idhi:location:t2r5c8
-    name:
+    location:
       - {language: en, value: Jerusalem}
-      - {language: he, value: ירושלים}
-      - {language: ar, value: القدس}
-    latitude: 31.7683
-    longitude: 35.2137
+    address:
+      - {language: en, value: "Example Campus, Mount Scopus, Jerusalem"}
 
-time_periods:
-  - type: idhi:TimePeriod
-    id: idhi:time_period:w1e4r7
-    name:
-      - {language: en, value: Project runtime 2022-2026}
-    begin_date: "2022-10-01"
-    end_date: "2026-09-30"
-  - type: idhi:TimePeriod
-    id: idhi:time_period:m3d9k5
-    name:
-      - {language: en, value: Medieval period}
-    begin_date: "0900"
-
-catalogs:
-  - type: idhi:Catalog
-    id: idhi:catalog:c8n4b2
+datasets:
+  - type: idhi:Dataset
+    id: idhi:dataset:q6r1v5
     name:
       - {language: en, value: Example Fragments Archive}
     publisher: idhi:organization:k3v9p2
     datasets:
       - idhi:dataset:d7y2u9
 
-datasets:
   - type: idhi:Dataset
     id: idhi:dataset:d7y2u9
     name:

@@ -48,21 +48,12 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 
 
-        
-
 
         
 
         
 
-        
 
-
-
-
-
-
-        
 
 
 
@@ -77,17 +68,9 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
         
 
 
-
         
 
         
-
-        
-
-
-
-
-
 
 
 
@@ -187,22 +170,14 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 | Class | Description |
 | --- | --- |
-| [Catalog](../classes/Catalog.md) | A digital archive / catalog of resources (DCAT Catalog), i |
-| [Dataset](../classes/Dataset.md) | A dataset produced or curated by a project (DCAT Dataset): corpora, databases... |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |
 | [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |
-| [Location](../classes/Location.md) | A place, optionally with geographic coordinates |
 | [Organization](../classes/Organization.md) | An organization of any kind |
 | [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |
-| [Publication](../classes/Publication.md) | An academic publication (BIBO document): journal article, book, chapter, conf... |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |
+| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |
 | [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |
-| [TimePeriod](../classes/TimePeriod.md) | A time span (EDM TimeSpan) |
-| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project (schema:SoftwareApp... |
-
-
-
-
+| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |
 
 
 

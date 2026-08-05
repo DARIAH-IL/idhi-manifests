@@ -6,7 +6,7 @@ search:
 # Slot: organization_type 
 
 
-_The kind of organization. This enum value — not the optional subclasses — is the canonical discriminator; always set it._
+_The kind of organization. Always set it._
 
 
 
@@ -26,12 +26,6 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [AcademicInstitution](../classes/AcademicInstitution.md) | A university or college |  no  |
-| [GLAMInstitution](../classes/GLAMInstitution.md) | A gallery, library, archive or museum |  no  |
-| [ResearchCenter](../classes/ResearchCenter.md) | A research center or institute |  no  |
-| [Funder](../classes/Funder.md) | A funding body (foundation, council, government program) |  no  |
-| [Company](../classes/Company.md) | A commercial company |  no  |
-| [NonProfit](../classes/NonProfit.md) | A non-profit / NGO |  no  |
 
 
 
@@ -91,8 +85,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 <details>
 ```yaml
 name: organization_type
-description: The kind of organization. This enum value — not the optional subclasses
-  — is the canonical discriminator; always set it.
+description: The kind of organization. Always set it.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcterms:type

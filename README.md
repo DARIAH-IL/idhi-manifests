@@ -16,7 +16,7 @@ Short aliases for namespace URIs, so we can write `dcterms:description` instead 
 
 ### 2. `classes` — the entities
 
-A **class** is a kind of record: `Person`, `Project`, `Organization`, `Tool`, `Dataset`, and so on. Classes can inherit (`is_a`): every entity inherits from the abstract `NamedThing`, which gives it an `id` (an IDHI URN, see "Identifiers" below), multilingual `name` and `description`, a `homepage`, and identifier fields.
+A **class** is a kind of record: `Person`, `Project`, `Organization`, `Tool`, `Dataset`, and so on. Classes can inherit (`is_a`): every entity inherits from the abstract `Entity`, which gives it an `id` (an IDHI URN, see "Identifiers" below), multilingual `description`, a `homepage`, `same_as` links and tags. Named entities other than `Person` declare their own multilingual `name`; people use `given_name` and `family_name`.
 
 Each class carries a `class_uri` mapping it to an existing ontology class — e.g. `Person` *is* `foaf:Person`, `Dataset` *is* `dcat:Dataset` — so RDF exported from IDHI speaks the same language as the rest of the web.
 
@@ -24,12 +24,13 @@ Two special kinds of classes to know:
 
 - **`LangString`** — a `{language, value}` pair. Every free-text field (`name`, `description`, `address`, `themes`...) is a *list* of these, which is how one field holds parallel English / Hebrew / Arabic text.
 - **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`) — see "Reified relationships" below.
+- **`Funding`** — an inlined project funding award that names the funding organization and can record its amount.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
 
 ### 3. `slots` — the fields
 
-A **slot** is a field/attribute/property — LinkML's equivalent of a database column. Unlike most languages, slots are defined once in a global `slots:` section and classes *pick* which ones they use; this lets several classes share one definition (e.g. `end_date` is used by both `Event` and `TimePeriod`) and lets each slot carry a `slot_uri` mapping it to an existing RDF property (`description` → `dcterms:description`).
+A **slot** is a field/attribute/property — LinkML's equivalent of a database column. Unlike most languages, slots are defined once in a global `slots:` section and classes *pick* which ones they use; this lets several classes share one definition (e.g. `end_date` is used by both `Event` and `Project`) and lets each slot carry a `slot_uri` mapping it to an existing RDF property (`description` → `dcterms:description`).
 
 The key properties of a slot:
 
@@ -54,7 +55,7 @@ IDHI uses two flavors:
 
 ## Identifiers
 
-Every entity's primary `id` is a URN minted by IDHI: `idhi:<class name>:<random short alphanumeric id>`, e.g. `idhi:person:x7k2m9`. The class token is the lowercase snake_case class name; all Organization subtypes use `organization` (the subtype lives in `organization_type`). The random segment is 4–12 characters of `[0-9a-z]`, and each class enforces its own token via a per-class `structured_pattern`. Ids are permanent — never reused, never changed. The URNs are plain strings, not URIs: when publishing linked data (including `gen-owl` output of instance data), map them to resolvable URIs (`idhi:person:x7k2m9` → `https://idhi.co.il/id/person/x7k2m9`) at export time.
+Every entity's primary `id` is a URN minted by IDHI: `idhi:<class name>:<random short alphanumeric id>`, e.g. `idhi:person:x7k2m9`. The class token is the lowercase snake_case class name. The random segment is 4–12 characters of `[0-9a-z]`, and each class enforces its own token via a per-class `structured_pattern`. Ids are permanent — never reused, never changed. The URNs are plain strings, not URIs: when publishing linked data (including `gen-owl` output of instance data), map them to resolvable URIs (`idhi:person:x7k2m9` → `https://idhi.co.il/id/person/x7k2m9`) at export time.
 
 ## Reified relationships (relations with roles)
 
@@ -63,7 +64,6 @@ A plain edge like `Person → Project` can't say *in what capacity* or *when*. S
 ```yaml
 persons:
   - id: idhi:person:x7k2m9
-    name: [{language: en, value: Rina Cohen}]
     project_participations:
       - participant: idhi:person:x7k2m9   # reference by id
         project: idhi:project:a83bq1    # reference by id
@@ -85,7 +85,7 @@ One instance per (pair, role): an organization that both funds and hosts a proje
 
 ## Frequently confused pairs
 
-- **`project_period` vs `studied_periods`** — when the project *runs* vs which historical era it *studies*. Both are `TimePeriod`s.
+- **`start_date`/`end_date` vs `studied_periods`** — when the project *runs* vs which historical era it *studies*.
 - **`location` vs `studied_places`** — where something *is* vs which places the research is *about*.
 - **`Tool` vs `Service`** — self-service software vs a human-mediated offering.
 - **`affiliations` vs `project_participations`** — institutional home vs project involvement.

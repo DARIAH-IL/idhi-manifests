@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: time_periods 
+# Slot: funding 
 
 
-_All TimePeriod records in the index._
+_Funding awards received by the project. Use one entry for each funding organization and award._
 
 
 
@@ -14,7 +14,7 @@ _All TimePeriod records in the index._
 
 
 
-URI: [idhi:slot/time_periods](https://idhi.co.il/linkml/slot/time_periods)
+URI: [idhi:slot/funding](https://idhi.co.il/linkml/slot/funding)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [idhi:slot/time_periods](https://idhi.co.il/linkml/slot/time_periods)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [IndexContainer](../classes/IndexContainer.md) | Top-level holder for all IDHI records |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 
@@ -38,21 +38,14 @@ URI: [idhi:slot/time_periods](https://idhi.co.il/linkml/slot/time_periods)
 
 | Property | Value |
 | --- | --- |
-| Range | [TimePeriod](../classes/TimePeriod.md) |
-| Domain Of | [IndexContainer](../classes/IndexContainer.md) |
+| Range | [Funding](../classes/Funding.md) |
+| Domain Of | [Project](../classes/Project.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
-### Slot Characteristics
-
-| Property | Value |
-| --- | --- |
-| Owner | [IndexContainer](../classes/IndexContainer.md) |
-
-
 
 
 
@@ -81,8 +74,8 @@ URI: [idhi:slot/time_periods](https://idhi.co.il/linkml/slot/time_periods)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:time_periods |
-| native | idhi:time_periods |
+| self | idhi:funding |
+| native | idhi:funding |
 
 
 
@@ -91,14 +84,14 @@ URI: [idhi:slot/time_periods](https://idhi.co.il/linkml/slot/time_periods)
 
 <details>
 ```yaml
-name: time_periods
-description: All TimePeriod records in the index.
+name: funding
+description: Funding awards received by the project. Use one entry for each funding
+  organization and award.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
-owner: IndexContainer
 domain_of:
-- IndexContainer
-range: TimePeriod
+- Project
+range: Funding
 multivalued: true
 inlined: true
 inlined_as_list: true

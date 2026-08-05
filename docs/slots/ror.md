@@ -6,7 +6,7 @@ search:
 # Slot: ror 
 
 
-_The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary external identifier — the record's primary id is always the IDHI URN. Record it whenever the organization is registered in ROR — most universities and research institutes are._
+_The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR — most universities and research institutes are._
 
 
 
@@ -26,12 +26,6 @@ URI: [schema:identifier](http://schema.org/identifier)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [AcademicInstitution](../classes/AcademicInstitution.md) | A university or college |  no  |
-| [GLAMInstitution](../classes/GLAMInstitution.md) | A gallery, library, archive or museum |  no  |
-| [ResearchCenter](../classes/ResearchCenter.md) | A research center or institute |  no  |
-| [Funder](../classes/Funder.md) | A funding body (foundation, council, government program) |  no  |
-| [Company](../classes/Company.md) | A commercial company |  no  |
-| [NonProfit](../classes/NonProfit.md) | A non-profit / NGO |  no  |
 
 
 
@@ -44,7 +38,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](../types/Uriorcurie.md) |
+| Range | [Uri](../types/Uri.md) |
 | Domain Of | [Organization](../classes/Organization.md) |
 | Slot URI | [schema:identifier](http://schema.org/identifier) |
 
@@ -52,6 +46,15 @@ URI: [schema:identifier](http://schema.org/identifier)
 
 | Property | Value |
 | --- | --- |
+<details>
+<summary>Additional Constraints</summary>
+**Structured Pattern:**
+
+- **Syntax:** `https://ror.org/{ror}`
+- **Interpolated:** True
+
+</details>
+
 
 
 
@@ -91,16 +94,18 @@ URI: [schema:identifier](http://schema.org/identifier)
 <details>
 ```yaml
 name: ror
-description: The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL. A supplementary
-  external identifier — the record's primary id is always the IDHI URN. Record it
-  whenever the organization is registered in ROR — most universities and research
-  institutes are.
+description: The organization's persistent registry identifier. It supplements the
+  IDHI record id. Record it whenever the organization is registered in ROR — most
+  universities and research institutes are.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: schema:identifier
 domain_of:
 - Organization
-range: uriorcurie
+range: uri
+structured_pattern:
+  syntax: https://ror.org/{ror}
+  interpolated: true
 
 ```
 </details></div>

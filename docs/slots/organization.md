@@ -25,8 +25,8 @@ URI: [idhi:slot/organization](https://idhi.co.il/linkml/slot/organization)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Affiliation](../classes/Affiliation.md) | A person's employment/membership at an organization, with a position and date... |  no  |
-| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project (CERIF cfProject_OrganisationUnit) |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, with a position and d... |  no  |
+| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project |  no  |
 | [FacilityAffiliation](../classes/FacilityAffiliation.md) | A facility's affiliation with an organization |  no  |
 
 

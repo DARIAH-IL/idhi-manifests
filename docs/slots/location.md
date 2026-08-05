@@ -6,7 +6,7 @@ search:
 # Slot: location 
 
 
-_Where the organization, facility or event is physically situated._
+_Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text._
 
 
 
@@ -28,12 +28,6 @@ URI: [schema:location](http://schema.org/location)
 | [Organization](../classes/Organization.md) | An organization of any kind |  no  |
 | [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
-| [AcademicInstitution](../classes/AcademicInstitution.md) | A university or college |  no  |
-| [GLAMInstitution](../classes/GLAMInstitution.md) | A gallery, library, archive or museum |  no  |
-| [ResearchCenter](../classes/ResearchCenter.md) | A research center or institute |  no  |
-| [Funder](../classes/Funder.md) | A funding body (foundation, council, government program) |  no  |
-| [Company](../classes/Company.md) | A commercial company |  no  |
-| [NonProfit](../classes/NonProfit.md) | A non-profit / NGO |  no  |
 
 
 
@@ -46,7 +40,7 @@ URI: [schema:location](http://schema.org/location)
 
 | Property | Value |
 | --- | --- |
-| Range | [Location](../classes/Location.md) |
+| Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Event](../classes/Event.md) |
 | Slot URI | [schema:location](http://schema.org/location) |
 
@@ -54,6 +48,7 @@ URI: [schema:location](http://schema.org/location)
 
 | Property | Value |
 | --- | --- |
+| Multivalued | Yes |
 
 
 
@@ -93,7 +88,8 @@ URI: [schema:location](http://schema.org/location)
 <details>
 ```yaml
 name: location
-description: Where the organization, facility or event is physically situated.
+description: Place name where the organization, facility or event is physically situated
+  (e.g. a city), as free multilingual text.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: schema:location
@@ -101,7 +97,10 @@ domain_of:
 - Organization
 - Facility
 - Event
-range: Location
+range: LangString
+multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details></div>

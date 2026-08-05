@@ -3,10 +3,10 @@ search:
   boost: 10.0
 ---
 
-# Class: NamedThing 
+# Class: Entity 
 
 
-_Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual name/description, homepage and alternate identifiers. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage._
+_Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage._
 
 
 
@@ -24,62 +24,45 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 ```mermaid
  classDiagram
-    class NamedThing
-    click NamedThing href "../../classes/NamedThing/"
-      NamedThing <|-- Agent
+    class Entity
+    click Entity href "../../classes/Entity/"
+      Entity <|-- Agent
         click Agent href "../../classes/Agent/"
-      NamedThing <|-- Facility
+      Entity <|-- Facility
         click Facility href "../../classes/Facility/"
-      NamedThing <|-- Project
+      Entity <|-- Project
         click Project href "../../classes/Project/"
-      NamedThing <|-- Tool
+      Entity <|-- Tool
         click Tool href "../../classes/Tool/"
-      NamedThing <|-- Service
+      Entity <|-- Service
         click Service href "../../classes/Service/"
-      NamedThing <|-- Publication
+      Entity <|-- Publication
         click Publication href "../../classes/Publication/"
-      NamedThing <|-- Event
+      Entity <|-- Event
         click Event href "../../classes/Event/"
-      NamedThing <|-- Location
-        click Location href "../../classes/Location/"
-      NamedThing <|-- TimePeriod
-        click TimePeriod href "../../classes/TimePeriod/"
-      NamedThing <|-- Catalog
-        click Catalog href "../../classes/Catalog/"
-      NamedThing <|-- Dataset
+      Entity <|-- Dataset
         click Dataset href "../../classes/Dataset/"
       
-      NamedThing : description
+      Entity : description
         
           
     
         
         
-        NamedThing --> "*" LangString : description
+        Entity --> "*" LangString : description
         click LangString href "../../classes/LangString/"
     
 
         
-      NamedThing : homepage
+      Entity : homepage
         
-      NamedThing : id
+      Entity : id
         
-      NamedThing : identifiers
+      Entity : same_as
         
-      NamedThing : name
+      Entity : tags
         
-          
-    
-        
-        
-        NamedThing --> "*" LangString : name
-        click LangString href "../../classes/LangString/"
-    
-
-        
-      NamedThing : same_as
-        
-      NamedThing : type
+      Entity : type
         
       
 ```
@@ -89,7 +72,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 
 ## Inheritance
-* **NamedThing**
+* **Entity**
     * [Agent](../classes/Agent.md)
     * [Facility](../classes/Facility.md)
     * [Project](../classes/Project.md)
@@ -97,9 +80,6 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [Service](../classes/Service.md)
     * [Publication](../classes/Publication.md)
     * [Event](../classes/Event.md)
-    * [Location](../classes/Location.md)
-    * [TimePeriod](../classes/TimePeriod.md)
-    * [Catalog](../classes/Catalog.md)
     * [Dataset](../classes/Dataset.md)
 
 
@@ -114,13 +94,12 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | direct |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | direct |
 | [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | direct |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
 | [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | direct |
 | [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | direct |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | direct |
 | [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | direct |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | direct |
 
 
 
@@ -155,7 +134,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | schema:Thing |
-| native | idhi:NamedThing |
+| native | idhi:Entity |
 
 
 
@@ -170,21 +149,19 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 <details>
 ```yaml
-name: NamedThing
+name: Entity
 description: Root class for any identifiable IDHI entity. Provides the IDHI URN id,
-  multilingual name/description, homepage and alternate identifiers. Never instantiated
-  directly; every concrete entity inherits from it and constrains the id's class token
-  via slot_usage.
+  multilingual description, homepage, same_as links and tags. Never instantiated directly;
+  every concrete entity inherits from it and constrains the id's class token via slot_usage.
 from_schema: https://idhi.co.il/linkml/idhi
 abstract: true
 slots:
 - type
 - id
-- name
 - description
 - homepage
-- identifiers
 - same_as
+- tags
 class_uri: schema:Thing
 
 ```
@@ -194,61 +171,43 @@ class_uri: schema:Thing
 
 <details>
 ```yaml
-name: NamedThing
+name: Entity
 description: Root class for any identifiable IDHI entity. Provides the IDHI URN id,
-  multilingual name/description, homepage and alternate identifiers. Never instantiated
-  directly; every concrete entity inherits from it and constrains the id's class token
-  via slot_usage.
+  multilingual description, homepage, same_as links and tags. Never instantiated directly;
+  every concrete entity inherits from it and constrains the id's class token via slot_usage.
 from_schema: https://idhi.co.il/linkml/idhi
 abstract: true
 attributes:
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
-    owner: NamedThing
+    owner: Entity
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
-    owner: NamedThing
+    owner: Entity
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: NamedThing
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -256,9 +215,9 @@ attributes:
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
-    owner: NamedThing
+    owner: Entity
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -269,22 +228,10 @@ attributes:
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
-    owner: NamedThing
+    owner: Entity
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: NamedThing
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -293,10 +240,24 @@ attributes:
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
-    owner: NamedThing
+    owner: Entity
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Entity
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: schema:Thing
 

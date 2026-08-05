@@ -9,7 +9,7 @@ search:
 
 
 
-_Digital-humanities research activities, as any TaDiRAH 2.0 research-activity concept: the 7 top concepts (Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing) or any narrower concept reachable beneath them via skos:narrower (e.g. tadirah:topicModeling)._
+_Digital-humanities research activities: Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing, and their more specific subactivities._
 
 
 
@@ -250,10 +250,8 @@ annotations:
   source_format:
     tag: source_format
     value: turtle
-description: 'Digital-humanities research activities, as any TaDiRAH 2.0 research-activity
-  concept: the 7 top concepts (Analyzing, Capturing, Creating, Disseminating, Enriching,
-  Interpreting, Storing) or any narrower concept reachable beneath them via skos:narrower
-  (e.g. tadirah:topicModeling).'
+description: 'Digital-humanities research activities: Analyzing, Capturing, Creating,
+  Disseminating, Enriching, Interpreting, Storing, and their more specific subactivities.'
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 permissible_values:

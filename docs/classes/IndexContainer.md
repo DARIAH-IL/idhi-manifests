@@ -24,17 +24,6 @@ URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
  classDiagram
     class IndexContainer
     click IndexContainer href "../../classes/IndexContainer/"
-      IndexContainer : catalogs
-        
-          
-    
-        
-        
-        IndexContainer --> "*" Catalog : catalogs
-        click Catalog href "../../classes/Catalog/"
-    
-
-        
       IndexContainer : datasets
         
           
@@ -65,17 +54,6 @@ URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
         
         IndexContainer --> "*" Facility : facilities
         click Facility href "../../classes/Facility/"
-    
-
-        
-      IndexContainer : locations
-        
-          
-    
-        
-        
-        IndexContainer --> "*" Location : locations
-        click Location href "../../classes/Location/"
     
 
         
@@ -134,17 +112,6 @@ URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
     
 
         
-      IndexContainer : time_periods
-        
-          
-    
-        
-        
-        IndexContainer --> "*" TimePeriod : time_periods
-        click TimePeriod href "../../classes/TimePeriod/"
-    
-
-        
       IndexContainer : tools
         
           
@@ -183,10 +150,7 @@ URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
 | [services](../slots/services.md) | * <br/> [Service](../classes/Service.md) | All Service records in the index | direct |
 | [publications](../slots/publications.md) | * <br/> [Publication](../classes/Publication.md) | All Publication records in the index | direct |
 | [events](../slots/events.md) | * <br/> [Event](../classes/Event.md) | All Event records in the index | direct |
-| [locations](../slots/locations.md) | * <br/> [Location](../classes/Location.md) | All Location records in the index | direct |
-| [time_periods](../slots/time_periods.md) | * <br/> [TimePeriod](../classes/TimePeriod.md) | All TimePeriod records in the index | direct |
-| [catalogs](../slots/catalogs.md) | * <br/> [Catalog](../classes/Catalog.md) | All Catalog records in the index | direct |
-| [datasets](../slots/datasets.md) | * <br/> [Dataset](../classes/Dataset.md) | All Dataset records in the index | direct |
+| [datasets](../slots/datasets.md) | * <br/> [Dataset](../classes/Dataset.md) | All Dataset records in the index, including digital archives and catalogs | direct |
 
 
 
@@ -321,42 +285,13 @@ attributes:
     range: Event
     multivalued: true
     inlined_as_list: true
-  locations:
-    name: locations
-    description: All Location records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    domain_of:
-    - IndexContainer
-    range: Location
-    multivalued: true
-    inlined_as_list: true
-  time_periods:
-    name: time_periods
-    description: All TimePeriod records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    domain_of:
-    - IndexContainer
-    range: TimePeriod
-    multivalued: true
-    inlined_as_list: true
-  catalogs:
-    name: catalogs
-    description: All Catalog records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    domain_of:
-    - IndexContainer
-    range: Catalog
-    multivalued: true
-    inlined_as_list: true
   datasets:
     name: datasets
-    description: All Dataset records in the index.
+    description: All Dataset records in the index, including digital archives and
+      catalogs.
     from_schema: https://idhi.co.il/linkml/idhi
     domain_of:
-    - Catalog
+    - Dataset
     - IndexContainer
     range: Dataset
     multivalued: true
@@ -471,49 +406,14 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  locations:
-    name: locations
-    description: All Location records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    owner: IndexContainer
-    domain_of:
-    - IndexContainer
-    range: Location
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  time_periods:
-    name: time_periods
-    description: All TimePeriod records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    owner: IndexContainer
-    domain_of:
-    - IndexContainer
-    range: TimePeriod
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  catalogs:
-    name: catalogs
-    description: All Catalog records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    owner: IndexContainer
-    domain_of:
-    - IndexContainer
-    range: Catalog
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   datasets:
     name: datasets
-    description: All Dataset records in the index.
+    description: All Dataset records in the index, including digital archives and
+      catalogs.
     from_schema: https://idhi.co.il/linkml/idhi
     owner: IndexContainer
     domain_of:
-    - Catalog
+    - Dataset
     - IndexContainer
     range: Dataset
     multivalued: true

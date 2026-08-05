@@ -5,7 +5,7 @@
 # Documentation (modeling guide, identifier scheme, build workflow):
 # see README.md at the repository root.
 # =====================================================================
-id: https://idhi.co.il/linkml/idhi
+id: https://<idhi placeholder>/linkml/idhi
 name: idhi
 title: Israeli Digital Humanities Index Schema
 description: >-
@@ -15,27 +15,20 @@ version: 0.1.0
 
 # ------------------------- PREFIXES ----------------------------------
 prefixes:
-  idhi: https://idhi.co.il/linkml/ # this schema's own namespace
-  linkml: https://w3id.org/linkml/
-  xsd: http://www.w3.org/2001/XMLSchema#
-  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-  rdfs: http://www.w3.org/2000/01/rdf-schema#
-  dcterms: http://purl.org/dc/terms/
-  foaf: http://xmlns.com/foaf/0.1/
-  bibo: http://purl.org/ontology/bibo/
-  schema: http://schema.org/
-  skos: http://www.w3.org/2004/02/skos/core#
-  dcat: http://www.w3.org/ns/dcat#
-  edm: http://www.europeana.eu/schemas/edm/
-  cerif: https://w3id.org/cerif/model#
-  frapo: http://purl.org/cerif/frapo/
-  tadirah: https://vocabs.dariah.eu/tadirah/
-  coar: http://purl.org/coar/resource_type/
-  spdx: https://spdx.org/licenses/
-  ORCID: https://orcid.org/
-  ROR: https://ror.org/
-  DOI: https://doi.org/
-  wgs84: http://www.w3.org/2003/01/geo/wgs84_pos#
+  idhi: https://<idhi placeholder>/linkml/ # Israeli Digital Humanities Index (this schema's own namespace)
+  linkml: https://w3id.org/linkml/ # Linked Data Modeling Language
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# # Resource Description Framework
+  dcterms: http://purl.org/dc/terms/ # Dublin Core Metadata Terms
+  foaf: http://xmlns.com/foaf/0.1/ # Friend of a Friend
+  bibo: http://purl.org/ontology/bibo/ # Bibliographic Ontology
+  schema: http://schema.org/ # Schema.org
+  skos: http://www.w3.org/2004/02/skos/core# # Simple Knowledge Organization System
+  dcat: http://www.w3.org/ns/dcat# # Data Catalog Vocabulary
+  cerif: https://w3id.org/cerif/model# # Common European Research Information Format
+  frapo: http://purl.org/cerif/frapo/ # Funding, Research Administration and Projects Ontology
+  tadirah: https://vocabs.dariah.eu/tadirah/ # Taxonomy of Digital Research Activities in the Humanities
+  coar: http://purl.org/coar/resource_type/ # Confederation of Open Access Repositories
+  spdx: https://spdx.org/licenses/ # Software Package Data Exchange
 
 default_prefix: idhi
 default_range: string
@@ -51,6 +44,7 @@ settings:
   shortid: "[0-9a-z]{4,12}"
   orcid: "\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]"
   ror: "0[a-hj-km-np-tv-z0-9]{6}[0-9]{2}"
+  doi: ".+"
 
 # ------------------------- SUBSETS ----------------------------------
 subsets:
@@ -61,27 +55,26 @@ subsets:
 # ========================= CLASSES ===================================
 classes:
   # ---- Abstract superclass -----------------------------------------
-  NamedThing:
+  Entity:
     abstract: true
     description: >-
       Root class for any identifiable IDHI entity.
-      Provides the IDHI URN id, multilingual name/description, homepage and alternate identifiers. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.
+      Provides the IDHI URN id, multilingual description, homepage, same_as links and tags.
+      Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.
     class_uri: schema:Thing
     slots:
       - type
       - id
-      - name
       - description
       - homepage
-      - identifiers
       - same_as
+      - tags
 
   # ---- Multilingual text (rdf:langString convention) ---------------
   LangString:
     description: >-
       A single language-tagged text value.
       Instances are combined in a multivalued slot to give English/Hebrew/Arabic variants of one field.
-      Follows the LinkML community rdf:langString convention.
       Use one LangString per language; do not repeat a language within the same field.
     class_uri: rdf:langString
     slots:
@@ -91,16 +84,15 @@ classes:
   # ---- Agents ------------------------------------------------------
   Agent:
     abstract: true
-    is_a: NamedThing
+    is_a: Entity
     description: >-
-      A person or organization (a FOAF Agent). Abstract; use Person or Organization.
+      A person or an organization.
     class_uri: foaf:Agent
 
   Person:
     is_a: Agent
     description: >-
       A human agent in the DH index: researcher, developer, librarian, student, etc.
-      Create a Person record once per human being and reference it everywhere by id; do not duplicate people per project.
     class_uri: foaf:Person
     in_subset: [ toplevel_entity ]
     slot_usage:
@@ -123,9 +115,8 @@ classes:
     is_a: Agent
     description: >-
       An organization of any kind.
-      Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type, which is the canonical machine-readable discriminator.
-      Use the subclasses below only as optional sugar when a single, unambiguous type applies.
-      All organizations — including instances of the subclasses — use the idhi:organization:<shortid> URN form.
+      Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type.
+      All organizations use the idhi:organization:<shortid> URN form.
     class_uri: foaf:Organization
     in_subset: [ toplevel_entity ]
     slot_usage:
@@ -136,44 +127,19 @@ classes:
           syntax: "^idhi:organization:{shortid}$"
           interpolated: true
     slots:
+      - name
       - ror
       - organization_type
       - parent_organization
       - location
+      - address
       - additional_urls
       - contact_email
 
-  # Optional convenience subclasses.
-  # organization_type remains the canonical machine-readable discriminator, and the id class token stays "organization" (inherited from Organization's slot_usage).
-  AcademicInstitution:
-    is_a: Organization
-    description: A university or college.
-    class_uri: schema:CollegeOrUniversity
-  GLAMInstitution:
-    is_a: Organization
-    description: A gallery, library, archive or museum.
-    class_uri: schema:Organization
-  ResearchCenter:
-    is_a: Organization
-    description: A research center or institute.
-    class_uri: schema:ResearchOrganization
-  Funder:
-    is_a: Organization
-    description: A funding body (foundation, council, government program).
-    class_uri: schema:FundingScheme
-  Company:
-    is_a: Organization
-    description: A commercial company.
-    class_uri: schema:Corporation
-  NonProfit:
-    is_a: Organization
-    description: A non-profit / NGO.
-    class_uri: schema:NGO
-
   Facility:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
-      A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations (CERIF Facility).
+      A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations.
       Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization.
     class_uri: cerif:Facility
     in_subset: [ toplevel_entity ]
@@ -185,17 +151,19 @@ classes:
           syntax: "^idhi:facility:{shortid}$"
           interpolated: true
     slots:
+      - name
       - facility_affiliations # reified Facility-Organization links
       - location
+      - address
       - services_offered
       - tools_provided
       - additional_urls
       - contact_email
 
   Project:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
-      A Digital Humanities research project, classified by TaDiRAH research activities and by research discipline.
+      A Digital Humanities research project, classified by its research activities and disciplines.
       This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it.
     class_uri: foaf:Project
     in_subset: [ toplevel_entity ]
@@ -207,9 +175,11 @@ classes:
           syntax: "^idhi:project:{shortid}$"
           interpolated: true
     slots:
+      - name
       - digital_humanities_activities
       - research_disciplines
-      - project_period # runtime (TimePeriod)
+      - start_date
+      - end_date
       - studied_periods # historical period(s) studied
       - studied_places
       - project_participations
@@ -217,14 +187,14 @@ classes:
       - outputs_tools
       - outputs_datasets
       - outputs_publications
-      - funding_amount
+      - funding
       - additional_urls
       - contact_email
 
   Tool:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
-      A reusable software tool, typically produced by a project (schema:SoftwareApplication).
+      A reusable software tool, typically produced by a project.
       Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.
     class_uri: schema:SoftwareApplication
     in_subset: [ toplevel_entity ]
@@ -236,6 +206,7 @@ classes:
           syntax: "^idhi:tool:{shortid}$"
           interpolated: true
     slots:
+      - name
       - tool_type
       - code_repository
       - programming_language
@@ -246,7 +217,7 @@ classes:
       - digital_humanities_activities
 
   Service:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
       A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support).
       Use Service when the offering requires the provider to act; use Tool for self-service software.
@@ -260,6 +231,7 @@ classes:
           syntax: "^idhi:service:{shortid}$"
           interpolated: true
     slots:
+      - name
       - service_type
       - provider
       - documentation_url
@@ -268,10 +240,10 @@ classes:
       - digital_humanities_activities
 
   Publication:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
-      An academic publication (BIBO document): journal article, book, chapter, conference paper, thesis, report, etc.
-      The precise kind is given by publication_type (COAR resource type).
+      An academic publication: journal article, book, chapter, conference paper, thesis, report, etc.
+      The precise kind is given by publication_type.
     class_uri: bibo:Document
     in_subset: [ toplevel_entity ]
     slot_usage:
@@ -282,6 +254,7 @@ classes:
           syntax: "^idhi:publication:{shortid}$"
           interpolated: true
     slots:
+      - name
       - doi
       - publication_type
       - authorships
@@ -292,7 +265,7 @@ classes:
       - presented_at
 
   Event:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
       A scholarly event: conference, workshop, seminar, lecture, hackathon or exhibition.
       Use Event for time-bounded gatherings; recurring series should be modeled as one Event per occurrence.
@@ -306,83 +279,29 @@ classes:
           syntax: "^idhi:event:{shortid}$"
           interpolated: true
     slots:
+      - name
       - event_type
       - start_date
       - end_date
       - location
+      - address
       - additional_urls
       - contact_email
 
-  Location:
-    is_a: NamedThing
-    description: >-
-      A place, optionally with geographic coordinates.
-      Used both for where things ARE (org/facility/event location) and for places STUDIED by a project (studied_places).
-    class_uri: schema:Place
-    in_subset: [ toplevel_entity ]
-    slot_usage:
-      type:
-        equals_string: "idhi:Location"
-      id:
-        structured_pattern:
-          syntax: "^idhi:location:{shortid}$"
-          interpolated: true
-    slots:
-      - latitude
-      - longitude
-      - address
-
-  TimePeriod:
-    is_a: NamedThing
-    description: >-
-      A time span (EDM TimeSpan).
-      Deliberately reused for two purposes: a project's runtime (project_period) and historical periods studied by a project (studied_periods), e.g. "Second Temple period".
-      For historical periods, prefer linking same_as to a PeriodO or Wikidata URI.
-    class_uri: edm:TimeSpan
-    in_subset: [ toplevel_entity ]
-    slot_usage:
-      type:
-        equals_string: "idhi:TimePeriod"
-      id:
-        structured_pattern:
-          syntax: "^idhi:time_period:{shortid}$"
-          interpolated: true
-    slots:
-      - begin_date
-      - end_date
-
-  Catalog:
-    is_a: NamedThing
-    description: >-
-      A digital archive / catalog of resources (DCAT Catalog), i.e. a curated collection of datasets and records with its own identity, such as a digital archive portal.
-    class_uri: dcat:Catalog
-    in_subset: [ toplevel_entity ]
-    slot_usage:
-      type:
-        equals_string: "idhi:Catalog"
-      id:
-        structured_pattern:
-          syntax: "^idhi:catalog:{shortid}$"
-          interpolated: true
-    slots:
-      - datasets
-      - publisher
-      - themes
-
   Dataset:
-    is_a: NamedThing
+    is_a: Entity
     description: >-
-      A dataset produced or curated by a project (DCAT Dataset): corpora, databases, image collections, annotation sets, etc.
+      A dataset, digital archive or catalog produced or curated by a project: corpora, databases, image collections, annotation sets and collections of metadata records.
+      Use Dataset for both research data and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.
     class_uri: dcat:Dataset
-    in_subset: [ toplevel_entity ]
     slot_usage:
-      type:
-        equals_string: "idhi:Dataset"
       id:
         structured_pattern:
           syntax: "^idhi:dataset:{shortid}$"
           interpolated: true
     slots:
+      - name
+      - datasets
       - publisher
       - license
       - date_issued
@@ -394,7 +313,7 @@ classes:
   Relationship:
     abstract: true
     description: >-
-      Abstract base for reified, role-bearing relationships, following the CERIF link-entity and schema.org Role patterns.
+      Abstract base for reified, role-bearing relationships.
       A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval.
       Never instantiated directly.
     class_uri: schema:Role
@@ -415,7 +334,7 @@ classes:
   Affiliation:
     is_a: Relationship
     description: >-
-      A person's employment/membership at an organization, with a position and dates (CERIF cfPerson_OrganisationUnit).
+      A person's employment or membership at an organization, with a position and dates.
       Use for the person's institutional home(s), independent of any project.
     class_uri: cerif:Person_OrganisationUnit
     slots:
@@ -426,13 +345,22 @@ classes:
   OrganizationProjectRole:
     is_a: Relationship
     description: >-
-      An organization's engagement in a project (CERIF cfProject_OrganisationUnit).
+      An organization's engagement in a project.
       Use one instance per role: an organization that both hosts and funds a project gets two instances.
     class_uri: cerif:Project_OrganisationUnit
     slots:
       - organization # -> Organization
       - project # -> Project
       - org_project_role
+
+  Funding:
+    description: >-
+      A funding award for a project, identifying the organization that provides it and its amount when public.
+      It is inlined within the funded Project and has no independent ID.
+    class_uri: schema:MonetaryGrant
+    slots:
+      - funding_organization
+      - funding_amount
 
   Authorship:
     is_a: Relationship
@@ -503,23 +431,8 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: Event
-      locations:
-        description: All Location records in the index.
-        multivalued: true
-        inlined_as_list: true
-        range: Location
-      time_periods:
-        description: All TimePeriod records in the index.
-        multivalued: true
-        inlined_as_list: true
-        range: TimePeriod
-      catalogs:
-        description: All Catalog records in the index.
-        multivalued: true
-        inlined_as_list: true
-        range: Catalog
       datasets:
-        description: All Dataset records in the index.
+        description: All Dataset records in the index, including digital archives and catalogs.
         multivalued: true
         inlined_as_list: true
         range: Dataset
@@ -529,8 +442,8 @@ slots:
   # --- identity / shared ---
   type:
     required: true
-    range: uriorcurie
-    description: Discriminator carrying the class URI; used for polymorphic serialization and deserialization.
+    range: curie
+    description: Discriminator identifying the record's class; used for polymorphic serialization and deserialization.
     slot_uri: rdf:type
   id:
     identifier: true
@@ -540,17 +453,18 @@ slots:
         idhi:<class name>:<random short alphanumeric id>
       e.g. idhi:person:x7k2m9 or idhi:project:a83bq1.
       Minted by IDHI at record creation and never reused or changed.
-      The class token is the lowercase snake_case class name (Organization subclasses use "organization"); each concrete class enforces its own token via slot_usage.
+      The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage.
       External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.
     slot_uri: dcterms:identifier
     pattern: "^idhi:[a-z_]+:[0-9a-z]{4,12}$"
   name:
     range: LangString
     multivalued: true
+    minimum_cardinality: 1
     inlined_as_list: true
     description: >-
       Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString.
-      Preferably a sortable name (e.g. "Smith, John" rather than "John Smith") for people and organizations; for projects, tools and services, use the name the team itself uses.
+      Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.
     slot_uri: skos:prefLabel
   description:
     range: LangString
@@ -563,12 +477,6 @@ slots:
     range: uri
     description: Public landing page of the entity, if one exists.
     slot_uri: foaf:homepage
-  identifiers:
-    range: uriorcurie
-    multivalued: true
-    description: >-
-      Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    slot_uri: dcterms:identifier
   same_as:
     range: uri
     multivalued: true
@@ -576,11 +484,19 @@ slots:
       URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...).
       Use for linked-data alignment, not for the entity's own pages (use homepage).
     slot_uri: schema:sameAs
+  tags:
+    range: string
+    multivalued: true
+    description: >-
+      Free-text tags for discovery, filtering and grouping; usable on any top-level entity.
+      Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.
+    slot_uri: dcat:keyword
   additional_urls:
     range: uri
     multivalued: true
     description: >-
-      Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.
+      Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...).
+      For records describing the same entity in other systems use same_as instead.
     slot_uri: foaf:page
   contact_email:
     description: >-
@@ -596,27 +512,27 @@ slots:
   value:
     range: string
     required: true
-    description: The text itself, in the language given by 'language'.
+    description: A localized text, in the language given by 'language'.
     slot_uri: rdf:value
 
   # --- Person ---
   given_name:
     required: false
-    description: Given (first) name, in the person's preferred romanization. Explicitly optional — the authoritative multilingual display name lives in 'name'.
+    description: Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form.
     slot_uri: foaf:givenName
   family_name:
     required: false
-    description: Family (last) name, in the person's preferred romanization. Explicitly optional — the authoritative multilingual display name lives in 'name'.
+    description: Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.
     slot_uri: foaf:familyName
   orcid:
-    range: uriorcurie
+    range: uri
     slot_uri: schema:identifier
     description: >-
-      The person's ORCID iD, as CURIE (ORCID:0000-0002-1825-0097) or full URL.
-      A supplementary external identifier — the record's primary id is always the IDHI URN.
+      The person's persistent researcher identifier.
+      It supplements the IDHI record id.
       Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.
     structured_pattern:
-      syntax: "ORCID:{orcid}"
+      syntax: "https://orcid.org/{orcid}"
       interpolated: true
   emails:
     multivalued: true
@@ -645,16 +561,19 @@ slots:
 
   # --- Organization ---
   ror:
-    range: uriorcurie
+    range: uri
     slot_uri: schema:identifier
     description: >-
-      The organization's ROR ID, as CURIE (ROR:04aj4c181) or full URL.
-      A supplementary external identifier — the record's primary id is always the IDHI URN.
+      The organization's persistent registry identifier.
+      It supplements the IDHI record id.
       Record it whenever the organization is registered in ROR — most universities and research institutes are.
+    structured_pattern:
+      syntax: "https://ror.org/{ror}"
+      interpolated: true
   organization_type:
     range: OrganizationTypeEnum
     description: >-
-      The kind of organization. This enum value — not the optional subclasses — is the canonical discriminator; always set it.
+      The kind of organization. Always set it.
     slot_uri: dcterms:type
   parent_organization:
     range: Organization
@@ -662,8 +581,11 @@ slots:
       The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.
     slot_uri: schema:parentOrganization
   location:
-    range: Location
-    description: Where the organization, facility or event is physically situated.
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.
     slot_uri: schema:location
 
   # --- Facility ---
@@ -691,8 +613,8 @@ slots:
     range: DigitalHumanitiesActivityEnum
     multivalued: true
     description: >-
-      Digital-humanities research activities practiced in this project, tool or service, as TaDiRAH 2.0 concepts.
-      Prefer the most specific applicable concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple values are expected.
+      Digital-humanities research activities practiced in this project, tool or service.
+      Prefer the most specific applicable activity; multiple values are expected.
       This is the primary DH-facet for discovery.
     slot_uri: dcterms:subject
   research_disciplines:
@@ -701,24 +623,21 @@ slots:
     inlined_as_list: true
     description: >-
       Humanities discipline(s) of the project (history, linguistics, archaeology...).
-      Free multilingual text for now; a controlled SKOS scheme is a planned upgrade.
+      Free multilingual text for now; a controlled vocabulary is a planned upgrade.
     slot_uri: dcterms:subject
-  project_period:
-    range: TimePeriod
-    description: >-
-      The project's OWN runtime (when the research is/was conducted). Do not confuse with studied_periods.
-    slot_uri: dcterms:temporal
   studied_periods:
-    range: TimePeriod
+    range: LangString
     multivalued: true
+    inlined_as_list: true
     description: >-
-      Historical period(s) the project studies (e.g. Ottoman period), as TimePeriod records — distinct from project_period.
+      Historical period(s) the project studies (e.g. Ottoman period), as free multilingual labels — distinct from the project's own start_date/end_date.
     slot_uri: dcterms:temporal
   studied_places:
-    range: Location
+    range: LangString
     multivalued: true
+    inlined_as_list: true
     description: >-
-      Geographic focus of the research (places studied), as Location records — distinct from where the project team sits.
+      Geographic focus of the research (places studied), as free multilingual labels — distinct from where the project team sits.
     slot_uri: dcterms:spatial
   organization_roles:
     range: OrganizationProjectRole
@@ -739,10 +658,20 @@ slots:
     range: Publication
     multivalued: true
     description: Publications resulting from this project (by id).
+  funding:
+    range: Funding
+    multivalued: true
+    inlined_as_list: true
+    description: Funding awards received by the project. Use one entry for each funding organization and award.
+  funding_organization:
+    range: Organization
+    required: true
+    description: The organization that provides this funding award (by IDHI URN).
+    slot_uri: schema:funder
   funding_amount:
     range: float
     description: >-
-      Total awarded funding, if public, in ILS unless noted in the project description. Omit rather than guess.
+      Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.
     slot_uri: frapo:hasMonetaryValue
 
   # --- Tool ---
@@ -782,15 +711,17 @@ slots:
 
   # --- Publication ---
   doi:
-    range: uriorcurie
+    range: uri
     slot_uri: bibo:doi
     description: >-
-      The publication's DOI, as CURIE (DOI:10.1234/abcd) or full URL.
-      A supplementary external identifier — the record's primary id is always the IDHI URN. Record whenever one exists; it is the preferred dedup key.
+      The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.
+    structured_pattern:
+      syntax: "https://doi.org/{doi}"
+      interpolated: true
   publication_type:
     range: PublicationTypeEnum
     description: >-
-      The kind of publication, as a COAR resource-type concept (journal article, book part, conference paper, thesis...). Pick the most specific applicable concept.
+      The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value.
     slot_uri: dcterms:type
   date_issued:
     range: date
@@ -823,23 +754,14 @@ slots:
   start_date:
     range: date
     description: >-
-      Start of the event or of a relationship's validity (e.g. when a person joined a project or organization).
+      Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).
     slot_uri: schema:startDate
   end_date:
     range: date
     description: >-
-      End of the event, relationship or time period. Omit for ongoing relationships and open-ended periods.
+      End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.
     slot_uri: schema:endDate
 
-  # --- Location ---
-  latitude:
-    range: float
-    description: WGS84 latitude in decimal degrees.
-    slot_uri: wgs84:lat
-  longitude:
-    range: float
-    description: WGS84 longitude in decimal degrees.
-    slot_uri: wgs84:long
   address:
     range: LangString
     multivalued: true
@@ -847,29 +769,21 @@ slots:
     description: Postal address, multilingual.
     slot_uri: schema:address
 
-  # --- TimePeriod ---
-  begin_date:
-    range: string
-    description: >-
-      Start of the time span. A string (not date) on purpose: historical periods need values like "-0100" or "circa 1500". Prefer ISO 8601 / EDTF where possible.
-    slot_uri: edm:begin
-  # end_date is reused from the Event group above
-
-  # --- Catalog / Dataset ---
+  # --- Dataset ---
   datasets:
     range: Dataset
     multivalued: true
-    description: The datasets this catalog aggregates (by id).
+    description: Datasets aggregated by a Dataset that functions as a catalog (by id).
     slot_uri: dcat:dataset
   publisher:
     range: Organization
-    description: The organization publishing the catalog, dataset or publication (by IDHI URN).
+    description: The organization publishing the dataset or publication (by IDHI URN).
     slot_uri: dcterms:publisher
   themes:
     range: LangString
     multivalued: true
     inlined_as_list: true
-    description: Thematic keywords for the catalog/dataset, multilingual.
+    description: Thematic keywords for the dataset, multilingual.
     slot_uri: dcat:theme
   distribution_url:
     range: uri
@@ -949,7 +863,7 @@ enums:
   # ------------------------ DYNAMIC ENUMS ---------------------------
   DigitalHumanitiesActivityEnum:
     description: >-
-      Digital-humanities research activities, as any TaDiRAH 2.0 research-activity concept: the 7 top concepts (Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing) or any narrower concept reachable beneath them via skos:narrower (e.g. tadirah:topicModeling).
+      Digital-humanities research activities: Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing, and their more specific subactivities.
     annotations:
       source_url: https://vocabs.dariah.eu/rest/v1/tadirah/data?format=text/turtle
       source_format: turtle
@@ -969,7 +883,7 @@ enums:
 
   PublicationTypeEnum:
     description: >-
-      The kind of publication, as any concept from the COAR Resource Types vocabulary (the de-facto repository standard, required by OpenAIRE) — e.g. coar:c_6501 (journal article), coar:c_3248 (book part), coar:c_5794 (conference paper), coar:c_46ec (thesis).
+      The kind of publication, including journal article, book part, conference paper and thesis.
     annotations:
       source_url: https://vocabularies.coar-repositories.org/resource_types/resource_types.nt
       source_format: n-triples
@@ -1110,8 +1024,8 @@ enums:
 
   LicenseEnum:
     description: >-
-      Common licenses for tools and datasets. `meaning:` records the canonical URI (SPDX for software licenses, creativecommons.org for CC).
-      Extend as needed; keep meanings canonical.
+      Common licenses for tools and datasets.
+      Extend as needed with canonical meanings.
     permissible_values:
       CC_BY_4_0:
         description: Creative Commons Attribution 4.0.

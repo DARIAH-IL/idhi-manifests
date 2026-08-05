@@ -6,7 +6,7 @@ search:
 # Class: OrganizationProjectRole 
 
 
-_An organization's engagement in a project (CERIF cfProject_OrganisationUnit). Use one instance per role: an organization that both hosts and funds a project gets two instances._
+_An organization's engagement in a project. Use one instance per role: an organization that both hosts and funds a project gets two instances._
 
 
 
@@ -90,8 +90,8 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 | [organization](../slots/organization.md) | 1 <br/> [Organization](../classes/Organization.md) | The organization side of the relationship (by IDHI URN) | direct |
 | [project](../slots/project.md) | 1 <br/> [Project](../classes/Project.md) | The project side of the relationship (by IDHI URN) | direct |
 | [org_project_role](../slots/org_project_role.md) | 0..1 <br/> [OrgProjectRoleEnum](../enums/OrgProjectRoleEnum.md) | The organization's function in the project: COORDINATOR leads the consortium,... | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event or of a relationship's validity (e | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, relationship or time period | [Relationship](../classes/Relationship.md) |
+| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
 
 
 
@@ -149,9 +149,8 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 <details>
 ```yaml
 name: OrganizationProjectRole
-description: 'An organization''s engagement in a project (CERIF cfProject_OrganisationUnit).
-  Use one instance per role: an organization that both hosts and funds a project gets
-  two instances.'
+description: 'An organization''s engagement in a project. Use one instance per role:
+  an organization that both hosts and funds a project gets two instances.'
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Relationship
 slots:
@@ -168,9 +167,8 @@ class_uri: cerif:Project_OrganisationUnit
 <details>
 ```yaml
 name: OrganizationProjectRole
-description: 'An organization''s engagement in a project (CERIF cfProject_OrganisationUnit).
-  Use one instance per role: an organization that both hosts and funds a project gets
-  two instances.'
+description: 'An organization''s engagement in a project. Use one instance per role:
+  an organization that both hosts and funds a project gets two instances.'
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Relationship
 attributes:
@@ -211,27 +209,28 @@ attributes:
     range: OrgProjectRoleEnum
   start_date:
     name: start_date
-    description: Start of the event or of a relationship's validity (e.g. when a person
-      joined a project or organization).
+    description: Start of the event, of the project's runtime, or of a relationship's
+      validity (e.g. when a person joined a project or organization).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: OrganizationProjectRole
     domain_of:
+    - Project
     - Event
     - Relationship
     range: date
   end_date:
     name: end_date
-    description: End of the event, relationship or time period. Omit for ongoing relationships
-      and open-ended periods.
+    description: End of the event, project runtime or relationship. Omit for ongoing
+      relationships and open-ended projects.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: OrganizationProjectRole
     domain_of:
+    - Project
     - Event
-    - TimePeriod
     - Relationship
     range: date
 class_uri: cerif:Project_OrganisationUnit

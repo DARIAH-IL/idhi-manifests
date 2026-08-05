@@ -25,8 +25,8 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project (schema:SoftwareApp... |  no  |
-| [Dataset](../classes/Dataset.md) | A dataset produced or curated by a project (DCAT Dataset): corpora, databases... |  no  |
+| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
 
 
 

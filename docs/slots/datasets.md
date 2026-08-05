@@ -6,7 +6,7 @@ search:
 # Slot: datasets 
 
 
-_The datasets this catalog aggregates (by id)._
+_Datasets aggregated by a Dataset that functions as a catalog (by id)._
 
 
 
@@ -25,7 +25,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Catalog](../classes/Catalog.md) | A digital archive / catalog of resources (DCAT Catalog), i |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
 | [IndexContainer](../classes/IndexContainer.md) | Top-level holder for all IDHI records |  no  |
 
 
@@ -40,7 +40,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 | Property | Value |
 | --- | --- |
 | Range | [Dataset](../classes/Dataset.md) |
-| Domain Of | [Catalog](../classes/Catalog.md), [IndexContainer](../classes/IndexContainer.md) |
+| Domain Of | [Dataset](../classes/Dataset.md), [IndexContainer](../classes/IndexContainer.md) |
 | Slot URI | [dcat:dataset](http://www.w3.org/ns/dcat#dataset) |
 
 ### Cardinality and Requirements
@@ -87,12 +87,12 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 <details>
 ```yaml
 name: datasets
-description: The datasets this catalog aggregates (by id).
+description: Datasets aggregated by a Dataset that functions as a catalog (by id).
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcat:dataset
 domain_of:
-- Catalog
+- Dataset
 - IndexContainer
 range: Dataset
 multivalued: true

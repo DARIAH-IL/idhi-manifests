@@ -6,7 +6,7 @@ search:
 # Slot: studied_periods 
 
 
-_Historical period(s) the project studies (e.g. Ottoman period), as TimePeriod records — distinct from project_period._
+_Historical period(s) the project studies (e.g. Ottoman period), as free multilingual labels — distinct from the project's own start_date/end_date._
 
 
 
@@ -25,7 +25,7 @@ URI: [dcterms:temporal](http://purl.org/dc/terms/temporal)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 
@@ -38,7 +38,7 @@ URI: [dcterms:temporal](http://purl.org/dc/terms/temporal)
 
 | Property | Value |
 | --- | --- |
-| Range | [TimePeriod](../classes/TimePeriod.md) |
+| Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Project](../classes/Project.md) |
 | Slot URI | [dcterms:temporal](http://purl.org/dc/terms/temporal) |
 
@@ -86,15 +86,17 @@ URI: [dcterms:temporal](http://purl.org/dc/terms/temporal)
 <details>
 ```yaml
 name: studied_periods
-description: Historical period(s) the project studies (e.g. Ottoman period), as TimePeriod
-  records — distinct from project_period.
+description: Historical period(s) the project studies (e.g. Ottoman period), as free
+  multilingual labels — distinct from the project's own start_date/end_date.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcterms:temporal
 domain_of:
 - Project
-range: TimePeriod
+range: LangString
 multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details></div>

@@ -6,7 +6,7 @@ search:
 # Class: Relationship 
 
 
-_Abstract base for reified, role-bearing relationships, following the CERIF link-entity and schema.org Role patterns. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly._
+_Abstract base for reified, role-bearing relationships. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly._
 
 
 
@@ -68,8 +68,8 @@ URI: [schema:Role](http://schema.org/Role)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event or of a relationship's validity (e | direct |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, relationship or time period | direct |
+| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | direct |
+| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | direct |
 
 
 
@@ -120,10 +120,9 @@ URI: [schema:Role](http://schema.org/Role)
 <details>
 ```yaml
 name: Relationship
-description: 'Abstract base for reified, role-bearing relationships, following the
-  CERIF link-entity and schema.org Role patterns. A Relationship is used instead of
-  a direct edge whenever the connection between two entities needs its own metadata:
-  a role and/or a validity interval. Never instantiated directly.'
+description: 'Abstract base for reified, role-bearing relationships. A Relationship
+  is used instead of a direct edge whenever the connection between two entities needs
+  its own metadata: a role and/or a validity interval. Never instantiated directly.'
 from_schema: https://idhi.co.il/linkml/idhi
 abstract: true
 slots:
@@ -139,36 +138,36 @@ class_uri: schema:Role
 <details>
 ```yaml
 name: Relationship
-description: 'Abstract base for reified, role-bearing relationships, following the
-  CERIF link-entity and schema.org Role patterns. A Relationship is used instead of
-  a direct edge whenever the connection between two entities needs its own metadata:
-  a role and/or a validity interval. Never instantiated directly.'
+description: 'Abstract base for reified, role-bearing relationships. A Relationship
+  is used instead of a direct edge whenever the connection between two entities needs
+  its own metadata: a role and/or a validity interval. Never instantiated directly.'
 from_schema: https://idhi.co.il/linkml/idhi
 abstract: true
 attributes:
   start_date:
     name: start_date
-    description: Start of the event or of a relationship's validity (e.g. when a person
-      joined a project or organization).
+    description: Start of the event, of the project's runtime, or of a relationship's
+      validity (e.g. when a person joined a project or organization).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Relationship
     domain_of:
+    - Project
     - Event
     - Relationship
     range: date
   end_date:
     name: end_date
-    description: End of the event, relationship or time period. Omit for ongoing relationships
-      and open-ended periods.
+    description: End of the event, project runtime or relationship. Omit for ongoing
+      relationships and open-ended projects.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Relationship
     domain_of:
+    - Project
     - Event
-    - TimePeriod
     - Relationship
     range: date
 class_uri: schema:Role

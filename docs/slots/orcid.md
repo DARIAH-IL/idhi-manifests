@@ -6,7 +6,7 @@ search:
 # Slot: orcid 
 
 
-_The person's ORCID iD, as CURIE (ORCID:0000-0002-1825-0097) or full URL. A supplementary external identifier — the record's primary id is always the IDHI URN. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record._
+_The person's persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record._
 
 
 
@@ -38,7 +38,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](../types/Uriorcurie.md) |
+| Range | [Uri](../types/Uri.md) |
 | Domain Of | [Person](../classes/Person.md) |
 | Slot URI | [schema:identifier](http://schema.org/identifier) |
 
@@ -50,7 +50,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 <summary>Additional Constraints</summary>
 **Structured Pattern:**
 
-- **Syntax:** `ORCID:{orcid}`
+- **Syntax:** `https://orcid.org/{orcid}`
 - **Interpolated:** True
 
 </details>
@@ -94,18 +94,17 @@ URI: [schema:identifier](http://schema.org/identifier)
 <details>
 ```yaml
 name: orcid
-description: The person's ORCID iD, as CURIE (ORCID:0000-0002-1825-0097) or full URL.
-  A supplementary external identifier — the record's primary id is always the IDHI
-  URN. Strongly recommended for every researcher; enables deduplication and linking
-  to the scholarly record.
+description: The person's persistent researcher identifier. It supplements the IDHI
+  record id. Strongly recommended for every researcher; enables deduplication and
+  linking to the scholarly record.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: schema:identifier
 domain_of:
 - Person
-range: uriorcurie
+range: uri
 structured_pattern:
-  syntax: ORCID:{orcid}
+  syntax: https://orcid.org/{orcid}
   interpolated: true
 
 ```

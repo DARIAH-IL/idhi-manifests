@@ -6,7 +6,7 @@ search:
 # Slot: type 
 
 
-_Discriminator carrying the class URI; used for polymorphic serialization and deserialization._
+_Discriminator identifying the record's class; used for polymorphic serialization and deserialization._
 
 
 
@@ -25,26 +25,17 @@ URI: [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [NamedThing](../classes/NamedThing.md) | Root class for any identifiable IDHI entity |  no  |
-| [Agent](../classes/Agent.md) | A person or organization (a FOAF Agent) |  no  |
+| [Entity](../classes/Entity.md) | Root class for any identifiable IDHI entity |  no  |
+| [Agent](../classes/Agent.md) | A person or an organization |  no  |
 | [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |  yes  |
 | [Organization](../classes/Organization.md) | An organization of any kind |  yes  |
-| [AcademicInstitution](../classes/AcademicInstitution.md) | A university or college |  no  |
-| [GLAMInstitution](../classes/GLAMInstitution.md) | A gallery, library, archive or museum |  no  |
-| [ResearchCenter](../classes/ResearchCenter.md) | A research center or institute |  no  |
-| [Funder](../classes/Funder.md) | A funding body (foundation, council, government program) |  no  |
-| [Company](../classes/Company.md) | A commercial company |  no  |
-| [NonProfit](../classes/NonProfit.md) | A non-profit / NGO |  no  |
 | [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  yes  |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  yes  |
-| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project (schema:SoftwareApp... |  yes  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  yes  |
+| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  yes  |
 | [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  yes  |
-| [Publication](../classes/Publication.md) | An academic publication (BIBO document): journal article, book, chapter, conf... |  yes  |
+| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  yes  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  yes  |
-| [Location](../classes/Location.md) | A place, optionally with geographic coordinates |  yes  |
-| [TimePeriod](../classes/TimePeriod.md) | A time span (EDM TimeSpan) |  yes  |
-| [Catalog](../classes/Catalog.md) | A digital archive / catalog of resources (DCAT Catalog), i |  yes  |
-| [Dataset](../classes/Dataset.md) | A dataset produced or curated by a project (DCAT Dataset): corpora, databases... |  yes  |
+| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
 
 
 
@@ -57,8 +48,8 @@ URI: [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](../types/Uriorcurie.md) |
-| Domain Of | [NamedThing](../classes/NamedThing.md) |
+| Range | [Curie](../types/Curie.md) |
+| Domain Of | [Entity](../classes/Entity.md) |
 | Slot URI | [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type) |
 
 ### Cardinality and Requirements
@@ -105,14 +96,14 @@ URI: [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)
 <details>
 ```yaml
 name: type
-description: Discriminator carrying the class URI; used for polymorphic serialization
+description: Discriminator identifying the record's class; used for polymorphic serialization
   and deserialization.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: rdf:type
 domain_of:
-- NamedThing
-range: uriorcurie
+- Entity
+range: curie
 required: true
 
 ```

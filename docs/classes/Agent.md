@@ -6,7 +6,7 @@ search:
 # Class: Agent 
 
 
-_A person or organization (a FOAF Agent). Abstract; use Person or Organization._
+_A person or an organization._
 
 
 
@@ -26,8 +26,8 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
  classDiagram
     class Agent
     click Agent href "../../classes/Agent/"
-      NamedThing <|-- Agent
-        click NamedThing href "../../classes/NamedThing/"
+      Entity <|-- Agent
+        click Entity href "../../classes/Entity/"
       
 
       Agent <|-- Person
@@ -51,20 +51,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
         
       Agent : id
         
-      Agent : identifiers
-        
-      Agent : name
-        
-          
-    
-        
-        
-        Agent --> "*" LangString : name
-        click LangString href "../../classes/LangString/"
-    
-
-        
       Agent : same_as
+        
+      Agent : tags
         
       Agent : type
         
@@ -76,7 +65,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 
 ## Inheritance
-* [NamedThing](../classes/NamedThing.md)
+* [Entity](../classes/Entity.md)
     * **Agent**
         * [Person](../classes/Person.md)
         * [Organization](../classes/Organization.md)
@@ -93,13 +82,12 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
-| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
-| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
-| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
-| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | [Entity](../classes/Entity.md) |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [Entity](../classes/Entity.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [Entity](../classes/Entity.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [Entity](../classes/Entity.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [Entity](../classes/Entity.md) |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | [Entity](../classes/Entity.md) |
 
 
 
@@ -150,9 +138,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 <details>
 ```yaml
 name: Agent
-description: A person or organization (a FOAF Agent). Abstract; use Person or Organization.
+description: A person or an organization.
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 abstract: true
 class_uri: foaf:Agent
 
@@ -164,58 +152,41 @@ class_uri: foaf:Agent
 <details>
 ```yaml
 name: Agent
-description: A person or organization (a FOAF Agent). Abstract; use Person or Organization.
+description: A person or an organization.
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 abstract: true
 attributes:
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Agent
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
     owner: Agent
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: Agent
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -225,7 +196,7 @@ attributes:
     slot_uri: dcterms:description
     owner: Agent
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -238,20 +209,8 @@ attributes:
     slot_uri: foaf:homepage
     owner: Agent
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: Agent
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -262,8 +221,22 @@ attributes:
     slot_uri: schema:sameAs
     owner: Agent
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Agent
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: foaf:Agent
 

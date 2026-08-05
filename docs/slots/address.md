@@ -25,7 +25,9 @@ URI: [schema:address](http://schema.org/address)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Location](../classes/Location.md) | A place, optionally with geographic coordinates |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
+| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 
 
 
@@ -39,7 +41,7 @@ URI: [schema:address](http://schema.org/address)
 | Property | Value |
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Location](../classes/Location.md) |
+| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Event](../classes/Event.md) |
 | Slot URI | [schema:address](http://schema.org/address) |
 
 ### Cardinality and Requirements
@@ -91,7 +93,9 @@ from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: schema:address
 domain_of:
-- Location
+- Organization
+- Facility
+- Event
 range: LangString
 multivalued: true
 inlined: true

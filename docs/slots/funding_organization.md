@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: funding_amount 
+# Slot: funding_organization 
 
 
-_Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess._
+_The organization that provides this funding award (by IDHI URN)._
 
 
 
@@ -14,7 +14,7 @@ _Amount awarded by the funding organization, if public, in ILS unless noted in t
 
 
 
-URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
+URI: [schema:funder](http://schema.org/funder)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,14 +38,15 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](../types/Float.md) |
+| Range | [Organization](../classes/Organization.md) |
 | Domain Of | [Funding](../classes/Funding.md) |
-| Slot URI | [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue) |
+| Slot URI | [schema:funder](http://schema.org/funder) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
+| Required | Yes |
 
 
 
@@ -74,8 +75,8 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | frapo:hasMonetaryValue |
-| native | idhi:funding_amount |
+| self | schema:funder |
+| native | idhi:funding_organization |
 
 
 
@@ -84,15 +85,15 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 <details>
 ```yaml
-name: funding_amount
-description: Amount awarded by the funding organization, if public, in ILS unless
-  noted in the project description. Omit rather than guess.
+name: funding_organization
+description: The organization that provides this funding award (by IDHI URN).
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
-slot_uri: frapo:hasMonetaryValue
+slot_uri: schema:funder
 domain_of:
 - Funding
-range: float
+range: Organization
+required: true
 
 ```
 </details></div>

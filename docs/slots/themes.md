@@ -6,7 +6,7 @@ search:
 # Slot: themes 
 
 
-_Thematic keywords for the catalog/dataset, multilingual._
+_Thematic keywords for the dataset, multilingual._
 
 
 
@@ -25,8 +25,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Catalog](../classes/Catalog.md) | A digital archive / catalog of resources (DCAT Catalog), i |  no  |
-| [Dataset](../classes/Dataset.md) | A dataset produced or curated by a project (DCAT Dataset): corpora, databases... |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
 
 
 
@@ -40,7 +39,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 | Property | Value |
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Catalog](../classes/Catalog.md), [Dataset](../classes/Dataset.md) |
+| Domain Of | [Dataset](../classes/Dataset.md) |
 | Slot URI | [dcat:theme](http://www.w3.org/ns/dcat#theme) |
 
 ### Cardinality and Requirements
@@ -87,12 +86,11 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 <details>
 ```yaml
 name: themes
-description: Thematic keywords for the catalog/dataset, multilingual.
+description: Thematic keywords for the dataset, multilingual.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcat:theme
 domain_of:
-- Catalog
 - Dataset
 range: LangString
 multivalued: true

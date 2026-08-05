@@ -26,7 +26,7 @@ URI: [idhi:slot/project](https://idhi.co.il/linkml/slot/project)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation in a project |  no  |
-| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project (CERIF cfProject_OrganisationUnit) |  no  |
+| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project |  no  |
 
 
 

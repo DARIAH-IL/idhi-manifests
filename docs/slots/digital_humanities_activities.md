@@ -6,7 +6,7 @@ search:
 # Slot: digital_humanities_activities 
 
 
-_Digital-humanities research activities practiced in this project, tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple values are expected. This is the primary DH-facet for discovery._
+_Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery._
 
 
 
@@ -25,8 +25,8 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
-| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project (schema:SoftwareApp... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
+| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
 | [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
 
 
@@ -89,9 +89,8 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 ```yaml
 name: digital_humanities_activities
 description: Digital-humanities research activities practiced in this project, tool
-  or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable concept
-  (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple values are
-  expected. This is the primary DH-facet for discovery.
+  or service. Prefer the most specific applicable activity; multiple values are expected.
+  This is the primary DH-facet for discovery.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: dcterms:subject

@@ -26,7 +26,7 @@ URI: [idhi:slot/authorships](https://idhi.co.il/linkml/slot/authorships)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |  no  |
-| [Publication](../classes/Publication.md) | An academic publication (BIBO document): journal article, book, chapter, conf... |  no  |
+| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 
 
 

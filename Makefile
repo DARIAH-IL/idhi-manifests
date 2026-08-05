@@ -27,7 +27,7 @@ gen-owl:
 
 gen-docs:
 	rm -rf $(DOCS)/classes $(DOCS)/slots $(DOCS)/enums $(DOCS)/types $(DOCS)/schemas $(DOCS)/index.md
-	uv run gen-doc $(GEN_INPUT) -d $(DOCS) --subfolder-type-separation --example-directory example --hierarchical-class-view --diagram-type mermaid_class_diagram
+	uv run gen-doc $(GEN_INPUT) -d $(DOCS) --subfolder-type-separation --example-directory example --hierarchical-class-view --diagram-type mermaid_class_diagram --template-directory templates
 
 gen-favicon:
 	magick $(DOCS)/logo.png -background white -flatten -gravity center -extent "%[fx:max(w,h)*1.15]x%[fx:max(w,h)*1.15]" -resize 128x128 \( -size 128x128 xc:none -draw "roundrectangle 0,0,127,127,24,24" \) -compose DstIn -composite $(DOCS)/favicon.png

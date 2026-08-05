@@ -25,7 +25,7 @@ URI: [dcterms:isPartOf](http://purl.org/dc/terms/isPartOf)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Publication](../classes/Publication.md) | An academic publication (BIBO document): journal article, book, chapter, conf... |  no  |
+| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 
 
 

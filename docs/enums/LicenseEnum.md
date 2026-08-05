@@ -9,7 +9,7 @@ search:
 
 
 
-_Common licenses for tools and datasets. `meaning:` records the canonical URI (SPDX for software licenses, creativecommons.org for CC). Extend as needed; keep meanings canonical._
+_Common licenses for tools and datasets. Extend as needed with canonical meanings._
 
 
 
@@ -66,9 +66,8 @@ URI: [idhi:enum/LicenseEnum](https://idhi.co.il/linkml/enum/LicenseEnum)
 <details>
 ```yaml
 name: LicenseEnum
-description: Common licenses for tools and datasets. `meaning:` records the canonical
-  URI (SPDX for software licenses, creativecommons.org for CC). Extend as needed;
-  keep meanings canonical.
+description: Common licenses for tools and datasets. Extend as needed with canonical
+  meanings.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 permissible_values:

@@ -25,7 +25,7 @@ URI: [idhi:slot/member](https://idhi.co.il/linkml/slot/member)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Affiliation](../classes/Affiliation.md) | A person's employment/membership at an organization, with a position and date... |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, with a position and d... |  no  |
 
 
 

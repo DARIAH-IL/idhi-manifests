@@ -6,7 +6,7 @@ search:
 # Class: Affiliation 
 
 
-_A person's employment/membership at an organization, with a position and dates (CERIF cfPerson_OrganisationUnit). Use for the person's institutional home(s), independent of any project._
+_A person's employment or membership at an organization, with a position and dates. Use for the person's institutional home(s), independent of any project._
 
 
 
@@ -90,8 +90,8 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 | [member](../slots/member.md) | 1 <br/> [Person](../classes/Person.md) | The person affiliated with the organization (by IDHI URN) | direct |
 | [organization](../slots/organization.md) | 1 <br/> [Organization](../classes/Organization.md) | The organization side of the relationship (by IDHI URN) | direct |
 | [affiliation_role](../slots/affiliation_role.md) | 0..1 <br/> [PersonOrgRoleEnum](../enums/PersonOrgRoleEnum.md) | The person's position at the organization (their job/status, not their projec... | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event or of a relationship's validity (e | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, relationship or time period | [Relationship](../classes/Relationship.md) |
+| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
 
 
 
@@ -149,9 +149,8 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 <details>
 ```yaml
 name: Affiliation
-description: A person's employment/membership at an organization, with a position
-  and dates (CERIF cfPerson_OrganisationUnit). Use for the person's institutional
-  home(s), independent of any project.
+description: A person's employment or membership at an organization, with a position
+  and dates. Use for the person's institutional home(s), independent of any project.
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Relationship
 slots:
@@ -168,9 +167,8 @@ class_uri: cerif:Person_OrganisationUnit
 <details>
 ```yaml
 name: Affiliation
-description: A person's employment/membership at an organization, with a position
-  and dates (CERIF cfPerson_OrganisationUnit). Use for the person's institutional
-  home(s), independent of any project.
+description: A person's employment or membership at an organization, with a position
+  and dates. Use for the person's institutional home(s), independent of any project.
 from_schema: https://idhi.co.il/linkml/idhi
 is_a: Relationship
 attributes:
@@ -210,27 +208,28 @@ attributes:
     range: PersonOrgRoleEnum
   start_date:
     name: start_date
-    description: Start of the event or of a relationship's validity (e.g. when a person
-      joined a project or organization).
+    description: Start of the event, of the project's runtime, or of a relationship's
+      validity (e.g. when a person joined a project or organization).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Affiliation
     domain_of:
+    - Project
     - Event
     - Relationship
     range: date
   end_date:
     name: end_date
-    description: End of the event, relationship or time period. Omit for ongoing relationships
-      and open-ended periods.
+    description: End of the event, project runtime or relationship. Omit for ongoing
+      relationships and open-ended projects.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Affiliation
     domain_of:
+    - Project
     - Event
-    - TimePeriod
     - Relationship
     range: date
 class_uri: cerif:Person_OrganisationUnit

@@ -6,7 +6,7 @@ search:
 # Slot: given_name 
 
 
-_Given (first) name, in the person's preferred romanization. Explicitly optional — the authoritative multilingual display name lives in 'name'._
+_Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form._
 
 
 
@@ -85,8 +85,8 @@ URI: [foaf:givenName](http://xmlns.com/foaf/0.1/givenName)
 <details>
 ```yaml
 name: given_name
-description: Given (first) name, in the person's preferred romanization. Explicitly
-  optional — the authoritative multilingual display name lives in 'name'.
+description: Given (first) name, in the person's preferred romanization. Use with
+  family_name when the person's name is conventionally expressed in that form.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: foaf:givenName

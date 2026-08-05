@@ -6,7 +6,7 @@ search:
 # Class: Project 
 
 
-_A Digital Humanities research project, classified by TaDiRAH research activities and by research discipline. This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it._
+_A Digital Humanities research project, classified by its research activities and disciplines. This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it._
 
 
 
@@ -24,8 +24,8 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
  classDiagram
     class Project
     click Project href "../../classes/Project/"
-      NamedThing <|-- Project
-        click NamedThing href "../../classes/NamedThing/"
+      Entity <|-- Project
+        click Entity href "../../classes/Entity/"
       
       Project : additional_urls
         
@@ -53,13 +53,22 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
     
 
         
-      Project : funding_amount
+      Project : end_date
+        
+      Project : funding
+        
+          
+    
+        
+        
+        Project --> "*" Funding : funding
+        click Funding href "../../classes/Funding/"
+    
+
         
       Project : homepage
         
       Project : id
-        
-      Project : identifiers
         
       Project : name
         
@@ -67,7 +76,7 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
     
         
         
-        Project --> "*" LangString : name
+        Project --> "1..*" LangString : name
         click LangString href "../../classes/LangString/"
     
 
@@ -127,17 +136,6 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
     
 
         
-      Project : project_period
-        
-          
-    
-        
-        
-        Project --> "0..1" TimePeriod : project_period
-        click TimePeriod href "../../classes/TimePeriod/"
-    
-
-        
       Project : research_disciplines
         
           
@@ -151,14 +149,16 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
         
       Project : same_as
         
+      Project : start_date
+        
       Project : studied_periods
         
           
     
         
         
-        Project --> "*" TimePeriod : studied_periods
-        click TimePeriod href "../../classes/TimePeriod/"
+        Project --> "*" LangString : studied_periods
+        click LangString href "../../classes/LangString/"
     
 
         
@@ -168,10 +168,12 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
     
         
         
-        Project --> "*" Location : studied_places
-        click Location href "../../classes/Location/"
+        Project --> "*" LangString : studied_places
+        click LangString href "../../classes/LangString/"
     
 
+        
+      Project : tags
         
       Project : type
         
@@ -183,7 +185,7 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 
 
 ## Inheritance
-* [NamedThing](../classes/NamedThing.md)
+* [Entity](../classes/Entity.md)
     * **Project**
 
 
@@ -198,26 +200,27 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [name](../slots/name.md) | 1..* <br/> [LangString](../classes/LangString.md) | Multilingual name/title | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | * <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities practiced in this project, tool or ser... | direct |
 | [research_disciplines](../slots/research_disciplines.md) | * <br/> [LangString](../classes/LangString.md) | Humanities discipline(s) of the project (history, linguistics, archaeology | direct |
-| [project_period](../slots/project_period.md) | 0..1 <br/> [TimePeriod](../classes/TimePeriod.md) | The project's OWN runtime (when the research is/was conducted) | direct |
-| [studied_periods](../slots/studied_periods.md) | * <br/> [TimePeriod](../classes/TimePeriod.md) | Historical period(s) the project studies (e | direct |
-| [studied_places](../slots/studied_places.md) | * <br/> [Location](../classes/Location.md) | Geographic focus of the research (places studied), as Location records — dist... | direct |
+| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | direct |
+| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | direct |
+| [studied_periods](../slots/studied_periods.md) | * <br/> [LangString](../classes/LangString.md) | Historical period(s) the project studies (e | direct |
+| [studied_places](../slots/studied_places.md) | * <br/> [LangString](../classes/LangString.md) | Geographic focus of the research (places studied), as free multilingual label... | direct |
 | [project_participations](../slots/project_participations.md) | * <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | The person's project involvements, as reified ProjectParticipation objects ca... | direct |
 | [organization_roles](../slots/organization_roles.md) | * <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | Organizations engaged in the project, as reified OrganizationProjectRole obje... | direct |
 | [outputs_tools](../slots/outputs_tools.md) | * <br/> [Tool](../classes/Tool.md) | Tools produced by this project (by id) | direct |
 | [outputs_datasets](../slots/outputs_datasets.md) | * <br/> [Dataset](../classes/Dataset.md) | Datasets produced or curated by this project (by id) | direct |
 | [outputs_publications](../slots/outputs_publications.md) | * <br/> [Publication](../classes/Publication.md) | Publications resulting from this project (by id) | direct |
-| [funding_amount](../slots/funding_amount.md) | 0..1 <br/> [Float](../types/Float.md) | Total awarded funding, if public, in ILS unless noted in the project descript... | direct |
+| [funding](../slots/funding.md) | * <br/> [Funding](../classes/Funding.md) | Funding awards received by the project | direct |
 | [additional_urls](../slots/additional_urls.md) | * <br/> [Uri](../types/Uri.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... | direct |
 | [contact_email](../slots/contact_email.md) | 0..1 <br/> [String](../types/String.md) | A published contact address for the entity (office, team or service-desk mail... | direct |
-| [type](../slots/type.md) | 1 <br/> [Uriorcurie](../types/Uriorcurie.md) | Discriminator carrying the class URI; used for polymorphic serialization and ... | [NamedThing](../classes/NamedThing.md) |
-| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [NamedThing](../classes/NamedThing.md) |
-| [name](../slots/name.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual name/title | [NamedThing](../classes/NamedThing.md) |
-| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [NamedThing](../classes/NamedThing.md) |
-| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [NamedThing](../classes/NamedThing.md) |
-| [identifiers](../slots/identifiers.md) | * <br/> [Uriorcurie](../types/Uriorcurie.md) | Additional EXTERNAL identifiers beyond the primary IDHI URN and the dedicated... | [NamedThing](../classes/NamedThing.md) |
-| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [NamedThing](../classes/NamedThing.md) |
+| [type](../slots/type.md) | 1 <br/> [Curie](../types/Curie.md) | Discriminator identifying the record's class; used for polymorphic serializat... | [Entity](../classes/Entity.md) |
+| [id](../slots/id.md) | 1 <br/> [String](../types/String.md) | The entity's primary identifier: an IDHI URN of the form | [Entity](../classes/Entity.md) |
+| [description](../slots/description.md) | * <br/> [LangString](../classes/LangString.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... | [Entity](../classes/Entity.md) |
+| [homepage](../slots/homepage.md) | 0..1 <br/> [Uri](../types/Uri.md) | Public landing page of the entity, if one exists | [Entity](../classes/Entity.md) |
+| [same_as](../slots/same_as.md) | * <br/> [Uri](../types/Uri.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... | [Entity](../classes/Entity.md) |
+| [tags](../slots/tags.md) | * <br/> [String](../types/String.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... | [Entity](../classes/Entity.md) |
 
 
 
@@ -283,17 +286,19 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 <details>
 ```yaml
 name: Project
-description: A Digital Humanities research project, classified by TaDiRAH research
-  activities and by research discipline. This is the central entity of the index;
-  people, organizations, outputs and studied periods/places all hang off it.
+description: A Digital Humanities research project, classified by its research activities
+  and disciplines. This is the central entity of the index; people, organizations,
+  outputs and studied periods/places all hang off it.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slots:
+- name
 - digital_humanities_activities
 - research_disciplines
-- project_period
+- start_date
+- end_date
 - studied_periods
 - studied_places
 - project_participations
@@ -301,7 +306,7 @@ slots:
 - outputs_tools
 - outputs_datasets
 - outputs_publications
-- funding_amount
+- funding
 - additional_urls
 - contact_email
 slot_usage:
@@ -323,13 +328,13 @@ class_uri: foaf:Project
 <details>
 ```yaml
 name: Project
-description: A Digital Humanities research project, classified by TaDiRAH research
-  activities and by research discipline. This is the central entity of the index;
-  people, organizations, outputs and studied periods/places all hang off it.
+description: A Digital Humanities research project, classified by its research activities
+  and disciplines. This is the central entity of the index; people, organizations,
+  outputs and studied periods/places all hang off it.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi.co.il/linkml/idhi
-is_a: NamedThing
+is_a: Entity
 slot_usage:
   type:
     name: type
@@ -340,12 +345,35 @@ slot_usage:
       syntax: ^idhi:project:{shortid}$
       interpolated: true
 attributes:
+  name:
+    name: name
+    description: Multilingual name/title. Provide at least one language; English,
+      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+      name for organizations; for projects, tools and services, use the name the team
+      itself uses.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: skos:prefLabel
+    owner: Project
+    domain_of:
+    - Organization
+    - Facility
+    - Project
+    - Tool
+    - Service
+    - Publication
+    - Event
+    - Dataset
+    range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
   digital_humanities_activities:
     name: digital_humanities_activities
     description: Digital-humanities research activities practiced in this project,
-      tool or service, as TaDiRAH 2.0 concepts. Prefer the most specific applicable
-      concept (e.g. tadirah:topicModeling rather than tadirah:analyzing); multiple
-      values are expected. This is the primary DH-facet for discovery.
+      tool or service. Prefer the most specific applicable activity; multiple values
+      are expected. This is the primary DH-facet for discovery.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -359,7 +387,7 @@ attributes:
   research_disciplines:
     name: research_disciplines
     description: Humanities discipline(s) of the project (history, linguistics, archaeology...).
-      Free multilingual text for now; a controlled SKOS scheme is a planned upgrade.
+      Free multilingual text for now; a controlled vocabulary is a planned upgrade.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -370,41 +398,60 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  project_period:
-    name: project_period
-    description: The project's OWN runtime (when the research is/was conducted). Do
-      not confuse with studied_periods.
+  start_date:
+    name: start_date
+    description: Start of the event, of the project's runtime, or of a relationship's
+      validity (e.g. when a person joined a project or organization).
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
-    slot_uri: dcterms:temporal
+    slot_uri: schema:startDate
     owner: Project
     domain_of:
     - Project
-    range: TimePeriod
+    - Event
+    - Relationship
+    range: date
+  end_date:
+    name: end_date
+    description: End of the event, project runtime or relationship. Omit for ongoing
+      relationships and open-ended projects.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: schema:endDate
+    owner: Project
+    domain_of:
+    - Project
+    - Event
+    - Relationship
+    range: date
   studied_periods:
     name: studied_periods
     description: Historical period(s) the project studies (e.g. Ottoman period), as
-      TimePeriod records — distinct from project_period.
+      free multilingual labels — distinct from the project's own start_date/end_date.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:temporal
     owner: Project
     domain_of:
     - Project
-    range: TimePeriod
+    range: LangString
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   studied_places:
     name: studied_places
-    description: Geographic focus of the research (places studied), as Location records
-      — distinct from where the project team sits.
+    description: Geographic focus of the research (places studied), as free multilingual
+      labels — distinct from where the project team sits.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:spatial
     owner: Project
     domain_of:
     - Project
-    range: Location
+    range: LangString
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   project_participations:
     name: project_participations
     description: The person's project involvements, as reified ProjectParticipation
@@ -463,17 +510,19 @@ attributes:
     - Project
     range: Publication
     multivalued: true
-  funding_amount:
-    name: funding_amount
-    description: Total awarded funding, if public, in ILS unless noted in the project
-      description. Omit rather than guess.
+  funding:
+    name: funding
+    description: Funding awards received by the project. Use one entry for each funding
+      organization and award.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
-    slot_uri: frapo:hasMonetaryValue
     owner: Project
     domain_of:
     - Project
-    range: float
+    range: Funding
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   additional_urls:
     name: additional_urls
     description: Further relevant web pages beyond the homepage (blog, social-media
@@ -510,15 +559,15 @@ attributes:
     range: string
   type:
     name: type
-    description: Discriminator carrying the class URI; used for polymorphic serialization
-      and deserialization.
+    description: Discriminator identifying the record's class; used for polymorphic
+      serialization and deserialization.
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Project
     domain_of:
-    - NamedThing
-    range: uriorcurie
+    - Entity
+    range: curie
     required: true
     equals_string: idhi:Project
   id:
@@ -526,39 +575,22 @@ attributes:
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\
       \ name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1.\
       \ Minted by IDHI at record creation and never reused or changed. The class token\
-      \ is the lowercase snake_case class name (Organization subclasses use \"organization\"\
-      ); each concrete class enforces its own token via slot_usage. External identifiers\
-      \ (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never\
-      \ here."
+      \ is the lowercase snake_case class name; each concrete class enforces its own\
+      \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
+      \ and go in their dedicated slots — never here."
     from_schema: https://idhi.co.il/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
     owner: Project
     domain_of:
-    - NamedThing
+    - Entity
     range: string
     required: true
     pattern: ^idhi:[a-z_]+:[0-9a-z]{4,12}$
     structured_pattern:
       syntax: ^idhi:project:{shortid}$
       interpolated: true
-  name:
-    name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
-      name (e.g. "Smith, John" rather than "John Smith") for people and organizations;
-      for projects, tools and services, use the name the team itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: skos:prefLabel
-    owner: Project
-    domain_of:
-    - NamedThing
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   description:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
@@ -568,7 +600,7 @@ attributes:
     slot_uri: dcterms:description
     owner: Project
     domain_of:
-    - NamedThing
+    - Entity
     range: LangString
     multivalued: true
     inlined: true
@@ -581,20 +613,8 @@ attributes:
     slot_uri: foaf:homepage
     owner: Project
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
-  identifiers:
-    name: identifiers
-    description: Additional EXTERNAL identifiers beyond the primary IDHI URN and the
-      dedicated ORCID/ROR/DOI slots, as CURIEs/URIs (e.g. Wikidata QIDs, VIAF, ISNI).
-    from_schema: https://idhi.co.il/linkml/idhi
-    rank: 1000
-    slot_uri: dcterms:identifier
-    owner: Project
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    multivalued: true
   same_as:
     name: same_as
     description: URIs of records in OTHER systems describing the same real-world entity
@@ -605,8 +625,22 @@ attributes:
     slot_uri: schema:sameAs
     owner: Project
     domain_of:
-    - NamedThing
+    - Entity
     range: uri
+    multivalued: true
+  tags:
+    name: tags
+    description: Free-text tags for discovery, filtering and grouping; usable on any
+      top-level entity. Deliberately NOT a controlled enum, but prefer wording that
+      matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
+      AAT, TaDiRAH) so tags can later be reconciled against it.
+    from_schema: https://idhi.co.il/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:keyword
+    owner: Project
+    domain_of:
+    - Entity
+    range: string
     multivalued: true
 class_uri: foaf:Project
 

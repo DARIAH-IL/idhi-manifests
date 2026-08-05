@@ -26,12 +26,6 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [AcademicInstitution](../classes/AcademicInstitution.md) | A university or college |  no  |
-| [GLAMInstitution](../classes/GLAMInstitution.md) | A gallery, library, archive or museum |  no  |
-| [ResearchCenter](../classes/ResearchCenter.md) | A research center or institute |  no  |
-| [Funder](../classes/Funder.md) | A funding body (foundation, council, government program) |  no  |
-| [Company](../classes/Company.md) | A commercial company |  no  |
-| [NonProfit](../classes/NonProfit.md) | A non-profit / NGO |  no  |
 
 
 

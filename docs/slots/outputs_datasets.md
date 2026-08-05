@@ -25,7 +25,7 @@ URI: [idhi:slot/outputs_datasets](https://idhi.co.il/linkml/slot/outputs_dataset
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Project](../classes/Project.md) | A Digital Humanities research project, classified by TaDiRAH research activit... |  no  |
+| [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 
 
 

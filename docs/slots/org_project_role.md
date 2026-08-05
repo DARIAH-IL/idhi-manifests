@@ -25,7 +25,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project (CERIF cfProject_OrganisationUnit) |  no  |
+| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project |  no  |
 
 
 

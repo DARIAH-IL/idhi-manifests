@@ -6,7 +6,7 @@ search:
 # Slot: value 
 
 
-_The text itself, in the language given by 'language'._
+_A localized text, in the language given by 'language'._
 
 
 
@@ -86,7 +86,7 @@ URI: [rdf:value](http://www.w3.org/1999/02/22-rdf-syntax-ns#value)
 <details>
 ```yaml
 name: value
-description: The text itself, in the language given by 'language'.
+description: A localized text, in the language given by 'language'.
 from_schema: https://idhi.co.il/linkml/idhi
 rank: 1000
 slot_uri: rdf:value
