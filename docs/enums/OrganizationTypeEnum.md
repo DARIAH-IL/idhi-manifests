@@ -19,12 +19,12 @@ URI: [idhi:enum/OrganizationTypeEnum](https://idhi_placeholder/linkml/enum/Organ
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| ACADEMIC_INSTITUTION | [schema:CollegeOrUniversity](http://schema.org/CollegeOrUniversity) | A degree-granting university or college |
-| GLAM_INSTITUTION | None | A gallery, library, archive or museum |
-| RESEARCH_CENTER | [schema:ResearchOrganization](http://schema.org/ResearchOrganization) | A research center or institute, whether independent or within a university (i... |
-| FUNDER | [schema:FundingScheme](http://schema.org/FundingScheme) | A body whose primary role is funding research |
-| COMPANY | [schema:Corporation](http://schema.org/Corporation) | A commercial company |
-| NON_PROFIT | [schema:NGO](http://schema.org/NGO) | A non-profit organization / NGO |
+| ACADEMIC_INSTITUTION | [schema:CollegeOrUniversity](http://schema.org/CollegeOrUniversity) | <span title="A degree-granting university or college.">A degree-granting university or college</span> |
+| GLAM_INSTITUTION | None | <span title="A gallery, library, archive or museum.">A gallery, library, archive or museum</span> |
+| RESEARCH_CENTER | [schema:ResearchOrganization](http://schema.org/ResearchOrganization) | <span title="A research center or institute, whether independent or within a university (if within one, also set parent_organization).">A research center or institute, whether independent or within a university (i...</span> |
+| FUNDER | [schema:FundingScheme](http://schema.org/FundingScheme) | <span title="A body whose primary role is funding research.">A body whose primary role is funding research</span> |
+| COMPANY | [schema:Corporation](http://schema.org/Corporation) | <span title="A commercial company.">A commercial company</span> |
+| NON_PROFIT | [schema:NGO](http://schema.org/NGO) | <span title="A non-profit organization / NGO.">A non-profit organization / NGO</span> |
 
 
 
@@ -33,7 +33,7 @@ URI: [idhi:enum/OrganizationTypeEnum](https://idhi_placeholder/linkml/enum/Organ
 
 | Name | Description |
 | ---  | --- |
-| [organization_type](../slots/organization_type.md) | The kind of organization |
+| [organization_type](../slots/organization_type.md) | <span title="The kind of organization. Always set it.">The kind of organization</span> |
 
 
 

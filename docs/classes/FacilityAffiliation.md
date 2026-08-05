@@ -80,10 +80,10 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [facility](../slots/facility.md) | 1 <br/> [Facility](../classes/Facility.md) | The facility side of the relationship (by IDHI URN) | direct |
-| [organization](../slots/organization.md) | 1 <br/> [Organization](../classes/Organization.md) | The organization side of the relationship (by IDHI URN) | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
+| [facility](../slots/facility.md) | <span title="Required: exactly one value">1</span> <br/> [Facility](../classes/Facility.md) | <span title="The facility side of the relationship (by IDHI URN).">The facility side of the relationship (by IDHI URN)</span> | direct |
+| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization side of the relationship (by IDHI URN).">The organization side of the relationship (by IDHI URN)</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
 
 

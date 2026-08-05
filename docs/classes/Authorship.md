@@ -95,12 +95,12 @@ URI: [schema:Role](http://schema.org/Role)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [author](../slots/author.md) | 1 <br/> [Person](../classes/Person.md) | The contributing person (by IDHI URN) | direct |
-| [publication](../slots/publication.md) | 1 <br/> [Publication](../classes/Publication.md) | The publication contributed to (by IDHI URN) | direct |
-| [author_order](../slots/author_order.md) | 0..1 <br/> [Integer](../types/Integer.md) | Position in the byline; 1 = first author | direct |
-| [authorship_role](../slots/authorship_role.md) | 0..1 <br/> [AuthorshipRoleEnum](../enums/AuthorshipRoleEnum.md) | The kind of contribution | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
+| [author](../slots/author.md) | <span title="Required: exactly one value">1</span> <br/> [Person](../classes/Person.md) | <span title="The contributing person (by IDHI URN).">The contributing person (by IDHI URN)</span> | direct |
+| [publication](../slots/publication.md) | <span title="Required: exactly one value">1</span> <br/> [Publication](../classes/Publication.md) | <span title="The publication contributed to (by IDHI URN).">The publication contributed to (by IDHI URN)</span> | direct |
+| [author_order](../slots/author_order.md) | <span title="Optional: at most one value">0..1</span> <br/> [Integer](../types/Integer.md) | <span title="Position in the byline; 1 = first author.">Position in the byline; 1 = first author</span> | direct |
+| [authorship_role](../slots/authorship_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [AuthorshipRoleEnum](../enums/AuthorshipRoleEnum.md) | <span title="The kind of contribution. AUTHOR is the default for byline authors; use EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named non-byline contributions.">The kind of contribution</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
 
 

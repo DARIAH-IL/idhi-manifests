@@ -159,15 +159,15 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [persons](../slots/persons.md) | * <br/> [Person](../classes/Person.md) | All Person records in the index | direct |
-| [organizations](../slots/organizations.md) | * <br/> [Organization](../classes/Organization.md) | All Organization records in the index | direct |
-| [projects](../slots/projects.md) | * <br/> [Project](../classes/Project.md) | All Project records in the index | direct |
-| [facilities](../slots/facilities.md) | * <br/> [Facility](../classes/Facility.md) | All Facility records in the index | direct |
-| [tools](../slots/tools.md) | * <br/> [Tool](../classes/Tool.md) | All Tool records in the index | direct |
-| [services](../slots/services.md) | * <br/> [Service](../classes/Service.md) | All Service records in the index | direct |
-| [publications](../slots/publications.md) | * <br/> [Publication](../classes/Publication.md) | All Publication records in the index | direct |
-| [events](../slots/events.md) | * <br/> [Event](../classes/Event.md) | All Event records in the index | direct |
-| [datasets](../slots/datasets.md) | * <br/> [Dataset](../classes/Dataset.md) | All Dataset records in the index, including digital archives and catalogs | direct |
+| [persons](../slots/persons.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Person](../classes/Person.md) | <span title="All Person records in the index.">All Person records in the index</span> | direct |
+| [organizations](../slots/organizations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Organization](../classes/Organization.md) | <span title="All Organization records in the index.">All Organization records in the index</span> | direct |
+| [projects](../slots/projects.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Project](../classes/Project.md) | <span title="All Project records in the index.">All Project records in the index</span> | direct |
+| [facilities](../slots/facilities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Facility](../classes/Facility.md) | <span title="All Facility records in the index.">All Facility records in the index</span> | direct |
+| [tools](../slots/tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="All Tool records in the index.">All Tool records in the index</span> | direct |
+| [services](../slots/services.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="All Service records in the index.">All Service records in the index</span> | direct |
+| [publications](../slots/publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="All Publication records in the index.">All Publication records in the index</span> | direct |
+| [events](../slots/events.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Event](../classes/Event.md) | <span title="All Event records in the index.">All Event records in the index</span> | direct |
+| [datasets](../slots/datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="All Dataset records in the index, including digital archives and catalogs.">All Dataset records in the index, including digital archives and catalogs</span> | direct |
 
 
 

@@ -57,8 +57,8 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [language](../slots/language.md) | 1 <br/> [LanguageEnum](../enums/LanguageEnum.md) | BCP-47 language tag of the value (en, he or ar) | direct |
-| [value](../slots/value.md) | 1 <br/> [String](../types/String.md) | A localized text, in the language given by 'language' | direct |
+| [language](../slots/language.md) | <span title="Required: exactly one value">1</span> <br/> [LanguageEnum](../enums/LanguageEnum.md) | <span title="BCP-47 language tag of the value (en, he or ar).">BCP-47 language tag of the value (en, he or ar)</span> | direct |
+| [value](../slots/value.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="A localized text, in the language given by 'language'.">A localized text, in the language given by 'language'</span> | direct |
 
 
 

@@ -19,12 +19,12 @@ URI: [idhi:enum/PersonOrgRoleEnum](https://idhi_placeholder/linkml/enum/PersonOr
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| PROFESSOR | None | Faculty member of any professorial rank |
-| ASSOCIATE | None | Research associate / postdoc |
-| MEMBER | None | Formal member of a center, lab or society |
-| MANAGER | None | Administrative or lab manager |
-| AFFILIATE | None | Formal association without employment |
-| EMPLOYEE | None | Staff fallback when no finer value fits |
+| PROFESSOR | None | <span title="Faculty member of any professorial rank.">Faculty member of any professorial rank</span> |
+| ASSOCIATE | None | <span title="Research associate / postdoc.">Research associate / postdoc</span> |
+| MEMBER | None | <span title="Formal member of a center, lab or society.">Formal member of a center, lab or society</span> |
+| MANAGER | None | <span title="Administrative or lab manager.">Administrative or lab manager</span> |
+| AFFILIATE | None | <span title="Formal association without employment.">Formal association without employment</span> |
+| EMPLOYEE | None | <span title="Staff fallback when no finer value fits.">Staff fallback when no finer value fits</span> |
 
 
 
@@ -33,7 +33,7 @@ URI: [idhi:enum/PersonOrgRoleEnum](https://idhi_placeholder/linkml/enum/PersonOr
 
 | Name | Description |
 | ---  | --- |
-| [affiliation_role](../slots/affiliation_role.md) | The person's position at the organization (their job/status, not their projec... |
+| [affiliation_role](../slots/affiliation_role.md) | <span title="The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.">The person's position at the organization (their job/status, not their projec...</span> |
 
 
 

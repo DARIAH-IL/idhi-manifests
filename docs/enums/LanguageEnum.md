@@ -30,7 +30,7 @@ URI: [idhi:enum/LanguageEnum](https://idhi_placeholder/linkml/enum/LanguageEnum)
 
 | Name | Description |
 | ---  | --- |
-| [language](../slots/language.md) | BCP-47 language tag of the value (en, he or ar) |
+| [language](../slots/language.md) | <span title="BCP-47 language tag of the value (en, he or ar).">BCP-47 language tag of the value (en, he or ar)</span> |
 
 
 

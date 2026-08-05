@@ -19,14 +19,14 @@ URI: [idhi:enum/ToolServiceTypeEnum](https://idhi_placeholder/linkml/enum/ToolSe
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| WEB_APPLICATION | [schema:WebApplication](http://schema.org/WebApplication) | Software used through a browser |
-| DESKTOP_APPLICATION | None | Software installed on a user's machine |
-| LIBRARY | None | A code library/package imported by other software |
-| COMMAND_LINE_TOOL | None | Software operated from a terminal |
-| DATABASE | None | A queryable data system offered as a tool |
-| API_SERVICE | None | A programmatic service accessed over the network |
-| DIGITIZATION_SERVICE | None | Human-mediated digitization (scanning, imaging, OCR) |
-| CONSULTING_SERVICE | None | Human-mediated expertise (methods, data, tech advice) |
+| WEB_APPLICATION | [schema:WebApplication](http://schema.org/WebApplication) | <span title="Software used through a browser.">Software used through a browser</span> |
+| DESKTOP_APPLICATION | None | <span title="Software installed on a user's machine.">Software installed on a user's machine</span> |
+| LIBRARY | None | <span title="A code library/package imported by other software.">A code library/package imported by other software</span> |
+| COMMAND_LINE_TOOL | None | <span title="Software operated from a terminal.">Software operated from a terminal</span> |
+| DATABASE | None | <span title="A queryable data system offered as a tool.">A queryable data system offered as a tool</span> |
+| API_SERVICE | None | <span title="A programmatic service accessed over the network.">A programmatic service accessed over the network</span> |
+| DIGITIZATION_SERVICE | None | <span title="Human-mediated digitization (scanning, imaging, OCR).">Human-mediated digitization (scanning, imaging, OCR)</span> |
+| CONSULTING_SERVICE | None | <span title="Human-mediated expertise (methods, data, tech advice).">Human-mediated expertise (methods, data, tech advice)</span> |
 
 
 
@@ -35,8 +35,8 @@ URI: [idhi:enum/ToolServiceTypeEnum](https://idhi_placeholder/linkml/enum/ToolSe
 
 | Name | Description |
 | ---  | --- |
-| [tool_type](../slots/tool_type.md) | The delivery form of the tool (web app, library, CLI |
-| [service_type](../slots/service_type.md) | The kind of service offered (digitization, consulting |
+| [tool_type](../slots/tool_type.md) | <span title="The delivery form of the tool (web app, library, CLI...). Pick the single value describing how users primarily consume it.">The delivery form of the tool (web app, library, CLI</span> |
+| [service_type](../slots/service_type.md) | <span title="The kind of service offered (digitization, consulting...).">The kind of service offered (digitization, consulting</span> |
 
 
 

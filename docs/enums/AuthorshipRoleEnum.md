@@ -19,10 +19,10 @@ URI: [idhi:enum/AuthorshipRoleEnum](https://idhi_placeholder/linkml/enum/Authors
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| AUTHOR | None | Byline author (the default) |
-| EDITOR | None | Editor of a volume or collection |
-| TRANSLATOR | None | Translator of the work |
-| CONTRIBUTOR | None | Named non-byline contribution |
+| AUTHOR | None | <span title="Byline author (the default).">Byline author (the default)</span> |
+| EDITOR | None | <span title="Editor of a volume or collection.">Editor of a volume or collection</span> |
+| TRANSLATOR | None | <span title="Translator of the work.">Translator of the work</span> |
+| CONTRIBUTOR | None | <span title="Named non-byline contribution.">Named non-byline contribution</span> |
 
 
 
@@ -31,7 +31,7 @@ URI: [idhi:enum/AuthorshipRoleEnum](https://idhi_placeholder/linkml/enum/Authors
 
 | Name | Description |
 | ---  | --- |
-| [authorship_role](../slots/authorship_role.md) | The kind of contribution |
+| [authorship_role](../slots/authorship_role.md) | <span title="The kind of contribution. AUTHOR is the default for byline authors; use EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named non-byline contributions.">The kind of contribution</span> |
 
 
 

@@ -19,12 +19,12 @@ URI: [idhi:enum/EventTypeEnum](https://idhi_placeholder/linkml/enum/EventTypeEnu
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| CONFERENCE | [bibo:Conference](http://purl.org/ontology/bibo/Conference) | A multi-session academic conference |
-| WORKSHOP | None | A hands-on or small-group working meeting |
-| SEMINAR | None | A recurring or one-off academic seminar session |
-| LECTURE | None | A single public or academic talk |
-| HACKATHON | None | A time-boxed collaborative building event |
-| EXHIBITION | None | A curated public display (physical or digital) |
+| CONFERENCE | [bibo:Conference](http://purl.org/ontology/bibo/Conference) | <span title="A multi-session academic conference.">A multi-session academic conference</span> |
+| WORKSHOP | None | <span title="A hands-on or small-group working meeting.">A hands-on or small-group working meeting</span> |
+| SEMINAR | None | <span title="A recurring or one-off academic seminar session.">A recurring or one-off academic seminar session</span> |
+| LECTURE | None | <span title="A single public or academic talk.">A single public or academic talk</span> |
+| HACKATHON | None | <span title="A time-boxed collaborative building event.">A time-boxed collaborative building event</span> |
+| EXHIBITION | None | <span title="A curated public display (physical or digital).">A curated public display (physical or digital)</span> |
 
 
 
@@ -33,7 +33,7 @@ URI: [idhi:enum/EventTypeEnum](https://idhi_placeholder/linkml/enum/EventTypeEnu
 
 | Name | Description |
 | ---  | --- |
-| [event_type](../slots/event_type.md) | The kind of scholarly event |
+| [event_type](../slots/event_type.md) | <span title="The kind of scholarly event.">The kind of scholarly event</span> |
 
 
 

@@ -57,8 +57,8 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [funding_organization](../slots/funding_organization.md) | 1 <br/> [Organization](../classes/Organization.md) | The organization that provides this funding award (by IDHI URN) | direct |
-| [funding_amount](../slots/funding_amount.md) | 0..1 <br/> [Float](../types/Float.md) | Amount awarded by the funding organization, if public, in ILS unless noted in... | direct |
+| [funding_organization](../slots/funding_organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization that provides this funding award (by IDHI URN).">The organization that provides this funding award (by IDHI URN)</span> | direct |
+| [funding_amount](../slots/funding_amount.md) | <span title="Optional: at most one value">0..1</span> <br/> [Float](../types/Float.md) | <span title="Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.">Amount awarded by the funding organization, if public, in ILS unless noted in...</span> | direct |
 
 
 

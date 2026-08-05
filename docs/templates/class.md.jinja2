@@ -13,6 +13,36 @@ search:
     {%- endif -%}
 {%- endif -%}
 
+{% from "description_cell.md.jinja2" import description_cell -%}
+
+{% macro compute_cardinality(slot) -%}
+    {%- set card = gen.cardinality(slot) -%}
+    {%- set recommended = ' _recommended_' in card -%}
+    {%- set base = card | replace(' _recommended_', '') -%}
+    {%- if base == '*' -%}
+        {%- set explanation = 'Optional: zero or more values allowed' -%}
+    {%- elif base == '0..1' -%}
+        {%- set explanation = 'Optional: at most one value' -%}
+    {%- elif base == '1' -%}
+        {%- set explanation = 'Required: exactly one value' -%}
+    {%- elif base == '1..*' -%}
+        {%- set explanation = 'Required: one or more values' -%}
+    {%- elif '..' in base -%}
+        {%- set parts = base.split('..') -%}
+        {%- if parts[1] == '*' -%}
+            {%- set explanation = 'Required: at least ' ~ parts[0] ~ ' values' -%}
+        {%- elif parts[0] == '0' -%}
+            {%- set explanation = 'Optional: up to ' ~ parts[1] ~ ' values' -%}
+        {%- else -%}
+            {%- set explanation = 'Required: between ' ~ parts[0] ~ ' and ' ~ parts[1] ~ ' values' -%}
+        {%- endif -%}
+    {%- else -%}
+        {%- set explanation = 'Required: exactly ' ~ base ~ ' values' -%}
+    {%- endif -%}
+    <span title="{{ explanation }}">{{ base }}</span>
+    {%- if recommended %} _recommended_{% endif -%}
+{%- endmacro -%}
+
 {% macro compute_range(slot) -%}
     {%- if slot.any_of or slot.exactly_one_of -%}
         {%- for subslot_range in schemaview.slot_range_as_union(slot) -%}
@@ -110,12 +140,12 @@ URI: {{ gen.uri_link(element) }}
 | ---  | --- | --- | --- |
 {% if gen.get_direct_slots(element)|length > 0 %}
 {%- for slot in gen.get_direct_slots(element) -%}
-| {{ gen.link(slot) }} | {{ gen.cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ slot.description|enshorten }} | direct |
+| {{ gen.link(slot) }} | {{ compute_cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ description_cell(slot.description) }} | direct |
 {% endfor -%}
 {% endif -%}
 {% if gen.get_indirect_slots(element)|length > 0 %}
 {%- for slot in gen.get_indirect_slots(element) -%}
-| {{ gen.link(slot) }} | {{ gen.cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ slot.description|enshorten }} | {{ gen.links(gen.get_slot_inherited_from(element.name, slot.name))|join(', ') }} |
+| {{ gen.link(slot) }} | {{ compute_cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ description_cell(slot.description) }} | {{ gen.links(gen.get_slot_inherited_from(element.name, slot.name))|join(', ') }} |
 {% endfor -%}
 {% endif %}
 
@@ -207,7 +237,7 @@ The class must not satisfy any of:
 | mixed into | description |
 | --- | --- |
 {% for c in schemaview.class_children(element.name, is_a=False) -%}
-| {{ gen.link(c) }} | {{ schemaview.get_class(c).description|enshorten }} |
+| {{ gen.link(c) }} | {{ description_cell(schemaview.get_class(c).description) }} |
 {% endfor %}
 {% endif %}
 

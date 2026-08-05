@@ -19,10 +19,10 @@ URI: [idhi:enum/OrgProjectRoleEnum](https://idhi_placeholder/linkml/enum/OrgProj
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| COORDINATOR | None | Leads/coordinates the project or consortium |
-| PARTNER | None | Contributes work as a consortium member |
-| FUNDER | None | Provides funding for the project |
-| HOST | None | Provides the institutional/administrative home |
+| COORDINATOR | None | <span title="Leads/coordinates the project or consortium.">Leads/coordinates the project or consortium</span> |
+| PARTNER | None | <span title="Contributes work as a consortium member.">Contributes work as a consortium member</span> |
+| FUNDER | None | <span title="Provides funding for the project.">Provides funding for the project</span> |
+| HOST | None | <span title="Provides the institutional/administrative home.">Provides the institutional/administrative home</span> |
 
 
 
@@ -31,7 +31,7 @@ URI: [idhi:enum/OrgProjectRoleEnum](https://idhi_placeholder/linkml/enum/OrgProj
 
 | Name | Description |
 | ---  | --- |
-| [org_project_role](../slots/org_project_role.md) | The organization's function in the project: COORDINATOR leads the consortium,... |
+| [org_project_role](../slots/org_project_role.md) | <span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, FUNDER provides money, HOST provides the institutional home. Create one relationship instance per role.">The organization's function in the project: COORDINATOR leads the consortium,...</span> |
 
 
 

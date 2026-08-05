@@ -1,0 +1,11 @@
+{% macro description_cell(text) -%}
+    {%- if text -%}
+        {%- set short = text | enshorten -%}
+        {%- if short | trim == text | trim -%}
+            {{ short }}
+        {%- else -%}
+            {%- set full = text | trim | replace('&', '&amp;') | replace('"', '&quot;') | replace('<', '&lt;') | replace('|', '&#124;') | replace('\n', '&#10;') -%}
+            <span title="{{ full }}">{{ short }}</span>
+        {%- endif -%}
+    {%- endif -%}
+{%- endmacro -%}

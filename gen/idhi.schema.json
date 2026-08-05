@@ -2128,7 +2128,7 @@
             "type": "string"
         }
     },
-    "$id": "https://idhi.co.il/linkml/idhi",
+    "$id": "https://idhi_placeholder/linkml/idhi",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Top-level holder for all IDHI records. Big entities live exactly once in these lists; everything else references them by their IDHI URN.",

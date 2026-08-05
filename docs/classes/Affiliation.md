@@ -93,11 +93,11 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [member](../slots/member.md) | 1 <br/> [Person](../classes/Person.md) | The person affiliated with the organization (by IDHI URN) | direct |
-| [organization](../slots/organization.md) | 1 <br/> [Organization](../classes/Organization.md) | The organization side of the relationship (by IDHI URN) | direct |
-| [affiliation_role](../slots/affiliation_role.md) | 0..1 <br/> [PersonOrgRoleEnum](../enums/PersonOrgRoleEnum.md) | The person's position at the organization (their job/status, not their projec... | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
+| [member](../slots/member.md) | <span title="Required: exactly one value">1</span> <br/> [Person](../classes/Person.md) | <span title="The person affiliated with the organization (by IDHI URN).">The person affiliated with the organization (by IDHI URN)</span> | direct |
+| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization side of the relationship (by IDHI URN).">The organization side of the relationship (by IDHI URN)</span> | direct |
+| [affiliation_role](../slots/affiliation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [PersonOrgRoleEnum](../enums/PersonOrgRoleEnum.md) | <span title="The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.">The person's position at the organization (their job/status, not their projec...</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
 
 

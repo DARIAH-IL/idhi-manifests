@@ -93,11 +93,11 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [participant](../slots/participant.md) | 1 <br/> [Person](../classes/Person.md) | The person taking part in the project (by IDHI URN) | direct |
-| [project](../slots/project.md) | 1 <br/> [Project](../classes/Project.md) | The project side of the relationship (by IDHI URN) | direct |
-| [participation_role](../slots/participation_role.md) | 0..1 <br/> [ProjectRoleEnum](../enums/ProjectRoleEnum.md) | The person's function within the project team | direct |
-| [start_date](../slots/start_date.md) | 0..1 <br/> [Date](../types/Date.md) | Start of the event, of the project's runtime, or of a relationship's validity... | [Relationship](../classes/Relationship.md) |
-| [end_date](../slots/end_date.md) | 0..1 <br/> [Date](../types/Date.md) | End of the event, project runtime or relationship | [Relationship](../classes/Relationship.md) |
+| [participant](../slots/participant.md) | <span title="Required: exactly one value">1</span> <br/> [Person](../classes/Person.md) | <span title="The person taking part in the project (by IDHI URN).">The person taking part in the project (by IDHI URN)</span> | direct |
+| [project](../slots/project.md) | <span title="Required: exactly one value">1</span> <br/> [Project](../classes/Project.md) | <span title="The project side of the relationship (by IDHI URN).">The project side of the relationship (by IDHI URN)</span> | direct |
+| [participation_role](../slots/participation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [ProjectRoleEnum](../enums/ProjectRoleEnum.md) | <span title="The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER, software work is DEVELOPER, enrolled students are STUDENT regardless of their task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else.">The person's function within the project team</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
+| [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
 
 

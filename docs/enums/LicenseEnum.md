@@ -19,12 +19,12 @@ URI: [idhi:enum/LicenseEnum](https://idhi_placeholder/linkml/enum/LicenseEnum)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| CC_BY_4_0 | [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/) | Creative Commons Attribution 4 |
-| CC_BY_SA_4_0 | [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/) | Creative Commons Attribution-ShareAlike 4 |
-| CC0_1_0 | [https://creativecommons.org/publicdomain/zero/1.0/](https://creativecommons.org/publicdomain/zero/1.0/) | Creative Commons Zero (public domain dedication) |
-| MIT | [spdx:MIT](https://spdx.org/licenses/MIT) | MIT License |
-| APACHE_2_0 | [spdx:Apache-2.0](https://spdx.org/licenses/Apache-2.0) | Apache License 2 |
-| GPL_3_0 | [spdx:GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) | GNU GPL v3 |
+| CC_BY_4_0 | [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/) | <span title="Creative Commons Attribution 4.0.">Creative Commons Attribution 4</span> |
+| CC_BY_SA_4_0 | [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/) | <span title="Creative Commons Attribution-ShareAlike 4.0.">Creative Commons Attribution-ShareAlike 4</span> |
+| CC0_1_0 | [https://creativecommons.org/publicdomain/zero/1.0/](https://creativecommons.org/publicdomain/zero/1.0/) | <span title="Creative Commons Zero (public domain dedication).">Creative Commons Zero (public domain dedication)</span> |
+| MIT | [spdx:MIT](https://spdx.org/licenses/MIT) | <span title="MIT License.">MIT License</span> |
+| APACHE_2_0 | [spdx:Apache-2.0](https://spdx.org/licenses/Apache-2.0) | <span title="Apache License 2.0.">Apache License 2</span> |
+| GPL_3_0 | [spdx:GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) | <span title="GNU GPL v3.0 (or later).">GNU GPL v3</span> |
 
 
 
@@ -33,7 +33,7 @@ URI: [idhi:enum/LicenseEnum](https://idhi_placeholder/linkml/enum/LicenseEnum)
 
 | Name | Description |
 | ---  | --- |
-| [license](../slots/license.md) | The license under which the tool or dataset is released |
+| [license](../slots/license.md) | <span title="The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool or dataset is released</span> |
 
 
 
