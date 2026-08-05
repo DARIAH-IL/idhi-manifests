@@ -66,7 +66,7 @@ URI: [dcterms:language](http://purl.org/dc/terms/language)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [dcterms:language](http://purl.org/dc/terms/language)
 ```yaml
 name: language
 description: BCP-47 language tag of the value (en, he or ar).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:language
 domain_of:

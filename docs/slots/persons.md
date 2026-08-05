@@ -14,7 +14,7 @@ _All Person records in the index._
 
 
 
-URI: [idhi:slot/persons](https://idhi.co.il/linkml/slot/persons)
+URI: [idhi:slot/persons](https://idhi_placeholder/linkml/slot/persons)
 <!-- no inheritance hierarchy -->
 
 
@@ -72,7 +72,7 @@ URI: [idhi:slot/persons](https://idhi.co.il/linkml/slot/persons)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -93,7 +93,7 @@ URI: [idhi:slot/persons](https://idhi.co.il/linkml/slot/persons)
 ```yaml
 name: persons
 description: All Person records in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 owner: IndexContainer
 domain_of:

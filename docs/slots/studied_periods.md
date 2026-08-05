@@ -66,7 +66,7 @@ URI: [dcterms:temporal](http://purl.org/dc/terms/temporal)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [dcterms:temporal](http://purl.org/dc/terms/temporal)
 name: studied_periods
 description: Historical period(s) the project studies (e.g. Ottoman period), as free
   multilingual labels — distinct from the project's own start_date/end_date.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:temporal
 domain_of:

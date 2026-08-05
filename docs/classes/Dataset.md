@@ -176,7 +176,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -206,7 +206,7 @@ description: 'A dataset, digital archive or catalog produced or curated by a pro
   corpora, databases, image collections, annotation sets and collections of metadata
   records. Use Dataset for both research data and catalogs that describe other resources;
   a catalog can link the datasets it aggregates through datasets.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
@@ -236,7 +236,7 @@ description: 'A dataset, digital archive or catalog produced or curated by a pro
   corpora, databases, image collections, annotation sets and collections of metadata
   records. Use Dataset for both research data and catalogs that describe other resources;
   a catalog can link the datasets it aggregates through datasets.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slot_usage:
   id:
@@ -251,7 +251,7 @@ attributes:
       Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
     owner: Dataset
@@ -273,7 +273,7 @@ attributes:
     name: datasets
     description: Datasets aggregated by a Dataset that functions as a catalog (by
       id).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:dataset
     owner: Dataset
@@ -285,7 +285,7 @@ attributes:
   publisher:
     name: publisher
     description: The organization publishing the dataset or publication (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:publisher
     owner: Dataset
@@ -297,7 +297,7 @@ attributes:
     name: license
     description: The license under which the tool or dataset is released. Required
       for anything advertised as reusable; omit only if genuinely unknown.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:license
     owner: Dataset
@@ -308,7 +308,7 @@ attributes:
   date_issued:
     name: date_issued
     description: Formal publication date (or year-01-01 if only the year is known).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:issued
     owner: Dataset
@@ -319,7 +319,7 @@ attributes:
   distribution_url:
     name: distribution_url
     description: Direct download or access URL for the dataset.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:downloadURL
     owner: Dataset
@@ -329,7 +329,7 @@ attributes:
   themes:
     name: themes
     description: Thematic keywords for the dataset, multilingual.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:theme
     owner: Dataset
@@ -343,7 +343,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Dataset
@@ -359,7 +359,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -376,7 +376,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Dataset
@@ -389,7 +389,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Dataset
@@ -401,7 +401,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Dataset
@@ -415,7 +415,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Dataset

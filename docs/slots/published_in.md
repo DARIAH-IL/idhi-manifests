@@ -66,7 +66,7 @@ URI: [schema:isPartOf](http://schema.org/isPartOf)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -89,7 +89,7 @@ name: published_in
 description: Name of the journal, book or proceedings the publication appeared in,
   as free multilingual text. If the container work has its own IDHI record or external
   URI, also link it via part_of.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:isPartOf
 domain_of:

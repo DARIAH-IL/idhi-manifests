@@ -74,7 +74,7 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -96,7 +96,7 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 name: doi
 description: The publication's persistent identifier. Record it whenever one exists;
   it is the preferred deduplication key.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: bibo:doi
 domain_of:

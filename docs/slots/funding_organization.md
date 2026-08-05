@@ -66,7 +66,7 @@ URI: [schema:funder](http://schema.org/funder)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [schema:funder](http://schema.org/funder)
 ```yaml
 name: funding_organization
 description: The organization that provides this funding award (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:funder
 domain_of:

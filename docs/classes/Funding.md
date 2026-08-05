@@ -89,7 +89,7 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -118,7 +118,7 @@ name: Funding
 description: A funding award for a project, identifying the organization that provides
   it and its amount when public. It is inlined within the funded Project and has no
   independent ID.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 slots:
 - funding_organization
 - funding_amount
@@ -135,12 +135,12 @@ name: Funding
 description: A funding award for a project, identifying the organization that provides
   it and its amount when public. It is inlined within the funded Project and has no
   independent ID.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 attributes:
   funding_organization:
     name: funding_organization
     description: The organization that provides this funding award (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:funder
     owner: Funding
@@ -152,7 +152,7 @@ attributes:
     name: funding_amount
     description: Amount awarded by the funding organization, if public, in ILS unless
       noted in the project description. Omit rather than guess.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: frapo:hasMonetaryValue
     owner: Funding

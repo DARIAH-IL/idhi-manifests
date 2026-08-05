@@ -68,7 +68,7 @@ URI: [schema:location](http://schema.org/location)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -90,7 +90,7 @@ URI: [schema:location](http://schema.org/location)
 name: location
 description: Place name where the organization, facility or event is physically situated
   (e.g. a city), as free multilingual text.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:location
 domain_of:

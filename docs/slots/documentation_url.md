@@ -66,7 +66,7 @@ URI: [schema:softwareHelp](http://schema.org/softwareHelp)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [schema:softwareHelp](http://schema.org/softwareHelp)
 name: documentation_url
 description: User or developer documentation for the tool or service (manual, wiki,
   API reference).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:softwareHelp
 domain_of:

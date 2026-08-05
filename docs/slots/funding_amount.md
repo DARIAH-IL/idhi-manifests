@@ -65,7 +65,7 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 name: funding_amount
 description: Amount awarded by the funding organization, if public, in ILS unless
   noted in the project description. Omit rather than guess.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: frapo:hasMonetaryValue
 domain_of:

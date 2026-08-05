@@ -66,7 +66,7 @@ URI: [schema:producer](http://schema.org/producer)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [schema:producer](http://schema.org/producer)
 ```yaml
 name: outputs_tools
 description: Tools produced by this project (by id).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:producer
 domain_of:

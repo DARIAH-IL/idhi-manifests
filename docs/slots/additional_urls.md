@@ -14,7 +14,7 @@ _Further relevant web pages beyond the homepage (blog, social-media profile, reg
 
 
 
-URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
+URI: [foaf:page](https://xmlns.com/foaf/spec/#term_page)
 <!-- no inheritance hierarchy -->
 
 
@@ -45,7 +45,7 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 | --- | --- |
 | Range | [Uri](../types/Uri.md) |
 | Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Event](../classes/Event.md) |
-| Slot URI | [foaf:page](http://xmlns.com/foaf/0.1/page) |
+| Slot URI | [foaf:page](https://xmlns.com/foaf/spec/#term_page) |
 
 ### Cardinality and Requirements
 
@@ -71,7 +71,7 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -94,7 +94,7 @@ name: additional_urls
 description: Further relevant web pages beyond the homepage (blog, social-media profile,
   registry entry, press coverage...). For records describing the same entity in other
   systems use same_as instead.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: foaf:page
 domain_of:

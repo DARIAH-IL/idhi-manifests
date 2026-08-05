@@ -70,7 +70,7 @@ URI: [schema:email](http://schema.org/email)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -92,7 +92,7 @@ URI: [schema:email](http://schema.org/email)
 name: contact_email
 description: A published contact address for the entity (office, team or service-desk
   mailbox). For a person's own addresses use 'emails'.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:email
 domain_of:

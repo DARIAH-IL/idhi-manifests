@@ -76,7 +76,7 @@ URI: [schema:sameAs](http://schema.org/sameAs)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -99,7 +99,7 @@ name: same_as
 description: URIs of records in OTHER systems describing the same real-world entity
   (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's
   own pages (use homepage).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:sameAs
 domain_of:

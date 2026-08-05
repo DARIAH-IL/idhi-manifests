@@ -66,7 +66,7 @@ URI: [rdf:value](http://www.w3.org/1999/02/22-rdf-syntax-ns#value)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [rdf:value](http://www.w3.org/1999/02/22-rdf-syntax-ns#value)
 ```yaml
 name: value
 description: A localized text, in the language given by 'language'.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: rdf:value
 domain_of:

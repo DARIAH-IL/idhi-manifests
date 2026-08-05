@@ -72,7 +72,7 @@ URI: [schema:startDate](http://schema.org/startDate)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -94,7 +94,7 @@ URI: [schema:startDate](http://schema.org/startDate)
 name: start_date
 description: Start of the event, of the project's runtime, or of a relationship's
   validity (e.g. when a person joined a project or organization).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:startDate
 domain_of:

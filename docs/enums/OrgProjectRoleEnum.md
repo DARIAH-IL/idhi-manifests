@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: OrgProjectRoleEnum 
 
 
@@ -15,7 +14,7 @@ _An organization's role in a project (one instance per role)._
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/OrgProjectRoleEnum](https://idhi.co.il/linkml/enum/OrgProjectRoleEnum)
+URI: [idhi:enum/OrgProjectRoleEnum](https://idhi_placeholder/linkml/enum/OrgProjectRoleEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
@@ -52,7 +51,7 @@ URI: [idhi:enum/OrgProjectRoleEnum](https://idhi.co.il/linkml/enum/OrgProjectRol
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -65,7 +64,7 @@ URI: [idhi:enum/OrgProjectRoleEnum](https://idhi.co.il/linkml/enum/OrgProjectRol
 ```yaml
 name: OrgProjectRoleEnum
 description: An organization's role in a project (one instance per role).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   COORDINATOR:

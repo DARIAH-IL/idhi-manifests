@@ -14,7 +14,7 @@ _A Digital Humanities research project, classified by its research activities an
 
 
 
-URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
+URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 
 
 
@@ -193,7 +193,7 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Project](http://xmlns.com/foaf/0.1/Project) |
+| Class URI | [foaf:Project](https://xmlns.com/foaf/spec/#term_Project) |
 
 
 ## Slots
@@ -260,7 +260,7 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -291,7 +291,7 @@ description: A Digital Humanities research project, classified by its research a
   outputs and studied periods/places all hang off it.
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
@@ -333,7 +333,7 @@ description: A Digital Humanities research project, classified by its research a
   outputs and studied periods/places all hang off it.
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slot_usage:
   type:
@@ -351,7 +351,7 @@ attributes:
       Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
     owner: Project
@@ -374,7 +374,7 @@ attributes:
     description: Digital-humanities research activities practiced in this project,
       tool or service. Prefer the most specific applicable activity; multiple values
       are expected. This is the primary DH-facet for discovery.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
     owner: Project
@@ -388,7 +388,7 @@ attributes:
     name: research_disciplines
     description: Humanities discipline(s) of the project (history, linguistics, archaeology...).
       Free multilingual text for now; a controlled vocabulary is a planned upgrade.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
     owner: Project
@@ -402,7 +402,7 @@ attributes:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Project
@@ -415,7 +415,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Project
@@ -428,7 +428,7 @@ attributes:
     name: studied_periods
     description: Historical period(s) the project studies (e.g. Ottoman period), as
       free multilingual labels — distinct from the project's own start_date/end_date.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:temporal
     owner: Project
@@ -442,7 +442,7 @@ attributes:
     name: studied_places
     description: Geographic focus of the research (places studied), as free multilingual
       labels — distinct from where the project team sits.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:spatial
     owner: Project
@@ -456,7 +456,7 @@ attributes:
     name: project_participations
     description: The person's project involvements, as reified ProjectParticipation
       objects carrying the role (PI, developer...) and dates.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
@@ -470,7 +470,7 @@ attributes:
     name: organization_roles
     description: Organizations engaged in the project, as reified OrganizationProjectRole
       objects (coordinator, partner, funder, host).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
@@ -482,7 +482,7 @@ attributes:
   outputs_tools:
     name: outputs_tools
     description: Tools produced by this project (by id).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:producer
     owner: Project
@@ -493,7 +493,7 @@ attributes:
   outputs_datasets:
     name: outputs_datasets
     description: Datasets produced or curated by this project (by id).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
@@ -503,7 +503,7 @@ attributes:
   outputs_publications:
     name: outputs_publications
     description: Publications resulting from this project (by id).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
@@ -514,7 +514,7 @@ attributes:
     name: funding
     description: Funding awards received by the project. Use one entry for each funding
       organization and award.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
@@ -528,7 +528,7 @@ attributes:
     description: Further relevant web pages beyond the homepage (blog, social-media
       profile, registry entry, press coverage...). For records describing the same
       entity in other systems use same_as instead.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:page
     owner: Project
@@ -545,7 +545,7 @@ attributes:
     name: contact_email
     description: A published contact address for the entity (office, team or service-desk
       mailbox). For a person's own addresses use 'emails'.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:email
     owner: Project
@@ -561,7 +561,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Project
@@ -578,7 +578,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -595,7 +595,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Project
@@ -608,7 +608,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Project
@@ -620,7 +620,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Project
@@ -634,7 +634,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Project

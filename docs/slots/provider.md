@@ -65,7 +65,7 @@ URI: [schema:provider](http://schema.org/provider)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ name: provider
 description: The organization formally responsible for delivering the service (the
   one you'd contact or contract with) — set this even when the service is listed under
   a Facility.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:provider
 domain_of:

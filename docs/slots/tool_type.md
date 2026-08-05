@@ -65,7 +65,7 @@ URI: [schema:applicationCategory](http://schema.org/applicationCategory)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [schema:applicationCategory](http://schema.org/applicationCategory)
 name: tool_type
 description: The delivery form of the tool (web app, library, CLI...). Pick the single
   value describing how users primarily consume it.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:applicationCategory
 domain_of:

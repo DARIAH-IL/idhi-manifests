@@ -193,7 +193,7 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -225,7 +225,7 @@ description: A physical or virtual facility such as a DH lab, digitization studi
   organization; otherwise just use the Organization.
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
@@ -261,7 +261,7 @@ description: A physical or virtual facility such as a DH lab, digitization studi
   organization; otherwise just use the Organization.
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slot_usage:
   type:
@@ -279,7 +279,7 @@ attributes:
       Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
     owner: Facility
@@ -301,7 +301,7 @@ attributes:
     name: facility_affiliations
     description: The organization(s) hosting or owning this facility, as reified FacilityAffiliation
       objects with dates.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Facility
     domain_of:
@@ -314,7 +314,7 @@ attributes:
     name: location
     description: Place name where the organization, facility or event is physically
       situated (e.g. a city), as free multilingual text.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:location
     owner: Facility
@@ -329,7 +329,7 @@ attributes:
   address:
     name: address
     description: Postal address, multilingual.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:address
     owner: Facility
@@ -345,7 +345,7 @@ attributes:
     name: services_offered
     description: Services this facility offers to researchers. Reference Service records
       by id; the Service's own 'provider' may still point at the parent Organization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Facility
     domain_of:
@@ -357,7 +357,7 @@ attributes:
     description: Tools this facility maintains or gives access to (by id). Use for
       hosted instances and lab-maintained software, not for every tool staff members
       happen to use.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Facility
     domain_of:
@@ -369,7 +369,7 @@ attributes:
     description: Further relevant web pages beyond the homepage (blog, social-media
       profile, registry entry, press coverage...). For records describing the same
       entity in other systems use same_as instead.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:page
     owner: Facility
@@ -386,7 +386,7 @@ attributes:
     name: contact_email
     description: A published contact address for the entity (office, team or service-desk
       mailbox). For a person's own addresses use 'emails'.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:email
     owner: Facility
@@ -402,7 +402,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Facility
@@ -419,7 +419,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -436,7 +436,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Facility
@@ -449,7 +449,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Facility
@@ -461,7 +461,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Facility
@@ -475,7 +475,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Facility

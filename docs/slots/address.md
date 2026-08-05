@@ -68,7 +68,7 @@ URI: [schema:address](http://schema.org/address)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -89,7 +89,7 @@ URI: [schema:address](http://schema.org/address)
 ```yaml
 name: address
 description: Postal address, multilingual.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:address
 domain_of:

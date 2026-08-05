@@ -14,7 +14,7 @@ _The organization(s) hosting or owning this facility, as reified FacilityAffilia
 
 
 
-URI: [idhi:slot/facility_affiliations](https://idhi.co.il/linkml/slot/facility_affiliations)
+URI: [idhi:slot/facility_affiliations](https://idhi_placeholder/linkml/slot/facility_affiliations)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/facility_affiliations](https://idhi.co.il/linkml/slot/facility_a
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [idhi:slot/facility_affiliations](https://idhi.co.il/linkml/slot/facility_a
 name: facility_affiliations
 description: The organization(s) hosting or owning this facility, as reified FacilityAffiliation
   objects with dates.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Facility

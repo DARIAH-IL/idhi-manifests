@@ -66,7 +66,7 @@ URI: [bibo:presentedAt](http://purl.org/ontology/bibo/presentedAt)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -89,7 +89,7 @@ name: presented_at
 description: Event(s) in the index where this publication was presented (by IDHI URN),
   e.g. the conference where the paper was given. Distinct from published_in, the container
   it appeared in.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: bibo:presentedAt
 domain_of:

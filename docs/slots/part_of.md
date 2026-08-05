@@ -65,7 +65,7 @@ URI: [dcterms:isPartOf](http://purl.org/dc/terms/isPartOf)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [dcterms:isPartOf](http://purl.org/dc/terms/isPartOf)
 name: part_of
 description: The containing work (book for a chapter, proceedings for a paper), by
   IDHI URN or external URI.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:isPartOf
 domain_of:

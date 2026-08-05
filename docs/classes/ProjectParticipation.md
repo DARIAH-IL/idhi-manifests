@@ -124,7 +124,7 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -153,7 +153,7 @@ name: ProjectParticipation
 description: A person's participation in a project. Create one instance per (person,
   project, role) combination; if a person changed roles over time, create one instance
   per role with start/end dates.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - participant
@@ -172,13 +172,13 @@ name: ProjectParticipation
 description: A person's participation in a project. Create one instance per (person,
   project, role) combination; if a person changed roles over time, create one instance
   per role with start/end dates.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
   participant:
     name: participant
     description: The person taking part in the project (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: ProjectParticipation
     domain_of:
@@ -188,7 +188,7 @@ attributes:
   project:
     name: project
     description: The project side of the relationship (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: ProjectParticipation
     domain_of:
@@ -203,7 +203,7 @@ attributes:
       software work is DEVELOPER, enrolled students are STUDENT regardless of their
       task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything
       else.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
     owner: ProjectParticipation
@@ -214,7 +214,7 @@ attributes:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: ProjectParticipation
@@ -227,7 +227,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: ProjectParticipation

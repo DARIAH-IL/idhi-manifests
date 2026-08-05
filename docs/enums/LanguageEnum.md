@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: LanguageEnum 
 
 
@@ -15,7 +14,7 @@ _Languages supported for free-text fields (BCP-47 tags)._
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/LanguageEnum](https://idhi.co.il/linkml/enum/LanguageEnum)
+URI: [idhi:enum/LanguageEnum](https://idhi_placeholder/linkml/enum/LanguageEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
@@ -51,7 +50,7 @@ URI: [idhi:enum/LanguageEnum](https://idhi.co.il/linkml/enum/LanguageEnum)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -64,7 +63,7 @@ URI: [idhi:enum/LanguageEnum](https://idhi.co.il/linkml/enum/LanguageEnum)
 ```yaml
 name: LanguageEnum
 description: Languages supported for free-text fields (BCP-47 tags).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   en:

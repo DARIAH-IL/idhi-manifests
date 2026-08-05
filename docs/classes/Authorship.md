@@ -127,7 +127,7 @@ URI: [schema:Role](http://schema.org/Role)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -156,7 +156,7 @@ name: Authorship
 description: A person's contribution to a publication, with author order and role.
   Create one instance per (person, publication); author_order preserves the byline
   sequence (1 = first author).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - author
@@ -176,13 +176,13 @@ name: Authorship
 description: A person's contribution to a publication, with author order and role.
   Create one instance per (person, publication); author_order preserves the byline
   sequence (1 = first author).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
   author:
     name: author
     description: The contributing person (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Authorship
     domain_of:
@@ -192,7 +192,7 @@ attributes:
   publication:
     name: publication
     description: The publication contributed to (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Authorship
     domain_of:
@@ -202,7 +202,7 @@ attributes:
   author_order:
     name: author_order
     description: Position in the byline; 1 = first author.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:position
     owner: Authorship
@@ -214,7 +214,7 @@ attributes:
     description: The kind of contribution. AUTHOR is the default for byline authors;
       use EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named
       non-byline contributions.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
     owner: Authorship
@@ -225,7 +225,7 @@ attributes:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Authorship
@@ -238,7 +238,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Authorship

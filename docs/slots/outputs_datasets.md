@@ -14,7 +14,7 @@ _Datasets produced or curated by this project (by id)._
 
 
 
-URI: [idhi:slot/outputs_datasets](https://idhi.co.il/linkml/slot/outputs_datasets)
+URI: [idhi:slot/outputs_datasets](https://idhi_placeholder/linkml/slot/outputs_datasets)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/outputs_datasets](https://idhi.co.il/linkml/slot/outputs_dataset
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/outputs_datasets](https://idhi.co.il/linkml/slot/outputs_dataset
 ```yaml
 name: outputs_datasets
 description: Datasets produced or curated by this project (by id).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Project

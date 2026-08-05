@@ -14,7 +14,7 @@ _Public landing page of the entity, if one exists._
 
 
 
-URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
+URI: [foaf:homepage](https://xmlns.com/foaf/spec/#term_homepage)
 <!-- no inheritance hierarchy -->
 
 
@@ -50,7 +50,7 @@ URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 | --- | --- |
 | Range | [Uri](../types/Uri.md) |
 | Domain Of | [Entity](../classes/Entity.md) |
-| Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
+| Slot URI | [foaf:homepage](https://xmlns.com/foaf/spec/#term_homepage) |
 
 ### Cardinality and Requirements
 
@@ -75,7 +75,7 @@ URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -96,7 +96,7 @@ URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 ```yaml
 name: homepage
 description: Public landing page of the entity, if one exists.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: foaf:homepage
 domain_of:

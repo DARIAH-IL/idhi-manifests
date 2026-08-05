@@ -123,7 +123,7 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -151,7 +151,7 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 name: OrganizationProjectRole
 description: 'An organization''s engagement in a project. Use one instance per role:
   an organization that both hosts and funds a project gets two instances.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - organization
@@ -169,13 +169,13 @@ class_uri: cerif:Project_OrganisationUnit
 name: OrganizationProjectRole
 description: 'An organization''s engagement in a project. Use one instance per role:
   an organization that both hosts and funds a project gets two instances.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
   organization:
     name: organization
     description: The organization side of the relationship (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: OrganizationProjectRole
     domain_of:
@@ -187,7 +187,7 @@ attributes:
   project:
     name: project
     description: The project side of the relationship (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: OrganizationProjectRole
     domain_of:
@@ -200,7 +200,7 @@ attributes:
     description: 'The organization''s function in the project: COORDINATOR leads the
       consortium, PARTNER contributes work, FUNDER provides money, HOST provides the
       institutional home. Create one relationship instance per role.'
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
     owner: OrganizationProjectRole
@@ -211,7 +211,7 @@ attributes:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: OrganizationProjectRole
@@ -224,7 +224,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: OrganizationProjectRole

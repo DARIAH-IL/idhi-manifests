@@ -14,7 +14,7 @@ _Funding awards received by the project. Use one entry for each funding organiza
 
 
 
-URI: [idhi:slot/funding](https://idhi.co.il/linkml/slot/funding)
+URI: [idhi:slot/funding](https://idhi_placeholder/linkml/slot/funding)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/funding](https://idhi.co.il/linkml/slot/funding)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [idhi:slot/funding](https://idhi.co.il/linkml/slot/funding)
 name: funding
 description: Funding awards received by the project. Use one entry for each funding
   organization and award.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Project

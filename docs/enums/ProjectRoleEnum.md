@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: ProjectRoleEnum 
 
 
@@ -15,17 +14,17 @@ _A person's role in a project. Where a CRediT (Contributor Roles Taxonomy) conce
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/ProjectRoleEnum](https://idhi.co.il/linkml/enum/ProjectRoleEnum)
+URI: [idhi:enum/ProjectRoleEnum](https://idhi_placeholder/linkml/enum/ProjectRoleEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
 | PRINCIPAL_INVESTIGATOR | None | The formally designated lead researcher (PI) |
 | CO_PI | None | A formally designated co-principal investigator |
-| RESEARCHER | https://credit.niso.org/contributor-roles/investigation/ | A team member conducting the scholarly research |
-| DEVELOPER | https://credit.niso.org/contributor-roles/software/ | A team member building the project's software |
+| RESEARCHER | [https://credit.niso.org/contributor-roles/investigation/](https://credit.niso.org/contributor-roles/investigation/) | A team member conducting the scholarly research |
+| DEVELOPER | [https://credit.niso.org/contributor-roles/software/](https://credit.niso.org/contributor-roles/software/) | A team member building the project's software |
 | STUDENT | None | An enrolled student (BA/MA/PhD) working on the project in any capacity — stud... |
-| ADVISOR | https://credit.niso.org/contributor-roles/supervision/ | An external mentor or advisory-board member |
+| ADVISOR | [https://credit.niso.org/contributor-roles/supervision/](https://credit.niso.org/contributor-roles/supervision/) | An external mentor or advisory-board member |
 | CONTRIBUTOR | None | Fallback for any other named involvement |
 
 
@@ -55,7 +54,7 @@ URI: [idhi:enum/ProjectRoleEnum](https://idhi.co.il/linkml/enum/ProjectRoleEnum)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -69,7 +68,7 @@ URI: [idhi:enum/ProjectRoleEnum](https://idhi.co.il/linkml/enum/ProjectRoleEnum)
 name: ProjectRoleEnum
 description: A person's role in a project. Where a CRediT (Contributor Roles Taxonomy)
   concept approximates the role, `meaning:` records it.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   PRINCIPAL_INVESTIGATOR:

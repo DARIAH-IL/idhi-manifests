@@ -65,7 +65,7 @@ URI: [schema:position](http://schema.org/position)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [schema:position](http://schema.org/position)
 ```yaml
 name: author_order
 description: Position in the byline; 1 = first author.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:position
 domain_of:

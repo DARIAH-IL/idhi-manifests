@@ -76,7 +76,7 @@ URI: [dcterms:description](http://purl.org/dc/terms/description)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -98,7 +98,7 @@ URI: [dcterms:description](http://purl.org/dc/terms/description)
 name: description
 description: Multilingual free-text description (a few sentences aimed at index visitors,
   not internal notes).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:description
 domain_of:

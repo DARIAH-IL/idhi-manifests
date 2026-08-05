@@ -14,7 +14,7 @@ _The person taking part in the project (by IDHI URN)._
 
 
 
-URI: [idhi:slot/participant](https://idhi.co.il/linkml/slot/participant)
+URI: [idhi:slot/participant](https://idhi_placeholder/linkml/slot/participant)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/participant](https://idhi.co.il/linkml/slot/participant)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/participant](https://idhi.co.il/linkml/slot/participant)
 ```yaml
 name: participant
 description: The person taking part in the project (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - ProjectParticipation

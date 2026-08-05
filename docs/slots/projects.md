@@ -14,7 +14,7 @@ _All Project records in the index._
 
 
 
-URI: [idhi:slot/projects](https://idhi.co.il/linkml/slot/projects)
+URI: [idhi:slot/projects](https://idhi_placeholder/linkml/slot/projects)
 <!-- no inheritance hierarchy -->
 
 
@@ -72,7 +72,7 @@ URI: [idhi:slot/projects](https://idhi.co.il/linkml/slot/projects)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -93,7 +93,7 @@ URI: [idhi:slot/projects](https://idhi.co.il/linkml/slot/projects)
 ```yaml
 name: projects
 description: All Project records in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 owner: IndexContainer
 domain_of:

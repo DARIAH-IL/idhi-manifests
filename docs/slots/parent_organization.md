@@ -65,7 +65,7 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 name: parent_organization
 description: The larger organization this one is part of (e.g. a department's university).
   Use for formal containment only; looser partnerships belong in relationship classes.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:parentOrganization
 domain_of:

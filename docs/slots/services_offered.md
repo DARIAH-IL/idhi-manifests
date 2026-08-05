@@ -14,7 +14,7 @@ _Services this facility offers to researchers. Reference Service records by id; 
 
 
 
-URI: [idhi:slot/services_offered](https://idhi.co.il/linkml/slot/services_offered)
+URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_offered)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/services_offered](https://idhi.co.il/linkml/slot/services_offere
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [idhi:slot/services_offered](https://idhi.co.il/linkml/slot/services_offere
 name: services_offered
 description: Services this facility offers to researchers. Reference Service records
   by id; the Service's own 'provider' may still point at the parent Organization.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Facility

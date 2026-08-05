@@ -197,7 +197,7 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -227,7 +227,7 @@ description: 'An academic publication: journal article, book, chapter, conferenc
   paper, thesis, report, etc. The precise kind is given by publication_type.'
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
@@ -262,7 +262,7 @@ description: 'An academic publication: journal article, book, chapter, conferenc
   paper, thesis, report, etc. The precise kind is given by publication_type.'
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slot_usage:
   type:
@@ -280,7 +280,7 @@ attributes:
       Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
     owner: Publication
@@ -302,7 +302,7 @@ attributes:
     name: doi
     description: The publication's persistent identifier. Record it whenever one exists;
       it is the preferred deduplication key.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: bibo:doi
     owner: Publication
@@ -316,7 +316,7 @@ attributes:
     name: publication_type
     description: The kind of publication (journal article, book part, conference paper,
       thesis...). Pick the most specific applicable value.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:type
     owner: Publication
@@ -327,7 +327,7 @@ attributes:
     name: authorships
     description: The person's publication contributions, as reified Authorship objects
       carrying byline order and role.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Publication
     domain_of:
@@ -340,7 +340,7 @@ attributes:
   date_issued:
     name: date_issued
     description: Formal publication date (or year-01-01 if only the year is known).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:issued
     owner: Publication
@@ -353,7 +353,7 @@ attributes:
     description: Name of the journal, book or proceedings the publication appeared
       in, as free multilingual text. If the container work has its own IDHI record
       or external URI, also link it via part_of.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:isPartOf
     owner: Publication
@@ -366,7 +366,7 @@ attributes:
   publisher:
     name: publisher
     description: The organization publishing the dataset or publication (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:publisher
     owner: Publication
@@ -378,7 +378,7 @@ attributes:
     name: part_of
     description: The containing work (book for a chapter, proceedings for a paper),
       by IDHI URN or external URI.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:isPartOf
     owner: Publication
@@ -390,7 +390,7 @@ attributes:
     description: Event(s) in the index where this publication was presented (by IDHI
       URN), e.g. the conference where the paper was given. Distinct from published_in,
       the container it appeared in.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: bibo:presentedAt
     owner: Publication
@@ -402,7 +402,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Publication
@@ -419,7 +419,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -436,7 +436,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Publication
@@ -449,7 +449,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Publication
@@ -461,7 +461,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Publication
@@ -475,7 +475,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Publication

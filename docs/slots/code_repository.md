@@ -65,7 +65,7 @@ URI: [schema:codeRepository](http://schema.org/codeRepository)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [schema:codeRepository](http://schema.org/codeRepository)
 ```yaml
 name: code_repository
 description: Source-code repository URL (GitHub, GitLab...), if open.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:codeRepository
 domain_of:

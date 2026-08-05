@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: DigitalHumanitiesActivityEnum 
 
 
@@ -15,7 +14,7 @@ _Digital-humanities research activities: Analyzing, Capturing, Creating, Dissemi
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/DigitalHumanitiesActivityEnum](https://idhi.co.il/linkml/enum/DigitalHumanitiesActivityEnum)
+URI: [idhi:enum/DigitalHumanitiesActivityEnum](https://idhi_placeholder/linkml/enum/DigitalHumanitiesActivityEnum)
 ## Enumeration Source
 **Reachable From:**
 - **Source:** NONE
@@ -27,174 +26,174 @@ URI: [idhi:enum/DigitalHumanitiesActivityEnum](https://idhi.co.il/linkml/enum/Di
 ## Permissible Values
 | Value | Meaning | Description | Additional Info |
 | --- | --- | --- | --- |
-| tadirah:abstractThinking | tadirah:abstractThinking | Wikidata contributors, "Q25501084," Wikidata, https://www | Title: Abstract Thinking<br>|
-| tadirah:academicPublishing | tadirah:academicPublishing | subfield of publishing which distributes academic research and scholarship (W... | Title: Academic Publishing<br>|
-| tadirah:adding | tadirah:adding | arithmetic operation (Wikidata contributors, "Q32043," Wikidata, https://www | Title: Adding<br>|
-| tadirah:aggregating | tadirah:aggregating | act of collecting together physical or conceptual objects (Wikidata contribut... | Title: Aggregating<br>|
-| tadirah:analyzing | tadirah:analyzing |  | Title: Analyzing<br>|
-| tadirah:annotating | tadirah:annotating |  | Title: Annotating<br>|
-| tadirah:archiving | tadirah:archiving |  | Title: Archiving<br>|
-| tadirah:associate | tadirah:associate | Wikidata contributors, "Q2868277," Wikidata, https://www | Title: Associate<br>|
-| tadirah:associating | tadirah:associating | Wikidata contributors, "Q98847960," Wikidata, https://www | Title: Associating<br>|
-| tadirah:audioAnnotation | tadirah:audioAnnotation | Wikidata contributors, "Q98847703," Wikidata, https://www | Title: Audio Annotation<br>|
-| tadirah:audioConferencing | tadirah:audioConferencing | Wikidata contributors, "Q58199," Wikidata, https://www | Title: Audio Conferencing<br>|
-| tadirah:audioRecording | tadirah:audioRecording | mechanical or digital record of a series of audio events (Wikidata contributo... | Title: Audio Recording<br>|
-| tadirah:authorshipAttribution | tadirah:authorshipAttribution |  | Title: Authorship Attribution<br>|
-| tadirah:bitStreamPreservation | tadirah:bitStreamPreservation | Wikidata contributors, "Q98847577," Wikidata, https://www | Title: Bit Stream Preservation<br>|
-| tadirah:blogging | tadirah:blogging | action of writing articles or maintaining a weblog (Wikidata contributors, "Q... | Title: Blogging<br>|
-| tadirah:browsing | tadirah:browsing | exploratory use of an information system (Wikidata contributors, "Q516508," W... | Title: Browsing<br>|
-| tadirah:capturing | tadirah:capturing |  | Title: Capturing<br>|
-| tadirah:cataloging | tadirah:cataloging | process of listing information resources for inclusion in a database (Wikidat... | Title: Cataloging<br>|
-| tadirah:clusterAnalysis | tadirah:clusterAnalysis | task of grouping a set of objects in such a way that objects in the same grou... | Title: Cluster Analysis<br>|
-| tadirah:coOccurrence | tadirah:coOccurrence |  | Title: Co-Occurrence<br>|
-| tadirah:collaborating | tadirah:collaborating |  | Title: Collaborating<br>|
-| tadirah:collating | tadirah:collating |  | Title: Collating<br>|
-| tadirah:collecting | tadirah:collecting | purposefully gathering items (Wikidata contributors, "Q208165," Wikidata, htt... | Title: Collecting<br>|
-| tadirah:collocationAnalysis | tadirah:collocationAnalysis |  | Title: Collocation Analysis<br>|
-| tadirah:commenting | tadirah:commenting |  | Title: Commenting<br>|
-| tadirah:communicating | tadirah:communicating |  | Title: Communicating<br>|
-| tadirah:comparing | tadirah:comparing | Wikidata contributors, "Q98845331," Wikidata, https://www | Title: Comparing<br>|
-| tadirah:compiling | tadirah:compiling | translation of code written in a higher-level programming language to a lower... | Title: Compiling<br>|
-| tadirah:conceptualizing | tadirah:conceptualizing |  | Title: Conceptualizing<br>|
-| tadirah:concordance | tadirah:concordance | list of words or terms in a published book (Wikidata contributors, "Q839018,"... | Title: Concordance<br>|
-| tadirah:contentAnalysis | tadirah:contentAnalysis |  | Title: Content Analysis<br>|
-| tadirah:contextualizing | tadirah:contextualizing |  | Title: Contextualizing<br>|
-| tadirah:contrastiveAnalysis | tadirah:contrastiveAnalysis | Wikidata contributors, "Q614959," Wikidata, https://www | Title: Contrastive Analysis<br>|
-| tadirah:converting | tadirah:converting |  | Title: Converting<br>|
-| tadirah:correcting | tadirah:correcting | Wikidata contributors, "Q98848041," Wikidata, https://www | Title: Correcting<br>|
-| tadirah:creating | tadirah:creating |  | Title: Creating<br>|
-| tadirah:cropping | tadirah:cropping | to remove unwanted outer parts of an image (Wikidata contributors, "Q785116,"... | Title: Cropping<br>|
-| tadirah:crowdsourcing | tadirah:crowdsourcing |  | Title: Crowdsourcing<br>|
-| tadirah:dataCleansing | tadirah:dataCleansing |  | Title: Data Cleansing<br>|
-| tadirah:dataIngestion | tadirah:dataIngestion | Wikidata contributors, "Q98847455," Wikidata, https://www | Title: Data Ingestion<br>|
-| tadirah:dataMapping | tadirah:dataMapping | process of linking data objects in distinct models (Wikidata contributors, "Q... | Title: Data Mapping<br>|
-| tadirah:dataMining | tadirah:dataMining | process of discovering patterns in large data sets using computational method... | Title: Data Mining<br>|
-| tadirah:dataRecognition | tadirah:dataRecognition |  | Title: Data Recognition<br>|
-| tadirah:dataVisualization | tadirah:dataVisualization | creation and study of the visual representation of data (Wikidata contributor... | Title: Data Visualization<br>|
-| tadirah:debugging | tadirah:debugging | the process of finding and resolving defects or problems within a computer pr... | Title: Debugging<br>|
-| tadirah:defining | tadirah:defining | statement that attaches a meaning to a term (Wikidata contributors, "Q101072,... | Title: Defining<br>|
-| tadirah:description | tadirah:description | text for clarification; one of four rhetorical modes (Wikidata contributors, ... | Title: Description<br>|
-| tadirah:designing | tadirah:designing |  | Title: Designing<br>|
-| tadirah:diagramming | tadirah:diagramming | Wikidata contributors, "Q98845265," Wikidata, https://www | Title: Diagramming<br>|
-| tadirah:digitalObjectIdentifier | tadirah:digitalObjectIdentifier | character string used as a permanent identifier for a digital object, in a fo... | Title: Digital Object Identifier<br>|
-| tadirah:digitalPublishing | tadirah:digitalPublishing | Wikidata contributors, "Q1224844," Wikidata, https://www | Title: Digital Publishing<br>|
-| tadirah:discourseAnalysis | tadirah:discourseAnalysis | generic term for the analysis of social, language policy or historiographical... | Title: Discourse Analysis<br>|
-| tadirah:discovering | tadirah:discovering |  | Title: Discovering<br>|
-| tadirah:discussing | tadirah:discussing | Wikidata contributors, "Q98847226," Wikidata, https://www | Title: Discussing<br>|
-| tadirah:disseminating | tadirah:disseminating |  | Title: Disseminating<br>|
-| tadirah:distanceMeasures | tadirah:distanceMeasures | definitions for distance between two objects or events in the universe (Wikid... | Title: Distance Measures<br>|
-| tadirah:drawing | tadirah:drawing | visual artwork in two-dimensional medium (Wikidata contributors, "Q93184," Wi... | Title: Drawing<br>|
-| tadirah:eMailing | tadirah:eMailing | Wikidata contributors, "Q386274," Wikidata, https://www | Title: E-mailing<br>|
-| tadirah:editing | tadirah:editing |  | Title: Editing<br>|
-| tadirah:emulation | tadirah:emulation | system that emulates a real system such that the behavior closely resembles t... | Title: Emulation<br>|
-| tadirah:encoding | tadirah:encoding | process of creating a message for transmission (Wikidata contributors, "Q5375... | Title: Encoding<br>|
-| tadirah:enriching | tadirah:enriching |  | Title: Enriching<br>|
-| tadirah:explanation | tadirah:explanation | set of statements constructed to describe a set of facts (Wikidata contributo... | Title: Explanation<br>|
-| tadirah:exploration | tadirah:exploration | act of searching or traveling around a terrain for the purpose of discovery (... | Title: Exploration<br>|
-| tadirah:expressingOpinion | tadirah:expressingOpinion |  | Title: Expressing Opinion<br>|
-| tadirah:extracting | tadirah:extracting |  | Title: Extracting<br>|
-| tadirah:finding | tadirah:finding | Wikidata contributors, "Q28195064," Wikidata, https://www | Title: Finding<br>|
-| tadirah:formatting | tadirah:formatting | Wikidata contributors, "Q98848248," Wikidata, https://www | Title: Formatting<br>|
-| tadirah:gamification | tadirah:gamification | the use of game thinking and game mechanics in non-game contexts to engage us... | Title: Gamification<br>|
-| tadirah:gathering | tadirah:gathering |  | Title: Gathering<br>|
-| tadirah:genreRecognition | tadirah:genreRecognition |  | Title: Genre Recognition<br>|
-| tadirah:georeferencing | tadirah:georeferencing | identification of something to locations in physical space (Wikidata contribu... | Title: Georeferencing<br>|
-| tadirah:graphicsProgramming | tadirah:graphicsProgramming | Wikidata contributors, "Q98845304," Wikidata, https://www | Title: Graphics Programming<br>|
-| tadirah:highlighting | tadirah:highlighting | Wikidata contributors, "Q98847905," Wikidata, https://www | Title: Highlighting<br>|
-| tadirah:identifier | tadirah:identifier | name that identifies either a unique object or a unique class of objects (Wik... | Title: Identifier<br>|
-| tadirah:identifying | tadirah:identifying |  | Title: Identifying<br>|
-| tadirah:imaging | tadirah:imaging |  | Title: Imaging<br>|
-| tadirah:improving | tadirah:improving | process of a thing moving from one state to another that is considered to be ... | Title: Improving<br>|
-| tadirah:informationMining | tadirah:informationMining | Wikidata contributors, "Q98847165," Wikidata, https://www | Title: Information Mining<br>|
-| tadirah:informationRetrieval | tadirah:informationRetrieval | activity of obtaining information resources relevant to an information need f... | Title: Information Retrieval<br>|
-| tadirah:instantMessaging | tadirah:instantMessaging | form of communication over the Internet (Wikidata contributors, "Q58199," Wik... | Title: Instant Messaging<br>|
-| tadirah:integrating | tadirah:integrating | Wikidata contributors, "Q98847635," Wikidata, https://www | Title: Integrating<br>|
-| tadirah:interpreting | tadirah:interpreting |  | Title: Interpreting<br>|
-| tadirah:knowledgeDiscovery | tadirah:knowledgeDiscovery | Wikidata contributors, "Q98847144," Wikidata, https://www | Title: Knowledge Discovery<br>|
-| tadirah:knowledgeExtraction | tadirah:knowledgeExtraction | creation of knowledge from structured and unstructured sources (Wikidata cont... | Title: Knowledge Extraction<br>|
-| tadirah:lemmatizing | tadirah:lemmatizing | Wikidata contributors, "Q2554325," Wikidata, https://www | Title: Lemmatizing<br>|
-| tadirah:lettering | tadirah:lettering | creation of hand-drawn letters in graphic design and typography (Wikidata con... | Title: Lettering<br>|
-| tadirah:linkedOpenData | tadirah:linkedOpenData | linked data available under an open license (Wikidata contributors, "Q1869299... | Title: Linked Open Data<br>|
-| tadirah:machineLearning | tadirah:machineLearning | branch of statistics and computer science, which studies algorithms and archi... | Title: Machine Learning<br>|
-| tadirah:managing | tadirah:managing | influence or authority over something; process of directing the operation of ... | Title: Managing<br>|
-| tadirah:mapping | tadirah:mapping | binary relation which is left-total (defined on all its input set) (Wikidata ... | Title: Mapping<br>|
-| tadirah:merging | tadirah:merging | Wikidata contributors, "Q98848337," Wikidata, https://www | Title: Merging<br>|
-| tadirah:microblogging | tadirah:microblogging | broadcast medium (Wikidata contributors, "Q92438," Wikidata, https://www | Title: Microblogging<br>|
-| tadirah:migration | tadirah:migration | process of selecting, preparing, extracting, and transforming data and perman... | Title: Migration<br>|
-| tadirah:mindMapping | tadirah:mindMapping | Wikidata contributors, "Q98846887," Wikidata, https://www | Title: Mind Mapping<br>|
-| tadirah:modeling | tadirah:modeling |  | Title: Modeling<br>|
-| tadirah:modifying | tadirah:modifying | Wikidata contributors, "Q98848358," Wikidata, https://www | Title: Modifying<br>|
-| tadirah:namedEntityRecognition | tadirah:namedEntityRecognition | extraction of named entity mentions in unstructured text into pre-defined cat... | Title: Named Entity Recognition<br>|
-| tadirah:namingConvention | tadirah:namingConvention | set of rules for naming variables, types, functions, etc | Title: Naming Convention<br>|
-| tadirah:naturalLanguageProcessing | tadirah:naturalLanguageProcessing | field of computer science and linguistics (Wikidata contributors, "Q30642," W... | Title: Natural Language Processing<br>|
-| tadirah:networkAnalysis | tadirah:networkAnalysis |  | Title: Network Analysis<br>|
-| tadirah:opticalCharacterRecognition | tadirah:opticalCharacterRecognition | Wikidata contributors, "Q167555," Wikidata, https://www | Title: Optical Character Recognition<br>|
-| tadirah:opticalMusicRecognition | tadirah:opticalMusicRecognition | Wikidata contributors, "Q1243229," Wikidata, https://www | Title: Optical Music Recognition<br>|
-| tadirah:organizing | tadirah:organizing |  | Title: Organizing<br>|
-| tadirah:parsing | tadirah:parsing | process of analyzing a string of symbols, either in natural language, compute... | Title: Parsing<br>|
-| tadirah:patternRecognition | tadirah:patternRecognition | branch of machine learning (Wikidata contributors, "Q378859," Wikidata, https... | Title: Pattern Recognition<br>|
-| tadirah:persistentIdentifier | tadirah:persistentIdentifier | long-lasting digital name (Wikidata contributors, "Q420330," Wikidata, https:... | Title: Persistent Identifier<br>|
-| tadirah:photographing | tadirah:photographing | art, science, and practice of creating durable images by recording light or o... | Title: Photographing<br>|
-| tadirah:plotting | tadirah:plotting | Wikidata contributors, "Q98846923," Wikidata, https://www | Title: Plotting<br>|
-| tadirah:posTagging | tadirah:posTagging | the process of identifying the grammatical type of words in a text (Wikidata ... | Title: POS-Tagging<br>|
-| tadirah:posting | tadirah:posting | content on a social media platform, a forum or a blog (Wikidata contributors,... | Title: Posting<br>|
-| tadirah:preprocessing | tadirah:preprocessing | Wikidata contributors, "Q28838080," Wikidata, https://www | Title: Preprocessing<br>|
-| tadirah:preservationMetadata | tadirah:preservationMetadata | information that supports and documents acts of preservation on digital mater... | Title: Preservation Metadata<br>|
-| tadirah:preserving | tadirah:preserving |  | Title: Preserving<br>|
-| tadirah:principalComponentAnalysis | tadirah:principalComponentAnalysis | conversion of a set of observations of possibly correlated variables into a s... | Title: Principal Component Analysis<br>|
-| tadirah:programming | tadirah:programming |  | Title: Programming<br>|
-| tadirah:pseudoCoding | tadirah:pseudoCoding |  | Title: Pseudo Coding<br>|
-| tadirah:publishing | tadirah:publishing |  | Title: Publishing<br>|
-| tadirah:querying | tadirah:querying | Wikidata contributors, "Q98847088," Wikidata, https://www | Title: Querying<br>|
-| tadirah:reasoning | tadirah:reasoning | type of thought (Wikidata contributors, "Q1156402," Wikidata, https://www | Title: Reasoning<br>|
-| tadirah:recording | tadirah:recording |  | Title: Recording<br>|
-| tadirah:relationalAnalysis | tadirah:relationalAnalysis |  | Title: Relational Analysis<br>|
-| tadirah:removing | tadirah:removing | dissociation of the original object with its old part; moving an object on di... | Title: Removing<br>|
-| tadirah:replication | tadirah:replication | sharing information to ensure consistency in computing (Wikidata contributors... | Title: Replication<br>|
-| tadirah:rhetoricalAnalysis | tadirah:rhetoricalAnalysis | Wikidata contributors, "Q98845926," Wikidata, https://www | Title: Rhetorical Analysis<br>|
-| tadirah:scanning | tadirah:scanning | process of creating digital images with a scanner (Wikidata contributors, "Q5... | Title: Scanning<br>|
-| tadirah:screencast | tadirah:screencast | digital recording of computer screen output (Wikidata contributors, "Q1365447... | Title: Screencast<br>|
-| tadirah:searching | tadirah:searching | search for target data from a set of data (Wikidata contributors, "Q11540953,... | Title: Searching<br>|
-| tadirah:segmenting | tadirah:segmenting |  | Title: Segmenting<br>|
-| tadirah:semantification | tadirah:semantification |  | Title: Semantification<br>|
-| tadirah:sentimentAnalysis | tadirah:sentimentAnalysis | use of natural language processing, text analysis and computational linguisti... | Title: Sentiment Analysis<br>|
-| tadirah:sequenceAlignment | tadirah:sequenceAlignment | process in bioinformatics that aligns (identifies equivalent sites within) mo... | Title: Sequence Alignment<br>|
-| tadirah:sharing | tadirah:sharing |  | Title: Sharing<br>|
-| tadirah:socialNetworking | tadirah:socialNetworking | The process of building one's group of personal or business contacts (Wikidat... | Title: Social Networking<br>|
-| tadirah:spatialAnalysis | tadirah:spatialAnalysis |  | Title: Spatial Analysis<br>|
-| tadirah:speechRecognizing | tadirah:speechRecognizing | Wikidata contributors, "Q98846987," Wikidata, https://www | Title: Speech Recognizing<br>|
-| tadirah:storing | tadirah:storing |  | Title: Storing<br>|
-| tadirah:structuralAnalysis | tadirah:structuralAnalysis |  | Title: Structural Analysis<br>|
-| tadirah:stylisticAnalysis | tadirah:stylisticAnalysis |  | Title: Stylistic Analysis<br>|
-| tadirah:stylometry | tadirah:stylometry |  | Title: Stylometry<br>|
-| tadirah:subtracting | tadirah:subtracting | Wikidata contributors, "Q98848418," Wikidata, https://www | Title: Subtracting<br>|
-| tadirah:supplementing | tadirah:supplementing | Wikidata contributors, "Q98848097," Wikidata, https://www | Title: Supplementing<br>|
-| tadirah:tagging | tadirah:tagging | the act of labelling a piece of data or content wth a short string to express... | Title: Tagging<br>|
-| tadirah:teaching | tadirah:teaching |  | Title: Teaching<br>|
-| tadirah:textCategorization | tadirah:textCategorization | Wikidata contributors, "Q57771142," Wikidata, https://www | Title: Text Categorization<br>|
-| tadirah:textMessaging | tadirah:textMessaging | act of typing and sending a brief, digital message (Wikidata contributors, "Q... | Title: Text Messaging<br>|
-| tadirah:theorizing | tadirah:theorizing |  | Title: Theorizing<br>|
-| tadirah:topicModeling | tadirah:topicModeling | set of techniques in computational linguistics and related fields (Wikidata c... | Title: Topic Modeling<br>|
-| tadirah:transcoding | tadirah:transcoding | direct digital-to-digital conversion of one encoding to another (Wikidata con... | Title: Transcoding<br>|
-| tadirah:transcribing | tadirah:transcribing | transcribing describes  the activity of creating a representation of a manusc... | Title: Transcribing<br>|
-| tadirah:transformation | tadirah:transformation | process involving change into a qualitatively different form (Wikidata contri... | Title: Transformation<br>|
-| tadirah:translating | tadirah:translating |  | Title: Translating<br>|
-| tadirah:treeTagging | tadirah:treeTagging | Wikidata contributors, "Q98845582," Wikidata, https://www | Title: Tree-Tagging<br>|
-| tadirah:tweet | tadirah:tweet | individual post on the Twitter microblogging service (Wikidata contributors, ... | Title: Tweet<br>|
-| tadirah:uniformResourceIdentifier | tadirah:uniformResourceIdentifier | string of characters used to identify a name of a resource on a network such ... | Title: Uniform Resource Identifier<br>|
-| tadirah:upload | tadirah:upload | sending of data from a local system to a remote system (Wikidata contributors... | Title: Upload<br>|
-| tadirah:userGeneratedContent | tadirah:userGeneratedContent | online content created by users (Wikidata contributors, "Q579716," Wikidata, ... | Title: User Generated Content<br>|
-| tadirah:versioning | tadirah:versioning |  | Title: Versioning<br>|
-| tadirah:videoCapture | tadirah:videoCapture | Wikidata contributors, "Q2778015," Wikidata, https://www | Title: Video Capture<br>|
-| tadirah:videoConference | tadirah:videoConference | type of conference (Wikidata contributors, "Q238354," Wikidata, https://www | Title: Video Conference<br>|
-| tadirah:videoEditing | tadirah:videoEditing | editing live television and video production (Wikidata contributors, "Q115431... | Title: Video Editing<br>|
-| tadirah:visualAnalysis | tadirah:visualAnalysis |  | Title: Visual Analysis<br>|
-| tadirah:visualAnnotation | tadirah:visualAnnotation | Wikidata contributors, "Q98847784," Wikidata, https://www | Title: Visual Annotation<br>|
-| tadirah:webCrawling | tadirah:webCrawling | systematic access of resources across the web (Wikidata contributors, "Q61466... | Title: Web Crawling<br>|
-| tadirah:webDevelopment | tadirah:webDevelopment |  | Title: Web Development<br>|
-| tadirah:webScraping | tadirah:webScraping | data scraping used for extracting data from websites (Wikidata contributors, ... | Title: Web Scraping<br>|
-| tadirah:wireframing | tadirah:wireframing | Wikidata contributors, "Q98845203," Wikidata, https://www | Title: Wireframing<br>|
-| tadirah:writing | tadirah:writing | writing designates the activity of creating new texts (instead of capturing e... | Title: Writing<br>|
+| tadirah:abstractThinking | [tadirah:abstractThinking](https://vocabs.dariah.eu/tadirah/abstractThinking) | Wikidata contributors, "Q25501084," Wikidata, https://www | Title: Abstract Thinking<br>|
+| tadirah:academicPublishing | [tadirah:academicPublishing](https://vocabs.dariah.eu/tadirah/academicPublishing) | subfield of publishing which distributes academic research and scholarship (W... | Title: Academic Publishing<br>|
+| tadirah:adding | [tadirah:adding](https://vocabs.dariah.eu/tadirah/adding) | arithmetic operation (Wikidata contributors, "Q32043," Wikidata, https://www | Title: Adding<br>|
+| tadirah:aggregating | [tadirah:aggregating](https://vocabs.dariah.eu/tadirah/aggregating) | act of collecting together physical or conceptual objects (Wikidata contribut... | Title: Aggregating<br>|
+| tadirah:analyzing | [tadirah:analyzing](https://vocabs.dariah.eu/tadirah/analyzing) |  | Title: Analyzing<br>|
+| tadirah:annotating | [tadirah:annotating](https://vocabs.dariah.eu/tadirah/annotating) |  | Title: Annotating<br>|
+| tadirah:archiving | [tadirah:archiving](https://vocabs.dariah.eu/tadirah/archiving) |  | Title: Archiving<br>|
+| tadirah:associate | [tadirah:associate](https://vocabs.dariah.eu/tadirah/associate) | Wikidata contributors, "Q2868277," Wikidata, https://www | Title: Associate<br>|
+| tadirah:associating | [tadirah:associating](https://vocabs.dariah.eu/tadirah/associating) | Wikidata contributors, "Q98847960," Wikidata, https://www | Title: Associating<br>|
+| tadirah:audioAnnotation | [tadirah:audioAnnotation](https://vocabs.dariah.eu/tadirah/audioAnnotation) | Wikidata contributors, "Q98847703," Wikidata, https://www | Title: Audio Annotation<br>|
+| tadirah:audioConferencing | [tadirah:audioConferencing](https://vocabs.dariah.eu/tadirah/audioConferencing) | Wikidata contributors, "Q58199," Wikidata, https://www | Title: Audio Conferencing<br>|
+| tadirah:audioRecording | [tadirah:audioRecording](https://vocabs.dariah.eu/tadirah/audioRecording) | mechanical or digital record of a series of audio events (Wikidata contributo... | Title: Audio Recording<br>|
+| tadirah:authorshipAttribution | [tadirah:authorshipAttribution](https://vocabs.dariah.eu/tadirah/authorshipAttribution) |  | Title: Authorship Attribution<br>|
+| tadirah:bitStreamPreservation | [tadirah:bitStreamPreservation](https://vocabs.dariah.eu/tadirah/bitStreamPreservation) | Wikidata contributors, "Q98847577," Wikidata, https://www | Title: Bit Stream Preservation<br>|
+| tadirah:blogging | [tadirah:blogging](https://vocabs.dariah.eu/tadirah/blogging) | action of writing articles or maintaining a weblog (Wikidata contributors, "Q... | Title: Blogging<br>|
+| tadirah:browsing | [tadirah:browsing](https://vocabs.dariah.eu/tadirah/browsing) | exploratory use of an information system (Wikidata contributors, "Q516508," W... | Title: Browsing<br>|
+| tadirah:capturing | [tadirah:capturing](https://vocabs.dariah.eu/tadirah/capturing) |  | Title: Capturing<br>|
+| tadirah:cataloging | [tadirah:cataloging](https://vocabs.dariah.eu/tadirah/cataloging) | process of listing information resources for inclusion in a database (Wikidat... | Title: Cataloging<br>|
+| tadirah:clusterAnalysis | [tadirah:clusterAnalysis](https://vocabs.dariah.eu/tadirah/clusterAnalysis) | task of grouping a set of objects in such a way that objects in the same grou... | Title: Cluster Analysis<br>|
+| tadirah:coOccurrence | [tadirah:coOccurrence](https://vocabs.dariah.eu/tadirah/coOccurrence) |  | Title: Co-Occurrence<br>|
+| tadirah:collaborating | [tadirah:collaborating](https://vocabs.dariah.eu/tadirah/collaborating) |  | Title: Collaborating<br>|
+| tadirah:collating | [tadirah:collating](https://vocabs.dariah.eu/tadirah/collating) |  | Title: Collating<br>|
+| tadirah:collecting | [tadirah:collecting](https://vocabs.dariah.eu/tadirah/collecting) | purposefully gathering items (Wikidata contributors, "Q208165," Wikidata, htt... | Title: Collecting<br>|
+| tadirah:collocationAnalysis | [tadirah:collocationAnalysis](https://vocabs.dariah.eu/tadirah/collocationAnalysis) |  | Title: Collocation Analysis<br>|
+| tadirah:commenting | [tadirah:commenting](https://vocabs.dariah.eu/tadirah/commenting) |  | Title: Commenting<br>|
+| tadirah:communicating | [tadirah:communicating](https://vocabs.dariah.eu/tadirah/communicating) |  | Title: Communicating<br>|
+| tadirah:comparing | [tadirah:comparing](https://vocabs.dariah.eu/tadirah/comparing) | Wikidata contributors, "Q98845331," Wikidata, https://www | Title: Comparing<br>|
+| tadirah:compiling | [tadirah:compiling](https://vocabs.dariah.eu/tadirah/compiling) | translation of code written in a higher-level programming language to a lower... | Title: Compiling<br>|
+| tadirah:conceptualizing | [tadirah:conceptualizing](https://vocabs.dariah.eu/tadirah/conceptualizing) |  | Title: Conceptualizing<br>|
+| tadirah:concordance | [tadirah:concordance](https://vocabs.dariah.eu/tadirah/concordance) | list of words or terms in a published book (Wikidata contributors, "Q839018,"... | Title: Concordance<br>|
+| tadirah:contentAnalysis | [tadirah:contentAnalysis](https://vocabs.dariah.eu/tadirah/contentAnalysis) |  | Title: Content Analysis<br>|
+| tadirah:contextualizing | [tadirah:contextualizing](https://vocabs.dariah.eu/tadirah/contextualizing) |  | Title: Contextualizing<br>|
+| tadirah:contrastiveAnalysis | [tadirah:contrastiveAnalysis](https://vocabs.dariah.eu/tadirah/contrastiveAnalysis) | Wikidata contributors, "Q614959," Wikidata, https://www | Title: Contrastive Analysis<br>|
+| tadirah:converting | [tadirah:converting](https://vocabs.dariah.eu/tadirah/converting) |  | Title: Converting<br>|
+| tadirah:correcting | [tadirah:correcting](https://vocabs.dariah.eu/tadirah/correcting) | Wikidata contributors, "Q98848041," Wikidata, https://www | Title: Correcting<br>|
+| tadirah:creating | [tadirah:creating](https://vocabs.dariah.eu/tadirah/creating) |  | Title: Creating<br>|
+| tadirah:cropping | [tadirah:cropping](https://vocabs.dariah.eu/tadirah/cropping) | to remove unwanted outer parts of an image (Wikidata contributors, "Q785116,"... | Title: Cropping<br>|
+| tadirah:crowdsourcing | [tadirah:crowdsourcing](https://vocabs.dariah.eu/tadirah/crowdsourcing) |  | Title: Crowdsourcing<br>|
+| tadirah:dataCleansing | [tadirah:dataCleansing](https://vocabs.dariah.eu/tadirah/dataCleansing) |  | Title: Data Cleansing<br>|
+| tadirah:dataIngestion | [tadirah:dataIngestion](https://vocabs.dariah.eu/tadirah/dataIngestion) | Wikidata contributors, "Q98847455," Wikidata, https://www | Title: Data Ingestion<br>|
+| tadirah:dataMapping | [tadirah:dataMapping](https://vocabs.dariah.eu/tadirah/dataMapping) | process of linking data objects in distinct models (Wikidata contributors, "Q... | Title: Data Mapping<br>|
+| tadirah:dataMining | [tadirah:dataMining](https://vocabs.dariah.eu/tadirah/dataMining) | process of discovering patterns in large data sets using computational method... | Title: Data Mining<br>|
+| tadirah:dataRecognition | [tadirah:dataRecognition](https://vocabs.dariah.eu/tadirah/dataRecognition) |  | Title: Data Recognition<br>|
+| tadirah:dataVisualization | [tadirah:dataVisualization](https://vocabs.dariah.eu/tadirah/dataVisualization) | creation and study of the visual representation of data (Wikidata contributor... | Title: Data Visualization<br>|
+| tadirah:debugging | [tadirah:debugging](https://vocabs.dariah.eu/tadirah/debugging) | the process of finding and resolving defects or problems within a computer pr... | Title: Debugging<br>|
+| tadirah:defining | [tadirah:defining](https://vocabs.dariah.eu/tadirah/defining) | statement that attaches a meaning to a term (Wikidata contributors, "Q101072,... | Title: Defining<br>|
+| tadirah:description | [tadirah:description](https://vocabs.dariah.eu/tadirah/description) | text for clarification; one of four rhetorical modes (Wikidata contributors, ... | Title: Description<br>|
+| tadirah:designing | [tadirah:designing](https://vocabs.dariah.eu/tadirah/designing) |  | Title: Designing<br>|
+| tadirah:diagramming | [tadirah:diagramming](https://vocabs.dariah.eu/tadirah/diagramming) | Wikidata contributors, "Q98845265," Wikidata, https://www | Title: Diagramming<br>|
+| tadirah:digitalObjectIdentifier | [tadirah:digitalObjectIdentifier](https://vocabs.dariah.eu/tadirah/digitalObjectIdentifier) | character string used as a permanent identifier for a digital object, in a fo... | Title: Digital Object Identifier<br>|
+| tadirah:digitalPublishing | [tadirah:digitalPublishing](https://vocabs.dariah.eu/tadirah/digitalPublishing) | Wikidata contributors, "Q1224844," Wikidata, https://www | Title: Digital Publishing<br>|
+| tadirah:discourseAnalysis | [tadirah:discourseAnalysis](https://vocabs.dariah.eu/tadirah/discourseAnalysis) | generic term for the analysis of social, language policy or historiographical... | Title: Discourse Analysis<br>|
+| tadirah:discovering | [tadirah:discovering](https://vocabs.dariah.eu/tadirah/discovering) |  | Title: Discovering<br>|
+| tadirah:discussing | [tadirah:discussing](https://vocabs.dariah.eu/tadirah/discussing) | Wikidata contributors, "Q98847226," Wikidata, https://www | Title: Discussing<br>|
+| tadirah:disseminating | [tadirah:disseminating](https://vocabs.dariah.eu/tadirah/disseminating) |  | Title: Disseminating<br>|
+| tadirah:distanceMeasures | [tadirah:distanceMeasures](https://vocabs.dariah.eu/tadirah/distanceMeasures) | definitions for distance between two objects or events in the universe (Wikid... | Title: Distance Measures<br>|
+| tadirah:drawing | [tadirah:drawing](https://vocabs.dariah.eu/tadirah/drawing) | visual artwork in two-dimensional medium (Wikidata contributors, "Q93184," Wi... | Title: Drawing<br>|
+| tadirah:eMailing | [tadirah:eMailing](https://vocabs.dariah.eu/tadirah/eMailing) | Wikidata contributors, "Q386274," Wikidata, https://www | Title: E-mailing<br>|
+| tadirah:editing | [tadirah:editing](https://vocabs.dariah.eu/tadirah/editing) |  | Title: Editing<br>|
+| tadirah:emulation | [tadirah:emulation](https://vocabs.dariah.eu/tadirah/emulation) | system that emulates a real system such that the behavior closely resembles t... | Title: Emulation<br>|
+| tadirah:encoding | [tadirah:encoding](https://vocabs.dariah.eu/tadirah/encoding) | process of creating a message for transmission (Wikidata contributors, "Q5375... | Title: Encoding<br>|
+| tadirah:enriching | [tadirah:enriching](https://vocabs.dariah.eu/tadirah/enriching) |  | Title: Enriching<br>|
+| tadirah:explanation | [tadirah:explanation](https://vocabs.dariah.eu/tadirah/explanation) | set of statements constructed to describe a set of facts (Wikidata contributo... | Title: Explanation<br>|
+| tadirah:exploration | [tadirah:exploration](https://vocabs.dariah.eu/tadirah/exploration) | act of searching or traveling around a terrain for the purpose of discovery (... | Title: Exploration<br>|
+| tadirah:expressingOpinion | [tadirah:expressingOpinion](https://vocabs.dariah.eu/tadirah/expressingOpinion) |  | Title: Expressing Opinion<br>|
+| tadirah:extracting | [tadirah:extracting](https://vocabs.dariah.eu/tadirah/extracting) |  | Title: Extracting<br>|
+| tadirah:finding | [tadirah:finding](https://vocabs.dariah.eu/tadirah/finding) | Wikidata contributors, "Q28195064," Wikidata, https://www | Title: Finding<br>|
+| tadirah:formatting | [tadirah:formatting](https://vocabs.dariah.eu/tadirah/formatting) | Wikidata contributors, "Q98848248," Wikidata, https://www | Title: Formatting<br>|
+| tadirah:gamification | [tadirah:gamification](https://vocabs.dariah.eu/tadirah/gamification) | the use of game thinking and game mechanics in non-game contexts to engage us... | Title: Gamification<br>|
+| tadirah:gathering | [tadirah:gathering](https://vocabs.dariah.eu/tadirah/gathering) |  | Title: Gathering<br>|
+| tadirah:genreRecognition | [tadirah:genreRecognition](https://vocabs.dariah.eu/tadirah/genreRecognition) |  | Title: Genre Recognition<br>|
+| tadirah:georeferencing | [tadirah:georeferencing](https://vocabs.dariah.eu/tadirah/georeferencing) | identification of something to locations in physical space (Wikidata contribu... | Title: Georeferencing<br>|
+| tadirah:graphicsProgramming | [tadirah:graphicsProgramming](https://vocabs.dariah.eu/tadirah/graphicsProgramming) | Wikidata contributors, "Q98845304," Wikidata, https://www | Title: Graphics Programming<br>|
+| tadirah:highlighting | [tadirah:highlighting](https://vocabs.dariah.eu/tadirah/highlighting) | Wikidata contributors, "Q98847905," Wikidata, https://www | Title: Highlighting<br>|
+| tadirah:identifier | [tadirah:identifier](https://vocabs.dariah.eu/tadirah/identifier) | name that identifies either a unique object or a unique class of objects (Wik... | Title: Identifier<br>|
+| tadirah:identifying | [tadirah:identifying](https://vocabs.dariah.eu/tadirah/identifying) |  | Title: Identifying<br>|
+| tadirah:imaging | [tadirah:imaging](https://vocabs.dariah.eu/tadirah/imaging) |  | Title: Imaging<br>|
+| tadirah:improving | [tadirah:improving](https://vocabs.dariah.eu/tadirah/improving) | process of a thing moving from one state to another that is considered to be ... | Title: Improving<br>|
+| tadirah:informationMining | [tadirah:informationMining](https://vocabs.dariah.eu/tadirah/informationMining) | Wikidata contributors, "Q98847165," Wikidata, https://www | Title: Information Mining<br>|
+| tadirah:informationRetrieval | [tadirah:informationRetrieval](https://vocabs.dariah.eu/tadirah/informationRetrieval) | activity of obtaining information resources relevant to an information need f... | Title: Information Retrieval<br>|
+| tadirah:instantMessaging | [tadirah:instantMessaging](https://vocabs.dariah.eu/tadirah/instantMessaging) | form of communication over the Internet (Wikidata contributors, "Q58199," Wik... | Title: Instant Messaging<br>|
+| tadirah:integrating | [tadirah:integrating](https://vocabs.dariah.eu/tadirah/integrating) | Wikidata contributors, "Q98847635," Wikidata, https://www | Title: Integrating<br>|
+| tadirah:interpreting | [tadirah:interpreting](https://vocabs.dariah.eu/tadirah/interpreting) |  | Title: Interpreting<br>|
+| tadirah:knowledgeDiscovery | [tadirah:knowledgeDiscovery](https://vocabs.dariah.eu/tadirah/knowledgeDiscovery) | Wikidata contributors, "Q98847144," Wikidata, https://www | Title: Knowledge Discovery<br>|
+| tadirah:knowledgeExtraction | [tadirah:knowledgeExtraction](https://vocabs.dariah.eu/tadirah/knowledgeExtraction) | creation of knowledge from structured and unstructured sources (Wikidata cont... | Title: Knowledge Extraction<br>|
+| tadirah:lemmatizing | [tadirah:lemmatizing](https://vocabs.dariah.eu/tadirah/lemmatizing) | Wikidata contributors, "Q2554325," Wikidata, https://www | Title: Lemmatizing<br>|
+| tadirah:lettering | [tadirah:lettering](https://vocabs.dariah.eu/tadirah/lettering) | creation of hand-drawn letters in graphic design and typography (Wikidata con... | Title: Lettering<br>|
+| tadirah:linkedOpenData | [tadirah:linkedOpenData](https://vocabs.dariah.eu/tadirah/linkedOpenData) | linked data available under an open license (Wikidata contributors, "Q1869299... | Title: Linked Open Data<br>|
+| tadirah:machineLearning | [tadirah:machineLearning](https://vocabs.dariah.eu/tadirah/machineLearning) | branch of statistics and computer science, which studies algorithms and archi... | Title: Machine Learning<br>|
+| tadirah:managing | [tadirah:managing](https://vocabs.dariah.eu/tadirah/managing) | influence or authority over something; process of directing the operation of ... | Title: Managing<br>|
+| tadirah:mapping | [tadirah:mapping](https://vocabs.dariah.eu/tadirah/mapping) | binary relation which is left-total (defined on all its input set) (Wikidata ... | Title: Mapping<br>|
+| tadirah:merging | [tadirah:merging](https://vocabs.dariah.eu/tadirah/merging) | Wikidata contributors, "Q98848337," Wikidata, https://www | Title: Merging<br>|
+| tadirah:microblogging | [tadirah:microblogging](https://vocabs.dariah.eu/tadirah/microblogging) | broadcast medium (Wikidata contributors, "Q92438," Wikidata, https://www | Title: Microblogging<br>|
+| tadirah:migration | [tadirah:migration](https://vocabs.dariah.eu/tadirah/migration) | process of selecting, preparing, extracting, and transforming data and perman... | Title: Migration<br>|
+| tadirah:mindMapping | [tadirah:mindMapping](https://vocabs.dariah.eu/tadirah/mindMapping) | Wikidata contributors, "Q98846887," Wikidata, https://www | Title: Mind Mapping<br>|
+| tadirah:modeling | [tadirah:modeling](https://vocabs.dariah.eu/tadirah/modeling) |  | Title: Modeling<br>|
+| tadirah:modifying | [tadirah:modifying](https://vocabs.dariah.eu/tadirah/modifying) | Wikidata contributors, "Q98848358," Wikidata, https://www | Title: Modifying<br>|
+| tadirah:namedEntityRecognition | [tadirah:namedEntityRecognition](https://vocabs.dariah.eu/tadirah/namedEntityRecognition) | extraction of named entity mentions in unstructured text into pre-defined cat... | Title: Named Entity Recognition<br>|
+| tadirah:namingConvention | [tadirah:namingConvention](https://vocabs.dariah.eu/tadirah/namingConvention) | set of rules for naming variables, types, functions, etc | Title: Naming Convention<br>|
+| tadirah:naturalLanguageProcessing | [tadirah:naturalLanguageProcessing](https://vocabs.dariah.eu/tadirah/naturalLanguageProcessing) | field of computer science and linguistics (Wikidata contributors, "Q30642," W... | Title: Natural Language Processing<br>|
+| tadirah:networkAnalysis | [tadirah:networkAnalysis](https://vocabs.dariah.eu/tadirah/networkAnalysis) |  | Title: Network Analysis<br>|
+| tadirah:opticalCharacterRecognition | [tadirah:opticalCharacterRecognition](https://vocabs.dariah.eu/tadirah/opticalCharacterRecognition) | Wikidata contributors, "Q167555," Wikidata, https://www | Title: Optical Character Recognition<br>|
+| tadirah:opticalMusicRecognition | [tadirah:opticalMusicRecognition](https://vocabs.dariah.eu/tadirah/opticalMusicRecognition) | Wikidata contributors, "Q1243229," Wikidata, https://www | Title: Optical Music Recognition<br>|
+| tadirah:organizing | [tadirah:organizing](https://vocabs.dariah.eu/tadirah/organizing) |  | Title: Organizing<br>|
+| tadirah:parsing | [tadirah:parsing](https://vocabs.dariah.eu/tadirah/parsing) | process of analyzing a string of symbols, either in natural language, compute... | Title: Parsing<br>|
+| tadirah:patternRecognition | [tadirah:patternRecognition](https://vocabs.dariah.eu/tadirah/patternRecognition) | branch of machine learning (Wikidata contributors, "Q378859," Wikidata, https... | Title: Pattern Recognition<br>|
+| tadirah:persistentIdentifier | [tadirah:persistentIdentifier](https://vocabs.dariah.eu/tadirah/persistentIdentifier) | long-lasting digital name (Wikidata contributors, "Q420330," Wikidata, https:... | Title: Persistent Identifier<br>|
+| tadirah:photographing | [tadirah:photographing](https://vocabs.dariah.eu/tadirah/photographing) | art, science, and practice of creating durable images by recording light or o... | Title: Photographing<br>|
+| tadirah:plotting | [tadirah:plotting](https://vocabs.dariah.eu/tadirah/plotting) | Wikidata contributors, "Q98846923," Wikidata, https://www | Title: Plotting<br>|
+| tadirah:posTagging | [tadirah:posTagging](https://vocabs.dariah.eu/tadirah/posTagging) | the process of identifying the grammatical type of words in a text (Wikidata ... | Title: POS-Tagging<br>|
+| tadirah:posting | [tadirah:posting](https://vocabs.dariah.eu/tadirah/posting) | content on a social media platform, a forum or a blog (Wikidata contributors,... | Title: Posting<br>|
+| tadirah:preprocessing | [tadirah:preprocessing](https://vocabs.dariah.eu/tadirah/preprocessing) | Wikidata contributors, "Q28838080," Wikidata, https://www | Title: Preprocessing<br>|
+| tadirah:preservationMetadata | [tadirah:preservationMetadata](https://vocabs.dariah.eu/tadirah/preservationMetadata) | information that supports and documents acts of preservation on digital mater... | Title: Preservation Metadata<br>|
+| tadirah:preserving | [tadirah:preserving](https://vocabs.dariah.eu/tadirah/preserving) |  | Title: Preserving<br>|
+| tadirah:principalComponentAnalysis | [tadirah:principalComponentAnalysis](https://vocabs.dariah.eu/tadirah/principalComponentAnalysis) | conversion of a set of observations of possibly correlated variables into a s... | Title: Principal Component Analysis<br>|
+| tadirah:programming | [tadirah:programming](https://vocabs.dariah.eu/tadirah/programming) |  | Title: Programming<br>|
+| tadirah:pseudoCoding | [tadirah:pseudoCoding](https://vocabs.dariah.eu/tadirah/pseudoCoding) |  | Title: Pseudo Coding<br>|
+| tadirah:publishing | [tadirah:publishing](https://vocabs.dariah.eu/tadirah/publishing) |  | Title: Publishing<br>|
+| tadirah:querying | [tadirah:querying](https://vocabs.dariah.eu/tadirah/querying) | Wikidata contributors, "Q98847088," Wikidata, https://www | Title: Querying<br>|
+| tadirah:reasoning | [tadirah:reasoning](https://vocabs.dariah.eu/tadirah/reasoning) | type of thought (Wikidata contributors, "Q1156402," Wikidata, https://www | Title: Reasoning<br>|
+| tadirah:recording | [tadirah:recording](https://vocabs.dariah.eu/tadirah/recording) |  | Title: Recording<br>|
+| tadirah:relationalAnalysis | [tadirah:relationalAnalysis](https://vocabs.dariah.eu/tadirah/relationalAnalysis) |  | Title: Relational Analysis<br>|
+| tadirah:removing | [tadirah:removing](https://vocabs.dariah.eu/tadirah/removing) | dissociation of the original object with its old part; moving an object on di... | Title: Removing<br>|
+| tadirah:replication | [tadirah:replication](https://vocabs.dariah.eu/tadirah/replication) | sharing information to ensure consistency in computing (Wikidata contributors... | Title: Replication<br>|
+| tadirah:rhetoricalAnalysis | [tadirah:rhetoricalAnalysis](https://vocabs.dariah.eu/tadirah/rhetoricalAnalysis) | Wikidata contributors, "Q98845926," Wikidata, https://www | Title: Rhetorical Analysis<br>|
+| tadirah:scanning | [tadirah:scanning](https://vocabs.dariah.eu/tadirah/scanning) | process of creating digital images with a scanner (Wikidata contributors, "Q5... | Title: Scanning<br>|
+| tadirah:screencast | [tadirah:screencast](https://vocabs.dariah.eu/tadirah/screencast) | digital recording of computer screen output (Wikidata contributors, "Q1365447... | Title: Screencast<br>|
+| tadirah:searching | [tadirah:searching](https://vocabs.dariah.eu/tadirah/searching) | search for target data from a set of data (Wikidata contributors, "Q11540953,... | Title: Searching<br>|
+| tadirah:segmenting | [tadirah:segmenting](https://vocabs.dariah.eu/tadirah/segmenting) |  | Title: Segmenting<br>|
+| tadirah:semantification | [tadirah:semantification](https://vocabs.dariah.eu/tadirah/semantification) |  | Title: Semantification<br>|
+| tadirah:sentimentAnalysis | [tadirah:sentimentAnalysis](https://vocabs.dariah.eu/tadirah/sentimentAnalysis) | use of natural language processing, text analysis and computational linguisti... | Title: Sentiment Analysis<br>|
+| tadirah:sequenceAlignment | [tadirah:sequenceAlignment](https://vocabs.dariah.eu/tadirah/sequenceAlignment) | process in bioinformatics that aligns (identifies equivalent sites within) mo... | Title: Sequence Alignment<br>|
+| tadirah:sharing | [tadirah:sharing](https://vocabs.dariah.eu/tadirah/sharing) |  | Title: Sharing<br>|
+| tadirah:socialNetworking | [tadirah:socialNetworking](https://vocabs.dariah.eu/tadirah/socialNetworking) | The process of building one's group of personal or business contacts (Wikidat... | Title: Social Networking<br>|
+| tadirah:spatialAnalysis | [tadirah:spatialAnalysis](https://vocabs.dariah.eu/tadirah/spatialAnalysis) |  | Title: Spatial Analysis<br>|
+| tadirah:speechRecognizing | [tadirah:speechRecognizing](https://vocabs.dariah.eu/tadirah/speechRecognizing) | Wikidata contributors, "Q98846987," Wikidata, https://www | Title: Speech Recognizing<br>|
+| tadirah:storing | [tadirah:storing](https://vocabs.dariah.eu/tadirah/storing) |  | Title: Storing<br>|
+| tadirah:structuralAnalysis | [tadirah:structuralAnalysis](https://vocabs.dariah.eu/tadirah/structuralAnalysis) |  | Title: Structural Analysis<br>|
+| tadirah:stylisticAnalysis | [tadirah:stylisticAnalysis](https://vocabs.dariah.eu/tadirah/stylisticAnalysis) |  | Title: Stylistic Analysis<br>|
+| tadirah:stylometry | [tadirah:stylometry](https://vocabs.dariah.eu/tadirah/stylometry) |  | Title: Stylometry<br>|
+| tadirah:subtracting | [tadirah:subtracting](https://vocabs.dariah.eu/tadirah/subtracting) | Wikidata contributors, "Q98848418," Wikidata, https://www | Title: Subtracting<br>|
+| tadirah:supplementing | [tadirah:supplementing](https://vocabs.dariah.eu/tadirah/supplementing) | Wikidata contributors, "Q98848097," Wikidata, https://www | Title: Supplementing<br>|
+| tadirah:tagging | [tadirah:tagging](https://vocabs.dariah.eu/tadirah/tagging) | the act of labelling a piece of data or content wth a short string to express... | Title: Tagging<br>|
+| tadirah:teaching | [tadirah:teaching](https://vocabs.dariah.eu/tadirah/teaching) |  | Title: Teaching<br>|
+| tadirah:textCategorization | [tadirah:textCategorization](https://vocabs.dariah.eu/tadirah/textCategorization) | Wikidata contributors, "Q57771142," Wikidata, https://www | Title: Text Categorization<br>|
+| tadirah:textMessaging | [tadirah:textMessaging](https://vocabs.dariah.eu/tadirah/textMessaging) | act of typing and sending a brief, digital message (Wikidata contributors, "Q... | Title: Text Messaging<br>|
+| tadirah:theorizing | [tadirah:theorizing](https://vocabs.dariah.eu/tadirah/theorizing) |  | Title: Theorizing<br>|
+| tadirah:topicModeling | [tadirah:topicModeling](https://vocabs.dariah.eu/tadirah/topicModeling) | set of techniques in computational linguistics and related fields (Wikidata c... | Title: Topic Modeling<br>|
+| tadirah:transcoding | [tadirah:transcoding](https://vocabs.dariah.eu/tadirah/transcoding) | direct digital-to-digital conversion of one encoding to another (Wikidata con... | Title: Transcoding<br>|
+| tadirah:transcribing | [tadirah:transcribing](https://vocabs.dariah.eu/tadirah/transcribing) | transcribing describes  the activity of creating a representation of a manusc... | Title: Transcribing<br>|
+| tadirah:transformation | [tadirah:transformation](https://vocabs.dariah.eu/tadirah/transformation) | process involving change into a qualitatively different form (Wikidata contri... | Title: Transformation<br>|
+| tadirah:translating | [tadirah:translating](https://vocabs.dariah.eu/tadirah/translating) |  | Title: Translating<br>|
+| tadirah:treeTagging | [tadirah:treeTagging](https://vocabs.dariah.eu/tadirah/treeTagging) | Wikidata contributors, "Q98845582," Wikidata, https://www | Title: Tree-Tagging<br>|
+| tadirah:tweet | [tadirah:tweet](https://vocabs.dariah.eu/tadirah/tweet) | individual post on the Twitter microblogging service (Wikidata contributors, ... | Title: Tweet<br>|
+| tadirah:uniformResourceIdentifier | [tadirah:uniformResourceIdentifier](https://vocabs.dariah.eu/tadirah/uniformResourceIdentifier) | string of characters used to identify a name of a resource on a network such ... | Title: Uniform Resource Identifier<br>|
+| tadirah:upload | [tadirah:upload](https://vocabs.dariah.eu/tadirah/upload) | sending of data from a local system to a remote system (Wikidata contributors... | Title: Upload<br>|
+| tadirah:userGeneratedContent | [tadirah:userGeneratedContent](https://vocabs.dariah.eu/tadirah/userGeneratedContent) | online content created by users (Wikidata contributors, "Q579716," Wikidata, ... | Title: User Generated Content<br>|
+| tadirah:versioning | [tadirah:versioning](https://vocabs.dariah.eu/tadirah/versioning) |  | Title: Versioning<br>|
+| tadirah:videoCapture | [tadirah:videoCapture](https://vocabs.dariah.eu/tadirah/videoCapture) | Wikidata contributors, "Q2778015," Wikidata, https://www | Title: Video Capture<br>|
+| tadirah:videoConference | [tadirah:videoConference](https://vocabs.dariah.eu/tadirah/videoConference) | type of conference (Wikidata contributors, "Q238354," Wikidata, https://www | Title: Video Conference<br>|
+| tadirah:videoEditing | [tadirah:videoEditing](https://vocabs.dariah.eu/tadirah/videoEditing) | editing live television and video production (Wikidata contributors, "Q115431... | Title: Video Editing<br>|
+| tadirah:visualAnalysis | [tadirah:visualAnalysis](https://vocabs.dariah.eu/tadirah/visualAnalysis) |  | Title: Visual Analysis<br>|
+| tadirah:visualAnnotation | [tadirah:visualAnnotation](https://vocabs.dariah.eu/tadirah/visualAnnotation) | Wikidata contributors, "Q98847784," Wikidata, https://www | Title: Visual Annotation<br>|
+| tadirah:webCrawling | [tadirah:webCrawling](https://vocabs.dariah.eu/tadirah/webCrawling) | systematic access of resources across the web (Wikidata contributors, "Q61466... | Title: Web Crawling<br>|
+| tadirah:webDevelopment | [tadirah:webDevelopment](https://vocabs.dariah.eu/tadirah/webDevelopment) |  | Title: Web Development<br>|
+| tadirah:webScraping | [tadirah:webScraping](https://vocabs.dariah.eu/tadirah/webScraping) | data scraping used for extracting data from websites (Wikidata contributors, ... | Title: Web Scraping<br>|
+| tadirah:wireframing | [tadirah:wireframing](https://vocabs.dariah.eu/tadirah/wireframing) | Wikidata contributors, "Q98845203," Wikidata, https://www | Title: Wireframing<br>|
+| tadirah:writing | [tadirah:writing](https://vocabs.dariah.eu/tadirah/writing) | writing designates the activity of creating new texts (instead of capturing e... | Title: Writing<br>|
 
 
 
@@ -231,7 +230,7 @@ URI: [idhi:enum/DigitalHumanitiesActivityEnum](https://idhi.co.il/linkml/enum/Di
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -252,7 +251,7 @@ annotations:
     value: turtle
 description: 'Digital-humanities research activities: Analyzing, Capturing, Creating,
   Disseminating, Enriching, Interpreting, Storing, and their more specific subactivities.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   tadirah:abstractThinking:

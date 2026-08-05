@@ -14,7 +14,7 @@ _The person's project involvements, as reified ProjectParticipation objects carr
 
 
 
-URI: [idhi:slot/project_participations](https://idhi.co.il/linkml/slot/project_participations)
+URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/project_participations)
 <!-- no inheritance hierarchy -->
 
 
@@ -66,7 +66,7 @@ URI: [idhi:slot/project_participations](https://idhi.co.il/linkml/slot/project_p
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [idhi:slot/project_participations](https://idhi.co.il/linkml/slot/project_p
 name: project_participations
 description: The person's project involvements, as reified ProjectParticipation objects
   carrying the role (PI, developer...) and dates.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Person

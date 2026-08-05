@@ -65,7 +65,7 @@ URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
 ```yaml
 name: distribution_url
 description: Direct download or access URL for the dataset.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcat:downloadURL
 domain_of:

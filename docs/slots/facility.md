@@ -14,7 +14,7 @@ _The facility side of the relationship (by IDHI URN)._
 
 
 
-URI: [idhi:slot/facility](https://idhi.co.il/linkml/slot/facility)
+URI: [idhi:slot/facility](https://idhi_placeholder/linkml/slot/facility)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/facility](https://idhi.co.il/linkml/slot/facility)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/facility](https://idhi.co.il/linkml/slot/facility)
 ```yaml
 name: facility
 description: The facility side of the relationship (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - FacilityAffiliation

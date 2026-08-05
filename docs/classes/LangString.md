@@ -118,7 +118,7 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -147,7 +147,7 @@ name: LangString
 description: A single language-tagged text value. Instances are combined in a multivalued
   slot to give English/Hebrew/Arabic variants of one field. Use one LangString per
   language; do not repeat a language within the same field.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 slots:
 - language
 - value
@@ -164,12 +164,12 @@ name: LangString
 description: A single language-tagged text value. Instances are combined in a multivalued
   slot to give English/Hebrew/Arabic variants of one field. Use one LangString per
   language; do not repeat a language within the same field.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 attributes:
   language:
     name: language
     description: BCP-47 language tag of the value (en, he or ar).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:language
     owner: LangString
@@ -180,7 +180,7 @@ attributes:
   value:
     name: value
     description: A localized text, in the language given by 'language'.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:value
     owner: LangString

@@ -67,7 +67,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 ```yaml
 name: datasets
 description: Datasets aggregated by a Dataset that functions as a catalog (by id).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcat:dataset
 domain_of:

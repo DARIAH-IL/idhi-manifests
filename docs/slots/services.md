@@ -14,7 +14,7 @@ _All Service records in the index._
 
 
 
-URI: [idhi:slot/services](https://idhi.co.il/linkml/slot/services)
+URI: [idhi:slot/services](https://idhi_placeholder/linkml/slot/services)
 <!-- no inheritance hierarchy -->
 
 
@@ -72,7 +72,7 @@ URI: [idhi:slot/services](https://idhi.co.il/linkml/slot/services)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -93,7 +93,7 @@ URI: [idhi:slot/services](https://idhi.co.il/linkml/slot/services)
 ```yaml
 name: services
 description: All Service records in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 owner: IndexContainer
 domain_of:

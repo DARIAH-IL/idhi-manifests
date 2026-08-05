@@ -5,7 +5,7 @@
 # Documentation (modeling guide, identifier scheme, build workflow):
 # see README.md at the repository root.
 # =====================================================================
-id: https://<idhi placeholder>/linkml/idhi
+id: https://idhi_placeholder/linkml/idhi
 name: idhi
 title: Israeli Digital Humanities Index Schema
 description: >-
@@ -15,11 +15,11 @@ version: 0.1.0
 
 # ------------------------- PREFIXES ----------------------------------
 prefixes:
-  idhi: https://<idhi placeholder>/linkml/ # Israeli Digital Humanities Index (this schema's own namespace)
+  idhi: https://idhi_placeholder/linkml/ # Israeli Digital Humanities Index (this schema's own namespace)
   linkml: https://w3id.org/linkml/ # Linked Data Modeling Language
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# # Resource Description Framework
   dcterms: http://purl.org/dc/terms/ # Dublin Core Metadata Terms
-  foaf: http://xmlns.com/foaf/0.1/ # Friend of a Friend
+  foaf: https://xmlns.com/foaf/spec/#term_ # Friend of a Friend
   bibo: http://purl.org/ontology/bibo/ # Bibliographic Ontology
   schema: http://schema.org/ # Schema.org
   skos: http://www.w3.org/2004/02/skos/core# # Simple Knowledge Organization System
@@ -893,9 +893,8 @@ enums:
 
   # ------------------------ STATIC ENUMS ----------------------------
   # Small, IDHI-governed vocabularies are kept static on purpose:
-  # dynamic enums pay off for large external taxonomies, not for a
-  # handful of locally-controlled values. Where an external concept
-  # exists (schema.org, CRediT, SPDX), `meaning:` records it.
+  # dynamic enums pay off for large external taxonomies, not for a handful of locally-controlled values.
+  # Where an external concept exists (schema.org, CRediT, SPDX), `meaning:` records it.
 
   OrganizationTypeEnum:
     description: >-

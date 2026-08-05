@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: ToolServiceTypeEnum 
 
 
@@ -15,12 +14,12 @@ _Delivery forms for tools and kinds of services. Tool records use the software v
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/ToolServiceTypeEnum](https://idhi.co.il/linkml/enum/ToolServiceTypeEnum)
+URI: [idhi:enum/ToolServiceTypeEnum](https://idhi_placeholder/linkml/enum/ToolServiceTypeEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| WEB_APPLICATION | schema:WebApplication | Software used through a browser |
+| WEB_APPLICATION | [schema:WebApplication](http://schema.org/WebApplication) | Software used through a browser |
 | DESKTOP_APPLICATION | None | Software installed on a user's machine |
 | LIBRARY | None | A code library/package imported by other software |
 | COMMAND_LINE_TOOL | None | Software operated from a terminal |
@@ -57,7 +56,7 @@ URI: [idhi:enum/ToolServiceTypeEnum](https://idhi.co.il/linkml/enum/ToolServiceT
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -71,7 +70,7 @@ URI: [idhi:enum/ToolServiceTypeEnum](https://idhi.co.il/linkml/enum/ToolServiceT
 name: ToolServiceTypeEnum
 description: Delivery forms for tools and kinds of services. Tool records use the
   software values; Service records use the service values.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   WEB_APPLICATION:

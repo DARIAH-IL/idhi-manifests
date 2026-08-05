@@ -66,7 +66,7 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 name: research_disciplines
 description: Humanities discipline(s) of the project (history, linguistics, archaeology...).
   Free multilingual text for now; a controlled vocabulary is a planned upgrade.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:subject
 domain_of:

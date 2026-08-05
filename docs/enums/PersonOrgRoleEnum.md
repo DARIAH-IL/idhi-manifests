@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: PersonOrgRoleEnum 
 
 
@@ -15,7 +14,7 @@ _A person's position within an organization (job/status)._
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/PersonOrgRoleEnum](https://idhi.co.il/linkml/enum/PersonOrgRoleEnum)
+URI: [idhi:enum/PersonOrgRoleEnum](https://idhi_placeholder/linkml/enum/PersonOrgRoleEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
@@ -54,7 +53,7 @@ URI: [idhi:enum/PersonOrgRoleEnum](https://idhi.co.il/linkml/enum/PersonOrgRoleE
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -67,7 +66,7 @@ URI: [idhi:enum/PersonOrgRoleEnum](https://idhi.co.il/linkml/enum/PersonOrgRoleE
 ```yaml
 name: PersonOrgRoleEnum
 description: A person's position within an organization (job/status).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   PROFESSOR:

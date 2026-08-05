@@ -14,7 +14,7 @@ _All Facility records in the index._
 
 
 
-URI: [idhi:slot/facilities](https://idhi.co.il/linkml/slot/facilities)
+URI: [idhi:slot/facilities](https://idhi_placeholder/linkml/slot/facilities)
 <!-- no inheritance hierarchy -->
 
 
@@ -72,7 +72,7 @@ URI: [idhi:slot/facilities](https://idhi.co.il/linkml/slot/facilities)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -93,7 +93,7 @@ URI: [idhi:slot/facilities](https://idhi.co.il/linkml/slot/facilities)
 ```yaml
 name: facilities
 description: All Facility records in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 owner: IndexContainer
 domain_of:

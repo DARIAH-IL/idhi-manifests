@@ -157,6 +157,6 @@ make docs-serve   # live-reload dev server at http://127.0.0.1:8000
 make validate DATA=example/example.yaml
 ```
 
-The generator targets read `GEN_INPUT` (default: `build/idhi.materialized.linkml.yaml`, the git-ignored intermediate produced by `make gen-materialize`); pass `GEN_INPUT=idhi.linkml.yaml` to generate from the raw, unmaterialized schema. Generator outputs land in `gen/`. `make sanity` runs the full pipeline (same as `./scripts/sanity.sh`).
+The generator targets read `GEN_INPUT` (default: `build/idhi.materialized.linkml.yaml`, the git-ignored intermediate produced by `make gen-materialize`); pass `GEN_INPUT=idhi.linkml.yaml` to generate from the raw, unmaterialized schema. Generator outputs land in `gen/`. Documentation generation uses the overrides in `docs/templates/`; the enum template expands `meaning:` CURIEs into hyperlinks while preserving their compact labels. `make sanity` runs the full pipeline (same as `./scripts/sanity.sh`).
 
 The documentation site’s **Source files** page renders the committed `idhi.linkml.yaml` source schema and the committed JSON Schema and OWL/RDF outputs from `gen/` with syntax highlighting. The pages inject those repository files at site-build time, so they always show the committed source rather than copied artifacts.

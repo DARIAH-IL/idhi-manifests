@@ -14,7 +14,7 @@ _The contributing person (by IDHI URN)._
 
 
 
-URI: [idhi:slot/author](https://idhi.co.il/linkml/slot/author)
+URI: [idhi:slot/author](https://idhi_placeholder/linkml/slot/author)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/author](https://idhi.co.il/linkml/slot/author)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/author](https://idhi.co.il/linkml/slot/author)
 ```yaml
 name: author
 description: The contributing person (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Authorship

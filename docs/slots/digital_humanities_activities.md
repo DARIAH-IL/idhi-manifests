@@ -68,7 +68,7 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -91,7 +91,7 @@ name: digital_humanities_activities
 description: Digital-humanities research activities practiced in this project, tool
   or service. Prefer the most specific applicable activity; multiple values are expected.
   This is the primary DH-facet for discovery.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:subject
 domain_of:

@@ -66,7 +66,7 @@ URI: [dcterms:publisher](http://purl.org/dc/terms/publisher)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [dcterms:publisher](http://purl.org/dc/terms/publisher)
 ```yaml
 name: publisher
 description: The organization publishing the dataset or publication (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:publisher
 domain_of:

@@ -65,7 +65,7 @@ URI: [schema:programmingLanguage](http://schema.org/programmingLanguage)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [schema:programmingLanguage](http://schema.org/programmingLanguage)
 ```yaml
 name: programming_language
 description: Main implementation language(s), comma-free single value preferred.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:programmingLanguage
 domain_of:

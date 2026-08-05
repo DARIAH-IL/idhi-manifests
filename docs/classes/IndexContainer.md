@@ -14,7 +14,7 @@ _Top-level holder for all IDHI records. Big entities live exactly once in these 
 
 
 
-URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
+URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexContainer)
 
 
 
@@ -175,7 +175,7 @@ URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -203,12 +203,12 @@ URI: [idhi:class/IndexContainer](https://idhi.co.il/linkml/class/IndexContainer)
 name: IndexContainer
 description: Top-level holder for all IDHI records. Big entities live exactly once
   in these lists; everything else references them by their IDHI URN.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 attributes:
   persons:
     name: persons
     description: All Person records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -218,7 +218,7 @@ attributes:
   organizations:
     name: organizations
     description: All Organization records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -228,7 +228,7 @@ attributes:
   projects:
     name: projects
     description: All Project records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -238,7 +238,7 @@ attributes:
   facilities:
     name: facilities
     description: All Facility records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -248,7 +248,7 @@ attributes:
   tools:
     name: tools
     description: All Tool records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -258,7 +258,7 @@ attributes:
   services:
     name: services
     description: All Service records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -268,7 +268,7 @@ attributes:
   publications:
     name: publications
     description: All Publication records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -278,7 +278,7 @@ attributes:
   events:
     name: events
     description: All Event records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     domain_of:
     - IndexContainer
@@ -289,7 +289,7 @@ attributes:
     name: datasets
     description: All Dataset records in the index, including digital archives and
       catalogs.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     domain_of:
     - Dataset
     - IndexContainer
@@ -308,12 +308,12 @@ tree_root: true
 name: IndexContainer
 description: Top-level holder for all IDHI records. Big entities live exactly once
   in these lists; everything else references them by their IDHI URN.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 attributes:
   persons:
     name: persons
     description: All Person records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -325,7 +325,7 @@ attributes:
   organizations:
     name: organizations
     description: All Organization records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -337,7 +337,7 @@ attributes:
   projects:
     name: projects
     description: All Project records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -349,7 +349,7 @@ attributes:
   facilities:
     name: facilities
     description: All Facility records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -361,7 +361,7 @@ attributes:
   tools:
     name: tools
     description: All Tool records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -373,7 +373,7 @@ attributes:
   services:
     name: services
     description: All Service records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -385,7 +385,7 @@ attributes:
   publications:
     name: publications
     description: All Publication records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -397,7 +397,7 @@ attributes:
   events:
     name: events
     description: All Event records in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: IndexContainer
     domain_of:
@@ -410,7 +410,7 @@ attributes:
     name: datasets
     description: All Dataset records in the index, including digital archives and
       catalogs.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     owner: IndexContainer
     domain_of:
     - Dataset

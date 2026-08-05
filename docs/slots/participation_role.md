@@ -65,7 +65,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -89,7 +89,7 @@ description: The person's function within the project team. Use PRINCIPAL_INVEST
   only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER,
   software work is DEVELOPER, enrolled students are STUDENT regardless of their task,
   external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName
 domain_of:

@@ -14,7 +14,7 @@ _Family (last) name, in the person's preferred romanization. Use with given_name
 
 
 
-URI: [foaf:familyName](http://xmlns.com/foaf/0.1/familyName)
+URI: [foaf:familyName](https://xmlns.com/foaf/spec/#term_familyName)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [foaf:familyName](http://xmlns.com/foaf/0.1/familyName)
 | --- | --- |
 | Range | [String](../types/String.md) |
 | Domain Of | [Person](../classes/Person.md) |
-| Slot URI | [foaf:familyName](http://xmlns.com/foaf/0.1/familyName) |
+| Slot URI | [foaf:familyName](https://xmlns.com/foaf/spec/#term_familyName) |
 
 ### Cardinality and Requirements
 
@@ -65,7 +65,7 @@ URI: [foaf:familyName](http://xmlns.com/foaf/0.1/familyName)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [foaf:familyName](http://xmlns.com/foaf/0.1/familyName)
 name: family_name
 description: Family (last) name, in the person's preferred romanization. Use with
   given_name when the person's name is conventionally expressed in that form.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: foaf:familyName
 domain_of:

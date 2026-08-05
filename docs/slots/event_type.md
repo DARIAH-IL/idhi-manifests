@@ -65,7 +65,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 ```yaml
 name: event_type
 description: The kind of scholarly event.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:type
 domain_of:

@@ -14,7 +14,7 @@ _Publications resulting from this project (by id)._
 
 
 
-URI: [idhi:slot/outputs_publications](https://idhi.co.il/linkml/slot/outputs_publications)
+URI: [idhi:slot/outputs_publications](https://idhi_placeholder/linkml/slot/outputs_publications)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/outputs_publications](https://idhi.co.il/linkml/slot/outputs_pub
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/outputs_publications](https://idhi.co.il/linkml/slot/outputs_pub
 ```yaml
 name: outputs_publications
 description: Publications resulting from this project (by id).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Project

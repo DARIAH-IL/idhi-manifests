@@ -14,7 +14,7 @@ _The person's institutional affiliations, as reified Affiliation objects (organi
 
 
 
-URI: [idhi:slot/affiliations](https://idhi.co.il/linkml/slot/affiliations)
+URI: [idhi:slot/affiliations](https://idhi_placeholder/linkml/slot/affiliations)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/affiliations](https://idhi.co.il/linkml/slot/affiliations)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ name: affiliations
 description: The person's institutional affiliations, as reified Affiliation objects
   (organization + position + dates). Use for employment or formal membership, NOT
   for project involvement — that goes in project_participations.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Person

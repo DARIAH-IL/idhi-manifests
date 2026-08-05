@@ -14,7 +14,7 @@ _All Tool records in the index._
 
 
 
-URI: [idhi:slot/tools](https://idhi.co.il/linkml/slot/tools)
+URI: [idhi:slot/tools](https://idhi_placeholder/linkml/slot/tools)
 <!-- no inheritance hierarchy -->
 
 
@@ -72,7 +72,7 @@ URI: [idhi:slot/tools](https://idhi.co.il/linkml/slot/tools)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -93,7 +93,7 @@ URI: [idhi:slot/tools](https://idhi.co.il/linkml/slot/tools)
 ```yaml
 name: tools
 description: All Tool records in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 owner: IndexContainer
 domain_of:

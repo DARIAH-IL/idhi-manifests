@@ -14,7 +14,7 @@ _The organization side of the relationship (by IDHI URN)._
 
 
 
-URI: [idhi:slot/organization](https://idhi.co.il/linkml/slot/organization)
+URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 <!-- no inheritance hierarchy -->
 
 
@@ -67,7 +67,7 @@ URI: [idhi:slot/organization](https://idhi.co.il/linkml/slot/organization)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [idhi:slot/organization](https://idhi.co.il/linkml/slot/organization)
 ```yaml
 name: organization
 description: The organization side of the relationship (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Affiliation

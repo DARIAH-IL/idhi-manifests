@@ -65,7 +65,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 name: publication_type
 description: The kind of publication (journal article, book part, conference paper,
   thesis...). Pick the most specific applicable value.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:type
 domain_of:

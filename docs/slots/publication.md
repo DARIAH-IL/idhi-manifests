@@ -14,7 +14,7 @@ _The publication contributed to (by IDHI URN)._
 
 
 
-URI: [idhi:slot/publication](https://idhi.co.il/linkml/slot/publication)
+URI: [idhi:slot/publication](https://idhi_placeholder/linkml/slot/publication)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/publication](https://idhi.co.il/linkml/slot/publication)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/publication](https://idhi.co.il/linkml/slot/publication)
 ```yaml
 name: publication
 description: The publication contributed to (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Authorship

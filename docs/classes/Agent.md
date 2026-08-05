@@ -16,7 +16,7 @@ _A person or an organization._
 * __NOTE__: this is an abstract class and should not be instantiated directly
 
 
-URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
+URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
 
 
 
@@ -75,7 +75,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Agent](http://xmlns.com/foaf/0.1/Agent) |
+| Class URI | [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent) |
 
 
 ## Slots
@@ -112,7 +112,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -139,7 +139,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ```yaml
 name: Agent
 description: A person or an organization.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 abstract: true
 class_uri: foaf:Agent
@@ -153,7 +153,7 @@ class_uri: foaf:Agent
 ```yaml
 name: Agent
 description: A person or an organization.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 abstract: true
 attributes:
@@ -161,7 +161,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Agent
@@ -177,7 +177,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -191,7 +191,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Agent
@@ -204,7 +204,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Agent
@@ -216,7 +216,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Agent
@@ -230,7 +230,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Agent

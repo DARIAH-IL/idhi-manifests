@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: EventTypeEnum 
 
 
@@ -15,12 +14,12 @@ _Kinds of scholarly events._
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/EventTypeEnum](https://idhi.co.il/linkml/enum/EventTypeEnum)
+URI: [idhi:enum/EventTypeEnum](https://idhi_placeholder/linkml/enum/EventTypeEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| CONFERENCE | bibo:Conference | A multi-session academic conference |
+| CONFERENCE | [bibo:Conference](http://purl.org/ontology/bibo/Conference) | A multi-session academic conference |
 | WORKSHOP | None | A hands-on or small-group working meeting |
 | SEMINAR | None | A recurring or one-off academic seminar session |
 | LECTURE | None | A single public or academic talk |
@@ -54,7 +53,7 @@ URI: [idhi:enum/EventTypeEnum](https://idhi.co.il/linkml/enum/EventTypeEnum)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -67,7 +66,7 @@ URI: [idhi:enum/EventTypeEnum](https://idhi.co.il/linkml/enum/EventTypeEnum)
 ```yaml
 name: EventTypeEnum
 description: Kinds of scholarly events.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   CONFERENCE:

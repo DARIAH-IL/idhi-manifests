@@ -14,7 +14,7 @@ _The person's publication contributions, as reified Authorship objects carrying 
 
 
 
-URI: [idhi:slot/authorships](https://idhi.co.il/linkml/slot/authorships)
+URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
 <!-- no inheritance hierarchy -->
 
 
@@ -66,7 +66,7 @@ URI: [idhi:slot/authorships](https://idhi.co.il/linkml/slot/authorships)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [idhi:slot/authorships](https://idhi.co.il/linkml/slot/authorships)
 name: authorships
 description: The person's publication contributions, as reified Authorship objects
   carrying byline order and role.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Person

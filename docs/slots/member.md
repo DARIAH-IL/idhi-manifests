@@ -14,7 +14,7 @@ _The person affiliated with the organization (by IDHI URN)._
 
 
 
-URI: [idhi:slot/member](https://idhi.co.il/linkml/slot/member)
+URI: [idhi:slot/member](https://idhi_placeholder/linkml/slot/member)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/member](https://idhi.co.il/linkml/slot/member)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -86,7 +86,7 @@ URI: [idhi:slot/member](https://idhi.co.il/linkml/slot/member)
 ```yaml
 name: member
 description: The person affiliated with the organization (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Affiliation

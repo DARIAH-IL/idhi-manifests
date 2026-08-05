@@ -74,7 +74,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -97,7 +97,7 @@ name: orcid
 description: The person's persistent researcher identifier. It supplements the IDHI
   record id. Strongly recommended for every researcher; enables deduplication and
   linking to the scholarly record.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:identifier
 domain_of:

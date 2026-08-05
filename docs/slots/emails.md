@@ -14,7 +14,7 @@ _Contact email addresses (zero or more). Only record addresses the person has ag
 
 
 
-URI: [foaf:mbox](http://xmlns.com/foaf/0.1/mbox)
+URI: [foaf:mbox](https://xmlns.com/foaf/spec/#term_mbox)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [foaf:mbox](http://xmlns.com/foaf/0.1/mbox)
 | --- | --- |
 | Range | [String](../types/String.md) |
 | Domain Of | [Person](../classes/Person.md) |
-| Slot URI | [foaf:mbox](http://xmlns.com/foaf/0.1/mbox) |
+| Slot URI | [foaf:mbox](https://xmlns.com/foaf/spec/#term_mbox) |
 
 ### Cardinality and Requirements
 
@@ -66,7 +66,7 @@ URI: [foaf:mbox](http://xmlns.com/foaf/0.1/mbox)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [foaf:mbox](http://xmlns.com/foaf/0.1/mbox)
 name: emails
 description: Contact email addresses (zero or more). Only record addresses the person
   has agreed to publish in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: foaf:mbox
 domain_of:

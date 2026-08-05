@@ -14,7 +14,7 @@ _A human agent in the DH index: researcher, developer, librarian, student, etc._
 
 
 
-URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
+URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 
 
 
@@ -106,7 +106,7 @@ URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Person](http://xmlns.com/foaf/0.1/Person) |
+| Class URI | [foaf:Person](https://xmlns.com/foaf/spec/#term_Person) |
 
 
 ## Slots
@@ -166,7 +166,7 @@ URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -196,7 +196,7 @@ description: 'A human agent in the DH index: researcher, developer, librarian, s
   etc.'
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Agent
 slots:
 - given_name
@@ -229,7 +229,7 @@ description: 'A human agent in the DH index: researcher, developer, librarian, s
   etc.'
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Agent
 slot_usage:
   type:
@@ -245,7 +245,7 @@ attributes:
     name: given_name
     description: Given (first) name, in the person's preferred romanization. Use with
       family_name when the person's name is conventionally expressed in that form.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:givenName
     owner: Person
@@ -257,7 +257,7 @@ attributes:
     name: family_name
     description: Family (last) name, in the person's preferred romanization. Use with
       given_name when the person's name is conventionally expressed in that form.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:familyName
     owner: Person
@@ -270,7 +270,7 @@ attributes:
     description: The person's persistent researcher identifier. It supplements the
       IDHI record id. Strongly recommended for every researcher; enables deduplication
       and linking to the scholarly record.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:identifier
     owner: Person
@@ -284,7 +284,7 @@ attributes:
     name: emails
     description: Contact email addresses (zero or more). Only record addresses the
       person has agreed to publish in the index.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:mbox
     owner: Person
@@ -297,7 +297,7 @@ attributes:
     description: The person's institutional affiliations, as reified Affiliation objects
       (organization + position + dates). Use for employment or formal membership,
       NOT for project involvement — that goes in project_participations.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Person
     domain_of:
@@ -310,7 +310,7 @@ attributes:
     name: project_participations
     description: The person's project involvements, as reified ProjectParticipation
       objects carrying the role (PI, developer...) and dates.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Person
     domain_of:
@@ -324,7 +324,7 @@ attributes:
     name: authorships
     description: The person's publication contributions, as reified Authorship objects
       carrying byline order and role.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Person
     domain_of:
@@ -338,7 +338,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Person
@@ -355,7 +355,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -372,7 +372,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Person
@@ -385,7 +385,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Person
@@ -397,7 +397,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Person
@@ -411,7 +411,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Person

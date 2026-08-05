@@ -65,7 +65,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ name: authorship_role
 description: The kind of contribution. AUTHOR is the default for byline authors; use
   EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named non-byline
   contributions.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName
 domain_of:

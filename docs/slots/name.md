@@ -74,7 +74,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -97,7 +97,7 @@ name: name
 description: Multilingual name/title. Provide at least one language; English, Hebrew
   and Arabic variants are each a separate LangString. Preferably a sortable name for
   organizations; for projects, tools and services, use the name the team itself uses.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: skos:prefLabel
 domain_of:

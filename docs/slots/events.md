@@ -14,7 +14,7 @@ _All Event records in the index._
 
 
 
-URI: [idhi:slot/events](https://idhi.co.il/linkml/slot/events)
+URI: [idhi:slot/events](https://idhi_placeholder/linkml/slot/events)
 <!-- no inheritance hierarchy -->
 
 
@@ -72,7 +72,7 @@ URI: [idhi:slot/events](https://idhi.co.il/linkml/slot/events)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -93,7 +93,7 @@ URI: [idhi:slot/events](https://idhi.co.il/linkml/slot/events)
 ```yaml
 name: events
 description: All Event records in the index.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 owner: IndexContainer
 domain_of:

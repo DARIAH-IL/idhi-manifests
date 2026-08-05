@@ -111,7 +111,7 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -139,7 +139,7 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 name: FacilityAffiliation
 description: A facility's affiliation with an organization. Use one instance per hosting/owning
   organization; joint labs get several.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - facility
@@ -156,13 +156,13 @@ class_uri: cerif:Facility_OrganisationUnit
 name: FacilityAffiliation
 description: A facility's affiliation with an organization. Use one instance per hosting/owning
   organization; joint labs get several.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
   facility:
     name: facility
     description: The facility side of the relationship (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: FacilityAffiliation
     domain_of:
@@ -172,7 +172,7 @@ attributes:
   organization:
     name: organization
     description: The organization side of the relationship (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: FacilityAffiliation
     domain_of:
@@ -185,7 +185,7 @@ attributes:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: FacilityAffiliation
@@ -198,7 +198,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: FacilityAffiliation

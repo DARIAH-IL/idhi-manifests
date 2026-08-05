@@ -123,7 +123,7 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -151,7 +151,7 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 name: Affiliation
 description: A person's employment or membership at an organization, with a position
   and dates. Use for the person's institutional home(s), independent of any project.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - member
@@ -169,13 +169,13 @@ class_uri: cerif:Person_OrganisationUnit
 name: Affiliation
 description: A person's employment or membership at an organization, with a position
   and dates. Use for the person's institutional home(s), independent of any project.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
   member:
     name: member
     description: The person affiliated with the organization (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Affiliation
     domain_of:
@@ -185,7 +185,7 @@ attributes:
   organization:
     name: organization
     description: The organization side of the relationship (by IDHI URN).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Affiliation
     domain_of:
@@ -199,7 +199,7 @@ attributes:
     description: The person's position at the organization (their job/status, not
       their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for
       formal association without employment.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
     owner: Affiliation
@@ -210,7 +210,7 @@ attributes:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Affiliation
@@ -223,7 +223,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Affiliation

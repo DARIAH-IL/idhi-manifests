@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: AuthorshipRoleEnum 
 
 
@@ -15,7 +14,7 @@ _The kind of contribution to a publication._
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/AuthorshipRoleEnum](https://idhi.co.il/linkml/enum/AuthorshipRoleEnum)
+URI: [idhi:enum/AuthorshipRoleEnum](https://idhi_placeholder/linkml/enum/AuthorshipRoleEnum)
 
 ## Permissible Values
 | Value | Meaning | Description |
@@ -52,7 +51,7 @@ URI: [idhi:enum/AuthorshipRoleEnum](https://idhi.co.il/linkml/enum/AuthorshipRol
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -65,7 +64,7 @@ URI: [idhi:enum/AuthorshipRoleEnum](https://idhi.co.il/linkml/enum/AuthorshipRol
 ```yaml
 name: AuthorshipRoleEnum
 description: The kind of contribution to a publication.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   AUTHOR:

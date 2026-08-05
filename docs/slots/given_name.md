@@ -14,7 +14,7 @@ _Given (first) name, in the person's preferred romanization. Use with family_nam
 
 
 
-URI: [foaf:givenName](http://xmlns.com/foaf/0.1/givenName)
+URI: [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [foaf:givenName](http://xmlns.com/foaf/0.1/givenName)
 | --- | --- |
 | Range | [String](../types/String.md) |
 | Domain Of | [Person](../classes/Person.md) |
-| Slot URI | [foaf:givenName](http://xmlns.com/foaf/0.1/givenName) |
+| Slot URI | [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName) |
 
 ### Cardinality and Requirements
 
@@ -65,7 +65,7 @@ URI: [foaf:givenName](http://xmlns.com/foaf/0.1/givenName)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [foaf:givenName](http://xmlns.com/foaf/0.1/givenName)
 name: given_name
 description: Given (first) name, in the person's preferred romanization. Use with
   family_name when the person's name is conventionally expressed in that form.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: foaf:givenName
 domain_of:

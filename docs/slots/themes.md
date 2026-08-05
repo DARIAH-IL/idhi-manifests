@@ -66,7 +66,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 ```yaml
 name: themes
 description: Thematic keywords for the dataset, multilingual.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcat:theme
 domain_of:

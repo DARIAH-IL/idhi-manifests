@@ -74,7 +74,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -97,7 +97,7 @@ name: ror
 description: The organization's persistent registry identifier. It supplements the
   IDHI record id. Record it whenever the organization is registered in ROR — most
   universities and research institutes are.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:identifier
 domain_of:

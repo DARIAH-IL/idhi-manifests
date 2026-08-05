@@ -66,7 +66,7 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 name: license
 description: The license under which the tool or dataset is released. Required for
   anything advertised as reusable; omit only if genuinely unknown.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:license
 domain_of:

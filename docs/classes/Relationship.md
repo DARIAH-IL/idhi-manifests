@@ -94,7 +94,7 @@ URI: [schema:Role](http://schema.org/Role)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -123,7 +123,7 @@ name: Relationship
 description: 'Abstract base for reified, role-bearing relationships. A Relationship
   is used instead of a direct edge whenever the connection between two entities needs
   its own metadata: a role and/or a validity interval. Never instantiated directly.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 abstract: true
 slots:
 - start_date
@@ -141,14 +141,14 @@ name: Relationship
 description: 'Abstract base for reified, role-bearing relationships. A Relationship
   is used instead of a direct edge whenever the connection between two entities needs
   its own metadata: a role and/or a validity interval. Never instantiated directly.'
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 abstract: true
 attributes:
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
       validity (e.g. when a person joined a project or organization).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
     owner: Relationship
@@ -161,7 +161,7 @@ attributes:
     name: end_date
     description: End of the event, project runtime or relationship. Omit for ongoing
       relationships and open-ended projects.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
     owner: Relationship

@@ -66,7 +66,7 @@ URI: [dcterms:spatial](http://purl.org/dc/terms/spatial)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ URI: [dcterms:spatial](http://purl.org/dc/terms/spatial)
 name: studied_places
 description: Geographic focus of the research (places studied), as free multilingual
   labels — distinct from where the project team sits.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:spatial
 domain_of:

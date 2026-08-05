@@ -14,7 +14,7 @@ _Tools this facility maintains or gives access to (by id). Use for hosted instan
 
 
 
-URI: [idhi:slot/tools_provided](https://idhi.co.il/linkml/slot/tools_provided)
+URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provided)
 <!-- no inheritance hierarchy -->
 
 
@@ -65,7 +65,7 @@ URI: [idhi:slot/tools_provided](https://idhi.co.il/linkml/slot/tools_provided)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -88,7 +88,7 @@ name: tools_provided
 description: Tools this facility maintains or gives access to (by id). Use for hosted
   instances and lab-maintained software, not for every tool staff members happen to
   use.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Facility

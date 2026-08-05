@@ -14,7 +14,7 @@ _The project side of the relationship (by IDHI URN)._
 
 
 
-URI: [idhi:slot/project](https://idhi.co.il/linkml/slot/project)
+URI: [idhi:slot/project](https://idhi_placeholder/linkml/slot/project)
 <!-- no inheritance hierarchy -->
 
 
@@ -66,7 +66,7 @@ URI: [idhi:slot/project](https://idhi.co.il/linkml/slot/project)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -87,7 +87,7 @@ URI: [idhi:slot/project](https://idhi.co.il/linkml/slot/project)
 ```yaml
 name: project
 description: The project side of the relationship (by IDHI URN).
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - ProjectParticipation

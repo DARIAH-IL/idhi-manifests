@@ -172,7 +172,7 @@ URI: [schema:Service](http://schema.org/Service)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -204,7 +204,7 @@ description: A reusable, human- or organization-mediated service offered by a fa
   software.
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
@@ -239,7 +239,7 @@ description: A reusable, human- or organization-mediated service offered by a fa
   software.
 in_subset:
 - toplevel_entity
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slot_usage:
   type:
@@ -257,7 +257,7 @@ attributes:
       Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
     owner: Service
@@ -278,7 +278,7 @@ attributes:
   service_type:
     name: service_type
     description: The kind of service offered (digitization, consulting...).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:serviceType
     owner: Service
@@ -290,7 +290,7 @@ attributes:
     description: The organization formally responsible for delivering the service
       (the one you'd contact or contract with) — set this even when the service is
       listed under a Facility.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:provider
     owner: Service
@@ -301,7 +301,7 @@ attributes:
     name: documentation_url
     description: User or developer documentation for the tool or service (manual,
       wiki, API reference).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:softwareHelp
     owner: Service
@@ -314,7 +314,7 @@ attributes:
     description: Further relevant web pages beyond the homepage (blog, social-media
       profile, registry entry, press coverage...). For records describing the same
       entity in other systems use same_as instead.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:page
     owner: Service
@@ -331,7 +331,7 @@ attributes:
     name: contact_email
     description: A published contact address for the entity (office, team or service-desk
       mailbox). For a person's own addresses use 'emails'.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:email
     owner: Service
@@ -348,7 +348,7 @@ attributes:
     description: Digital-humanities research activities practiced in this project,
       tool or service. Prefer the most specific applicable activity; multiple values
       are expected. This is the primary DH-facet for discovery.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
     owner: Service
@@ -362,7 +362,7 @@ attributes:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic
       serialization and deserialization.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: rdf:type
     owner: Service
@@ -379,7 +379,7 @@ attributes:
       \ is the lowercase snake_case class name; each concrete class enforces its own\
       \ token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary\
       \ and go in their dedicated slots — never here."
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:identifier
     identifier: true
@@ -396,7 +396,7 @@ attributes:
     name: description
     description: Multilingual free-text description (a few sentences aimed at index
       visitors, not internal notes).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:description
     owner: Service
@@ -409,7 +409,7 @@ attributes:
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:homepage
     owner: Service
@@ -421,7 +421,7 @@ attributes:
     description: URIs of records in OTHER systems describing the same real-world entity
       (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the
       entity's own pages (use homepage).
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:sameAs
     owner: Service
@@ -435,7 +435,7 @@ attributes:
       top-level entity. Deliberately NOT a controlled enum, but prefer wording that
       matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty
       AAT, TaDiRAH) so tags can later be reconciled against it.
-    from_schema: https://idhi.co.il/linkml/idhi
+    from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcat:keyword
     owner: Service

@@ -94,7 +94,7 @@ URI: [dcterms:identifier](http://purl.org/dc/terms/identifier)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -120,7 +120,7 @@ description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<
   \ is the lowercase snake_case class name; each concrete class enforces its own token\
   \ via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and\
   \ go in their dedicated slots — never here."
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:identifier
 identifier: true

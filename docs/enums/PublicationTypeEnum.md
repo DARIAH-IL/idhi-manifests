@@ -3,7 +3,6 @@ search:
   boost: 2.0
 ---
 
-
 # Enum: PublicationTypeEnum 
 
 
@@ -15,7 +14,7 @@ _The kind of publication, including journal article, book part, conference paper
 
 <div data-search-exclude markdown="1">
 
-URI: [idhi:enum/PublicationTypeEnum](https://idhi.co.il/linkml/enum/PublicationTypeEnum)
+URI: [idhi:enum/PublicationTypeEnum](https://idhi_placeholder/linkml/enum/PublicationTypeEnum)
 ## Enumeration Source
 **Matches:**
 
@@ -26,116 +25,116 @@ URI: [idhi:enum/PublicationTypeEnum](https://idhi.co.il/linkml/enum/PublicationT
 ## Permissible Values
 | Value | Meaning | Description | Additional Info |
 | --- | --- | --- | --- |
-| coar:1YTN-RJZE | coar:1YTN-RJZE | A set of judicial proceedings that record, physically or digitally, and in an... | Title: court documents<br>|
-| coar:2H0M-X761 | coar:2H0M-X761 | Geospatial data are any type of data with spatial coordinates that allow them... | Title: geospatial data<br>|
-| coar:43KC-T6DC | coar:43KC-T6DC | An Item appearing in a magazine (a general interest or specific focus periodi... | Title: magazine article<br>|
-| coar:542X-3S04 | coar:542X-3S04 | Plans, drawing or set of drawings showing how something e | Title: design<br>|
-| coar:63NG-B465 | coar:63NG-B465 | Data resulting from the experimental research method involving the manipulati... | Title: experimental data<br>|
-| coar:6NC7-GK9S | coar:6NC7-GK9S | A written record of words spoken in court proceedings or in a speech, intervi... | Title: transcription<br>|
-| coar:8KJG-QS0Y | coar:8KJG-QS0Y | A device, tool or apparatus used to obtain, measure and/or analyze data | Title: research instrument<br>|
-| coar:9DKX-KSAF | coar:9DKX-KSAF | A special form of patent right granted by a state or jurisdiction to an inven... | Title: utility model<br>|
-| coar:A8F1-NPV9 | coar:A8F1-NPV9 | Genomic data refers to the genome and DNA data of an organism | Title: genomic data<br>|
-| coar:ACF7-8YT9 | coar:ACF7-8YT9 | Statistics that relate to broad classes, groups, or categories | Title: aggregated data<br>|
-| coar:AM6W-6QAW | coar:AM6W-6QAW | Qualitative data (textual, video, audio or still-image) originally produced f... | Title: encoded data<br>|
-| coar:BW7T-YM2G | coar:BW7T-YM2G | Layout-design (topography) means the three-dimensional disposition, however e... | Title: layout design<br>|
-| coar:C53B-JCY5 | coar:C53B-JCY5 | A patent granted to any person who has invented any new and non-obvious ornam... | Title: design patent<br>|
-| coar:CQMR-7K63 | coar:CQMR-7K63 | Data registered by mechanical or electronic means, in a form that allows the ... | Title: recorded data<br>|
-| coar:D97F-VB57 | coar:D97F-VB57 | A commentary is a more in-depth analysis written to draw attention to a work ... | Title: commentary<br>|
-| coar:DD58-GFSX | coar:DD58-GFSX | Data resulting from assessing specific properties (or characteristics) of bei... | Title: measurement and test data<br>|
-| coar:DX5J-TA9R | coar:DX5J-TA9R | In the context of systematic reviews and meta-analyses, a protocol is a docum... | Title: knowledge synthesis protocol<br>|
-| coar:EHVM-H119 | coar:EHVM-H119 | Data that are used as primary sources to support technical or scientific enqu... | Title: research data<br>|
-| coar:F8RT-TJK0 | coar:F8RT-TJK0 | A work of visual arts and performing arts, including musical works; dramatic ... | Title: artistic work<br>|
-| coar:FF4C-28RK | coar:FF4C-28RK | Data resulting from observational research, which involves collecting observa... | Title: observational data<br>|
-| coar:FXF3-D3G7 | coar:FXF3-D3G7 | Data collected or assembled from multiple, often heterogeneous sources that h... | Title: compiled data<br>|
-| coar:GPQ7-G5VE | coar:GPQ7-G5VE | Plant variety protection, also called a "plant breeder's right" (PBR), is a f... | Title: plant variety protection<br>|
-| coar:GSZA-Y7V7 | coar:GSZA-Y7V7 | All types of schemes for organizing information and promoting knowledge manag... | Title: knowledge organization system<br>|
-| coar:H41Y-FW7B | coar:H41Y-FW7B | A laboratory notebook (colloq | Title: laboratory notebook<br>|
-| coar:H6QP-SC1X | coar:H6QP-SC1X | A sign used to distinguish the goods or services of one undertaking from thos... | Title: trademark<br>|
-| coar:H9BQ-739P | coar:H9BQ-739P | An evaluation of scientific, academic, or professional work by others working... | Title: peer review<br>|
-| coar:JBNF-DYAD | coar:JBNF-DYAD | Industrial designs are applied to a wide variety of industrial products and h... | Title: industrial design<br>|
-| coar:MW8G-3CR8 | coar:MW8G-3CR8 | In order to obtain a patent, a software invention must not fall under other n... | Title: software patent<br>|
-| coar:NHD0-W6SY | coar:NHD0-W6SY | Data resulting from a survey, which is defined as an investigation about the ... | Title: survey data<br>|
-| coar:QH80-2R4E | coar:QH80-2R4E | Source code is any collection of code, with or without comments, written usin... | Title: source code<br>|
-| coar:QX5C-AR31 | coar:QX5C-AR31 | A resource type that is not included in existing terms under the top concept ... | Title: other periodical<br>|
-| coar:R60J-J5BD | coar:R60J-J5BD | A set of slides containing text, tables or figures, designed to communicate i... | Title: conference presentation<br>|
-| coar:RMP5-3GQ6 | coar:RMP5-3GQ6 | An aggregation of resources, which may encompass collections of one resourceT... | Title: collection<br>|
-| coar:S7R1-K5P0 | coar:S7R1-K5P0 | Physical samples include biological specimens, rock or mineral specimens, soi... | Title: physical sample<br>|
-| coar:SB3Y-W4EH | coar:SB3Y-W4EH | A patent application filed through the WIPO-administered Patent Cooperation T... | Title: PCT application<br>|
-| coar:W2XT-7017 | coar:W2XT-7017 | Data resulting from modeling or imitative representation of real-world proces... | Title: simulation data<br>|
-| coar:YC9F-HGCF | coar:YC9F-HGCF | A collection of historical records and primary source documents | Title: archival collection<br>|
-| coar:YZ1N-ZFT9 | coar:YZ1N-ZFT9 | The protocol is a detailed plan of the research study including a project sum... | Title: research protocol<br>|
-| coar:Z907-YMBB | coar:Z907-YMBB | A patent granted to anyone who has invented or discovered and asexually repro... | Title: plant patent<br>|
-| coar:c_0040 | coar:c_0040 | A manuscript is a work of any kind (text, inscription, music score, map, etc | Title: manuscript<br>|
-| coar:c_0640 | coar:c_0640 | A journal is a serial publication devoted to disseminating original research ... | Title: journal<br>|
-| coar:c_0857 | coar:c_0857 | A brief description of important new research, also known as “communication” | Title: letter<br>|
-| coar:c_1162 | coar:c_1162 | An annotation in the sense of a legal note is a legally explanatory comment o... | Title: annotation<br>|
-| coar:c_12cc | coar:c_12cc | Any material representing the whole or part of the earth or any celestial bod... | Title: cartographic material<br>|
-| coar:c_12cd | coar:c_12cd | Defined as a representation normally to scale and on a flat medium, of a sele... | Title: map<br>|
-| coar:c_12ce | coar:c_12ce | Media that makes use of images (usually "moving"), with or without sound, ove... | Title: video<br>|
-| coar:c_15cd | coar:c_15cd | A patent or patent application | Title: patent<br>|
-| coar:c_1843 | coar:c_1843 | A resource type that is not included in existing terms | Title: other<br>|
-| coar:c_186u | coar:c_186u | A policy report presents what is known about a particular issue or problem | Title: policy report<br>|
-| coar:c_18cc | coar:c_18cc | A resource primarily intended to be heard | Title: sound<br>|
-| coar:c_18cd | coar:c_18cd | Musical composition can refer to an original piece of music, the structure of... | Title: musical composition<br>|
-| coar:c_18cf | coar:c_18cf | A resource consisting primarily of words for reading | Title: text<br>|
-| coar:c_18co | coar:c_18co | A display poster, typically containing text with illustrative figures and/or ... | Title: conference poster not in proceedings<br>|
-| coar:c_18cp | coar:c_18cp | A paper, typically the realization of a research paper reporting original res... | Title: conference paper not in proceedings<br>|
-| coar:c_18cw | coar:c_18cw | Symbols used to write music, as in a music score, and to express mathematical... | Title: musical notation<br>|
-| coar:c_18gh | coar:c_18gh | A document that describes the process, progress, or results of technical or s... | Title: technical report<br>|
-| coar:c_18hj | coar:c_18hj | A report to a funding agency is a document written by beneficiaries of projec... | Title: report to funding agency<br>|
-| coar:c_18op | coar:c_18op | A document containing a project report, intended to be delivered to a custome... | Title: project deliverable<br>|
-| coar:c_18wq | coar:c_18wq | Other types of report may include Business Plans Technical Specifications, da... | Title: other type of report<br>|
-| coar:c_18ws | coar:c_18ws | It is publication that reports on the findings of a research project or alter... | Title: research report<br>|
-| coar:c_18ww | coar:c_18ww | An internal report is a record of findings collected for internal use | Title: internal report<br>|
-| coar:c_18wz | coar:c_18wz | A formal note distributed internally to one or more persons in a company, age... | Title: memorandum<br>|
-| coar:c_2659 | coar:c_2659 | A periodical is a serial publication with its own distinctive title, characte... | Title: periodical<br>|
-| coar:c_26e4 | coar:c_26e4 | A discussion between a reporter, host, panel, or audience and a newsmaker, au... | Title: interview<br>|
-| coar:c_2cd9 | coar:c_2cd9 | A popular interest periodical usually containing articles on a variety of top... | Title: magazine<br>|
-| coar:c_2df8fbb1 | coar:c_2df8fbb1 | A research article is a primary source, that is, it reports the methods and r... | Title: research article<br>|
-| coar:c_2f33 | coar:c_2f33 | A non-serial publication that is complete in one volume or a designated finit... | Title: book<br>|
-| coar:c_2fe3 | coar:c_2fe3 | A non-peer reviewed periodical, usually published daily or weekly, consisting... | Title: newspaper<br>|
-| coar:c_3248 | coar:c_3248 | A defined chapter or section of a book, usually with a separate title or numb... | Title: book part<br>|
-| coar:c_393c | coar:c_393c | A recorded sequence of connected steps, which may be automated, specifying a ... | Title: workflow<br>|
-| coar:c_3e5a | coar:c_3e5a | A contribution to a journal denotes a work published in a journal | Title: contribution to journal<br>|
-| coar:c_46ec | coar:c_46ec | A book authored by a student containing a formal presentations of research ou... | Title: thesis<br>|
-| coar:c_545b | coar:c_545b | A letter addressed to the editor and comments on or discussed an item previou... | Title: letter to the editor<br>|
-| coar:c_5794 | coar:c_5794 | A paper, published within a conference proceeding, typically the realization ... | Title: conference paper<br>|
-| coar:c_5ce6 | coar:c_5ce6 | A computer program in source code (text) or compiled form | Title: software<br>|
-| coar:c_6501 | coar:c_6501 | An article, typically the realization of a research paper reporting original ... | Title: journal article<br>|
-| coar:c_6670 | coar:c_6670 | A display poster, published within a conference proceeding, typically contain... | Title: conference poster<br>|
-| coar:c_6947 | coar:c_6947 | A piece of writing or other item of content published on a blog | Title: blog post<br>|
-| coar:c_71bd | coar:c_71bd | Technical documentation refers to any type of documentation that describes ha... | Title: technical documentation<br>|
-| coar:c_7877 | coar:c_7877 | A work that reports on the results of a research study to evaluate interventi... | Title: clinical study<br>|
-| coar:c_7a1f | coar:c_7a1f | A thesis reporting a research project undertaken as part of an undergraduate ... | Title: bachelor thesis<br>|
-| coar:c_7acd | coar:c_7acd | A formal correction to an error introduced by the author into a previously pu... | Title: corrigendum<br>|
-| coar:c_7ad9 | coar:c_7ad9 | A collection of related web pages containing text, images, videos and/or othe... | Title: website<br>|
-| coar:c_7bab | coar:c_7bab | A software paper should include the rationale for the development of the tool... | Title: software paper<br>|
-| coar:c_8042 | coar:c_8042 | A working or discussion paper circulated publicly or among a group of peers | Title: working paper<br>|
-| coar:c_816b | coar:c_816b | A preprint is a scientific manuscript without peer-review and has not yet bee... | Title: preprint<br>|
-| coar:c_8544 | coar:c_8544 | Transcription of an oral presentation/talk intended to present information or... | Title: lecture<br>|
-| coar:c_86bc | coar:c_86bc | A list of the books and articles that have been used by someone when writing ... | Title: bibliography<br>|
-| coar:c_8a7e | coar:c_8a7e | A moving display, either generated dynamically by a computer program or forme... | Title: moving image<br>|
-| coar:c_93fc | coar:c_93fc | A report is a separately published record of research findings, research stil... | Title: report<br>|
-| coar:c_998f | coar:c_998f | Work consisting of a news item appearing in a general-interest newspaper or o... | Title: newspaper article<br>|
-| coar:c_ab20 | coar:c_ab20 | A formal statement describing how research data will be managed and documente... | Title: data management plan<br>|
-| coar:c_b239 | coar:c_b239 | A brief essay expressing the opinion or position of the chief editor(s) of a ... | Title: editorial<br>|
-| coar:c_ba08 | coar:c_ba08 | A written review and critical analysis of the content, scope and quality of a... | Title: book review<br>|
-| coar:c_ba1f | coar:c_ba1f | part of a report | Title: report part<br>|
-| coar:c_baaf | coar:c_baaf | A research proposal is a document proposing a research project, generally in ... | Title: research proposal<br>|
-| coar:c_bdcc | coar:c_bdcc | A thesis reporting a research project undertaken as part of a graduate course... | Title: master thesis<br>|
-| coar:c_beb9 | coar:c_beb9 | A data paper is a scholarly publication describing a particular dataset or gr... | Title: data paper<br>|
-| coar:c_c513 | coar:c_c513 | A visual representation other than text, including all types of moving image ... | Title: image<br>|
-| coar:c_c94f | coar:c_c94f | All kind of digital resources contributed to a conference, like conference pr... | Title: conference output<br>|
-| coar:c_c950 | coar:c_c950 | Software that is used to generate, process or analyse results that you intend... | Title: research software<br>|
-| coar:c_cb28 | coar:c_cb28 | Data resulting from a research study in which one or more human subjects are ... | Title: clinical trial data<br>|
-| coar:c_db06 | coar:c_db06 | A thesis reporting the research undertaken during a period of graduate study ... | Title: doctoral thesis<br>|
-| coar:c_dcae04bc | coar:c_dcae04bc | A review article is a secondary source, that is, it is written about other ar... | Title: review article<br>|
-| coar:c_ddb1 | coar:c_ddb1 | A collection of related facts and data encoded in a defined structure | Title: dataset<br>|
-| coar:c_e059 | coar:c_e059 | A digital resource that can be reused to enhance teaching and learning | Title: learning object<br>|
-| coar:c_e9a0 | coar:c_e9a0 | A resource requiring interaction from the user to be understood, executed, or... | Title: interactive resource<br>|
-| coar:c_ecc8 | coar:c_ecc8 | A recorded static visual representation | Title: still image<br>|
-| coar:c_efa0 | coar:c_efa0 | A review of others' published work | Title: review<br>|
-| coar:c_f744 | coar:c_f744 | Conference proceedings is the official record of a conference meeting | Title: conference proceedings<br>|
+| coar:1YTN-RJZE | [coar:1YTN-RJZE](http://purl.org/coar/resource_type/1YTN-RJZE) | A set of judicial proceedings that record, physically or digitally, and in an... | Title: court documents<br>|
+| coar:2H0M-X761 | [coar:2H0M-X761](http://purl.org/coar/resource_type/2H0M-X761) | Geospatial data are any type of data with spatial coordinates that allow them... | Title: geospatial data<br>|
+| coar:43KC-T6DC | [coar:43KC-T6DC](http://purl.org/coar/resource_type/43KC-T6DC) | An Item appearing in a magazine (a general interest or specific focus periodi... | Title: magazine article<br>|
+| coar:542X-3S04 | [coar:542X-3S04](http://purl.org/coar/resource_type/542X-3S04) | Plans, drawing or set of drawings showing how something e | Title: design<br>|
+| coar:63NG-B465 | [coar:63NG-B465](http://purl.org/coar/resource_type/63NG-B465) | Data resulting from the experimental research method involving the manipulati... | Title: experimental data<br>|
+| coar:6NC7-GK9S | [coar:6NC7-GK9S](http://purl.org/coar/resource_type/6NC7-GK9S) | A written record of words spoken in court proceedings or in a speech, intervi... | Title: transcription<br>|
+| coar:8KJG-QS0Y | [coar:8KJG-QS0Y](http://purl.org/coar/resource_type/8KJG-QS0Y) | A device, tool or apparatus used to obtain, measure and/or analyze data | Title: research instrument<br>|
+| coar:9DKX-KSAF | [coar:9DKX-KSAF](http://purl.org/coar/resource_type/9DKX-KSAF) | A special form of patent right granted by a state or jurisdiction to an inven... | Title: utility model<br>|
+| coar:A8F1-NPV9 | [coar:A8F1-NPV9](http://purl.org/coar/resource_type/A8F1-NPV9) | Genomic data refers to the genome and DNA data of an organism | Title: genomic data<br>|
+| coar:ACF7-8YT9 | [coar:ACF7-8YT9](http://purl.org/coar/resource_type/ACF7-8YT9) | Statistics that relate to broad classes, groups, or categories | Title: aggregated data<br>|
+| coar:AM6W-6QAW | [coar:AM6W-6QAW](http://purl.org/coar/resource_type/AM6W-6QAW) | Qualitative data (textual, video, audio or still-image) originally produced f... | Title: encoded data<br>|
+| coar:BW7T-YM2G | [coar:BW7T-YM2G](http://purl.org/coar/resource_type/BW7T-YM2G) | Layout-design (topography) means the three-dimensional disposition, however e... | Title: layout design<br>|
+| coar:C53B-JCY5 | [coar:C53B-JCY5](http://purl.org/coar/resource_type/C53B-JCY5) | A patent granted to any person who has invented any new and non-obvious ornam... | Title: design patent<br>|
+| coar:CQMR-7K63 | [coar:CQMR-7K63](http://purl.org/coar/resource_type/CQMR-7K63) | Data registered by mechanical or electronic means, in a form that allows the ... | Title: recorded data<br>|
+| coar:D97F-VB57 | [coar:D97F-VB57](http://purl.org/coar/resource_type/D97F-VB57) | A commentary is a more in-depth analysis written to draw attention to a work ... | Title: commentary<br>|
+| coar:DD58-GFSX | [coar:DD58-GFSX](http://purl.org/coar/resource_type/DD58-GFSX) | Data resulting from assessing specific properties (or characteristics) of bei... | Title: measurement and test data<br>|
+| coar:DX5J-TA9R | [coar:DX5J-TA9R](http://purl.org/coar/resource_type/DX5J-TA9R) | In the context of systematic reviews and meta-analyses, a protocol is a docum... | Title: knowledge synthesis protocol<br>|
+| coar:EHVM-H119 | [coar:EHVM-H119](http://purl.org/coar/resource_type/EHVM-H119) | Data that are used as primary sources to support technical or scientific enqu... | Title: research data<br>|
+| coar:F8RT-TJK0 | [coar:F8RT-TJK0](http://purl.org/coar/resource_type/F8RT-TJK0) | A work of visual arts and performing arts, including musical works; dramatic ... | Title: artistic work<br>|
+| coar:FF4C-28RK | [coar:FF4C-28RK](http://purl.org/coar/resource_type/FF4C-28RK) | Data resulting from observational research, which involves collecting observa... | Title: observational data<br>|
+| coar:FXF3-D3G7 | [coar:FXF3-D3G7](http://purl.org/coar/resource_type/FXF3-D3G7) | Data collected or assembled from multiple, often heterogeneous sources that h... | Title: compiled data<br>|
+| coar:GPQ7-G5VE | [coar:GPQ7-G5VE](http://purl.org/coar/resource_type/GPQ7-G5VE) | Plant variety protection, also called a "plant breeder's right" (PBR), is a f... | Title: plant variety protection<br>|
+| coar:GSZA-Y7V7 | [coar:GSZA-Y7V7](http://purl.org/coar/resource_type/GSZA-Y7V7) | All types of schemes for organizing information and promoting knowledge manag... | Title: knowledge organization system<br>|
+| coar:H41Y-FW7B | [coar:H41Y-FW7B](http://purl.org/coar/resource_type/H41Y-FW7B) | A laboratory notebook (colloq | Title: laboratory notebook<br>|
+| coar:H6QP-SC1X | [coar:H6QP-SC1X](http://purl.org/coar/resource_type/H6QP-SC1X) | A sign used to distinguish the goods or services of one undertaking from thos... | Title: trademark<br>|
+| coar:H9BQ-739P | [coar:H9BQ-739P](http://purl.org/coar/resource_type/H9BQ-739P) | An evaluation of scientific, academic, or professional work by others working... | Title: peer review<br>|
+| coar:JBNF-DYAD | [coar:JBNF-DYAD](http://purl.org/coar/resource_type/JBNF-DYAD) | Industrial designs are applied to a wide variety of industrial products and h... | Title: industrial design<br>|
+| coar:MW8G-3CR8 | [coar:MW8G-3CR8](http://purl.org/coar/resource_type/MW8G-3CR8) | In order to obtain a patent, a software invention must not fall under other n... | Title: software patent<br>|
+| coar:NHD0-W6SY | [coar:NHD0-W6SY](http://purl.org/coar/resource_type/NHD0-W6SY) | Data resulting from a survey, which is defined as an investigation about the ... | Title: survey data<br>|
+| coar:QH80-2R4E | [coar:QH80-2R4E](http://purl.org/coar/resource_type/QH80-2R4E) | Source code is any collection of code, with or without comments, written usin... | Title: source code<br>|
+| coar:QX5C-AR31 | [coar:QX5C-AR31](http://purl.org/coar/resource_type/QX5C-AR31) | A resource type that is not included in existing terms under the top concept ... | Title: other periodical<br>|
+| coar:R60J-J5BD | [coar:R60J-J5BD](http://purl.org/coar/resource_type/R60J-J5BD) | A set of slides containing text, tables or figures, designed to communicate i... | Title: conference presentation<br>|
+| coar:RMP5-3GQ6 | [coar:RMP5-3GQ6](http://purl.org/coar/resource_type/RMP5-3GQ6) | An aggregation of resources, which may encompass collections of one resourceT... | Title: collection<br>|
+| coar:S7R1-K5P0 | [coar:S7R1-K5P0](http://purl.org/coar/resource_type/S7R1-K5P0) | Physical samples include biological specimens, rock or mineral specimens, soi... | Title: physical sample<br>|
+| coar:SB3Y-W4EH | [coar:SB3Y-W4EH](http://purl.org/coar/resource_type/SB3Y-W4EH) | A patent application filed through the WIPO-administered Patent Cooperation T... | Title: PCT application<br>|
+| coar:W2XT-7017 | [coar:W2XT-7017](http://purl.org/coar/resource_type/W2XT-7017) | Data resulting from modeling or imitative representation of real-world proces... | Title: simulation data<br>|
+| coar:YC9F-HGCF | [coar:YC9F-HGCF](http://purl.org/coar/resource_type/YC9F-HGCF) | A collection of historical records and primary source documents | Title: archival collection<br>|
+| coar:YZ1N-ZFT9 | [coar:YZ1N-ZFT9](http://purl.org/coar/resource_type/YZ1N-ZFT9) | The protocol is a detailed plan of the research study including a project sum... | Title: research protocol<br>|
+| coar:Z907-YMBB | [coar:Z907-YMBB](http://purl.org/coar/resource_type/Z907-YMBB) | A patent granted to anyone who has invented or discovered and asexually repro... | Title: plant patent<br>|
+| coar:c_0040 | [coar:c_0040](http://purl.org/coar/resource_type/c_0040) | A manuscript is a work of any kind (text, inscription, music score, map, etc | Title: manuscript<br>|
+| coar:c_0640 | [coar:c_0640](http://purl.org/coar/resource_type/c_0640) | A journal is a serial publication devoted to disseminating original research ... | Title: journal<br>|
+| coar:c_0857 | [coar:c_0857](http://purl.org/coar/resource_type/c_0857) | A brief description of important new research, also known as “communication” | Title: letter<br>|
+| coar:c_1162 | [coar:c_1162](http://purl.org/coar/resource_type/c_1162) | An annotation in the sense of a legal note is a legally explanatory comment o... | Title: annotation<br>|
+| coar:c_12cc | [coar:c_12cc](http://purl.org/coar/resource_type/c_12cc) | Any material representing the whole or part of the earth or any celestial bod... | Title: cartographic material<br>|
+| coar:c_12cd | [coar:c_12cd](http://purl.org/coar/resource_type/c_12cd) | Defined as a representation normally to scale and on a flat medium, of a sele... | Title: map<br>|
+| coar:c_12ce | [coar:c_12ce](http://purl.org/coar/resource_type/c_12ce) | Media that makes use of images (usually "moving"), with or without sound, ove... | Title: video<br>|
+| coar:c_15cd | [coar:c_15cd](http://purl.org/coar/resource_type/c_15cd) | A patent or patent application | Title: patent<br>|
+| coar:c_1843 | [coar:c_1843](http://purl.org/coar/resource_type/c_1843) | A resource type that is not included in existing terms | Title: other<br>|
+| coar:c_186u | [coar:c_186u](http://purl.org/coar/resource_type/c_186u) | A policy report presents what is known about a particular issue or problem | Title: policy report<br>|
+| coar:c_18cc | [coar:c_18cc](http://purl.org/coar/resource_type/c_18cc) | A resource primarily intended to be heard | Title: sound<br>|
+| coar:c_18cd | [coar:c_18cd](http://purl.org/coar/resource_type/c_18cd) | Musical composition can refer to an original piece of music, the structure of... | Title: musical composition<br>|
+| coar:c_18cf | [coar:c_18cf](http://purl.org/coar/resource_type/c_18cf) | A resource consisting primarily of words for reading | Title: text<br>|
+| coar:c_18co | [coar:c_18co](http://purl.org/coar/resource_type/c_18co) | A display poster, typically containing text with illustrative figures and/or ... | Title: conference poster not in proceedings<br>|
+| coar:c_18cp | [coar:c_18cp](http://purl.org/coar/resource_type/c_18cp) | A paper, typically the realization of a research paper reporting original res... | Title: conference paper not in proceedings<br>|
+| coar:c_18cw | [coar:c_18cw](http://purl.org/coar/resource_type/c_18cw) | Symbols used to write music, as in a music score, and to express mathematical... | Title: musical notation<br>|
+| coar:c_18gh | [coar:c_18gh](http://purl.org/coar/resource_type/c_18gh) | A document that describes the process, progress, or results of technical or s... | Title: technical report<br>|
+| coar:c_18hj | [coar:c_18hj](http://purl.org/coar/resource_type/c_18hj) | A report to a funding agency is a document written by beneficiaries of projec... | Title: report to funding agency<br>|
+| coar:c_18op | [coar:c_18op](http://purl.org/coar/resource_type/c_18op) | A document containing a project report, intended to be delivered to a custome... | Title: project deliverable<br>|
+| coar:c_18wq | [coar:c_18wq](http://purl.org/coar/resource_type/c_18wq) | Other types of report may include Business Plans Technical Specifications, da... | Title: other type of report<br>|
+| coar:c_18ws | [coar:c_18ws](http://purl.org/coar/resource_type/c_18ws) | It is publication that reports on the findings of a research project or alter... | Title: research report<br>|
+| coar:c_18ww | [coar:c_18ww](http://purl.org/coar/resource_type/c_18ww) | An internal report is a record of findings collected for internal use | Title: internal report<br>|
+| coar:c_18wz | [coar:c_18wz](http://purl.org/coar/resource_type/c_18wz) | A formal note distributed internally to one or more persons in a company, age... | Title: memorandum<br>|
+| coar:c_2659 | [coar:c_2659](http://purl.org/coar/resource_type/c_2659) | A periodical is a serial publication with its own distinctive title, characte... | Title: periodical<br>|
+| coar:c_26e4 | [coar:c_26e4](http://purl.org/coar/resource_type/c_26e4) | A discussion between a reporter, host, panel, or audience and a newsmaker, au... | Title: interview<br>|
+| coar:c_2cd9 | [coar:c_2cd9](http://purl.org/coar/resource_type/c_2cd9) | A popular interest periodical usually containing articles on a variety of top... | Title: magazine<br>|
+| coar:c_2df8fbb1 | [coar:c_2df8fbb1](http://purl.org/coar/resource_type/c_2df8fbb1) | A research article is a primary source, that is, it reports the methods and r... | Title: research article<br>|
+| coar:c_2f33 | [coar:c_2f33](http://purl.org/coar/resource_type/c_2f33) | A non-serial publication that is complete in one volume or a designated finit... | Title: book<br>|
+| coar:c_2fe3 | [coar:c_2fe3](http://purl.org/coar/resource_type/c_2fe3) | A non-peer reviewed periodical, usually published daily or weekly, consisting... | Title: newspaper<br>|
+| coar:c_3248 | [coar:c_3248](http://purl.org/coar/resource_type/c_3248) | A defined chapter or section of a book, usually with a separate title or numb... | Title: book part<br>|
+| coar:c_393c | [coar:c_393c](http://purl.org/coar/resource_type/c_393c) | A recorded sequence of connected steps, which may be automated, specifying a ... | Title: workflow<br>|
+| coar:c_3e5a | [coar:c_3e5a](http://purl.org/coar/resource_type/c_3e5a) | A contribution to a journal denotes a work published in a journal | Title: contribution to journal<br>|
+| coar:c_46ec | [coar:c_46ec](http://purl.org/coar/resource_type/c_46ec) | A book authored by a student containing a formal presentations of research ou... | Title: thesis<br>|
+| coar:c_545b | [coar:c_545b](http://purl.org/coar/resource_type/c_545b) | A letter addressed to the editor and comments on or discussed an item previou... | Title: letter to the editor<br>|
+| coar:c_5794 | [coar:c_5794](http://purl.org/coar/resource_type/c_5794) | A paper, published within a conference proceeding, typically the realization ... | Title: conference paper<br>|
+| coar:c_5ce6 | [coar:c_5ce6](http://purl.org/coar/resource_type/c_5ce6) | A computer program in source code (text) or compiled form | Title: software<br>|
+| coar:c_6501 | [coar:c_6501](http://purl.org/coar/resource_type/c_6501) | An article, typically the realization of a research paper reporting original ... | Title: journal article<br>|
+| coar:c_6670 | [coar:c_6670](http://purl.org/coar/resource_type/c_6670) | A display poster, published within a conference proceeding, typically contain... | Title: conference poster<br>|
+| coar:c_6947 | [coar:c_6947](http://purl.org/coar/resource_type/c_6947) | A piece of writing or other item of content published on a blog | Title: blog post<br>|
+| coar:c_71bd | [coar:c_71bd](http://purl.org/coar/resource_type/c_71bd) | Technical documentation refers to any type of documentation that describes ha... | Title: technical documentation<br>|
+| coar:c_7877 | [coar:c_7877](http://purl.org/coar/resource_type/c_7877) | A work that reports on the results of a research study to evaluate interventi... | Title: clinical study<br>|
+| coar:c_7a1f | [coar:c_7a1f](http://purl.org/coar/resource_type/c_7a1f) | A thesis reporting a research project undertaken as part of an undergraduate ... | Title: bachelor thesis<br>|
+| coar:c_7acd | [coar:c_7acd](http://purl.org/coar/resource_type/c_7acd) | A formal correction to an error introduced by the author into a previously pu... | Title: corrigendum<br>|
+| coar:c_7ad9 | [coar:c_7ad9](http://purl.org/coar/resource_type/c_7ad9) | A collection of related web pages containing text, images, videos and/or othe... | Title: website<br>|
+| coar:c_7bab | [coar:c_7bab](http://purl.org/coar/resource_type/c_7bab) | A software paper should include the rationale for the development of the tool... | Title: software paper<br>|
+| coar:c_8042 | [coar:c_8042](http://purl.org/coar/resource_type/c_8042) | A working or discussion paper circulated publicly or among a group of peers | Title: working paper<br>|
+| coar:c_816b | [coar:c_816b](http://purl.org/coar/resource_type/c_816b) | A preprint is a scientific manuscript without peer-review and has not yet bee... | Title: preprint<br>|
+| coar:c_8544 | [coar:c_8544](http://purl.org/coar/resource_type/c_8544) | Transcription of an oral presentation/talk intended to present information or... | Title: lecture<br>|
+| coar:c_86bc | [coar:c_86bc](http://purl.org/coar/resource_type/c_86bc) | A list of the books and articles that have been used by someone when writing ... | Title: bibliography<br>|
+| coar:c_8a7e | [coar:c_8a7e](http://purl.org/coar/resource_type/c_8a7e) | A moving display, either generated dynamically by a computer program or forme... | Title: moving image<br>|
+| coar:c_93fc | [coar:c_93fc](http://purl.org/coar/resource_type/c_93fc) | A report is a separately published record of research findings, research stil... | Title: report<br>|
+| coar:c_998f | [coar:c_998f](http://purl.org/coar/resource_type/c_998f) | Work consisting of a news item appearing in a general-interest newspaper or o... | Title: newspaper article<br>|
+| coar:c_ab20 | [coar:c_ab20](http://purl.org/coar/resource_type/c_ab20) | A formal statement describing how research data will be managed and documente... | Title: data management plan<br>|
+| coar:c_b239 | [coar:c_b239](http://purl.org/coar/resource_type/c_b239) | A brief essay expressing the opinion or position of the chief editor(s) of a ... | Title: editorial<br>|
+| coar:c_ba08 | [coar:c_ba08](http://purl.org/coar/resource_type/c_ba08) | A written review and critical analysis of the content, scope and quality of a... | Title: book review<br>|
+| coar:c_ba1f | [coar:c_ba1f](http://purl.org/coar/resource_type/c_ba1f) | part of a report | Title: report part<br>|
+| coar:c_baaf | [coar:c_baaf](http://purl.org/coar/resource_type/c_baaf) | A research proposal is a document proposing a research project, generally in ... | Title: research proposal<br>|
+| coar:c_bdcc | [coar:c_bdcc](http://purl.org/coar/resource_type/c_bdcc) | A thesis reporting a research project undertaken as part of a graduate course... | Title: master thesis<br>|
+| coar:c_beb9 | [coar:c_beb9](http://purl.org/coar/resource_type/c_beb9) | A data paper is a scholarly publication describing a particular dataset or gr... | Title: data paper<br>|
+| coar:c_c513 | [coar:c_c513](http://purl.org/coar/resource_type/c_c513) | A visual representation other than text, including all types of moving image ... | Title: image<br>|
+| coar:c_c94f | [coar:c_c94f](http://purl.org/coar/resource_type/c_c94f) | All kind of digital resources contributed to a conference, like conference pr... | Title: conference output<br>|
+| coar:c_c950 | [coar:c_c950](http://purl.org/coar/resource_type/c_c950) | Software that is used to generate, process or analyse results that you intend... | Title: research software<br>|
+| coar:c_cb28 | [coar:c_cb28](http://purl.org/coar/resource_type/c_cb28) | Data resulting from a research study in which one or more human subjects are ... | Title: clinical trial data<br>|
+| coar:c_db06 | [coar:c_db06](http://purl.org/coar/resource_type/c_db06) | A thesis reporting the research undertaken during a period of graduate study ... | Title: doctoral thesis<br>|
+| coar:c_dcae04bc | [coar:c_dcae04bc](http://purl.org/coar/resource_type/c_dcae04bc) | A review article is a secondary source, that is, it is written about other ar... | Title: review article<br>|
+| coar:c_ddb1 | [coar:c_ddb1](http://purl.org/coar/resource_type/c_ddb1) | A collection of related facts and data encoded in a defined structure | Title: dataset<br>|
+| coar:c_e059 | [coar:c_e059](http://purl.org/coar/resource_type/c_e059) | A digital resource that can be reused to enhance teaching and learning | Title: learning object<br>|
+| coar:c_e9a0 | [coar:c_e9a0](http://purl.org/coar/resource_type/c_e9a0) | A resource requiring interaction from the user to be understood, executed, or... | Title: interactive resource<br>|
+| coar:c_ecc8 | [coar:c_ecc8](http://purl.org/coar/resource_type/c_ecc8) | A recorded static visual representation | Title: still image<br>|
+| coar:c_efa0 | [coar:c_efa0](http://purl.org/coar/resource_type/c_efa0) | A review of others' published work | Title: review<br>|
+| coar:c_f744 | [coar:c_f744](http://purl.org/coar/resource_type/c_f744) | Conference proceedings is the official record of a conference meeting | Title: conference proceedings<br>|
 
 
 
@@ -172,7 +171,7 @@ URI: [idhi:enum/PublicationTypeEnum](https://idhi.co.il/linkml/enum/PublicationT
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -193,7 +192,7 @@ annotations:
     value: n-triples
 description: The kind of publication, including journal article, book part, conference
   paper and thesis.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:
   coar:1YTN-RJZE:

@@ -72,7 +72,7 @@ URI: [schema:endDate](http://schema.org/endDate)
 ### Schema Source
 
 
-* from schema: https://idhi.co.il/linkml/idhi
+* from schema: https://idhi_placeholder/linkml/idhi
 
 
 
@@ -94,7 +94,7 @@ URI: [schema:endDate](http://schema.org/endDate)
 name: end_date
 description: End of the event, project runtime or relationship. Omit for ongoing relationships
   and open-ended projects.
-from_schema: https://idhi.co.il/linkml/idhi
+from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:endDate
 domain_of:
