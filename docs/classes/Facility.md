@@ -19,14 +19,15 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 
 
-
 ```mermaid
  classDiagram
     class Facility
-    click Facility href "../../classes/Facility/"
       Entity <|-- Facility
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Facility : additional_urls
         
       Facility : address
@@ -36,7 +37,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "*" LangString : address
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -49,7 +52,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -60,7 +65,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "*" FacilityAffiliation : facility_affiliations
+        
         click FacilityAffiliation href "../../classes/FacilityAffiliation/"
+        
     
 
         
@@ -75,7 +82,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "*" LangString : location
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -86,7 +95,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -99,7 +110,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "*" Service : services_offered
+        
         click Service href "../../classes/Service/"
+        
     
 
         
@@ -112,7 +125,9 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
         
         Facility --> "*" Tool : tools_provided
+        
         click Tool href "../../classes/Tool/"
+        
     
 
         
@@ -120,7 +135,6 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
       
 ```
-
 
 
 
@@ -211,8 +225,6 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

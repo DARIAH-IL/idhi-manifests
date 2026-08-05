@@ -21,11 +21,9 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
 
 
 
-
 ```mermaid
  classDiagram
     class Agent
-    click Agent href "../../classes/Agent/"
       Entity <|-- Agent
         click Entity href "../../classes/Entity/"
       
@@ -43,7 +41,9 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
         
         
         Agent --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -59,7 +59,6 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
         
       
 ```
-
 
 
 
@@ -130,8 +129,6 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

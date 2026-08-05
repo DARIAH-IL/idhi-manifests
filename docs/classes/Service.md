@@ -19,14 +19,15 @@ URI: [schema:Service](http://schema.org/Service)
 
 
 
-
 ```mermaid
  classDiagram
     class Service
-    click Service href "../../classes/Service/"
       Entity <|-- Service
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Service : additional_urls
         
       Service : contact_email
@@ -38,7 +39,9 @@ URI: [schema:Service](http://schema.org/Service)
         
         
         Service --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -49,7 +52,9 @@ URI: [schema:Service](http://schema.org/Service)
         
         
         Service --> "*" DigitalHumanitiesActivityEnum : digital_humanities_activities
+        
         click DigitalHumanitiesActivityEnum href "../../enums/DigitalHumanitiesActivityEnum/"
+        
     
 
         
@@ -66,7 +71,9 @@ URI: [schema:Service](http://schema.org/Service)
         
         
         Service --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -77,7 +84,9 @@ URI: [schema:Service](http://schema.org/Service)
         
         
         Service --> "0..1" Organization : provider
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -90,7 +99,9 @@ URI: [schema:Service](http://schema.org/Service)
         
         
         Service --> "0..1" ToolServiceTypeEnum : service_type
+        
         click ToolServiceTypeEnum href "../../enums/ToolServiceTypeEnum/"
+        
     
 
         
@@ -100,7 +111,6 @@ URI: [schema:Service](http://schema.org/Service)
         
       
 ```
-
 
 
 
@@ -190,8 +200,6 @@ URI: [schema:Service](http://schema.org/Service)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

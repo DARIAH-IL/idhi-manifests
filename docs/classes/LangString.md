@@ -19,11 +19,13 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 
 
 
-
 ```mermaid
  classDiagram
     class LangString
-    click LangString href "../../classes/LangString/"
+      
+
+      
+
       LangString : language
         
           
@@ -31,7 +33,9 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
         
         
         LangString --> "1" LanguageEnum : language
+        
         click LanguageEnum href "../../enums/LanguageEnum/"
+        
     
 
         
@@ -41,9 +45,6 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 ```
 
 
-
-
-<!-- no inheritance hierarchy -->
 
 ## Class Properties
 
@@ -136,8 +137,6 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

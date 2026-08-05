@@ -19,14 +19,15 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 
 
 
-
 ```mermaid
  classDiagram
     class Person
-    click Person href "../../classes/Person/"
       Agent <|-- Person
         click Agent href "../../classes/Agent/"
       
+
+      
+
       Person : affiliations
         
           
@@ -34,7 +35,9 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
         
         Person --> "*" Affiliation : affiliations
+        
         click Affiliation href "../../classes/Affiliation/"
+        
     
 
         
@@ -45,7 +48,9 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
         
         Person --> "*" Authorship : authorships
+        
         click Authorship href "../../classes/Authorship/"
+        
     
 
         
@@ -56,7 +61,9 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
         
         Person --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -79,7 +86,9 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
         
         Person --> "*" ProjectParticipation : project_participations
+        
         click ProjectParticipation href "../../classes/ProjectParticipation/"
+        
     
 
         
@@ -91,7 +100,6 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
       
 ```
-
 
 
 
@@ -184,8 +192,6 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

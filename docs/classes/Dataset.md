@@ -19,14 +19,15 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 
 
-
 ```mermaid
  classDiagram
     class Dataset
-    click Dataset href "../../classes/Dataset/"
       Entity <|-- Dataset
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Dataset : datasets
         
           
@@ -34,7 +35,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
         
         Dataset --> "*" Dataset : datasets
-        click Dataset href "../../classes/Dataset/"
+        
     
 
         
@@ -47,7 +48,9 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
         
         Dataset --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -64,7 +67,9 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
         
         Dataset --> "0..1" LicenseEnum : license
+        
         click LicenseEnum href "../../enums/LicenseEnum/"
+        
     
 
         
@@ -75,7 +80,9 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
         
         Dataset --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -86,7 +93,9 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
         
         Dataset --> "0..1" Organization : publisher
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -101,7 +110,9 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
         
         Dataset --> "*" LangString : themes
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -109,7 +120,6 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
       
 ```
-
 
 
 
@@ -194,8 +204,6 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

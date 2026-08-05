@@ -19,14 +19,15 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 
 
 
-
 ```mermaid
  classDiagram
     class FacilityAffiliation
-    click FacilityAffiliation href "../../classes/FacilityAffiliation/"
       Relationship <|-- FacilityAffiliation
         click Relationship href "../../classes/Relationship/"
       
+
+      
+
       FacilityAffiliation : end_date
         
       FacilityAffiliation : facility
@@ -36,7 +37,9 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
         
         
         FacilityAffiliation --> "1" Facility : facility
+        
         click Facility href "../../classes/Facility/"
+        
     
 
         
@@ -47,7 +50,9 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
         
         
         FacilityAffiliation --> "1" Organization : organization
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -55,7 +60,6 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
         
       
 ```
-
 
 
 
@@ -129,8 +133,6 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

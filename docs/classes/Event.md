@@ -19,14 +19,15 @@ URI: [schema:Event](http://schema.org/Event)
 
 
 
-
 ```mermaid
  classDiagram
     class Event
-    click Event href "../../classes/Event/"
       Entity <|-- Event
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Event : additional_urls
         
       Event : address
@@ -36,7 +37,9 @@ URI: [schema:Event](http://schema.org/Event)
         
         
         Event --> "*" LangString : address
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -49,7 +52,9 @@ URI: [schema:Event](http://schema.org/Event)
         
         
         Event --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -62,7 +67,9 @@ URI: [schema:Event](http://schema.org/Event)
         
         
         Event --> "0..1" EventTypeEnum : event_type
+        
         click EventTypeEnum href "../../enums/EventTypeEnum/"
+        
     
 
         
@@ -77,7 +84,9 @@ URI: [schema:Event](http://schema.org/Event)
         
         
         Event --> "*" LangString : location
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -88,7 +97,9 @@ URI: [schema:Event](http://schema.org/Event)
         
         
         Event --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -102,7 +113,6 @@ URI: [schema:Event](http://schema.org/Event)
         
       
 ```
-
 
 
 
@@ -193,8 +203,6 @@ URI: [schema:Event](http://schema.org/Event)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

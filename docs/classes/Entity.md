@@ -21,11 +21,11 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 
 
-
 ```mermaid
  classDiagram
     class Entity
-    click Entity href "../../classes/Entity/"
+      
+
       Entity <|-- Agent
         click Agent href "../../classes/Agent/"
       Entity <|-- Facility
@@ -43,6 +43,7 @@ URI: [schema:Thing](http://schema.org/Thing)
       Entity <|-- Dataset
         click Dataset href "../../classes/Dataset/"
       
+
       Entity : description
         
           
@@ -50,7 +51,9 @@ URI: [schema:Thing](http://schema.org/Thing)
         
         
         Entity --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -66,7 +69,6 @@ URI: [schema:Thing](http://schema.org/Thing)
         
       
 ```
-
 
 
 
@@ -142,8 +144,6 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

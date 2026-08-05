@@ -19,14 +19,15 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 
 
 
-
 ```mermaid
  classDiagram
     class Project
-    click Project href "../../classes/Project/"
       Entity <|-- Project
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Project : additional_urls
         
       Project : contact_email
@@ -38,7 +39,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -49,7 +52,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" DigitalHumanitiesActivityEnum : digital_humanities_activities
+        
         click DigitalHumanitiesActivityEnum href "../../enums/DigitalHumanitiesActivityEnum/"
+        
     
 
         
@@ -62,7 +67,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" Funding : funding
+        
         click Funding href "../../classes/Funding/"
+        
     
 
         
@@ -77,7 +84,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -88,7 +97,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" OrganizationProjectRole : organization_roles
+        
         click OrganizationProjectRole href "../../classes/OrganizationProjectRole/"
+        
     
 
         
@@ -99,7 +110,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" Dataset : outputs_datasets
+        
         click Dataset href "../../classes/Dataset/"
+        
     
 
         
@@ -110,7 +123,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" Publication : outputs_publications
+        
         click Publication href "../../classes/Publication/"
+        
     
 
         
@@ -121,7 +136,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" Tool : outputs_tools
+        
         click Tool href "../../classes/Tool/"
+        
     
 
         
@@ -132,7 +149,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" ProjectParticipation : project_participations
+        
         click ProjectParticipation href "../../classes/ProjectParticipation/"
+        
     
 
         
@@ -143,7 +162,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" LangString : research_disciplines
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -158,7 +179,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" LangString : studied_periods
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -169,7 +192,9 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
         
         Project --> "*" LangString : studied_places
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -179,7 +204,6 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
       
 ```
-
 
 
 
@@ -278,8 +302,6 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

@@ -19,14 +19,15 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 
 
-
 ```mermaid
  classDiagram
     class OrganizationProjectRole
-    click OrganizationProjectRole href "../../classes/OrganizationProjectRole/"
       Relationship <|-- OrganizationProjectRole
         click Relationship href "../../classes/Relationship/"
       
+
+      
+
       OrganizationProjectRole : end_date
         
       OrganizationProjectRole : org_project_role
@@ -36,7 +37,9 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
         
         
         OrganizationProjectRole --> "0..1" OrgProjectRoleEnum : org_project_role
+        
         click OrgProjectRoleEnum href "../../enums/OrgProjectRoleEnum/"
+        
     
 
         
@@ -47,7 +50,9 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
         
         
         OrganizationProjectRole --> "1" Organization : organization
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -58,7 +63,9 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
         
         
         OrganizationProjectRole --> "1" Project : project
+        
         click Project href "../../classes/Project/"
+        
     
 
         
@@ -66,7 +73,6 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
         
       
 ```
-
 
 
 
@@ -141,8 +147,6 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

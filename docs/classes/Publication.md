@@ -19,14 +19,15 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 
 
 
-
 ```mermaid
  classDiagram
     class Publication
-    click Publication href "../../classes/Publication/"
       Entity <|-- Publication
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Publication : authorships
         
           
@@ -34,7 +35,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "*" Authorship : authorships
+        
         click Authorship href "../../classes/Authorship/"
+        
     
 
         
@@ -47,7 +50,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -64,7 +69,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -77,7 +84,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "*" Event : presented_at
+        
         click Event href "../../classes/Event/"
+        
     
 
         
@@ -88,7 +97,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "0..1" PublicationTypeEnum : publication_type
+        
         click PublicationTypeEnum href "../../enums/PublicationTypeEnum/"
+        
     
 
         
@@ -99,7 +110,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "*" LangString : published_in
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -110,7 +123,9 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
         
         Publication --> "0..1" Organization : publisher
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -122,7 +137,6 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
       
 ```
-
 
 
 
@@ -215,8 +229,6 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

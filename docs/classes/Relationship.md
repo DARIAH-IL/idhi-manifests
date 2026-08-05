@@ -21,11 +21,11 @@ URI: [schema:Role](http://schema.org/Role)
 
 
 
-
 ```mermaid
  classDiagram
     class Relationship
-    click Relationship href "../../classes/Relationship/"
+      
+
       Relationship <|-- ProjectParticipation
         click ProjectParticipation href "../../classes/ProjectParticipation/"
       Relationship <|-- Affiliation
@@ -37,13 +37,13 @@ URI: [schema:Role](http://schema.org/Role)
       Relationship <|-- FacilityAffiliation
         click FacilityAffiliation href "../../classes/FacilityAffiliation/"
       
+
       Relationship : end_date
         
       Relationship : start_date
         
       
 ```
-
 
 
 
@@ -112,8 +112,6 @@ URI: [schema:Role](http://schema.org/Role)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

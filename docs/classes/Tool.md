@@ -19,14 +19,15 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 
 
-
 ```mermaid
  classDiagram
     class Tool
-    click Tool href "../../classes/Tool/"
       Entity <|-- Tool
         click Entity href "../../classes/Entity/"
       
+
+      
+
       Tool : additional_urls
         
       Tool : code_repository
@@ -40,7 +41,9 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
         
         Tool --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -51,7 +54,9 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
         
         Tool --> "*" DigitalHumanitiesActivityEnum : digital_humanities_activities
+        
         click DigitalHumanitiesActivityEnum href "../../enums/DigitalHumanitiesActivityEnum/"
+        
     
 
         
@@ -68,7 +73,9 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
         
         Tool --> "0..1" LicenseEnum : license
+        
         click LicenseEnum href "../../enums/LicenseEnum/"
+        
     
 
         
@@ -79,7 +86,9 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
         
         Tool --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -96,7 +105,9 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
         
         Tool --> "0..1" ToolServiceTypeEnum : tool_type
+        
         click ToolServiceTypeEnum href "../../enums/ToolServiceTypeEnum/"
+        
     
 
         
@@ -104,7 +115,6 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
       
 ```
-
 
 
 
@@ -197,8 +207,6 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

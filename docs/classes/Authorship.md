@@ -19,14 +19,15 @@ URI: [schema:Role](http://schema.org/Role)
 
 
 
-
 ```mermaid
  classDiagram
     class Authorship
-    click Authorship href "../../classes/Authorship/"
       Relationship <|-- Authorship
         click Relationship href "../../classes/Relationship/"
       
+
+      
+
       Authorship : author
         
           
@@ -34,7 +35,9 @@ URI: [schema:Role](http://schema.org/Role)
         
         
         Authorship --> "1" Person : author
+        
         click Person href "../../classes/Person/"
+        
     
 
         
@@ -47,7 +50,9 @@ URI: [schema:Role](http://schema.org/Role)
         
         
         Authorship --> "0..1" AuthorshipRoleEnum : authorship_role
+        
         click AuthorshipRoleEnum href "../../enums/AuthorshipRoleEnum/"
+        
     
 
         
@@ -60,7 +65,9 @@ URI: [schema:Role](http://schema.org/Role)
         
         
         Authorship --> "1" Publication : publication
+        
         click Publication href "../../classes/Publication/"
+        
     
 
         
@@ -68,7 +75,6 @@ URI: [schema:Role](http://schema.org/Role)
         
       
 ```
-
 
 
 
@@ -145,8 +151,6 @@ URI: [schema:Role](http://schema.org/Role)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

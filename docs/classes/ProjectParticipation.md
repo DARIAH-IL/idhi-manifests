@@ -19,14 +19,15 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 
 
 
-
 ```mermaid
  classDiagram
     class ProjectParticipation
-    click ProjectParticipation href "../../classes/ProjectParticipation/"
       Relationship <|-- ProjectParticipation
         click Relationship href "../../classes/Relationship/"
       
+
+      
+
       ProjectParticipation : end_date
         
       ProjectParticipation : participant
@@ -36,7 +37,9 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
         
         
         ProjectParticipation --> "1" Person : participant
+        
         click Person href "../../classes/Person/"
+        
     
 
         
@@ -47,7 +50,9 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
         
         
         ProjectParticipation --> "0..1" ProjectRoleEnum : participation_role
+        
         click ProjectRoleEnum href "../../enums/ProjectRoleEnum/"
+        
     
 
         
@@ -58,7 +63,9 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
         
         
         ProjectParticipation --> "1" Project : project
+        
         click Project href "../../classes/Project/"
+        
     
 
         
@@ -66,7 +73,6 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
         
       
 ```
-
 
 
 
@@ -142,8 +148,6 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

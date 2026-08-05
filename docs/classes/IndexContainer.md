@@ -19,11 +19,13 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
 
 
 
-
 ```mermaid
  classDiagram
     class IndexContainer
-    click IndexContainer href "../../classes/IndexContainer/"
+      
+
+      
+
       IndexContainer : datasets
         
           
@@ -31,7 +33,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Dataset : datasets
+        
         click Dataset href "../../classes/Dataset/"
+        
     
 
         
@@ -42,7 +46,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Event : events
+        
         click Event href "../../classes/Event/"
+        
     
 
         
@@ -53,7 +59,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Facility : facilities
+        
         click Facility href "../../classes/Facility/"
+        
     
 
         
@@ -64,7 +72,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Organization : organizations
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -75,7 +85,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Person : persons
+        
         click Person href "../../classes/Person/"
+        
     
 
         
@@ -86,7 +98,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Project : projects
+        
         click Project href "../../classes/Project/"
+        
     
 
         
@@ -97,7 +111,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Publication : publications
+        
         click Publication href "../../classes/Publication/"
+        
     
 
         
@@ -108,7 +124,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Service : services
+        
         click Service href "../../classes/Service/"
+        
     
 
         
@@ -119,7 +137,9 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
         
         
         IndexContainer --> "*" Tool : tools
+        
         click Tool href "../../classes/Tool/"
+        
     
 
         
@@ -127,9 +147,6 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
 ```
 
 
-
-
-<!-- no inheritance hierarchy -->
 
 ## Class Properties
 
@@ -193,8 +210,6 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

@@ -19,14 +19,15 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 
 
 
-
 ```mermaid
  classDiagram
     class Organization
-    click Organization href "../../classes/Organization/"
       Agent <|-- Organization
         click Agent href "../../classes/Agent/"
       
+
+      
+
       Organization : additional_urls
         
       Organization : address
@@ -36,7 +37,9 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
         
         Organization --> "*" LangString : address
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -49,7 +52,9 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
         
         Organization --> "*" LangString : description
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -64,7 +69,9 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
         
         Organization --> "*" LangString : location
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -75,7 +82,9 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
         
         Organization --> "1..*" LangString : name
+        
         click LangString href "../../classes/LangString/"
+        
     
 
         
@@ -86,7 +95,9 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
         
         Organization --> "0..1" OrganizationTypeEnum : organization_type
+        
         click OrganizationTypeEnum href "../../enums/OrganizationTypeEnum/"
+        
     
 
         
@@ -97,7 +108,7 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
         
         Organization --> "0..1" Organization : parent_organization
-        click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -111,7 +122,6 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
       
 ```
-
 
 
 
@@ -210,8 +220,6 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 

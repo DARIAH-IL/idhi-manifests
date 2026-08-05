@@ -19,11 +19,13 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 
 
 
-
 ```mermaid
  classDiagram
     class Funding
-    click Funding href "../../classes/Funding/"
+      
+
+      
+
       Funding : funding_amount
         
       Funding : funding_organization
@@ -33,7 +35,9 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
         
         
         Funding --> "1" Organization : funding_organization
+        
         click Organization href "../../classes/Organization/"
+        
     
 
         
@@ -41,9 +45,6 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 ```
 
 
-
-
-<!-- no inheritance hierarchy -->
 
 ## Class Properties
 
@@ -107,8 +108,6 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 
 
 ## LinkML Source
-
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
 ### Direct
 
