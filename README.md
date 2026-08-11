@@ -102,6 +102,16 @@ One instance per (pair, role): an organization that both funds and hosts a proje
 
 All tooling is Python-based and managed with [`uv`](https://docs.astral.sh/uv/) (not pip). Dependencies are declared in [`pyproject.toml`](/pyproject.toml) at the repo root.
 
+### Local prerequisites
+
+Make sure these prerequisites are available before running the project commands:
+
+| Tool | Required for |
+|---|---|
+| [`uv`](https://docs.astral.sh/uv/getting-started/installation/) | Creating the Python environment and installing and running its dependencies |
+| [`make`](https://www.gnu.org/software/make/) | Running the build, generation, documentation and validation targets in the `Makefile` |
+| [ImageMagick](https://imagemagick.org/script/download.php) 7 | Running `make gen-favicon`, `make docs-site` or `make docs-serve`; it provides the required `magick` command |
+
 ### One-time setup
 
 ```bash
@@ -121,7 +131,7 @@ uv sync
 | `zensical` | Static documentation site built from the `gen-docs` markdown (see `zensical.toml`) |
 | `rdflib` | Parses the pinned SKOS vocabulary dumps; `scripts/materialize.py` uses it to expand the dynamic enums into static ones for the generators |
 
-There is nothing else to install; every command below runs inside the managed environment via `uv run`.
+The Python commands below run inside the managed environment via `uv run`; `make`, Bash and ImageMagick remain system dependencies for the targets that use them.
 
 ### Fetching the external vocabularies
 
