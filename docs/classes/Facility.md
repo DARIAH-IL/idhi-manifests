@@ -90,17 +90,6 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
         
       Facility : name
         
-          
-    
-        
-        
-        Facility --> "1..*" LangString : name
-        
-        click LangString href "../../classes/LangString/"
-        
-    
-
-        
       Facility : same_as
         
       Facility : services_offered
@@ -155,7 +144,7 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span> | direct |
+| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
 | [facility_affiliations](../slots/facility_affiliations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [FacilityAffiliation](../classes/FacilityAffiliation.md) | <span title="The organization(s) hosting or owning this facility, as reified FacilityAffiliation objects with dates.">The organization(s) hosting or owning this facility, as reified FacilityAffil...</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
@@ -287,8 +276,8 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+    description: The single name or title used to identify the entity. Use one plain-text
+      value only; do not use LangString or provide translated variants. Prefer a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
     from_schema: https://idhi_placeholder/linkml/idhi
@@ -304,11 +293,9 @@ attributes:
     - Publication
     - Event
     - Dataset
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    minimum_cardinality: 1
+    - TrainingMaterial
+    range: string
+    required: true
   facility_affiliations:
     name: facility_affiliations
     description: The organization(s) hosting or owning this facility, as reified FacilityAffiliation
@@ -392,6 +379,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: uri
     multivalued: true
   contact_email:
@@ -409,6 +397,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: string
   type:
     name: type

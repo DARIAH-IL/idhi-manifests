@@ -42,6 +42,8 @@ URI: [schema:Thing](http://schema.org/Thing)
         click Event href "../../classes/Event/"
       Entity <|-- Dataset
         click Dataset href "../../classes/Dataset/"
+      Entity <|-- TrainingMaterial
+        click TrainingMaterial href "../../classes/TrainingMaterial/"
       
 
       Entity : description
@@ -83,6 +85,7 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [Publication](../classes/Publication.md)
     * [Event](../classes/Event.md)
     * [Dataset](../classes/Dataset.md)
+    * [TrainingMaterial](../classes/TrainingMaterial.md)
 
 
 ## Class Properties

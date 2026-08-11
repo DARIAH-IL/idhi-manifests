@@ -23,6 +23,7 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Publication](classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Service](classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tool](classes/Tool.md) | A reusable software tool, typically produced by a project |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TrainingMaterial](classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |
 | [Funding](classes/Funding.md) | A funding award for a project, identifying the organization that provides it ... |
 | [IndexContainer](classes/IndexContainer.md) | Top-level holder for all IDHI records |
 | [LangString](classes/LangString.md) | A single language-tagged text value |
@@ -49,6 +50,7 @@ Name: idhi
 | [authorships](slots/authorships.md) | The person's publication contributions, as reified Authorship objects carryin... |
 | [code_repository](slots/code_repository.md) | Source-code repository URL (GitHub, GitLab |
 | [contact_email](slots/contact_email.md) | A published contact address for the entity (office, team or service-desk mail... |
+| [creators](slots/creators.md) | People or organizations responsible for creating the training material (by ID... |
 | [datasets](slots/datasets.md) | Datasets aggregated by a Dataset that functions as a catalog (by id) |
 | [date_issued](slots/date_issued.md) | Formal publication date (or year-01-01 if only the year is known) |
 | [description](slots/description.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... |
@@ -56,6 +58,7 @@ Name: idhi
 | [distribution_url](slots/distribution_url.md) | Direct download or access URL for the dataset |
 | [documentation_url](slots/documentation_url.md) | User or developer documentation for the tool or service (manual, wiki, API re... |
 | [doi](slots/doi.md) | The publication's persistent identifier |
+| [educational_level](slots/educational_level.md) | Expected learner level, as multilingual text such as beginner, intermediate o... |
 | [emails](slots/emails.md) | Contact email addresses (zero or more) |
 | [end_date](slots/end_date.md) | End of the event, project runtime or relationship |
 | [event_type](slots/event_type.md) | The kind of scholarly event |
@@ -70,11 +73,16 @@ Name: idhi
 | [given_name](slots/given_name.md) | Given (first) name, in the person's preferred romanization |
 | [homepage](slots/homepage.md) | Public landing page of the entity, if one exists |
 | [id](slots/id.md) | The entity's primary identifier: an IDHI URN of the form |
+| [in_languages](slots/in_languages.md) | Languages in which the instructional content is available |
 | [language](slots/language.md) | BCP-47 language tag of the value (en, he or ar) |
-| [license](slots/license.md) | The license under which the tool or dataset is released |
+| [learning_outcomes](slots/learning_outcomes.md) | Knowledge or skills a learner should gain by completing the material, as mult... |
+| [license](slots/license.md) | The license under which the tool, dataset or training material is released |
 | [location](slots/location.md) | Place name where the organization, facility or event is physically situated (... |
+| [marketplace_sync](slots/marketplace_sync.md) | Opt-in flag for synchronization with the DARIAH SSH Open Marketplace |
+| [material_url](slots/material_url.md) | Direct landing or access URL for the instructional resource |
+| [media_type](slots/media_type.md) | Technical media type of the primary resource, preferably an IANA media type s... |
 | [member](slots/member.md) | The person affiliated with the organization (by IDHI URN) |
-| [name](slots/name.md) | Multilingual name/title |
+| [name](slots/name.md) | The single name or title used to identify the entity |
 | [orcid](slots/orcid.md) | The person's persistent researcher identifier |
 | [org_project_role](slots/org_project_role.md) | The organization's function in the project: COORDINATOR leads the consortium,... |
 | [organization](slots/organization.md) | The organization side of the relationship (by IDHI URN) |
@@ -84,11 +92,14 @@ Name: idhi
 | [outputs_datasets](slots/outputs_datasets.md) | Datasets produced or curated by this project (by id) |
 | [outputs_publications](slots/outputs_publications.md) | Publications resulting from this project (by id) |
 | [outputs_tools](slots/outputs_tools.md) | Tools produced by this project (by id) |
+| [outputs_training_materials](slots/outputs_training_materials.md) | Training materials produced by this project (by IDHI URN); use only for proje... |
 | [parent_organization](slots/parent_organization.md) | The larger organization this one is part of (e |
 | [part_of](slots/part_of.md) | The containing work (book for a chapter, proceedings for a paper), by IDHI UR... |
+| [part_of_training_material](slots/part_of_training_material.md) | The larger training material of which this resource is a module or lesson (by... |
 | [participant](slots/participant.md) | The person taking part in the project (by IDHI URN) |
 | [participation_role](slots/participation_role.md) | The person's function within the project team |
 | [persons](slots/persons.md) | All Person records in the index |
+| [prerequisites](slots/prerequisites.md) | Knowledge, skills, software or prior material learners should have before sta... |
 | [presented_at](slots/presented_at.md) | Event(s) in the index where this publication was presented (by IDHI URN), e |
 | [programming_language](slots/programming_language.md) | Main implementation language(s), comma-free single value preferred |
 | [project](slots/project.md) | The project side of the relationship (by IDHI URN) |
@@ -99,7 +110,10 @@ Name: idhi
 | [publication_type](slots/publication_type.md) | The kind of publication (journal article, book part, conference paper, thesis |
 | [publications](slots/publications.md) | All Publication records in the index |
 | [published_in](slots/published_in.md) | Name of the journal, book or proceedings the publication appeared in, as free... |
-| [publisher](slots/publisher.md) | The organization publishing the dataset or publication (by IDHI URN) |
+| [publisher](slots/publisher.md) | The organization formally publishing the dataset, publication or training mat... |
+| [related_datasets](slots/related_datasets.md) | Datasets used as the subject or worked example of the material (by IDHI URN) |
+| [related_services](slots/related_services.md) | Services that the material explains how to access or use (by IDHI URN) |
+| [related_tools](slots/related_tools.md) | Tools whose use the material teaches or demonstrates (by IDHI URN) |
 | [research_disciplines](slots/research_disciplines.md) | Humanities discipline(s) of the project (history, linguistics, archaeology |
 | [ror](slots/ror.md) | The organization's persistent registry identifier |
 | [same_as](slots/same_as.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... |
@@ -110,10 +124,13 @@ Name: idhi
 | [studied_periods](slots/studied_periods.md) | Historical period(s) the project studies (e |
 | [studied_places](slots/studied_places.md) | Geographic focus of the research (places studied), as free multilingual label... |
 | [tags](slots/tags.md) | Free-text tags for discovery, filtering and grouping; usable on any top-level... |
+| [target_audiences](slots/target_audiences.md) | Intended learner groups, as multilingual labels such as researchers, libraria... |
 | [themes](slots/themes.md) | Thematic keywords for the dataset, multilingual |
 | [tool_type](slots/tool_type.md) | The delivery form of the tool (web app, library, CLI |
 | [tools](slots/tools.md) | All Tool records in the index |
 | [tools_provided](slots/tools_provided.md) | Tools this facility maintains or gives access to (by id) |
+| [training_material_type](slots/training_material_type.md) | The material's primary didactic form |
+| [training_materials](slots/training_materials.md) | All TrainingMaterial records in the index, including tutorials, lessons and o... |
 | [type](slots/type.md) | Discriminator identifying the record's class; used for polymorphic serializat... |
 | [value](slots/value.md) | A localized text, in the language given by 'language' |
 
@@ -126,13 +143,14 @@ Name: idhi
 | [DigitalHumanitiesActivityEnum](enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities: Analyzing, Capturing, Creating, Disse... |
 | [EventTypeEnum](enums/EventTypeEnum.md) | Kinds of scholarly events |
 | [LanguageEnum](enums/LanguageEnum.md) | Languages supported for free-text fields (BCP-47 tags) |
-| [LicenseEnum](enums/LicenseEnum.md) | Common licenses for tools and datasets |
+| [LicenseEnum](enums/LicenseEnum.md) | Common licenses for tools, datasets and training materials |
 | [OrganizationTypeEnum](enums/OrganizationTypeEnum.md) | Kinds of organization |
 | [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's role in a project (one instance per role) |
 | [PersonOrgRoleEnum](enums/PersonOrgRoleEnum.md) | A person's position within an organization (job/status) |
 | [ProjectRoleEnum](enums/ProjectRoleEnum.md) | A person's role in a project |
 | [PublicationTypeEnum](enums/PublicationTypeEnum.md) | The kind of publication, including journal article, book part, conference pap... |
 | [ToolServiceTypeEnum](enums/ToolServiceTypeEnum.md) | Delivery forms for tools and kinds of services |
+| [TrainingMaterialTypeEnum](enums/TrainingMaterialTypeEnum.md) | Didactic forms of training material |
 
 
 ## Types

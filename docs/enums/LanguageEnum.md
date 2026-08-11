@@ -31,6 +31,7 @@ URI: [idhi:enum/LanguageEnum](https://idhi_placeholder/linkml/enum/LanguageEnum)
 | Name | Description |
 | ---  | --- |
 | [language](../slots/language.md) | <span title="BCP-47 language tag of the value (en, he or ar).">BCP-47 language tag of the value (en, he or ar)</span> |
+| [in_languages](../slots/in_languages.md) | <span title="Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.">Languages in which the instructional content is available</span> |
 
 
 

@@ -35,7 +35,8 @@ URI: [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type)
 | [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  yes  |
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  yes  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  yes  |
-| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  yes  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  yes  |
 
 
 

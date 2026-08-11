@@ -92,6 +92,13 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
 
 
 
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [creators](../slots/creators.md) | range | [Agent](../classes/Agent.md) |
+
+
 
 
 

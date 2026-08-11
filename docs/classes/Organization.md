@@ -75,18 +75,9 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
     
 
         
+      Organization : marketplace_sync
+        
       Organization : name
-        
-          
-    
-        
-        
-        Organization --> "1..*" LangString : name
-        
-        click LangString href "../../classes/LangString/"
-        
-    
-
         
       Organization : organization_type
         
@@ -143,12 +134,13 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span> | direct |
+| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
 | [ror](../slots/ror.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR — most universities and research institutes are.">The organization's persistent registry identifier</span> | direct |
 | [organization_type](../slots/organization_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrganizationTypeEnum](../enums/OrganizationTypeEnum.md) | <span title="The kind of organization. Always set it.">The kind of organization</span> | direct |
 | [parent_organization](../slots/parent_organization.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.">The larger organization this one is part of (e</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
+| [marketplace_sync](../slots/marketplace_sync.md) | <span title="Optional: at most one value">0..1</span> <br/> [Boolean](../types/Boolean.md) | <span title="Opt-in flag for synchronization with the DARIAH SSH Open Marketplace. Set true to allow the organization and entities related to it through IDHI references, such as services and tools, to be synchronized; false or omission means they must not be synchronized on this organization's authority. This operational flag does not assert ownership of related entities. It uses an IDHI-specific property because established descriptive vocabularies do not provide a term for this synchronization policy.">Opt-in flag for synchronization with the DARIAH SSH Open Marketplace</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -170,6 +162,7 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 | [Service](../classes/Service.md) | [provider](../slots/provider.md) | range | [Organization](../classes/Organization.md) |
 | [Publication](../classes/Publication.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [Dataset](../classes/Dataset.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [Affiliation](../classes/Affiliation.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [Funding](../classes/Funding.md) | [funding_organization](../slots/funding_organization.md) | range | [Organization](../classes/Organization.md) |
@@ -240,6 +233,7 @@ slots:
 - parent_organization
 - location
 - address
+- marketplace_sync
 - additional_urls
 - contact_email
 slot_usage:
@@ -280,8 +274,8 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+    description: The single name or title used to identify the entity. Use one plain-text
+      value only; do not use LangString or provide translated variants. Prefer a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
     from_schema: https://idhi_placeholder/linkml/idhi
@@ -297,11 +291,9 @@ attributes:
     - Publication
     - Event
     - Dataset
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    minimum_cardinality: 1
+    - TrainingMaterial
+    range: string
+    required: true
   ror:
     name: ror
     description: The organization's persistent registry identifier. It supplements
@@ -370,6 +362,22 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  marketplace_sync:
+    name: marketplace_sync
+    description: Opt-in flag for synchronization with the DARIAH SSH Open Marketplace.
+      Set true to allow the organization and entities related to it through IDHI references,
+      such as services and tools, to be synchronized; false or omission means they
+      must not be synchronized on this organization's authority. This operational
+      flag does not assert ownership of related entities. It uses an IDHI-specific
+      property because established descriptive vocabularies do not provide a term
+      for this synchronization policy.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: idhi:marketplaceSync
+    owner: Organization
+    domain_of:
+    - Organization
+    range: boolean
   additional_urls:
     name: additional_urls
     description: Further relevant web pages beyond the homepage (blog, social-media
@@ -386,6 +394,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: uri
     multivalued: true
   contact_email:
@@ -403,6 +412,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: string
   type:
     name: type

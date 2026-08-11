@@ -6,7 +6,7 @@ search:
 # Slot: name 
 
 
-_Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses._
+_The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses._
 
 
 
@@ -33,6 +33,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 | [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 
 
@@ -45,16 +46,15 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Publication](../classes/Publication.md), [Event](../classes/Event.md), [Dataset](../classes/Dataset.md) |
+| Range | [String](../types/String.md) |
+| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Publication](../classes/Publication.md), [Event](../classes/Event.md), [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
-| Multivalued | Yes |
-| Minimum Cardinality | 1 |
+| Required | Yes |
 
 
 
@@ -94,9 +94,10 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 <details>
 ```yaml
 name: name
-description: Multilingual name/title. Provide at least one language; English, Hebrew
-  and Arabic variants are each a separate LangString. Preferably a sortable name for
-  organizations; for projects, tools and services, use the name the team itself uses.
+description: The single name or title used to identify the entity. Use one plain-text
+  value only; do not use LangString or provide translated variants. Prefer a sortable
+  name for organizations; for projects, tools and services, use the name the team
+  itself uses.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: skos:prefLabel
@@ -109,11 +110,9 @@ domain_of:
 - Publication
 - Event
 - Dataset
-range: LangString
-multivalued: true
-inlined: true
-inlined_as_list: true
-minimum_cardinality: 1
+- TrainingMaterial
+range: string
+required: true
 
 ```
 </details></div>

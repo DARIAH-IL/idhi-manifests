@@ -30,12 +30,10 @@ persons:
 organizations:
   - type: idhi:Organization
     id: idhi:organization:k3v9p2
-    name:
-      - {language: en, value: Example University}
-      - {language: he, value: אוניברסיטת דוגמה}
-      - {language: ar, value: جامعة المثال}
+    name: Example University
     ror: https://ror.org/04aj4c181
     organization_type: ACADEMIC_INSTITUTION
+    marketplace_sync: true
     homepage: https://www.example.ac.il
     contact_email: info@example.ac.il
     location:
@@ -44,15 +42,13 @@ organizations:
       - {language: ar, value: القدس}
   - type: idhi:Organization
     id: idhi:organization:f9d3h6
-    name:
-      - {language: en, value: Example Research Fund}
+    name: Example Research Fund
     organization_type: FUNDER
 
 facilities:
   - type: idhi:Facility
     id: idhi:facility:l8m2q4
-    name:
-      - {language: en, value: Example DH Lab}
+    name: Example DH Lab
     homepage: https://dhlab.example.ac.il
     additional_urls:
       - https://twitter.com/exampledhlab
@@ -69,8 +65,7 @@ facilities:
 projects:
   - type: idhi:Project
     id: idhi:project:a83bq1
-    name:
-      - {language: en, value: Example Genizah Fragments Project}
+    name: Example Genizah Fragments Project
     description:
       - {language: en, value: Computational analysis of medieval manuscript fragments.}
     homepage: https://genizah.example.ac.il
@@ -109,12 +104,13 @@ projects:
       - idhi:dataset:d7y2u9
     outputs_publications:
       - idhi:publication:p4w8n1
+    outputs_training_materials:
+      - idhi:training_material:t4m8k2
 
 tools:
   - type: idhi:Tool
     id: idhi:tool:g5j7x2
-    name:
-      - {language: en, value: FragmentMatcher}
+    name: FragmentMatcher
     tool_type: WEB_APPLICATION
     code_repository: https://github.com/example/fragmentmatcher
     programming_language: Python
@@ -130,8 +126,7 @@ tools:
 services:
   - type: idhi:Service
     id: idhi:service:s6b1z3
-    name:
-      - {language: en, value: Manuscript digitization on demand}
+    name: Manuscript digitization on demand
     service_type: DIGITIZATION_SERVICE
     provider: idhi:organization:k3v9p2
     documentation_url: https://library.example.ac.il/digitization-guide
@@ -140,8 +135,7 @@ services:
 publications:
   - type: idhi:Publication
     id: idhi:publication:p4w8n1
-    name:
-      - {language: en, value: Matching Genizah fragments at scale}
+    name: Matching Genizah fragments at scale
     doi: https://doi.org/10.1234/example.5678
     publication_type: coar:c_6501
     date_issued: "2024-03-15"
@@ -153,8 +147,7 @@ publications:
 events:
   - type: idhi:Event
     id: idhi:event:e2c6v0
-    name:
-      - {language: en, value: Example DH Israel Conference 2025}
+    name: Example DH Israel Conference 2025
     event_type: CONFERENCE
     homepage: https://dhconf2025.example.org
     start_date: "2025-06-10"
@@ -167,19 +160,78 @@ events:
 datasets:
   - type: idhi:Dataset
     id: idhi:dataset:q6r1v5
-    name:
-      - {language: en, value: Example Fragments Archive}
+    name: Example Fragments Archive
     publisher: idhi:organization:k3v9p2
     datasets:
       - idhi:dataset:d7y2u9
 
   - type: idhi:Dataset
     id: idhi:dataset:d7y2u9
-    name:
-      - {language: en, value: Annotated fragment images}
+    name: Annotated fragment images
     publisher: idhi:organization:k3v9p2
     license: CC_BY_4_0
     date_issued: "2024-01-10"
     distribution_url: https://data.idhi.co.il/fragments/v1.zip
     themes:
       - {language: en, value: manuscripts}
+
+training_materials:
+  - type: idhi:TrainingMaterial
+    id: idhi:training_material:c9n3w7
+    name: Computational Manuscript Analysis Learning Path
+    training_material_type: COURSE_MATERIAL
+    creators:
+      - idhi:organization:k3v9p2
+    publisher: idhi:organization:k3v9p2
+    learning_outcomes:
+      - {language: en, value: Plan a reproducible computational workflow for manuscript research.}
+    target_audiences:
+      - {language: en, value: Digital humanities researchers}
+    educational_level:
+      - {language: en, value: Beginner to intermediate}
+    in_languages:
+      - en
+    material_url: https://learn.example.ac.il/manuscript-analysis
+    media_type: text/html
+    license: CC_BY_4_0
+    date_issued: "2025-02-01"
+    digital_humanities_activities:
+      - tadirah:analyzing
+
+  - type: idhi:TrainingMaterial
+    id: idhi:training_material:t4m8k2
+    name: Matching Manuscript Fragments Tutorial
+    training_material_type: TUTORIAL
+    creators:
+      - idhi:person:x7k2m9
+      - idhi:organization:k3v9p2
+    publisher: idhi:organization:k3v9p2
+    description:
+      - {language: en, value: A guided tutorial for matching digitized manuscript fragments.}
+    learning_outcomes:
+      - {language: en, value: Configure and run an image-matching workflow.}
+      - {language: en, value: Interpret candidate fragment matches.}
+    target_audiences:
+      - {language: en, value: Manuscript researchers}
+      - {language: he, value: חוקרי כתבי יד}
+    prerequisites:
+      - {language: en, value: Basic familiarity with digitized manuscript collections}
+    educational_level:
+      - {language: en, value: Beginner}
+    in_languages:
+      - en
+      - he
+    material_url: https://learn.example.ac.il/fragment-matching/tutorial
+    media_type: text/html
+    license: CC_BY_4_0
+    date_issued: "2025-03-15"
+    digital_humanities_activities:
+      - tadirah:analyzing
+    related_tools:
+      - idhi:tool:g5j7x2
+    related_services:
+      - idhi:service:s6b1z3
+    related_datasets:
+      - idhi:dataset:d7y2u9
+    part_of_training_material: idhi:training_material:c9n3w7
+    contact_email: training@example.ac.il

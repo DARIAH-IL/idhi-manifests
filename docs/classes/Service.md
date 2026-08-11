@@ -66,17 +66,6 @@ URI: [schema:Service](http://schema.org/Service)
         
       Service : name
         
-          
-    
-        
-        
-        Service --> "1..*" LangString : name
-        
-        click LangString href "../../classes/LangString/"
-        
-    
-
-        
       Service : provider
         
           
@@ -131,13 +120,13 @@ URI: [schema:Service](http://schema.org/Service)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span> | direct |
+| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
 | [service_type](../slots/service_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | <span title="The kind of service offered (digitization, consulting...).">The kind of service offered (digitization, consulting</span> | direct |
 | [provider](../slots/provider.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally responsible for delivering the service (the one you'd contact or contract with) — set this even when the service is listed under a Facility.">The organization formally responsible for delivering the service (the one you...</span> | direct |
 | [documentation_url](../slots/documentation_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="User or developer documentation for the tool or service (manual, wiki, API reference).">User or developer documentation for the tool or service (manual, wiki, API re...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
-| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
+| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | [Entity](../classes/Entity.md) |
 | [description](../slots/description.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span> | [Entity](../classes/Entity.md) |
@@ -154,6 +143,7 @@ URI: [schema:Service](http://schema.org/Service)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Facility](../classes/Facility.md) | [services_offered](../slots/services_offered.md) | range | [Service](../classes/Service.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [related_services](../slots/related_services.md) | range | [Service](../classes/Service.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [services](../slots/services.md) | range | [Service](../classes/Service.md) |
 
 
@@ -261,8 +251,8 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+    description: The single name or title used to identify the entity. Use one plain-text
+      value only; do not use LangString or provide translated variants. Prefer a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
     from_schema: https://idhi_placeholder/linkml/idhi
@@ -278,11 +268,9 @@ attributes:
     - Publication
     - Event
     - Dataset
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    minimum_cardinality: 1
+    - TrainingMaterial
+    range: string
+    required: true
   service_type:
     name: service_type
     description: The kind of service offered (digitization, consulting...).
@@ -333,6 +321,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: uri
     multivalued: true
   contact_email:
@@ -350,12 +339,14 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: string
   digital_humanities_activities:
     name: digital_humanities_activities
     description: Digital-humanities research activities practiced in this project,
-      tool or service. Prefer the most specific applicable activity; multiple values
-      are expected. This is the primary DH-facet for discovery.
+      tool or service, or taught by this training material. Prefer the most specific
+      applicable activity; multiple values are expected. This is the primary DH-facet
+      for discovery.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -364,6 +355,7 @@ attributes:
     - Project
     - Tool
     - Service
+    - TrainingMaterial
     range: DigitalHumanitiesActivityEnum
     multivalued: true
   type:

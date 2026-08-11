@@ -133,6 +133,7 @@ classes:
       - parent_organization
       - location
       - address
+      - marketplace_sync
       - additional_urls
       - contact_email
 
@@ -187,6 +188,7 @@ classes:
       - outputs_tools
       - outputs_datasets
       - outputs_publications
+      - outputs_training_materials
       - funding
       - additional_urls
       - contact_email
@@ -294,7 +296,10 @@ classes:
       A dataset, digital archive or catalog produced or curated by a project: corpora, databases, image collections, annotation sets and collections of metadata records.
       Use Dataset for both research data and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.
     class_uri: dcat:Dataset
+    in_subset: [ toplevel_entity ]
     slot_usage:
+      type:
+        equals_string: "idhi:Dataset"
       id:
         structured_pattern:
           syntax: "^idhi:dataset:{shortid}$"
@@ -307,6 +312,42 @@ classes:
       - date_issued
       - distribution_url
       - themes
+
+  TrainingMaterial:
+    is_a: Entity
+    description: >-
+      A tutorial, lesson or other didactic resource that explains how to perform an action or states learning outcomes gained by using it.
+      Use TrainingMaterial for resources intended to teach; use Publication for scholarly communication and Tool for software that performs the action itself.
+    class_uri: schema:LearningResource
+    in_subset: [ toplevel_entity ]
+    slot_usage:
+      type:
+        equals_string: "idhi:TrainingMaterial"
+      id:
+        structured_pattern:
+          syntax: "^idhi:training_material:{shortid}$"
+          interpolated: true
+    slots:
+      - name
+      - training_material_type
+      - creators
+      - publisher
+      - learning_outcomes
+      - target_audiences
+      - prerequisites
+      - educational_level
+      - in_languages
+      - material_url
+      - media_type
+      - license
+      - date_issued
+      - digital_humanities_activities
+      - related_tools
+      - related_services
+      - related_datasets
+      - part_of_training_material
+      - additional_urls
+      - contact_email
 
   # ---- Reified relationship (role) classes -------------------------
   # Relationship objects are inlined and carry no IDHI URN of their own.
@@ -436,6 +477,11 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: Dataset
+      training_materials:
+        description: All TrainingMaterial records in the index, including tutorials, lessons and other didactic resources.
+        multivalued: true
+        inlined_as_list: true
+        range: TrainingMaterial
 
 # ========================= SLOTS =====================================
 slots:
@@ -458,13 +504,11 @@ slots:
     slot_uri: dcterms:identifier
     pattern: "^idhi:[a-z_]+:[0-9a-z]{4,12}$"
   name:
-    range: LangString
-    multivalued: true
-    minimum_cardinality: 1
-    inlined_as_list: true
+    range: string
+    required: true
     description: >-
-      Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString.
-      Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.
+      The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants.
+      Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.
     slot_uri: skos:prefLabel
   description:
     range: LangString
@@ -580,6 +624,12 @@ slots:
     description: >-
       The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.
     slot_uri: schema:parentOrganization
+  marketplace_sync:
+    range: boolean
+    description: >-
+      Opt-in flag for synchronization with the DARIAH SSH Open Marketplace. Set true to allow the organization and entities related to it through IDHI references, such as services and tools, to be synchronized; false or omission means they must not be synchronized on this organization's authority.
+      This operational flag does not assert ownership of related entities. It uses an IDHI-specific property because established descriptive vocabularies do not provide a term for this synchronization policy.
+    slot_uri: idhi:marketplaceSync
   location:
     range: LangString
     multivalued: true
@@ -613,7 +663,7 @@ slots:
     range: DigitalHumanitiesActivityEnum
     multivalued: true
     description: >-
-      Digital-humanities research activities practiced in this project, tool or service.
+      Digital-humanities research activities practiced in this project, tool or service, or taught by this training material.
       Prefer the most specific applicable activity; multiple values are expected.
       This is the primary DH-facet for discovery.
     slot_uri: dcterms:subject
@@ -658,6 +708,11 @@ slots:
     range: Publication
     multivalued: true
     description: Publications resulting from this project (by id).
+  outputs_training_materials:
+    range: TrainingMaterial
+    multivalued: true
+    description: Training materials produced by this project (by IDHI URN); use only for project outputs, not materials merely used by the project.
+    slot_uri: dcterms:relation
   funding:
     range: Funding
     multivalued: true
@@ -690,7 +745,7 @@ slots:
   license:
     range: LicenseEnum
     description: >-
-      The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown.
+      The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.
     slot_uri: dcterms:license
   documentation_url:
     range: uri
@@ -777,7 +832,7 @@ slots:
     slot_uri: dcat:dataset
   publisher:
     range: Organization
-    description: The organization publishing the dataset or publication (by IDHI URN).
+    description: The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.
     slot_uri: dcterms:publisher
   themes:
     range: LangString
@@ -789,6 +844,85 @@ slots:
     range: uri
     description: Direct download or access URL for the dataset.
     slot_uri: dcat:downloadURL
+
+  training_material_type:
+    range: TrainingMaterialTypeEnum
+    description: >-
+      The material's primary didactic form. Choose the single value that best describes how learners engage with it, not its file format.
+    slot_uri: schema:learningResourceType
+  creators:
+    range: Agent
+    multivalued: true
+    description: >-
+      People or organizations responsible for creating the training material (by IDHI URN). Use publisher for the organization that formally releases it when that differs from its creators.
+    slot_uri: dcterms:creator
+  learning_outcomes:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Knowledge or skills a learner should gain by completing the material, as multilingual statements. Use one entry per distinct outcome; do not use this for prerequisites.
+    slot_uri: schema:teaches
+  target_audiences:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Intended learner groups, as multilingual labels such as researchers, librarians or students. Use educational_level separately for the expected level of study or expertise.
+    slot_uri: dcterms:audience
+  prerequisites:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Knowledge, skills, software or prior material learners should have before starting, expressed as multilingual text. Omit when no prerequisites apply.
+    slot_uri: schema:coursePrerequisites
+  educational_level:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Expected learner level, as multilingual text such as beginner, intermediate or graduate. Use target_audiences for who the material serves rather than their proficiency.
+    slot_uri: schema:educationalLevel
+  in_languages:
+    range: LanguageEnum
+    multivalued: true
+    description: >-
+      Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.
+    slot_uri: dcterms:language
+  material_url:
+    range: uri
+    description: >-
+      Direct landing or access URL for the instructional resource. Use homepage for a broader site about the material and material_url for the resource learners open.
+    slot_uri: schema:url
+  media_type:
+    range: string
+    description: >-
+      Technical media type of the primary resource, preferably an IANA media type such as text/html, application/pdf or video/mp4. Do not use this for the didactic form; use training_material_type instead.
+    slot_uri: dcterms:format
+  related_tools:
+    range: Tool
+    multivalued: true
+    description: >-
+      Tools whose use the material teaches or demonstrates (by IDHI URN). Do not use this merely for software used to produce the material.
+    slot_uri: schema:about
+  related_services:
+    range: Service
+    multivalued: true
+    description: >-
+      Services that the material explains how to access or use (by IDHI URN). Do not use this for the organization publishing the material.
+    slot_uri: schema:about
+  related_datasets:
+    range: Dataset
+    multivalued: true
+    description: >-
+      Datasets used as the subject or worked example of the material (by IDHI URN). Do not use this for incidental source data that learners never encounter.
+    slot_uri: schema:about
+  part_of_training_material:
+    range: TrainingMaterial
+    description: >-
+      The larger training material of which this resource is a module or lesson (by IDHI URN). Use only for formal instructional containment, not loose topical similarity.
+    slot_uri: dcterms:isPartOf
 
   # --- Relationship endpoints & roles --------------------------------
   participant:
@@ -982,6 +1116,24 @@ enums:
       CONTRIBUTOR:
         description: Named non-byline contribution.
 
+  TrainingMaterialTypeEnum:
+    description: >-
+      Didactic forms of training material. Choose the form that describes the learner's intended mode of engagement rather than the resource's technical format.
+    permissible_values:
+      TUTORIAL:
+        description: A step-by-step explanation of how to complete an action; use LESSON when conceptual instruction or stated outcomes are primary.
+        meaning: schema:HowTo
+      LESSON:
+        description: A bounded unit designed to achieve learning outcomes; use TUTORIAL for primarily procedural, step-by-step guidance.
+      COURSE_MATERIAL:
+        description: A syllabus, module collection or resource pack supporting a structured course; use LESSON for one bounded instructional unit.
+      WORKSHOP_MATERIAL:
+        description: Exercises, slides or instructions designed for a facilitated workshop; use COURSE_MATERIAL for a longer structured course.
+      SELF_PACED_EXERCISE:
+        description: A practical activity intended for independent completion; use TUTORIAL when guided explanation rather than learner practice is primary.
+      OTHER_DIDACTIC_RESOURCE:
+        description: A teaching resource that fits none of the more specific forms; use only after the specific values have been considered.
+
   EventTypeEnum:
     description: Kinds of scholarly events.
     permissible_values:
@@ -1023,7 +1175,7 @@ enums:
 
   LicenseEnum:
     description: >-
-      Common licenses for tools and datasets.
+      Common licenses for tools, datasets and training materials.
       Extend as needed with canonical meanings.
     permissible_values:
       CC_BY_4_0:

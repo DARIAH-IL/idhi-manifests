@@ -6,7 +6,7 @@ search:
 # Slot: license 
 
 
-_The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown._
+_The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown._
 
 
 
@@ -27,6 +27,7 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 | --- | --- | --- |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
 | [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 
 
@@ -40,7 +41,7 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 | Property | Value |
 | --- | --- |
 | Range | [LicenseEnum](../enums/LicenseEnum.md) |
-| Domain Of | [Tool](../classes/Tool.md), [Dataset](../classes/Dataset.md) |
+| Domain Of | [Tool](../classes/Tool.md), [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [dcterms:license](http://purl.org/dc/terms/license) |
 
 ### Cardinality and Requirements
@@ -86,14 +87,15 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 <details>
 ```yaml
 name: license
-description: The license under which the tool or dataset is released. Required for
-  anything advertised as reusable; omit only if genuinely unknown.
+description: The license under which the tool, dataset or training material is released.
+  Required for anything advertised as reusable; omit only if genuinely unknown.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:license
 domain_of:
 - Tool
 - Dataset
+- TrainingMaterial
 range: LicenseEnum
 
 ```

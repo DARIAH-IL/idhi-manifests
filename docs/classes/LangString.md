@@ -71,33 +71,30 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 | [Entity](../classes/Entity.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 | [Agent](../classes/Agent.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 | [Person](../classes/Person.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Organization](../classes/Organization.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Organization](../classes/Organization.md) | [location](../slots/location.md) | range | [LangString](../classes/LangString.md) |
 | [Organization](../classes/Organization.md) | [address](../slots/address.md) | range | [LangString](../classes/LangString.md) |
 | [Organization](../classes/Organization.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Facility](../classes/Facility.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Facility](../classes/Facility.md) | [location](../slots/location.md) | range | [LangString](../classes/LangString.md) |
 | [Facility](../classes/Facility.md) | [address](../slots/address.md) | range | [LangString](../classes/LangString.md) |
 | [Facility](../classes/Facility.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Project](../classes/Project.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [research_disciplines](../slots/research_disciplines.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [studied_periods](../slots/studied_periods.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [studied_places](../slots/studied_places.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Tool](../classes/Tool.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Tool](../classes/Tool.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Service](../classes/Service.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Service](../classes/Service.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Publication](../classes/Publication.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Publication](../classes/Publication.md) | [published_in](../slots/published_in.md) | range | [LangString](../classes/LangString.md) |
 | [Publication](../classes/Publication.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Event](../classes/Event.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Event](../classes/Event.md) | [location](../slots/location.md) | range | [LangString](../classes/LangString.md) |
 | [Event](../classes/Event.md) | [address](../slots/address.md) | range | [LangString](../classes/LangString.md) |
 | [Event](../classes/Event.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Dataset](../classes/Dataset.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Dataset](../classes/Dataset.md) | [themes](../slots/themes.md) | range | [LangString](../classes/LangString.md) |
 | [Dataset](../classes/Dataset.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [learning_outcomes](../slots/learning_outcomes.md) | range | [LangString](../classes/LangString.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [target_audiences](../slots/target_audiences.md) | range | [LangString](../classes/LangString.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [prerequisites](../slots/prerequisites.md) | range | [LangString](../classes/LangString.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [educational_level](../slots/educational_level.md) | range | [LangString](../classes/LangString.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 
 
 

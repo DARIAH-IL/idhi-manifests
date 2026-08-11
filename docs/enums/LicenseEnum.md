@@ -8,7 +8,7 @@ search:
 
 
 
-_Common licenses for tools and datasets. Extend as needed with canonical meanings._
+_Common licenses for tools, datasets and training materials. Extend as needed with canonical meanings._
 
 
 
@@ -33,7 +33,7 @@ URI: [idhi:enum/LicenseEnum](https://idhi_placeholder/linkml/enum/LicenseEnum)
 
 | Name | Description |
 | ---  | --- |
-| [license](../slots/license.md) | <span title="The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool or dataset is released</span> |
+| [license](../slots/license.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> |
 
 
 
@@ -65,8 +65,8 @@ URI: [idhi:enum/LicenseEnum](https://idhi_placeholder/linkml/enum/LicenseEnum)
 <details>
 ```yaml
 name: LicenseEnum
-description: Common licenses for tools and datasets. Extend as needed with canonical
-  meanings.
+description: Common licenses for tools, datasets and training materials. Extend as
+  needed with canonical meanings.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:

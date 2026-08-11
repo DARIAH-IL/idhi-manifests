@@ -64,17 +64,6 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
         
       Publication : name
         
-          
-    
-        
-        
-        Publication --> "1..*" LangString : name
-        
-        click LangString href "../../classes/LangString/"
-        
-    
-
-        
       Publication : part_of
         
       Publication : presented_at
@@ -157,13 +146,13 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span> | direct |
+| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
 | [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.">The publication's persistent identifier</span> | direct |
 | [publication_type](../slots/publication_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [PublicationTypeEnum](../enums/PublicationTypeEnum.md) | <span title="The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value.">The kind of publication (journal article, book part, conference paper, thesis</span> | direct |
 | [authorships](../slots/authorships.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Authorship](../classes/Authorship.md) | <span title="The person's publication contributions, as reified Authorship objects carrying byline order and role.">The person's publication contributions, as reified Authorship objects carryin...</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
 | [published_in](../slots/published_in.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Name of the journal, book or proceedings the publication appeared in, as free multilingual text. If the container work has its own IDHI record or external URI, also link it via part_of.">Name of the journal, book or proceedings the publication appeared in, as free...</span> | direct |
-| [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization publishing the dataset or publication (by IDHI URN).">The organization publishing the dataset or publication (by IDHI URN)</span> | direct |
+| [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
 | [part_of](../slots/part_of.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uriorcurie](../types/Uriorcurie.md) | <span title="The containing work (book for a chapter, proceedings for a paper), by IDHI URN or external URI.">The containing work (book for a chapter, proceedings for a paper), by IDHI UR...</span> | direct |
 | [presented_at](../slots/presented_at.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Event](../classes/Event.md) | <span title="Event(s) in the index where this publication was presented (by IDHI URN), e.g. the conference where the paper was given. Distinct from published_in, the container it appeared in.">Event(s) in the index where this publication was presented (by IDHI URN), e</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -288,8 +277,8 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+    description: The single name or title used to identify the entity. Use one plain-text
+      value only; do not use LangString or provide translated variants. Prefer a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
     from_schema: https://idhi_placeholder/linkml/idhi
@@ -305,11 +294,9 @@ attributes:
     - Publication
     - Event
     - Dataset
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    minimum_cardinality: 1
+    - TrainingMaterial
+    range: string
+    required: true
   doi:
     name: doi
     description: The publication's persistent identifier. Record it whenever one exists;
@@ -359,6 +346,7 @@ attributes:
     domain_of:
     - Publication
     - Dataset
+    - TrainingMaterial
     range: date
   published_in:
     name: published_in
@@ -377,7 +365,9 @@ attributes:
     inlined_as_list: true
   publisher:
     name: publisher
-    description: The organization publishing the dataset or publication (by IDHI URN).
+    description: The organization formally publishing the dataset, publication or
+      training material (by IDHI URN); use creators for responsibility for making
+      a training material.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:publisher
@@ -385,6 +375,7 @@ attributes:
     domain_of:
     - Publication
     - Dataset
+    - TrainingMaterial
     range: Organization
   part_of:
     name: part_of

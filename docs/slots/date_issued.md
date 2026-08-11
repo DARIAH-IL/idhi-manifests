@@ -27,6 +27,7 @@ URI: [dcterms:issued](http://purl.org/dc/terms/issued)
 | --- | --- | --- |
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 | [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 
 
@@ -40,7 +41,7 @@ URI: [dcterms:issued](http://purl.org/dc/terms/issued)
 | Property | Value |
 | --- | --- |
 | Range | [Date](../types/Date.md) |
-| Domain Of | [Publication](../classes/Publication.md), [Dataset](../classes/Dataset.md) |
+| Domain Of | [Publication](../classes/Publication.md), [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [dcterms:issued](http://purl.org/dc/terms/issued) |
 
 ### Cardinality and Requirements
@@ -93,6 +94,7 @@ slot_uri: dcterms:issued
 domain_of:
 - Publication
 - Dataset
+- TrainingMaterial
 range: date
 
 ```

@@ -75,17 +75,6 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
       Dataset : name
         
-          
-    
-        
-        
-        Dataset --> "1..*" LangString : name
-        
-        click LangString href "../../classes/LangString/"
-        
-    
-
-        
       Dataset : publisher
         
           
@@ -140,10 +129,10 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span> | direct |
+| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
 | [datasets](../slots/datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets aggregated by a Dataset that functions as a catalog (by id).">Datasets aggregated by a Dataset that functions as a catalog (by id)</span> | direct |
-| [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization publishing the dataset or publication (by IDHI URN).">The organization publishing the dataset or publication (by IDHI URN)</span> | direct |
-| [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool or dataset is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool or dataset is released</span> | direct |
+| [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
+| [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
 | [distribution_url](../slots/distribution_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Direct download or access URL for the dataset.">Direct download or access URL for the dataset</span> | direct |
 | [themes](../slots/themes.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Thematic keywords for the dataset, multilingual.">Thematic keywords for the dataset, multilingual</span> | direct |
@@ -164,6 +153,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | ---  | --- | --- | --- |
 | [Project](../classes/Project.md) | [outputs_datasets](../slots/outputs_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Dataset](../classes/Dataset.md) | [datasets](../slots/datasets.md) | range | [Dataset](../classes/Dataset.md) |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | [related_datasets](../slots/related_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [datasets](../slots/datasets.md) | range | [Dataset](../classes/Dataset.md) |
 
 
@@ -171,6 +161,12 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 
 
+
+
+## In Subsets
+
+
+* [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 
 
@@ -214,6 +210,8 @@ description: 'A dataset, digital archive or catalog produced or curated by a pro
   corpora, databases, image collections, annotation sets and collections of metadata
   records. Use Dataset for both research data and catalogs that describe other resources;
   a catalog can link the datasets it aggregates through datasets.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
@@ -225,6 +223,9 @@ slots:
 - distribution_url
 - themes
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Dataset
   id:
     name: id
     structured_pattern:
@@ -244,9 +245,14 @@ description: 'A dataset, digital archive or catalog produced or curated by a pro
   corpora, databases, image collections, annotation sets and collections of metadata
   records. Use Dataset for both research data and catalogs that describe other resources;
   a catalog can link the datasets it aggregates through datasets.'
+in_subset:
+- toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slot_usage:
+  type:
+    name: type
+    equals_string: idhi:Dataset
   id:
     name: id
     structured_pattern:
@@ -255,8 +261,8 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+    description: The single name or title used to identify the entity. Use one plain-text
+      value only; do not use LangString or provide translated variants. Prefer a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
     from_schema: https://idhi_placeholder/linkml/idhi
@@ -272,11 +278,9 @@ attributes:
     - Publication
     - Event
     - Dataset
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    minimum_cardinality: 1
+    - TrainingMaterial
+    range: string
+    required: true
   datasets:
     name: datasets
     description: Datasets aggregated by a Dataset that functions as a catalog (by
@@ -292,7 +296,9 @@ attributes:
     multivalued: true
   publisher:
     name: publisher
-    description: The organization publishing the dataset or publication (by IDHI URN).
+    description: The organization formally publishing the dataset, publication or
+      training material (by IDHI URN); use creators for responsibility for making
+      a training material.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:publisher
@@ -300,11 +306,13 @@ attributes:
     domain_of:
     - Publication
     - Dataset
+    - TrainingMaterial
     range: Organization
   license:
     name: license
-    description: The license under which the tool or dataset is released. Required
-      for anything advertised as reusable; omit only if genuinely unknown.
+    description: The license under which the tool, dataset or training material is
+      released. Required for anything advertised as reusable; omit only if genuinely
+      unknown.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:license
@@ -312,6 +320,7 @@ attributes:
     domain_of:
     - Tool
     - Dataset
+    - TrainingMaterial
     range: LicenseEnum
   date_issued:
     name: date_issued
@@ -323,6 +332,7 @@ attributes:
     domain_of:
     - Publication
     - Dataset
+    - TrainingMaterial
     range: date
   distribution_url:
     name: distribution_url
@@ -359,6 +369,7 @@ attributes:
     - Entity
     range: curie
     required: true
+    equals_string: idhi:Dataset
   id:
     name: id
     description: "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class\

@@ -79,17 +79,6 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
       Project : name
         
-          
-    
-        
-        
-        Project --> "1..*" LangString : name
-        
-        click LangString href "../../classes/LangString/"
-        
-    
-
-        
       Project : organization_roles
         
           
@@ -138,6 +127,19 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         Project --> "*" Tool : outputs_tools
         
         click Tool href "../../classes/Tool/"
+        
+    
+
+        
+      Project : outputs_training_materials
+        
+          
+    
+        
+        
+        Project --> "*" TrainingMaterial : outputs_training_materials
+        
+        click TrainingMaterial href "../../classes/TrainingMaterial/"
         
     
 
@@ -224,8 +226,8 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name/title. Provide at least one language; English, Hebrew and Arabic variants are each a separate LangString. Preferably a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">Multilingual name/title</span> | direct |
-| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
+| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
+| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
 | [research_disciplines](../slots/research_disciplines.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade.">Humanities discipline(s) of the project (history, linguistics, archaeology</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
@@ -236,6 +238,7 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 | [outputs_tools](../slots/outputs_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools produced by this project (by id).">Tools produced by this project (by id)</span> | direct |
 | [outputs_datasets](../slots/outputs_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets produced or curated by this project (by id).">Datasets produced or curated by this project (by id)</span> | direct |
 | [outputs_publications](../slots/outputs_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications resulting from this project (by id).">Publications resulting from this project (by id)</span> | direct |
+| [outputs_training_materials](../slots/outputs_training_materials.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [TrainingMaterial](../classes/TrainingMaterial.md) | <span title="Training materials produced by this project (by IDHI URN); use only for project outputs, not materials merely used by the project.">Training materials produced by this project (by IDHI URN); use only for proje...</span> | direct |
 | [funding](../slots/funding.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Funding](../classes/Funding.md) | <span title="Funding awards received by the project. Use one entry for each funding organization and award.">Funding awards received by the project</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
@@ -328,6 +331,7 @@ slots:
 - outputs_tools
 - outputs_datasets
 - outputs_publications
+- outputs_training_materials
 - funding
 - additional_urls
 - contact_email
@@ -369,8 +373,8 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: Multilingual name/title. Provide at least one language; English,
-      Hebrew and Arabic variants are each a separate LangString. Preferably a sortable
+    description: The single name or title used to identify the entity. Use one plain-text
+      value only; do not use LangString or provide translated variants. Prefer a sortable
       name for organizations; for projects, tools and services, use the name the team
       itself uses.
     from_schema: https://idhi_placeholder/linkml/idhi
@@ -386,16 +390,15 @@ attributes:
     - Publication
     - Event
     - Dataset
-    range: LangString
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    minimum_cardinality: 1
+    - TrainingMaterial
+    range: string
+    required: true
   digital_humanities_activities:
     name: digital_humanities_activities
     description: Digital-humanities research activities practiced in this project,
-      tool or service. Prefer the most specific applicable activity; multiple values
-      are expected. This is the primary DH-facet for discovery.
+      tool or service, or taught by this training material. Prefer the most specific
+      applicable activity; multiple values are expected. This is the primary DH-facet
+      for discovery.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -404,6 +407,7 @@ attributes:
     - Project
     - Tool
     - Service
+    - TrainingMaterial
     range: DigitalHumanitiesActivityEnum
     multivalued: true
   research_disciplines:
@@ -532,6 +536,18 @@ attributes:
     - Project
     range: Publication
     multivalued: true
+  outputs_training_materials:
+    name: outputs_training_materials
+    description: Training materials produced by this project (by IDHI URN); use only
+      for project outputs, not materials merely used by the project.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:relation
+    owner: Project
+    domain_of:
+    - Project
+    range: TrainingMaterial
+    multivalued: true
   funding:
     name: funding
     description: Funding awards received by the project. Use one entry for each funding
@@ -561,6 +577,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: uri
     multivalued: true
   contact_email:
@@ -578,6 +595,7 @@ attributes:
     - Tool
     - Service
     - Event
+    - TrainingMaterial
     range: string
   type:
     name: type

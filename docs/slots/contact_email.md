@@ -31,6 +31,7 @@ URI: [schema:email](http://schema.org/email)
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
 | [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 
 
@@ -44,7 +45,7 @@ URI: [schema:email](http://schema.org/email)
 | Property | Value |
 | --- | --- |
 | Range | [String](../types/String.md) |
-| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Event](../classes/Event.md) |
+| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Event](../classes/Event.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [schema:email](http://schema.org/email) |
 
 ### Cardinality and Requirements
@@ -102,6 +103,7 @@ domain_of:
 - Tool
 - Service
 - Event
+- TrainingMaterial
 range: string
 
 ```

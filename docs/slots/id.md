@@ -40,6 +40,7 @@ URI: [dcterms:identifier](http://purl.org/dc/terms/identifier)
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  yes  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  yes  |
 | [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  yes  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  yes  |
 
 
 

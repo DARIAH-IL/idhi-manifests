@@ -16,17 +16,21 @@ Short aliases for namespace URIs, so we can write `dcterms:description` instead 
 
 ### 2. `classes` — the entities
 
-A **class** is a kind of record: `Person`, `Project`, `Organization`, `Tool`, `Dataset`, and so on. Classes can inherit (`is_a`): every entity inherits from the abstract `Entity`, which gives it an `id` (an IDHI URN, see "Identifiers" below), multilingual `description`, a `homepage`, `same_as` links and tags. Named entities other than `Person` declare their own multilingual `name`; people use `given_name` and `family_name`.
+A **class** is a kind of record: `Person`, `Project`, `Organization`, `Tool`, `Dataset`, `TrainingMaterial`, and so on. Classes can inherit (`is_a`): every entity inherits from the abstract `Entity`, which gives it an `id` (an IDHI URN, see "Identifiers" below), multilingual `description`, a `homepage`, `same_as` links and tags. Named entities other than `Person` declare exactly one plain-string `name`; people use `given_name` and `family_name`.
 
-Each class carries a `class_uri` mapping it to an existing ontology class — e.g. `Person` *is* `foaf:Person`, `Dataset` *is* `dcat:Dataset` — so RDF exported from IDHI speaks the same language as the rest of the web.
+Each class carries a `class_uri` mapping it to an existing ontology class — e.g. `Person` *is* `foaf:Person`, `Dataset` *is* `dcat:Dataset`, and `TrainingMaterial` *is* `schema:LearningResource` — so RDF exported from IDHI speaks the same language as the rest of the web.
 
 Two special kinds of classes to know:
 
-- **`LangString`** — a `{language, value}` pair. Every free-text field (`name`, `description`, `address`, `themes`...) is a *list* of these, which is how one field holds parallel English / Hebrew / Arabic text.
+- **`LangString`** — a `{language, value}` pair. Multilingual free-text fields such as `description`, `address` and `themes` are *lists* of these, which is how one field holds parallel English / Hebrew / Arabic text. The `name` slot is the deliberate exception: it accepts exactly one plain string.
 - **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`) — see "Reified relationships" below.
 - **`Funding`** — an inlined project funding award that names the funding organization and can record its amount.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
+
+`TrainingMaterial` is a top-level entity for tutorials, lessons and other resources intended to teach an action or learning outcome. Its metadata records the didactic form, creators and publisher, learning outcomes, audience, prerequisites, educational level, content languages, access URL, media type, license and issue date. It can reference the tools, services and datasets it teaches, belong to a larger training material, and be linked as an output of a project.
+
+Organizations can opt into synchronization with the [DARIAH SSH Open Marketplace](https://marketplace.sshopencloud.eu/) through `marketplace_sync: true`. This permits downstream synchronization of the organization and entities related to it through IDHI references, such as services and tools; `false` or an omitted value means no synchronization on that organization's authority. The flag controls export behavior and does not assert that the organization owns every related entity.
 
 ### 3. `slots` — the fields
 
@@ -88,6 +92,7 @@ One instance per (pair, role): an organization that both funds and hosts a proje
 - **`start_date`/`end_date` vs `studied_periods`** — when the project *runs* vs which historical era it *studies*.
 - **`location` vs `studied_places`** — where something *is* vs which places the research is *about*.
 - **`Tool` vs `Service`** — self-service software vs a human-mediated offering.
+- **`TrainingMaterial` vs `Publication` vs `Tool`** — a resource intended to teach vs a scholarly communication vs software that performs the action.
 - **`affiliations` vs `project_participations`** — institutional home vs project involvement.
 - **`homepage` vs `additional_urls` vs `same_as`** — the entity's own main page vs further pages about it (blog, socials, registry entries) vs records about the same entity in other systems ([Wikidata](https://www.wikidata.org/), [PeriodO](https://perio.do/)...).
 - **`emails` vs `contact_email`** — a person's own published addresses vs an entity's contact mailbox (office, team, service desk).

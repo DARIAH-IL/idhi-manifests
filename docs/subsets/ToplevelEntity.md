@@ -47,16 +47,6 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 
 
-
-
-        
-
-        
-
-
-
-
-
         
 
 
@@ -65,12 +55,42 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
         
 
 
+
+
+
         
 
 
         
 
         
+
+
+        
+
+
+        
+
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -170,6 +190,7 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 | Class | Description |
 | --- | --- |
+| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |
 | [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |
 | [Organization](../classes/Organization.md) | An organization of any kind |
@@ -178,6 +199,9 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |
 | [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |
+
+
 
 
 

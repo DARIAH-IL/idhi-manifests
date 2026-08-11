@@ -143,6 +143,19 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
     
 
         
+      IndexContainer : training_materials
+        
+          
+    
+        
+        
+        IndexContainer --> "*" TrainingMaterial : training_materials
+        
+        click TrainingMaterial href "../../classes/TrainingMaterial/"
+        
+    
+
+        
       
 ```
 
@@ -168,6 +181,7 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
 | [publications](../slots/publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="All Publication records in the index.">All Publication records in the index</span> | direct |
 | [events](../slots/events.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Event](../classes/Event.md) | <span title="All Event records in the index.">All Event records in the index</span> | direct |
 | [datasets](../slots/datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="All Dataset records in the index, including digital archives and catalogs.">All Dataset records in the index, including digital archives and catalogs</span> | direct |
+| [training_materials](../slots/training_materials.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [TrainingMaterial](../classes/TrainingMaterial.md) | <span title="All TrainingMaterial records in the index, including tutorials, lessons and other didactic resources.">All TrainingMaterial records in the index, including tutorials, lessons and o...</span> | direct |
 
 
 
@@ -311,6 +325,17 @@ attributes:
     range: Dataset
     multivalued: true
     inlined_as_list: true
+  training_materials:
+    name: training_materials
+    description: All TrainingMaterial records in the index, including tutorials, lessons
+      and other didactic resources.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    domain_of:
+    - IndexContainer
+    range: TrainingMaterial
+    multivalued: true
+    inlined_as_list: true
 tree_root: true
 
 ```
@@ -431,6 +456,19 @@ attributes:
     - Dataset
     - IndexContainer
     range: Dataset
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  training_materials:
+    name: training_materials
+    description: All TrainingMaterial records in the index, including tutorials, lessons
+      and other didactic resources.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    owner: IndexContainer
+    domain_of:
+    - IndexContainer
+    range: TrainingMaterial
     multivalued: true
     inlined: true
     inlined_as_list: true
