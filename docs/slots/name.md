@@ -6,7 +6,7 @@ search:
 # Slot: name 
 
 
-_The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses._
+_The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority._
 
 
 
@@ -46,7 +46,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 
 | Property | Value |
 | --- | --- |
-| Range | [String](../types/String.md) |
+| Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Publication](../classes/Publication.md), [Event](../classes/Event.md), [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
 
@@ -55,6 +55,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 | Property | Value |
 | --- | --- |
 | Required | Yes |
+| Multivalued | Yes |
 
 
 
@@ -94,10 +95,10 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 <details>
 ```yaml
 name: name
-description: The single name or title used to identify the entity. Use one plain-text
-  value only; do not use LangString or provide translated variants. Prefer a sortable
-  name for organizations; for projects, tools and services, use the name the team
-  itself uses.
+description: The multilingual name or title used to identify the entity. Use one LangString
+  per available language and do not repeat a language. Prefer the official localized
+  name for organizations; for projects, tools and services, use localized names supplied
+  by the team rather than translating branded names without authority.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: skos:prefLabel
@@ -111,8 +112,11 @@ domain_of:
 - Event
 - Dataset
 - TrainingMaterial
-range: string
+range: LangString
 required: true
+multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details></div>

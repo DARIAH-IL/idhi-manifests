@@ -135,6 +135,17 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
         
       TrainingMaterial : name
         
+          
+    
+        
+        
+        TrainingMaterial --> "1..*" LangString : name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
+        
       TrainingMaterial : part_of_training_material
         
           
@@ -265,7 +276,7 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
+| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [training_material_type](../slots/training_material_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [TrainingMaterialTypeEnum](../enums/TrainingMaterialTypeEnum.md) | <span title="The material's primary didactic form. Choose the single value that best describes how learners engage with it, not its file format.">The material's primary didactic form</span> | direct |
 | [creators](../slots/creators.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Agent](../classes/Agent.md) | <span title="People or organizations responsible for creating the training material (by IDHI URN). Use publisher for the organization that formally releases it when that differs from its creators.">People or organizations responsible for creating the training material (by ID...</span> | direct |
 | [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
@@ -422,10 +433,10 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: The single name or title used to identify the entity. Use one plain-text
-      value only; do not use LangString or provide translated variants. Prefer a sortable
-      name for organizations; for projects, tools and services, use the name the team
-      itself uses.
+    description: The multilingual name or title used to identify the entity. Use one
+      LangString per available language and do not repeat a language. Prefer the official
+      localized name for organizations; for projects, tools and services, use localized
+      names supplied by the team rather than translating branded names without authority.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
@@ -440,8 +451,11 @@ attributes:
     - Event
     - Dataset
     - TrainingMaterial
-    range: string
+    range: LangString
     required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   training_material_type:
     name: training_material_type
     description: The material's primary didactic form. Choose the single value that

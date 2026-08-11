@@ -79,6 +79,17 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         
       Organization : name
         
+          
+    
+        
+        
+        Organization --> "1..*" LangString : name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
+        
       Organization : organization_type
         
           
@@ -134,7 +145,7 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
+| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [ror](../slots/ror.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR — most universities and research institutes are.">The organization's persistent registry identifier</span> | direct |
 | [organization_type](../slots/organization_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrganizationTypeEnum](../enums/OrganizationTypeEnum.md) | <span title="The kind of organization. Always set it.">The kind of organization</span> | direct |
 | [parent_organization](../slots/parent_organization.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.">The larger organization this one is part of (e</span> | direct |
@@ -274,10 +285,10 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: The single name or title used to identify the entity. Use one plain-text
-      value only; do not use LangString or provide translated variants. Prefer a sortable
-      name for organizations; for projects, tools and services, use the name the team
-      itself uses.
+    description: The multilingual name or title used to identify the entity. Use one
+      LangString per available language and do not repeat a language. Prefer the official
+      localized name for organizations; for projects, tools and services, use localized
+      names supplied by the team rather than translating branded names without authority.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
@@ -292,8 +303,11 @@ attributes:
     - Event
     - Dataset
     - TrainingMaterial
-    range: string
+    range: LangString
     required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   ror:
     name: ror
     description: The organization's persistent registry identifier. It supplements

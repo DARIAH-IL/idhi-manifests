@@ -6,7 +6,7 @@ search:
 # Slot: programming_language 
 
 
-_Main implementation language(s), comma-free single value preferred._
+_Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool._
 
 
 
@@ -85,7 +85,8 @@ URI: [schema:programmingLanguage](http://schema.org/programmingLanguage)
 <details>
 ```yaml
 name: programming_language
-description: Main implementation language(s), comma-free single value preferred.
+description: Main implementation language, as a single technical label such as Python.
+  Do not use this slot for natural languages supported by the tool.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:programmingLanguage

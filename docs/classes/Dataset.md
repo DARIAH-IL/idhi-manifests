@@ -75,6 +75,17 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
       Dataset : name
         
+          
+    
+        
+        
+        Dataset --> "1..*" LangString : name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
+        
       Dataset : publisher
         
           
@@ -129,7 +140,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
+| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [datasets](../slots/datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets aggregated by a Dataset that functions as a catalog (by id).">Datasets aggregated by a Dataset that functions as a catalog (by id)</span> | direct |
 | [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
@@ -261,10 +272,10 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: The single name or title used to identify the entity. Use one plain-text
-      value only; do not use LangString or provide translated variants. Prefer a sortable
-      name for organizations; for projects, tools and services, use the name the team
-      itself uses.
+    description: The multilingual name or title used to identify the entity. Use one
+      LangString per available language and do not repeat a language. Prefer the official
+      localized name for organizations; for projects, tools and services, use localized
+      names supplied by the team rather than translating branded names without authority.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
@@ -279,8 +290,11 @@ attributes:
     - Event
     - Dataset
     - TrainingMaterial
-    range: string
+    range: LangString
     required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   datasets:
     name: datasets
     description: Datasets aggregated by a Dataset that functions as a catalog (by

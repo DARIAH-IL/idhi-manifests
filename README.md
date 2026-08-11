@@ -16,13 +16,13 @@ Short aliases for namespace URIs, so we can write `dcterms:description` instead 
 
 ### 2. `classes` — the entities
 
-A **class** is a kind of record: `Person`, `Project`, `Organization`, `Tool`, `Dataset`, `TrainingMaterial`, and so on. Classes can inherit (`is_a`): every entity inherits from the abstract `Entity`, which gives it an `id` (an IDHI URN, see "Identifiers" below), multilingual `description`, a `homepage`, `same_as` links and tags. Named entities other than `Person` declare exactly one plain-string `name`; people use `given_name` and `family_name`.
+A **class** is a kind of record: `Person`, `Project`, `Organization`, `Tool`, `Dataset`, `TrainingMaterial`, and so on. Classes can inherit (`is_a`): every entity inherits from the abstract `Entity`, which gives it an `id` (an IDHI URN, see "Identifiers" below), multilingual `description`, a `homepage`, `same_as` links and tags. Named entities other than `Person` use multilingual `name` values; people use multilingual `given_name` and `family_name` values.
 
 Each class carries a `class_uri` mapping it to an existing ontology class — e.g. `Person` *is* `foaf:Person`, `Dataset` *is* `dcat:Dataset`, and `TrainingMaterial` *is* `schema:LearningResource` — so RDF exported from IDHI speaks the same language as the rest of the web.
 
 Two special kinds of classes to know:
 
-- **`LangString`** — a `{language, value}` pair. Multilingual free-text fields such as `description`, `address` and `themes` are *lists* of these, which is how one field holds parallel English / Hebrew / Arabic text. The `name` slot is the deliberate exception: it accepts exactly one plain string.
+- **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. This is how one field holds parallel English / Hebrew / Arabic text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
 - **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`) — see "Reified relationships" below.
 - **`Funding`** — an inlined project funding award that names the funding organization and can record its amount.
 

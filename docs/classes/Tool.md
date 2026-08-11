@@ -81,6 +81,17 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
       Tool : name
         
+          
+    
+        
+        
+        Tool --> "1..*" LangString : name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
+        
       Tool : programming_language
         
       Tool : same_as
@@ -124,10 +135,10 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
+| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [tool_type](../slots/tool_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | <span title="The delivery form of the tool (web app, library, CLI...). Pick the single value describing how users primarily consume it.">The delivery form of the tool (web app, library, CLI</span> | direct |
 | [code_repository](../slots/code_repository.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Source-code repository URL (GitHub, GitLab...), if open.">Source-code repository URL (GitHub, GitLab</span> | direct |
-| [programming_language](../slots/programming_language.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Main implementation language(s), comma-free single value preferred.">Main implementation language(s), comma-free single value preferred</span> | direct |
+| [programming_language](../slots/programming_language.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.">Main implementation language, as a single technical label such as Python</span> | direct |
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [documentation_url](../slots/documentation_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="User or developer documentation for the tool or service (manual, wiki, API reference).">User or developer documentation for the tool or service (manual, wiki, API re...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
@@ -258,10 +269,10 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: The single name or title used to identify the entity. Use one plain-text
-      value only; do not use LangString or provide translated variants. Prefer a sortable
-      name for organizations; for projects, tools and services, use the name the team
-      itself uses.
+    description: The multilingual name or title used to identify the entity. Use one
+      LangString per available language and do not repeat a language. Prefer the official
+      localized name for organizations; for projects, tools and services, use localized
+      names supplied by the team rather than translating branded names without authority.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
@@ -276,8 +287,11 @@ attributes:
     - Event
     - Dataset
     - TrainingMaterial
-    range: string
+    range: LangString
     required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   tool_type:
     name: tool_type
     description: The delivery form of the tool (web app, library, CLI...). Pick the
@@ -301,7 +315,8 @@ attributes:
     range: uri
   programming_language:
     name: programming_language
-    description: Main implementation language(s), comma-free single value preferred.
+    description: Main implementation language, as a single technical label such as
+      Python. Do not use this slot for natural languages supported by the tool.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:programmingLanguage

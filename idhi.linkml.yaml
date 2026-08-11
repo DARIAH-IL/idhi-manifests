@@ -504,11 +504,13 @@ slots:
     slot_uri: dcterms:identifier
     pattern: "^idhi:[a-z_]+:[0-9a-z]{4,12}$"
   name:
-    range: string
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
     required: true
     description: >-
-      The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants.
-      Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.
+      The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language.
+      Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.
     slot_uri: skos:prefLabel
   description:
     range: LangString
@@ -561,12 +563,18 @@ slots:
 
   # --- Person ---
   given_name:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
     required: false
-    description: Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form.
+    description: Given (first) name as multilingual text. Use one LangString per available language with family_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.
     slot_uri: foaf:givenName
   family_name:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
     required: false
-    description: Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.
+    description: Family (last) name as multilingual text. Use one LangString per available language with given_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.
     slot_uri: foaf:familyName
   orcid:
     range: uri
@@ -740,7 +748,8 @@ slots:
     description: Source-code repository URL (GitHub, GitLab...), if open.
     slot_uri: schema:codeRepository
   programming_language:
-    description: Main implementation language(s), comma-free single value preferred.
+    range: string
+    description: Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.
     slot_uri: schema:programmingLanguage
   license:
     range: LicenseEnum

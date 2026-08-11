@@ -71,7 +71,29 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
       Person : family_name
         
+          
+    
+        
+        
+        Person --> "*" LangString : family_name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
+        
       Person : given_name
+        
+          
+    
+        
+        
+        Person --> "*" LangString : given_name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
         
       Person : homepage
         
@@ -121,8 +143,8 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [given_name](../slots/given_name.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form.">Given (first) name, in the person's preferred romanization</span> | direct |
-| [family_name](../slots/family_name.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.">Family (last) name, in the person's preferred romanization</span> | direct |
+| [given_name](../slots/given_name.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Given (first) name as multilingual text. Use one LangString per available language with family_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.">Given (first) name as multilingual text</span> | direct |
+| [family_name](../slots/family_name.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Family (last) name as multilingual text. Use one LangString per available language with given_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.">Family (last) name as multilingual text</span> | direct |
 | [orcid](../slots/orcid.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The person's persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.">The person's persistent researcher identifier</span> | direct |
 | [emails](../slots/emails.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Contact email addresses (zero or more). Only record addresses the person has agreed to publish in the index.">Contact email addresses (zero or more)</span> | direct |
 | [affiliations](../slots/affiliations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Affiliation](../classes/Affiliation.md) | <span title="The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement — that goes in project_participations.">The person's institutional affiliations, as reified Affiliation objects (orga...</span> | direct |
@@ -249,28 +271,36 @@ slot_usage:
 attributes:
   given_name:
     name: given_name
-    description: Given (first) name, in the person's preferred romanization. Use with
-      family_name when the person's name is conventionally expressed in that form.
+    description: Given (first) name as multilingual text. Use one LangString per available
+      language with family_name when the person's name is conventionally expressed
+      in separate parts; do not use it for a full name.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:givenName
     owner: Person
     domain_of:
     - Person
-    range: string
+    range: LangString
     required: false
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   family_name:
     name: family_name
-    description: Family (last) name, in the person's preferred romanization. Use with
-      given_name when the person's name is conventionally expressed in that form.
+    description: Family (last) name as multilingual text. Use one LangString per available
+      language with given_name when the person's name is conventionally expressed
+      in separate parts; do not use it for a full name.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: foaf:familyName
     owner: Person
     domain_of:
     - Person
-    range: string
+    range: LangString
     required: false
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   orcid:
     name: orcid
     description: The person's persistent researcher identifier. It supplements the

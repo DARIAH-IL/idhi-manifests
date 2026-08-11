@@ -6,7 +6,7 @@ search:
 # Slot: given_name 
 
 
-_Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form._
+_Given (first) name as multilingual text. Use one LangString per available language with family_name when the person's name is conventionally expressed in separate parts; do not use it for a full name._
 
 
 
@@ -38,7 +38,7 @@ URI: [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName)
 
 | Property | Value |
 | --- | --- |
-| Range | [String](../types/String.md) |
+| Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Person](../classes/Person.md) |
 | Slot URI | [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName) |
 
@@ -46,6 +46,7 @@ URI: [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName)
 
 | Property | Value |
 | --- | --- |
+| Multivalued | Yes |
 
 
 
@@ -85,15 +86,19 @@ URI: [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName)
 <details>
 ```yaml
 name: given_name
-description: Given (first) name, in the person's preferred romanization. Use with
-  family_name when the person's name is conventionally expressed in that form.
+description: Given (first) name as multilingual text. Use one LangString per available
+  language with family_name when the person's name is conventionally expressed in
+  separate parts; do not use it for a full name.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: foaf:givenName
 domain_of:
 - Person
-range: string
+range: LangString
 required: false
+multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details></div>

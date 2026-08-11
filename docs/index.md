@@ -66,11 +66,11 @@ Name: idhi
 | [facilities](slots/facilities.md) | All Facility records in the index |
 | [facility](slots/facility.md) | The facility side of the relationship (by IDHI URN) |
 | [facility_affiliations](slots/facility_affiliations.md) | The organization(s) hosting or owning this facility, as reified FacilityAffil... |
-| [family_name](slots/family_name.md) | Family (last) name, in the person's preferred romanization |
+| [family_name](slots/family_name.md) | Family (last) name as multilingual text |
 | [funding](slots/funding.md) | Funding awards received by the project |
 | [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in ILS unless noted in... |
 | [funding_organization](slots/funding_organization.md) | The organization that provides this funding award (by IDHI URN) |
-| [given_name](slots/given_name.md) | Given (first) name, in the person's preferred romanization |
+| [given_name](slots/given_name.md) | Given (first) name as multilingual text |
 | [homepage](slots/homepage.md) | Public landing page of the entity, if one exists |
 | [id](slots/id.md) | The entity's primary identifier: an IDHI URN of the form |
 | [in_languages](slots/in_languages.md) | Languages in which the instructional content is available |
@@ -82,7 +82,7 @@ Name: idhi
 | [material_url](slots/material_url.md) | Direct landing or access URL for the instructional resource |
 | [media_type](slots/media_type.md) | Technical media type of the primary resource, preferably an IANA media type s... |
 | [member](slots/member.md) | The person affiliated with the organization (by IDHI URN) |
-| [name](slots/name.md) | The single name or title used to identify the entity |
+| [name](slots/name.md) | The multilingual name or title used to identify the entity |
 | [orcid](slots/orcid.md) | The person's persistent researcher identifier |
 | [org_project_role](slots/org_project_role.md) | The organization's function in the project: COORDINATOR leads the consortium,... |
 | [organization](slots/organization.md) | The organization side of the relationship (by IDHI URN) |
@@ -101,7 +101,7 @@ Name: idhi
 | [persons](slots/persons.md) | All Person records in the index |
 | [prerequisites](slots/prerequisites.md) | Knowledge, skills, software or prior material learners should have before sta... |
 | [presented_at](slots/presented_at.md) | Event(s) in the index where this publication was presented (by IDHI URN), e |
-| [programming_language](slots/programming_language.md) | Main implementation language(s), comma-free single value preferred |
+| [programming_language](slots/programming_language.md) | Main implementation language, as a single technical label such as Python |
 | [project](slots/project.md) | The project side of the relationship (by IDHI URN) |
 | [project_participations](slots/project_participations.md) | The person's project involvements, as reified ProjectParticipation objects ca... |
 | [projects](slots/projects.md) | All Project records in the index |

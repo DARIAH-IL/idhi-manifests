@@ -92,6 +92,17 @@ URI: [schema:Event](http://schema.org/Event)
         
       Event : name
         
+          
+    
+        
+        
+        Event --> "1..*" LangString : name
+        
+        click LangString href "../../classes/LangString/"
+        
+    
+
+        
       Event : same_as
         
       Event : start_date
@@ -122,7 +133,7 @@ URI: [schema:Event](http://schema.org/Event)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](../slots/name.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span> | direct |
+| [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [event_type](../slots/event_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [EventTypeEnum](../enums/EventTypeEnum.md) | <span title="The kind of scholarly event.">The kind of scholarly event</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
@@ -252,10 +263,10 @@ slot_usage:
 attributes:
   name:
     name: name
-    description: The single name or title used to identify the entity. Use one plain-text
-      value only; do not use LangString or provide translated variants. Prefer a sortable
-      name for organizations; for projects, tools and services, use the name the team
-      itself uses.
+    description: The multilingual name or title used to identify the entity. Use one
+      LangString per available language and do not repeat a language. Prefer the official
+      localized name for organizations; for projects, tools and services, use localized
+      names supplied by the team rather than translating branded names without authority.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: skos:prefLabel
@@ -270,8 +281,11 @@ attributes:
     - Event
     - Dataset
     - TrainingMaterial
-    range: string
+    range: LangString
     required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   event_type:
     name: event_type
     description: The kind of scholarly event.

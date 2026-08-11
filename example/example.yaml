@@ -9,8 +9,12 @@ persons:
     orcid: https://orcid.org/0000-0002-1825-0097
     emails:
       - rina.cohen@example.ac.il
-    given_name: Rina
-    family_name: Cohen
+    given_name:
+      - {language: en, value: Rina}
+      - {language: he, value: רינה}
+    family_name:
+      - {language: en, value: Cohen}
+      - {language: he, value: כהן}
     affiliations:
       - member: idhi:person:x7k2m9
         organization: idhi:organization:k3v9p2
@@ -30,7 +34,8 @@ persons:
 organizations:
   - type: idhi:Organization
     id: idhi:organization:k3v9p2
-    name: Example University
+    name:
+      - {language: en, value: Example University}
     ror: https://ror.org/04aj4c181
     organization_type: ACADEMIC_INSTITUTION
     marketplace_sync: true
@@ -42,13 +47,15 @@ organizations:
       - {language: ar, value: القدس}
   - type: idhi:Organization
     id: idhi:organization:f9d3h6
-    name: Example Research Fund
+    name:
+      - {language: en, value: Example Research Fund}
     organization_type: FUNDER
 
 facilities:
   - type: idhi:Facility
     id: idhi:facility:l8m2q4
-    name: Example DH Lab
+    name:
+      - {language: en, value: Example DH Lab}
     homepage: https://dhlab.example.ac.il
     additional_urls:
       - https://twitter.com/exampledhlab
@@ -65,7 +72,8 @@ facilities:
 projects:
   - type: idhi:Project
     id: idhi:project:a83bq1
-    name: Example Genizah Fragments Project
+    name:
+      - {language: en, value: Example Genizah Fragments Project}
     description:
       - {language: en, value: Computational analysis of medieval manuscript fragments.}
     homepage: https://genizah.example.ac.il
@@ -110,7 +118,8 @@ projects:
 tools:
   - type: idhi:Tool
     id: idhi:tool:g5j7x2
-    name: FragmentMatcher
+    name:
+      - {language: en, value: FragmentMatcher}
     tool_type: WEB_APPLICATION
     code_repository: https://github.com/example/fragmentmatcher
     programming_language: Python
@@ -126,7 +135,8 @@ tools:
 services:
   - type: idhi:Service
     id: idhi:service:s6b1z3
-    name: Manuscript digitization on demand
+    name:
+      - {language: en, value: Manuscript digitization on demand}
     service_type: DIGITIZATION_SERVICE
     provider: idhi:organization:k3v9p2
     documentation_url: https://library.example.ac.il/digitization-guide
@@ -135,7 +145,8 @@ services:
 publications:
   - type: idhi:Publication
     id: idhi:publication:p4w8n1
-    name: Matching Genizah fragments at scale
+    name:
+      - {language: en, value: Matching Genizah fragments at scale}
     doi: https://doi.org/10.1234/example.5678
     publication_type: coar:c_6501
     date_issued: "2024-03-15"
@@ -147,7 +158,8 @@ publications:
 events:
   - type: idhi:Event
     id: idhi:event:e2c6v0
-    name: Example DH Israel Conference 2025
+    name:
+      - {language: en, value: Example DH Israel Conference 2025}
     event_type: CONFERENCE
     homepage: https://dhconf2025.example.org
     start_date: "2025-06-10"
@@ -160,14 +172,16 @@ events:
 datasets:
   - type: idhi:Dataset
     id: idhi:dataset:q6r1v5
-    name: Example Fragments Archive
+    name:
+      - {language: en, value: Example Fragments Archive}
     publisher: idhi:organization:k3v9p2
     datasets:
       - idhi:dataset:d7y2u9
 
   - type: idhi:Dataset
     id: idhi:dataset:d7y2u9
-    name: Annotated fragment images
+    name:
+      - {language: en, value: Annotated fragment images}
     publisher: idhi:organization:k3v9p2
     license: CC_BY_4_0
     date_issued: "2024-01-10"
@@ -178,7 +192,8 @@ datasets:
 training_materials:
   - type: idhi:TrainingMaterial
     id: idhi:training_material:c9n3w7
-    name: Computational Manuscript Analysis Learning Path
+    name:
+      - {language: en, value: Computational Manuscript Analysis Learning Path}
     training_material_type: COURSE_MATERIAL
     creators:
       - idhi:organization:k3v9p2
@@ -200,7 +215,8 @@ training_materials:
 
   - type: idhi:TrainingMaterial
     id: idhi:training_material:t4m8k2
-    name: Matching Manuscript Fragments Tutorial
+    name:
+      - {language: en, value: Matching Manuscript Fragments Tutorial}
     training_material_type: TUTORIAL
     creators:
       - idhi:person:x7k2m9
