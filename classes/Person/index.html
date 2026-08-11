@@ -5095,7 +5095,29 @@
 
       Person : family_name
 
+
+
+
+
+        Person --&gt; "*" LangString : family_name
+
+        click LangString href "../../classes/LangString/"
+
+
+
+
       Person : given_name
+
+
+
+
+
+        Person --&gt; "*" LangString : given_name
+
+        click LangString href "../../classes/LangString/"
+
+
+
 
       Person : homepage
 
@@ -5161,14 +5183,14 @@
 <tbody>
 <tr>
 <td><a href="../../slots/given_name/">given_name</a></td>
-<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
-<td><span title="Given (first) name, in the person's preferred romanization. Use with family_name when the person's name is conventionally expressed in that form.">Given (first) name, in the person's preferred romanization</span></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Given (first) name as multilingual text. Use one LangString per available language with family_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.">Given (first) name as multilingual text</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/family_name/">family_name</a></td>
-<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
-<td><span title="Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.">Family (last) name, in the person's preferred romanization</span></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Family (last) name as multilingual text. Use one LangString per available language with given_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.">Family (last) name as multilingual text</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5355,28 +5377,36 @@
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">given_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">given_name</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Given (first) name, in the person&#39;s preferred romanization. Use with</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">family_name when the person&#39;s name is conventionally expressed in that form.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Given (first) name as multilingual text. Use one LangString per available</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">language with family_name when the person&#39;s name is conventionally expressed</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in separate parts; do not use it for a full name.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:givenName</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">family_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">family_name</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Family (last) name, in the person&#39;s preferred romanization. Use with</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">given_name when the person&#39;s name is conventionally expressed in that form.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Family (last) name as multilingual text. Use one LangString per available</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">language with given_name when the person&#39;s name is conventionally expressed</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in separate parts; do not use it for a full name.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:familyName</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">orcid</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orcid</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The person&#39;s persistent researcher identifier. It supplements the</span>

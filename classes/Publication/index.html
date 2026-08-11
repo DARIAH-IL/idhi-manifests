@@ -5088,6 +5088,17 @@
 
       Publication : name
 
+
+
+
+
+        Publication --&gt; "1..*" LangString : name
+
+        click LangString href "../../classes/LangString/"
+
+
+
+
       Publication : part_of
 
       Publication : presented_at
@@ -5184,8 +5195,8 @@
 <tbody>
 <tr>
 <td><a href="../../slots/name/">name</a></td>
-<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/String/">String</a></td>
-<td><span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span></td>
+<td><span title="Required: one or more values">1..*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5386,10 +5397,10 @@
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The single name or title used to identify the entity. Use one plain-text</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value only; do not use LangString or provide translated variants. Prefer a sortable</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">name for organizations; for projects, tools and services, use the name the team</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">itself uses.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The multilingual name or title used to identify the entity. Use one</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">LangString per available language and do not repeat a language. Prefer the official</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">localized name for organizations; for projects, tools and services, use localized</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">names supplied by the team rather than translating branded names without authority.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skos:prefLabel</span>
@@ -5404,8 +5415,11 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">doi</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doi</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The publication&#39;s persistent identifier. Record it whenever one exists;</span>

@@ -5105,6 +5105,17 @@
 
       Tool : name
 
+
+
+
+
+        Tool --&gt; "1..*" LangString : name
+
+        click LangString href "../../classes/LangString/"
+
+
+
+
       Tool : programming_language
 
       Tool : same_as
@@ -5162,8 +5173,8 @@
 <tbody>
 <tr>
 <td><a href="../../slots/name/">name</a></td>
-<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/String/">String</a></td>
-<td><span title="The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.">The single name or title used to identify the entity</span></td>
+<td><span title="Required: one or more values">1..*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5181,7 +5192,7 @@
 <tr>
 <td><a href="../../slots/programming_language/">programming_language</a></td>
 <td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
-<td><span title="Main implementation language(s), comma-free single value preferred.">Main implementation language(s), comma-free single value preferred</span></td>
+<td><span title="Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.">Main implementation language, as a single technical label such as Python</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5372,10 +5383,10 @@
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The single name or title used to identify the entity. Use one plain-text</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value only; do not use LangString or provide translated variants. Prefer a sortable</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">name for organizations; for projects, tools and services, use the name the team</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">itself uses.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The multilingual name or title used to identify the entity. Use one</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">LangString per available language and do not repeat a language. Prefer the official</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">localized name for organizations; for projects, tools and services, use localized</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">names supplied by the team rather than translating branded names without authority.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skos:prefLabel</span>
@@ -5390,8 +5401,11 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">tool_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tool_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The delivery form of the tool (web app, library, CLI...). Pick the</span>
@@ -5415,7 +5429,8 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span>
 <span class="w">  </span><span class="nt">programming_language</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">programming_language</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Main implementation language(s), comma-free single value preferred.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Main implementation language, as a single technical label such as</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Python. Do not use this slot for natural languages supported by the tool.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:programmingLanguage</span>

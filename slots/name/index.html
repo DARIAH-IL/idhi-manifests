@@ -4975,7 +4975,7 @@
                   
 
 <h1 id="slot-name">Slot: name</h1>
-<p><em>The single name or title used to identify the entity. Use one plain-text value only; do not use LangString or provide translated variants. Prefer a sortable name for organizations; for projects, tools and services, use the name the team itself uses.</em></p>
+<p><em>The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></p>
 <!-- no inheritance hierarchy -->
@@ -5048,7 +5048,7 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="../../types/String/">String</a></td>
+<td><a href="../../classes/LangString/">LangString</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
@@ -5071,6 +5071,10 @@
 <tbody>
 <tr>
 <td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Multivalued</td>
 <td>Yes</td>
 </tr>
 </tbody>
@@ -5102,10 +5106,10 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The single name or title used to identify the entity. Use one plain-text</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">value only; do not use LangString or provide translated variants. Prefer a sortable</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name for organizations; for projects, tools and services, use the name the team</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">itself uses.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The multilingual name or title used to identify the entity. Use one LangString</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">per available language and do not repeat a language. Prefer the official localized</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name for organizations; for projects, tools and services, use localized names supplied</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">by the team rather than translating branded names without authority.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skos:prefLabel</span>
@@ -5119,8 +5123,11 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 </div>

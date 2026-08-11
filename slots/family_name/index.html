@@ -4975,7 +4975,7 @@
                   
 
 <h1 id="slot-family_name">Slot: family_name</h1>
-<p><em>Family (last) name, in the person's preferred romanization. Use with given_name when the person's name is conventionally expressed in that form.</em></p>
+<p><em>Family (last) name as multilingual text. Use one LangString per available language with given_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://xmlns.com/foaf/spec/#term_familyName">foaf:familyName</a></p>
 <!-- no inheritance hierarchy -->
@@ -5008,7 +5008,7 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="../../types/String/">String</a></td>
+<td><a href="../../classes/LangString/">LangString</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
@@ -5030,8 +5030,8 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td>Multivalued</td>
+<td>Yes</td>
 </tr>
 </tbody>
 </table>
@@ -5062,15 +5062,19 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">family_name</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Family (last) name, in the person&#39;s preferred romanization. Use with</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">given_name when the person&#39;s name is conventionally expressed in that form.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Family (last) name as multilingual text. Use one LangString per available</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">language with given_name when the person&#39;s name is conventionally expressed in separate</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">parts; do not use it for a full name.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:familyName</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 </div>
