@@ -2420,6 +2420,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: image
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/in_languages/" class="md-nav__link">
         
   
@@ -4181,6 +4208,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/Base64binary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base64binary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/Boolean/" class="md-nav__link">
         
   
@@ -4750,6 +4804,7 @@
 <span class="w">  </span><span class="nt">idhi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/</span><span class="w"> </span><span class="c1"># Israeli Digital Humanities Index (this schema&#39;s own namespace)</span>
 <span class="w">  </span><span class="nt">linkml</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/</span><span class="w"> </span><span class="c1"># Linked Data Modeling Language</span>
 <span class="w">  </span><span class="nt">rdf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.w3.org/1999/02/22-rdf-syntax-ns#</span><span class="w"> </span><span class="c1"># Resource Description Framework</span>
+<span class="w">  </span><span class="nt">xsd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.w3.org/2001/XMLSchema#</span>
 <span class="w">  </span><span class="nt">dcterms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.org/dc/terms/</span><span class="w"> </span><span class="c1"># Dublin Core Metadata Terms</span>
 <span class="w">  </span><span class="nt">foaf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://xmlns.com/foaf/spec/#term_</span><span class="w"> </span><span class="c1"># Friend of a Friend</span>
 <span class="w">  </span><span class="nt">bibo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.org/ontology/bibo/</span><span class="w"> </span><span class="c1"># Bibliographic Ontology</span>
@@ -4769,6 +4824,13 @@
 
 <span class="nt">imports</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:types</span>
+
+<span class="nt">types</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">base64binary</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xsd:base64Binary</span>
+<span class="w">    </span><span class="nt">base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">Binary content represented as a Base64-encoded string. Use for embedded bytes when a separate file or URL is not appropriate; do not include a data-URI prefix.</span>
 
 <span class="c1"># ------------------------- SETTINGS ----------------------------------</span>
 <span class="c1"># Reusable regex fragments for structured_pattern validation.</span>
@@ -4791,13 +4853,14 @@
 <span class="w">    </span><span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">Root class for any identifiable IDHI entity.</span>
-<span class="w">      </span><span class="no">Provides the IDHI URN id, multilingual description, homepage, same_as links and tags.</span>
+<span class="w">      </span><span class="no">Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags.</span>
 <span class="w">      </span><span class="no">Never instantiated directly; every concrete entity inherits from it and constrains the id&#39;s class token via slot_usage.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Thing</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homepage</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tags</span>
@@ -5251,6 +5314,11 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:description</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base64binary</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:image</span>
 <span class="w">  </span><span class="nt">homepage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public landing page of the entity, if one exists.</span>

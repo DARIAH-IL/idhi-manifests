@@ -2568,6 +2568,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: image
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/in_languages/" class="md-nav__link">
         
   
@@ -4329,6 +4356,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/Base64binary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base64binary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/Boolean/" class="md-nav__link">
         
   
@@ -4997,7 +5051,7 @@
                   
 
 <h1 id="class-entity">Class: Entity</h1>
-<p><em>Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.</em></p>
+<p><em>Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.</em></p>
 <div data-search-exclude="data-search-exclude">
 <ul>
 <li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
@@ -5043,6 +5097,8 @@
       Entity : homepage
 
       Entity : id
+
+      Entity : image
 
       Entity : same_as
 
@@ -5111,6 +5167,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../../slots/image/">image</a></td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Base64binary/">Base64binary</a></td>
+<td><span title="A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.">A representative image embedded as Base64-encoded binary content</span></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../../slots/homepage/">homepage</a></td>
 <td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Uri/">Uri</a></td>
 <td><span title="Public landing page of the entity, if one exists.">Public landing page of the entity, if one exists</span></td>
@@ -5159,14 +5221,16 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root class for any identifiable IDHI entity. Provides the IDHI URN id,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">multilingual description, homepage, same_as links and tags. Never instantiated directly;</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">every concrete entity inherits from it and constrains the id&#39;s class token via slot_usage.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">multilingual description, optional embedded image, homepage, same_as links and tags.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Never instantiated directly; every concrete entity inherits from it and constrains</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the id&#39;s class token via slot_usage.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homepage</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tags</span>
@@ -5177,8 +5241,9 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root class for any identifiable IDHI entity. Provides the IDHI URN id,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">multilingual description, homepage, same_as links and tags. Never instantiated directly;</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">every concrete entity inherits from it and constrains the id&#39;s class token via slot_usage.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">multilingual description, optional embedded image, homepage, same_as links and tags.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Never instantiated directly; every concrete entity inherits from it and constrains</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the id&#39;s class token via slot_usage.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -5226,6 +5291,19 @@
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A representative image embedded as Base64-encoded binary content.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Use for a single image that must travel with the entity record; omit it when</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">no image is available, and use homepage or additional_urls for externally hosted</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">pages rather than encoding a URL here.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:image</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base64binary</span>
 <span class="w">  </span><span class="nt">homepage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homepage</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public landing page of the entity, if one exists.</span>

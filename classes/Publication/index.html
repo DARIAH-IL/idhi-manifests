@@ -2590,6 +2590,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: image
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/in_languages/" class="md-nav__link">
         
   
@@ -4351,6 +4378,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/Base64binary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base64binary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/Boolean/" class="md-nav__link">
         
   
@@ -5086,6 +5140,8 @@
 
       Publication : id
 
+      Publication : image
+
       Publication : name
 
 
@@ -5263,6 +5319,12 @@
 <td><a href="../../slots/description/">description</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
 <td><span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span></td>
+<td><a href="../../classes/Entity/">Entity</a></td>
+</tr>
+<tr>
+<td><a href="../../slots/image/">image</a></td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Base64binary/">Base64binary</a></td>
+<td><span title="A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.">A representative image embedded as Base64-encoded binary content</span></td>
 <td><a href="../../classes/Entity/">Entity</a></td>
 </tr>
 <tr>
@@ -5572,6 +5634,19 @@
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A representative image embedded as Base64-encoded binary content.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Use for a single image that must travel with the entity record; omit it when</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">no image is available, and use homepage or additional_urls for externally hosted</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">pages rather than encoding a URL here.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:image</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publication</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base64binary</span>
 <span class="w">  </span><span class="nt">homepage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homepage</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public landing page of the entity, if one exists.</span>

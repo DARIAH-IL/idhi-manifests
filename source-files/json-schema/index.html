@@ -2420,6 +2420,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: image
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/in_languages/" class="md-nav__link">
         
   
@@ -4181,6 +4208,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/Base64binary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base64binary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/Boolean/" class="md-nav__link">
         
   
@@ -4799,6 +4853,13 @@
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:[a-z_]+:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;same_as&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity&#39;s own pages (use homepage).&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -4942,6 +5003,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:dataset:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/LicenseEnum&quot;</span><span class="p">,</span>
@@ -5183,7 +5251,7 @@
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;Entity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id&#39;s class token via slot_usage.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id&#39;s class token via slot_usage.&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).&quot;</span><span class="p">,</span>
@@ -5207,6 +5275,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:[a-z_]+:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;same_as&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity&#39;s own pages (use homepage).&quot;</span><span class="p">,</span>
@@ -5307,6 +5382,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:event:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.&quot;</span><span class="p">,</span>
@@ -5445,6 +5527,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:facility:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.&quot;</span><span class="p">,</span>
@@ -5793,6 +5882,13 @@
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:organization:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -6002,6 +6098,13 @@
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:person:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;orcid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The person&#39;s persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span>
@@ -6140,6 +6243,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:project:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.&quot;</span><span class="p">,</span>
@@ -6388,6 +6498,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:publication:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.&quot;</span><span class="p">,</span>
@@ -6673,6 +6790,13 @@
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:service:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -6796,6 +6920,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:tool:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/LicenseEnum&quot;</span><span class="p">,</span>
@@ -6951,6 +7082,13 @@
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity&#39;s primary identifier: an IDHI URN of the form\n  idhi:&lt;class name&gt;:&lt;random short alphanumeric id&gt;\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^idhi:training_material:[0-9a-z]{4,12}$&quot;</span><span class="p">,</span>
 <span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;null&quot;</span>
+<span class="w">                    </span><span class="p">]</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nt">&quot;in_languages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.&quot;</span><span class="p">,</span>
