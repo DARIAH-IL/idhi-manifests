@@ -73,6 +73,7 @@ Name: idhi
 | [given_name](slots/given_name.md) | Given (first) name as multilingual text |
 | [homepage](slots/homepage.md) | Public landing page of the entity, if one exists |
 | [id](slots/id.md) | The entity's primary identifier: an IDHI URN of the form |
+| [image](slots/image.md) | A representative image embedded as Base64-encoded binary content |
 | [in_languages](slots/in_languages.md) | Languages in which the instructional content is available |
 | [language](slots/language.md) | BCP-47 language tag of the value (en, he or ar) |
 | [learning_outcomes](slots/learning_outcomes.md) | Knowledge or skills a learner should gain by completing the material, as mult... |
@@ -157,6 +158,7 @@ Name: idhi
 
 | Type | Description |
 | --- | --- |
+| [Base64binary](types/Base64binary.md) | Binary content represented as a Base64-encoded string |
 | [Boolean](types/Boolean.md) | A binary (true or false) value |
 | [Curie](types/Curie.md) | a compact URI |
 | [Date](types/Date.md) | a date (year, month and day) in an idealized calendar |

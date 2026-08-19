@@ -6,7 +6,7 @@ search:
 # Class: Entity 
 
 
-_Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage._
+_Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage._
 
 
 
@@ -63,6 +63,8 @@ URI: [schema:Thing](http://schema.org/Thing)
         
       Entity : id
         
+      Entity : image
+        
       Entity : same_as
         
       Entity : tags
@@ -102,6 +104,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | direct |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | direct |
 | [description](../slots/description.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span> | direct |
+| [image](../slots/image.md) | <span title="Optional: at most one value">0..1</span> <br/> [Base64binary](../types/Base64binary.md) | <span title="A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.">A representative image embedded as Base64-encoded binary content</span> | direct |
 | [homepage](../slots/homepage.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Public landing page of the entity, if one exists.">Public landing page of the entity, if one exists</span> | direct |
 | [same_as](../slots/same_as.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).">URIs of records in OTHER systems describing the same real-world entity (Wikid...</span> | direct |
 | [tags](../slots/tags.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.">Free-text tags for discovery, filtering and grouping; usable on any top-level...</span> | direct |
@@ -154,14 +157,16 @@ URI: [schema:Thing](http://schema.org/Thing)
 ```yaml
 name: Entity
 description: Root class for any identifiable IDHI entity. Provides the IDHI URN id,
-  multilingual description, homepage, same_as links and tags. Never instantiated directly;
-  every concrete entity inherits from it and constrains the id's class token via slot_usage.
+  multilingual description, optional embedded image, homepage, same_as links and tags.
+  Never instantiated directly; every concrete entity inherits from it and constrains
+  the id's class token via slot_usage.
 from_schema: https://idhi_placeholder/linkml/idhi
 abstract: true
 slots:
 - type
 - id
 - description
+- image
 - homepage
 - same_as
 - tags
@@ -176,8 +181,9 @@ class_uri: schema:Thing
 ```yaml
 name: Entity
 description: Root class for any identifiable IDHI entity. Provides the IDHI URN id,
-  multilingual description, homepage, same_as links and tags. Never instantiated directly;
-  every concrete entity inherits from it and constrains the id's class token via slot_usage.
+  multilingual description, optional embedded image, homepage, same_as links and tags.
+  Never instantiated directly; every concrete entity inherits from it and constrains
+  the id's class token via slot_usage.
 from_schema: https://idhi_placeholder/linkml/idhi
 abstract: true
 attributes:
@@ -225,6 +231,19 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  image:
+    name: image
+    description: A representative image embedded as Base64-encoded binary content.
+      Use for a single image that must travel with the entity record; omit it when
+      no image is available, and use homepage or additional_urls for externally hosted
+      pages rather than encoding a URL here.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:image
+    owner: Entity
+    domain_of:
+    - Entity
+    range: base64binary
   homepage:
     name: homepage
     description: Public landing page of the entity, if one exists.

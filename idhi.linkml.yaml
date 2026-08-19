@@ -18,6 +18,7 @@ prefixes:
   idhi: https://idhi_placeholder/linkml/ # Israeli Digital Humanities Index (this schema's own namespace)
   linkml: https://w3id.org/linkml/ # Linked Data Modeling Language
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# # Resource Description Framework
+  xsd: http://www.w3.org/2001/XMLSchema#
   dcterms: http://purl.org/dc/terms/ # Dublin Core Metadata Terms
   foaf: https://xmlns.com/foaf/spec/#term_ # Friend of a Friend
   bibo: http://purl.org/ontology/bibo/ # Bibliographic Ontology
@@ -37,6 +38,13 @@ default_curi_maps:
 
 imports:
   - linkml:types
+
+types:
+  base64binary:
+    uri: xsd:base64Binary
+    base: str
+    description: >-
+      Binary content represented as a Base64-encoded string. Use for embedded bytes when a separate file or URL is not appropriate; do not include a data-URI prefix.
 
 # ------------------------- SETTINGS ----------------------------------
 # Reusable regex fragments for structured_pattern validation.
@@ -59,13 +67,14 @@ classes:
     abstract: true
     description: >-
       Root class for any identifiable IDHI entity.
-      Provides the IDHI URN id, multilingual description, homepage, same_as links and tags.
+      Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags.
       Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.
     class_uri: schema:Thing
     slots:
       - type
       - id
       - description
+      - image
       - homepage
       - same_as
       - tags
@@ -519,6 +528,11 @@ slots:
     description: >-
       Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).
     slot_uri: dcterms:description
+  image:
+    range: base64binary
+    description: >-
+      A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.
+    slot_uri: schema:image
   homepage:
     range: uri
     description: Public landing page of the entity, if one exists.

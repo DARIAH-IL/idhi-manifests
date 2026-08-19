@@ -67,6 +67,13 @@
                     "pattern": "^idhi:[a-z_]+:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "same_as": {
                     "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
                     "items": {
@@ -210,6 +217,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:dataset:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "license": {
                     "$ref": "#/$defs/LicenseEnum",
@@ -451,7 +465,7 @@
         },
         "Entity": {
             "additionalProperties": false,
-            "description": "Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.",
+            "description": "Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage.",
             "properties": {
                 "description": {
                     "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
@@ -475,6 +489,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:[a-z_]+:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "same_as": {
                     "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
@@ -575,6 +596,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:event:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "location": {
                     "description": "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.",
@@ -713,6 +741,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:facility:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "location": {
                     "description": "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.",
@@ -1061,6 +1096,13 @@
                     "pattern": "^idhi:organization:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "location": {
                     "description": "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.",
                     "items": {
@@ -1270,6 +1312,13 @@
                     "pattern": "^idhi:person:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "orcid": {
                     "description": "The person's persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.",
                     "format": "uri",
@@ -1408,6 +1457,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:project:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
                     "description": "The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.",
@@ -1656,6 +1712,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:publication:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
                     "description": "The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.",
@@ -1941,6 +2004,13 @@
                     "pattern": "^idhi:service:[0-9a-z]{4,12}$",
                     "type": "string"
                 },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "name": {
                     "description": "The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.",
                     "items": {
@@ -2064,6 +2134,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:tool:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "license": {
                     "$ref": "#/$defs/LicenseEnum",
@@ -2219,6 +2296,13 @@
                     "description": "The entity's primary identifier: an IDHI URN of the form\n  idhi:<class name>:<random short alphanumeric id>\ne.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots \u2014 never here.",
                     "pattern": "^idhi:training_material:[0-9a-z]{4,12}$",
                     "type": "string"
+                },
+                "image": {
+                    "description": "A representative image embedded as Base64-encoded binary content. Use for a single image that must travel with the entity record; omit it when no image is available, and use homepage or additional_urls for externally hosted pages rather than encoding a URL here.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "in_languages": {
                     "description": "Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.",

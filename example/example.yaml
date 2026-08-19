@@ -76,6 +76,7 @@ projects:
       - {language: en, value: Example Genizah Fragments Project}
     description:
       - {language: en, value: Computational analysis of medieval manuscript fragments.}
+    image: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=
     homepage: https://genizah.example.ac.il
     additional_urls:
       - https://blog.example.ac.il/genizah
