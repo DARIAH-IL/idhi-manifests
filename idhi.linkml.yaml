@@ -9,7 +9,7 @@ id: https://idhi_placeholder/linkml/idhi
 name: idhi
 title: Israeli Digital Humanities Index Schema
 description: >-
-  A LinkML schema for an index of Digital Humanities (DH) research in Israel. Entities and properties reuse established vocabularies (FOAF, schema.org, Dublin Core Terms, BIBO, DCAT, EDM, SKOS, CERIF); DH projects are classified with TaDiRAH 2.0 research-activity concepts (dynamic enum over the full taxonomy). Free text supports English, Hebrew and Arabic. All entities are identified by IDHI URNs (idhi:<class>:<shortid>); external PIDs are supplementary.
+  A LinkML schema for an index of Digital Humanities (DH) research in Israel. Entities and properties reuse established vocabularies (FOAF, schema.org, Dublin Core Terms, BIBO, DCAT, PROV, EDM, SKOS, CERIF); DH projects are classified with TaDiRAH 2.0 research-activity concepts (dynamic enum over the full taxonomy). Free text supports any syntactically valid BCP-47 language tag. All entities are identified by IDHI URNs (idhi:<class>:<shortid>); external PIDs are supplementary.
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
 
@@ -25,6 +25,7 @@ prefixes:
   schema: http://schema.org/ # Schema.org
   skos: http://www.w3.org/2004/02/skos/core# # Simple Knowledge Organization System
   dcat: http://www.w3.org/ns/dcat# # Data Catalog Vocabulary
+  prov: http://www.w3.org/ns/prov#
   cerif: https://w3id.org/cerif/model# # Common European Research Information Format
   frapo: http://purl.org/cerif/frapo/ # Funding, Research Administration and Projects Ontology
   tadirah: https://vocabs.dariah.eu/tadirah/ # Taxonomy of Digital Research Activities in the Humanities
@@ -83,7 +84,7 @@ classes:
   LangString:
     description: >-
       A single language-tagged text value.
-      Instances are combined in a multivalued slot to give English/Hebrew/Arabic variants of one field.
+      Instances are combined in a multivalued slot to give variants of one field in any language identified by a BCP-47 tag.
       Use one LangString per language; do not repeat a language within the same field.
     class_uri: rdf:langString
     slots:
@@ -124,7 +125,7 @@ classes:
     is_a: Agent
     description: >-
       An organization of any kind.
-      Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type.
+      Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type.
       All organizations use the idhi:organization:<shortid> URN form.
     class_uri: foaf:Organization
     in_subset: [ toplevel_entity ]
@@ -199,6 +200,7 @@ classes:
       - outputs_publications
       - outputs_training_materials
       - funding
+      - funding_status
       - additional_urls
       - contact_email
 
@@ -218,6 +220,7 @@ classes:
           interpolated: true
     slots:
       - name
+      - doi
       - tool_type
       - code_repository
       - programming_language
@@ -302,8 +305,8 @@ classes:
   Dataset:
     is_a: Entity
     description: >-
-      A dataset, digital archive or catalog produced or curated by a project: corpora, databases, image collections, annotation sets and collections of metadata records.
-      Use Dataset for both research data and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.
+      A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs.
+      Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.
     class_uri: dcat:Dataset
     in_subset: [ toplevel_entity ]
     slot_usage:
@@ -313,13 +316,23 @@ classes:
         structured_pattern:
           syntax: "^idhi:dataset:{shortid}$"
           interpolated: true
+      media_type:
+        multivalued: true
     slots:
       - name
+      - doi
+      - dataset_type
       - datasets
+      - derived_from
       - publisher
       - license
       - date_issued
       - distribution_url
+      - extent
+      - byte_size
+      - in_languages
+      - media_type
+      - related_publications
       - themes
 
   TrainingMaterial:
@@ -338,6 +351,7 @@ classes:
           interpolated: true
     slots:
       - name
+      - doi
       - training_material_type
       - creators
       - publisher
@@ -396,7 +410,7 @@ classes:
     is_a: Relationship
     description: >-
       An organization's engagement in a project.
-      Use one instance per role: an organization that both hosts and funds a project gets two instances.
+      Use one instance per role. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described.
     class_uri: cerif:Project_OrganisationUnit
     slots:
       - organization # -> Organization
@@ -405,12 +419,19 @@ classes:
 
   Funding:
     description: >-
-      A funding award for a project, identifying the organization that provides it and its amount when public.
+      A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period.
+      Use Funding when an award or grant is known; use an OrganizationProjectRole with FUNDER only when the funder's involvement is known but no distinct award can be described, and do not record the same funding fact in both structures.
       It is inlined within the funded Project and has no independent ID.
     class_uri: schema:MonetaryGrant
     slots:
       - funding_organization
       - funding_amount
+      - grant_name
+      - funding_program
+      - grant_number
+      - funding_url
+      - start_date
+      - end_date
 
   Authorship:
     is_a: Relationship
@@ -565,9 +586,11 @@ slots:
 
   # --- LangString ---
   language:
-    range: LanguageEnum
+    range: string
     required: true
-    description: BCP-47 language tag of the value (en, he or ar).
+    pattern: "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$"
+    description: >-
+      BCP-47 language tag of the value, such as en, he, ar, de, yi or lad. Use the shortest registered tag that accurately identifies the text; the deliberately permissive syntax guard accepts private and grandfathered tags and does not verify registration in the IANA language-subtag registry.
     slot_uri: dcterms:language
   value:
     range: string
@@ -716,7 +739,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     description: >-
-      Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, funder, host).
+      Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding.
   outputs_tools:
     range: Tool
     multivalued: true
@@ -739,7 +762,13 @@ slots:
     range: Funding
     multivalued: true
     inlined_as_list: true
-    description: Funding awards received by the project. Use one entry for each funding organization and award.
+    description: >-
+      Funding awards received by the project. Use one entry per distinct award, including successive awards from the same organization, and record award dates here rather than duplicating the same fact as a FUNDER organization role.
+  funding_status:
+    range: FundingStatusEnum
+    description: >-
+      The project's current primary funding or sustainability status at the time the record is maintained. Use this for present support, while funding records preserve past and current award history; update it when the project's circumstances change. This uses an IDHI-specific property because established vocabularies do not provide a controlled current-sustainability status for projects.
+    slot_uri: idhi:fundingStatus
   funding_organization:
     range: Organization
     required: true
@@ -750,6 +779,30 @@ slots:
     description: >-
       Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.
     slot_uri: frapo:hasMonetaryValue
+  grant_name:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Official multilingual title of the individual grant or award. Use this for the award's title, not the broader recurring programme, which belongs in funding_program.
+    slot_uri: schema:name
+  funding_program:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Multilingual name of the broader funding programme or scheme under which the award was made. This uses an IDHI-specific property because FRAPO defines FundingProgramme as a class but has no fitting property for a literal programme label.
+    slot_uri: idhi:fundingProgram
+  grant_number:
+    range: string
+    description: >-
+      Identifier assigned to the grant by its funding organization. Use the funder's exact value and omit it when none is published.
+    slot_uri: frapo:hasGrantNumber
+  funding_url:
+    range: uri
+    description: >-
+      Public landing page for the individual award or its authoritative funding record. Use the funding organization's homepage on the Organization record instead when no award-specific page exists.
+    slot_uri: schema:url
 
   # --- Tool ---
   tool_type:
@@ -792,7 +845,7 @@ slots:
     range: uri
     slot_uri: bibo:doi
     description: >-
-      The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.
+      The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.
     structured_pattern:
       syntax: "https://doi.org/{doi}"
       interpolated: true
@@ -853,6 +906,17 @@ slots:
     multivalued: true
     description: Datasets aggregated by a Dataset that functions as a catalog (by id).
     slot_uri: dcat:dataset
+  dataset_type:
+    range: DatasetTypeEnum
+    description: >-
+      The dataset's primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization.
+    slot_uri: dcterms:type
+  derived_from:
+    range: Dataset
+    multivalued: true
+    description: >-
+      Source datasets from which this dataset was re-OCRed, cleaned, transformed, subsetted or otherwise derived. Reference each immediate source by IDHI URN; use datasets only for catalog aggregation rather than provenance.
+    slot_uri: prov:wasDerivedFrom
   publisher:
     range: Organization
     description: The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.
@@ -867,6 +931,23 @@ slots:
     range: uri
     description: Direct download or access URL for the dataset.
     slot_uri: dcat:downloadURL
+  extent:
+    range: string
+    multivalued: true
+    description: >-
+      Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.
+    slot_uri: dcterms:extent
+  byte_size:
+    range: integer
+    description: >-
+      Total size of the described dataset distribution in bytes. Use an exact or documented aggregate byte count and omit it when only an unreliable estimate is available.
+    slot_uri: dcat:byteSize
+  related_publications:
+    range: Publication
+    multivalued: true
+    description: >-
+      Publications that are counterparts or direct scholarly companions of the dataset, such as the print counterpart of a digital edition. Reference Publication records by IDHI URN; use outputs_publications on Project for outputs that are related only by their project of origin.
+    slot_uri: dcterms:relation
 
   training_material_type:
     range: TrainingMaterialTypeEnum
@@ -908,10 +989,11 @@ slots:
       Expected learner level, as multilingual text such as beginner, intermediate or graduate. Use target_audiences for who the material serves rather than their proficiency.
     slot_uri: schema:educationalLevel
   in_languages:
-    range: LanguageEnum
+    range: string
     multivalued: true
+    pattern: "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$"
     description: >-
-      Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.
+      Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page.
     slot_uri: dcterms:language
   material_url:
     range: uri
@@ -921,7 +1003,7 @@ slots:
   media_type:
     range: string
     description: >-
-      Technical media type of the primary resource, preferably an IANA media type such as text/html, application/pdf or video/mp4. Do not use this for the didactic form; use training_material_type instead.
+      Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.
     slot_uri: dcterms:format
   related_tools:
     range: Tool
@@ -960,7 +1042,7 @@ slots:
     range: ProjectRoleEnum
     description: >-
       The person's function within the project team.
-      Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER, software work is DEVELOPER, enrolled students are STUDENT regardless of their task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else.
+      Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); DH_LEAD for digital method and architecture, TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation, CONSULTANT for bounded external professional work, RESEARCHER for scholarly research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when none of the specific values fits.
     slot_uri: schema:roleName
   member:
     range: Person
@@ -979,8 +1061,8 @@ slots:
   org_project_role:
     range: OrgProjectRoleEnum
     description: >-
-      The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, FUNDER provides money, HOST provides the institutional home.
-      Create one relationship instance per role.
+      The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home.
+      Create one relationship instance per role, and do not duplicate an award already represented in funding.
     slot_uri: schema:roleName
   author:
     range: Person
@@ -1007,16 +1089,6 @@ slots:
 
 # ========================= ENUMS =====================================
 enums:
-  LanguageEnum:
-    description: Languages supported for free-text fields (BCP-47 tags).
-    permissible_values:
-      en:
-        description: English
-      he:
-        description: Hebrew
-      ar:
-        description: Arabic
-
   # ------------------------ DYNAMIC ENUMS ---------------------------
   DigitalHumanitiesActivityEnum:
     description: >-
@@ -1075,6 +1147,9 @@ enums:
       NON_PROFIT:
         description: A non-profit organization / NGO.
         meaning: schema:NGO
+      INFORMAL_GROUP:
+        description: >-
+          A named collective without formal incorporation or institutional status. Use this only when the collective itself needs an Organization record; represent independent practitioners as Person records, and leave a project host-less when no organization hosts it. No established organization-type term captures this distinction closely enough for an external meaning.
 
   ProjectRoleEnum:
     description: >-
@@ -1087,15 +1162,26 @@ enums:
       RESEARCHER:
         description: A team member conducting the scholarly research.
         meaning: https://credit.niso.org/contributor-roles/investigation/
+      DH_LEAD:
+        description: >-
+          Leads the project's digital-humanities method, data model, research pipeline or digital-edition architecture. Use this for intellectual leadership of the digital approach, distinct from the formal PI and from software implementation.
+        meaning: https://credit.niso.org/contributor-roles/methodology/
+      TECHNICAL_LEAD:
+        description: >-
+          Owns or directs the project's software engineering and technical maintenance. Use this when responsibility exceeds implementation by a DEVELOPER; use DH_LEAD instead for leadership of the scholarly digital method or data model.
+        meaning: https://credit.niso.org/contributor-roles/software/
       DEVELOPER:
-        description: A team member building the project's software.
+        description: A team member implementing the project's software under their own or another person's technical direction; use TECHNICAL_LEAD when they own the engineering architecture and maintenance.
         meaning: https://credit.niso.org/contributor-roles/software/
       STUDENT:
         description: >-
           An enrolled student (BA/MA/PhD) working on the project in any capacity — student status takes precedence over task.
       ADVISOR:
-        description: An external mentor or advisory-board member.
+        description: An external mentor or advisory-board member providing ongoing guidance; use CONSULTANT for bounded professional work with a defined deliverable.
         meaning: https://credit.niso.org/contributor-roles/supervision/
+      CONSULTANT:
+        description: >-
+          An external specialist engaged for bounded professional work, such as designing an initial data model. Use ADVISOR for mentorship or board guidance and CONTRIBUTOR only when the work cannot be described more specifically; no established CRediT role exactly matches consultancy.
       CONTRIBUTOR:
         description: Fallback for any other named involvement.
 
@@ -1122,10 +1208,49 @@ enums:
         description: Leads/coordinates the project or consortium.
       PARTNER:
         description: Contributes work as a consortium member.
+      DATA_PROVIDER:
+        description: Supplies a source collection or data used by the project without thereby acting as its host, coordinator or funder.
+        meaning: schema:provider
       FUNDER:
-        description: Provides funding for the project.
+        description: Provides funding for the project when no distinct award can be described; use Funding instead when grant metadata or award dates are known, and do not use both for the same funding fact.
       HOST:
         description: Provides the institutional/administrative home.
+
+  FundingStatusEnum:
+    description: >-
+      IDHI-governed values for the current primary way a project is financially or operationally sustained; no established controlled vocabulary covers these project-maintenance states. Historical grants belong in Funding records; choose the value that best describes the project's present circumstances.
+    permissible_values:
+      ACTIVE_GRANT_FUNDING:
+        description: A current time-bounded grant or award is the project's primary support; use INSTITUTIONALLY_SUSTAINED for ongoing core institutional support.
+      INSTITUTIONALLY_SUSTAINED:
+        description: An organization sustains the project through ongoing core resources rather than a distinct active grant; use IN_KIND_ONLY when support is limited to contributed facilities, staff time or services.
+      IN_KIND_ONLY:
+        description: The project currently receives non-cash support such as facilities, hosting, staff time or services but no direct funding; use VOLUNTEER_RUN when unpaid individual labor is the primary support.
+      VOLUNTEER_RUN:
+        description: The project is currently developed or maintained primarily through unpaid individual labor; past seed grants should still be recorded separately in funding.
+      UNFUNDED:
+        description: The project currently has neither direct funding nor material institutional, in-kind or volunteer support; do not use this merely because a past grant has ended if active maintenance continues under another model.
+
+  DatasetTypeEnum:
+    description: >-
+      IDHI-governed discovery categories for datasets and dataset-like intellectual objects. Choose the primary form and use tags for secondary characteristics.
+    permissible_values:
+      DIGITAL_EDITION:
+        description: A scholarly or documentary edition whose edited texts, apparatus or aligned versions are delivered digitally; use CORPUS for a collection intended primarily for analysis rather than editorial presentation.
+      CORPUS:
+        description: A curated collection of texts, images, recordings or records assembled primarily for research or computational analysis; use IMAGE_COLLECTION when images are the defining intellectual form.
+      DATABASE:
+        description: Structured records designed primarily for querying and ongoing data management; use GAZETTEER for place-centered authority data and METADATA_CATALOG for records describing other resources.
+      GAZETTEER:
+        description: Structured place-name or geographic authority data connecting names, places and often historical attestations; use DATABASE for non-geographic structured data.
+      IMAGE_COLLECTION:
+        description: A curated collection whose primary research objects are digital images; use CORPUS when images are one modality in an analytically assembled corpus.
+      ANNOTATION_SET:
+        description: Standalone annotations, labels or enrichments applied to other data; use CORPUS when annotations are inseparable from the primary collected content.
+      METADATA_CATALOG:
+        description: Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records.
+      OTHER_RESEARCH_DATA:
+        description: Research data that fits none of the more specific forms; use only after the digital-edition, corpus, database, gazetteer, image-collection, annotation-set and metadata-catalog values have been considered.
 
   AuthorshipRoleEnum:
     description: The kind of contribution to a publication.

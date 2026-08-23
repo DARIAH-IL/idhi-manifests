@@ -12,7 +12,7 @@ A LinkML schema has four main sections. In order of appearance in [`idhi.linkml.
 
 ### 1. `prefixes`
 
-Short aliases for namespace URIs, so we can write `dcterms:description` instead of `http://purl.org/dc/terms/description`. Our own namespace is `idhi: https://idhi.co.il/linkml/`. The other prefixes ([XML Schema](https://www.w3.org/TR/xmlschema11-2/), [foaf](http://xmlns.com/foaf/spec/), [schema](https://schema.org/), [bibo](https://www.dublincore.org/specifications/bibo/bibo/), [dcat](https://www.w3.org/TR/vocab-dcat-3/), [edm](https://pro.europeana.eu/page/edm-documentation), [cerif](https://eurocris.org/services/main-features-cerif), [skos](https://www.w3.org/TR/skos-reference/), [tadirah](https://vocabs.dariah.eu/tadirah/en/), [coar](https://vocabularies.coar-repositories.org/resource_types/), [spdx](https://spdx.org/licenses/), [ORCID](https://orcid.org/), [ROR](https://ror.org/), [DOI](https://www.doi.org/)) exist so that our classes and fields can *reuse* terms from those vocabularies instead of inventing new ones.
+Short aliases for namespace URIs, so we can write `dcterms:description` instead of `http://purl.org/dc/terms/description`. Our own namespace is `idhi: https://idhi.co.il/linkml/`. The other prefixes ([XML Schema](https://www.w3.org/TR/xmlschema11-2/), [foaf](http://xmlns.com/foaf/spec/), [schema](https://schema.org/), [bibo](https://www.dublincore.org/specifications/bibo/bibo/), [dcat](https://www.w3.org/TR/vocab-dcat-3/), [PROV](https://www.w3.org/TR/prov-o/), [edm](https://pro.europeana.eu/page/edm-documentation), [cerif](https://eurocris.org/services/main-features-cerif), [skos](https://www.w3.org/TR/skos-reference/), [tadirah](https://vocabs.dariah.eu/tadirah/en/), [coar](https://vocabularies.coar-repositories.org/resource_types/), [spdx](https://spdx.org/licenses/), [ORCID](https://orcid.org/), [ROR](https://ror.org/), [DOI](https://www.doi.org/)) exist so that our classes and fields can *reuse* terms from those vocabularies instead of inventing new ones.
 
 ### 2. `classes` — the entities
 
@@ -22,13 +22,17 @@ Each class carries a `class_uri` mapping it to an existing ontology class — e.
 
 Two special kinds of classes to know:
 
-- **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. This is how one field holds parallel English / Hebrew / Arabic text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
+- **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. Language accepts syntactically valid BCP-47 tags, so one field can hold parallel English, Hebrew, Arabic, German, Yiddish, Ladino or other localized text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
 - **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`) — see "Reified relationships" below.
-- **`Funding`** — an inlined project funding award that names the funding organization and can record its amount.
+- **`Funding`** — an inlined project funding award that records its funder, amount, multilingual award and programme names, grant number, award URL and funding dates. Multiple awards from the same funder remain separate entries.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
 
 `TrainingMaterial` is a top-level entity for tutorials, lessons and other resources intended to teach an action or learning outcome. Its metadata records the didactic form, creators and publisher, learning outcomes, audience, prerequisites, educational level, content languages, access URL, media type, license and issue date. It can reference the tools, services and datasets it teaches, belong to a larger training material, and be linked as an output of a project.
+
+`Dataset` covers digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs through `dataset_type`. Dataset records can carry a DOI, derivation links, technical extent and byte size, data languages, media types and related publications. `datasets` means catalog aggregation; `derived_from` means provenance, such as source OCR → re-OCRed corpus → cleaned derivative. A digital edition can use its Dataset record as the intellectual object: `homepage` is its web presentation, `distribution_url` and `doi` identify its archived digital form, and `related_publications` links a print counterpart.
+
+`Project.funding_status` records the project's current primary support model, while `funding` preserves its award history. Use `Funding` whenever a distinct grant is known. Use an organization role of `FUNDER` only when the funding relationship is known but no award can be described, and never duplicate the same fact in both places. Host-less projects are valid: independent practitioners remain `Person` records, while `INFORMAL_GROUP` is available only for a named collective that needs its own Organization record.
 
 Organizations can opt into synchronization with the [DARIAH SSH Open Marketplace](https://marketplace.sshopencloud.eu/) through `marketplace_sync: true`. This permits downstream synchronization of the organization and entities related to it through IDHI references, such as services and tools; `false` or an omitted value means no synchronization on that organization's authority. The flag controls export behavior and does not assert that the organization owns every related entity.
 
@@ -50,7 +54,7 @@ An **enum** lists the permitted values of a slot. Each value may carry a `meanin
 
 IDHI uses two flavors:
 
-- **Static enums** — small, IDHI-governed lists written out in the schema: organization types, person/organization roles, event types, tool/service types, licenses. Where an external concept exists, `meaning:` points to it ([schema.org](https://schema.org/) for org types, [CRediT](https://credit.niso.org/) for contributor roles, [SPDX](https://spdx.org/licenses/) for licenses).
+- **Static enums** — small, IDHI-governed lists written out in the schema: organization and dataset types, funding status, person/organization roles, event types, tool/service types, licenses. Where an external concept exists, `meaning:` points to it ([schema.org](https://schema.org/) for org types, [CRediT](https://credit.niso.org/) for contributor roles, [SPDX](https://spdx.org/licenses/) for licenses).
 - **Dynamic enums** — large, externally-governed taxonomies defined as a *query* over a SKOS vocabulary rather than a copied list:
   - `DigitalHumanitiesActivityEnum`: any concept reachable from the seven [TaDiRAH 2.0](https://vocabs.dariah.eu/tadirah/en/) top activities via `skos:narrower` — i.e. the whole taxonomy, always in sync with [DARIAH](https://www.dariah.eu/)'s publication.
   - `PublicationTypeEnum`: any concept from the [COAR Resource Types](https://vocabularies.coar-repositories.org/resource_types/) vocabulary.
@@ -79,13 +83,13 @@ The five relationship classes and when to use them:
 
 | Class | Connects | Carries |
 |---|---|---|
-| `ProjectParticipation` | Person ↔ Project | role (PI, developer...), dates |
+| `ProjectParticipation` | Person ↔ Project | role (PI, DH lead, technical lead, developer, consultant...), dates |
 | `Affiliation` | Person ↔ Organization | position (professor...), dates |
-| `OrganizationProjectRole` | Organization ↔ Project | role (funder, host...), dates |
+| `OrganizationProjectRole` | Organization ↔ Project | role (coordinator, partner, data provider, funder, host), dates |
 | `Authorship` | Person ↔ Publication | byline order, role |
 | `FacilityAffiliation` | Facility ↔ Organization | dates |
 
-One instance per (pair, role): an organization that both funds and hosts a project gets two `OrganizationProjectRole` records.
+Use one `OrganizationProjectRole` instance per (pair, role). If an organization hosts a project and also provides a known award, record the `HOST` role plus a `Funding` entry; add a `FUNDER` role only when no distinct award can be described.
 
 ## Frequently confused pairs
 
@@ -97,6 +101,9 @@ One instance per (pair, role): an organization that both funds and hosts a proje
 - **`homepage` vs `additional_urls` vs `same_as`** — the entity's own main page vs further pages about it (blog, socials, registry entries) vs records about the same entity in other systems ([Wikidata](https://www.wikidata.org/), [PeriodO](https://perio.do/)...).
 - **`emails` vs `contact_email`** — a person's own published addresses vs an entity's contact mailbox (office, team, service desk).
 - **`id` vs `orcid`/`ror`/`doi`** — the `id` is always an IDHI-minted URN (`idhi:<class>:<shortid>`); [ORCID](https://orcid.org/), [ROR](https://ror.org/) and [DOI](https://www.doi.org/) are *supplementary* external identifiers in their own slots and are never used as the primary id.
+- **`datasets` vs `derived_from`** — datasets aggregated by a catalog vs immediate source datasets from which a dataset was transformed.
+- **`dataset_type` vs `media_type`** — the intellectual form (`DIGITAL_EDITION`, `CORPUS`, `GAZETTEER`...) vs the technical serialization (`application/tei+xml`, `application/vnd.apache.parquet`...).
+- **`funding` vs a `FUNDER` organization role** — a distinct award with available metadata vs a funding relationship for which no distinct award can be described; do not record the same fact in both.
 
 ## Build & tooling
 
@@ -170,6 +177,16 @@ make docs-serve   # live-reload dev server at http://127.0.0.1:8000
 
 # Validate a data file against the schema:
 make validate DATA=example/example.yaml
+```
+
+`make validate` first materializes TaDiRAH and COAR and validates against `build/idhi.materialized.linkml.yaml`. Do not validate records directly against raw `idhi.linkml.yaml`: LinkML accepts dynamic-enum syntax there but does not enforce the reachable external concepts, so an invented TaDiRAH CURIE can pass. The materialized schema, or JSON Schema generated from it, is the authoritative validation input.
+
+The `example/` directory contains the synthetic golden file plus three real-world records adapted from the issue reports: [Kima](example/kima.yaml) from [issue #1](https://github.com/DARIAH-IL/idhi-manifests/issues/1), [the Sand and Stars digital edition](example/sand-and-stars.yaml) from [issue #2](https://github.com/DARIAH-IL/idhi-manifests/issues/2), and [the improved Hebrew-newspaper OCR corpus](example/hebrew-newspapers-ocr.yaml) from [issue #3](https://github.com/DARIAH-IL/idhi-manifests/issues/3). Validate any one with the same target:
+
+```bash
+make validate DATA=example/kima.yaml
+make validate DATA=example/sand-and-stars.yaml
+make validate DATA=example/hebrew-newspapers-ocr.yaml
 ```
 
 The generator targets read `GEN_INPUT` (default: `build/idhi.materialized.linkml.yaml`, the git-ignored intermediate produced by `make gen-materialize`); pass `GEN_INPUT=idhi.linkml.yaml` to generate from the raw, unmaterialized schema.

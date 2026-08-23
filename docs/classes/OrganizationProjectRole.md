@@ -6,7 +6,7 @@ search:
 # Class: OrganizationProjectRole 
 
 
-_An organization's engagement in a project. Use one instance per role: an organization that both hosts and funds a project gets two instances._
+_An organization's engagement in a project. Use one instance per role. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described._
 
 
 
@@ -95,7 +95,7 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 | ---  | --- | --- | --- |
 | [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization side of the relationship (by IDHI URN).">The organization side of the relationship (by IDHI URN)</span> | direct |
 | [project](../slots/project.md) | <span title="Required: exactly one value">1</span> <br/> [Project](../classes/Project.md) | <span title="The project side of the relationship (by IDHI URN).">The project side of the relationship (by IDHI URN)</span> | direct |
-| [org_project_role](../slots/org_project_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrgProjectRoleEnum](../enums/OrgProjectRoleEnum.md) | <span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, FUNDER provides money, HOST provides the institutional home. Create one relationship instance per role.">The organization's function in the project: COORDINATOR leads the consortium,...</span> | direct |
+| [org_project_role](../slots/org_project_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrgProjectRoleEnum](../enums/OrgProjectRoleEnum.md) | <span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding.">The organization's function in the project: COORDINATOR leads the consortium,...</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
@@ -153,8 +153,9 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 <details>
 ```yaml
 name: OrganizationProjectRole
-description: 'An organization''s engagement in a project. Use one instance per role:
-  an organization that both hosts and funds a project gets two instances.'
+description: An organization's engagement in a project. Use one instance per role.
+  Represent a known distinct funding award with Funding rather than an additional
+  FUNDER role; use FUNDER only when no award can be described.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
@@ -171,8 +172,9 @@ class_uri: cerif:Project_OrganisationUnit
 <details>
 ```yaml
 name: OrganizationProjectRole
-description: 'An organization''s engagement in a project. Use one instance per role:
-  an organization that both hosts and funds a project gets two instances.'
+description: An organization's engagement in a project. Use one instance per role.
+  Represent a known distinct funding award with Funding rather than an additional
+  FUNDER role; use FUNDER only when no award can be described.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
@@ -202,8 +204,10 @@ attributes:
   org_project_role:
     name: org_project_role
     description: 'The organization''s function in the project: COORDINATOR leads the
-      consortium, PARTNER contributes work, FUNDER provides money, HOST provides the
-      institutional home. Create one relationship instance per role.'
+      consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER
+      records funding when no distinct award can be described, and HOST provides the
+      institutional home. Create one relationship instance per role, and do not duplicate
+      an award already represented in funding.'
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
@@ -223,6 +227,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
   end_date:
     name: end_date
@@ -236,6 +241,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
 class_uri: cerif:Project_OrganisationUnit
 

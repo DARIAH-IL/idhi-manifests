@@ -6,7 +6,7 @@ search:
 # Slot: participation_role 
 
 
-_The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER, software work is DEVELOPER, enrolled students are STUDENT regardless of their task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else._
+_The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); DH_LEAD for digital method and architecture, TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation, CONSULTANT for bounded external professional work, RESEARCHER for scholarly research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when none of the specific values fits._
 
 
 
@@ -86,9 +86,11 @@ URI: [schema:roleName](http://schema.org/roleName)
 ```yaml
 name: participation_role
 description: The person's function within the project team. Use PRINCIPAL_INVESTIGATOR
-  only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER,
-  software work is DEVELOPER, enrolled students are STUDENT regardless of their task,
-  external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else.
+  only for the formally designated PI(s); DH_LEAD for digital method and architecture,
+  TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation,
+  CONSULTANT for bounded external professional work, RESEARCHER for scholarly research,
+  STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when
+  none of the specific values fits.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName

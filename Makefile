@@ -40,8 +40,8 @@ docs-site: gen-docs gen-favicon
 docs-serve: gen-docs gen-favicon
 	uv run zensical serve
 
-validate:
+validate: gen-materialize
 ifndef DATA
 	$(error usage: make validate DATA=<data file>)
 endif
-	uv run linkml validate --schema $(SCHEMA) --target-class IndexContainer $(DATA)
+	uv run linkml validate --schema $(MATERIALIZED) --target-class IndexContainer $(DATA)

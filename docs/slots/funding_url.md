@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: funding_amount 
+# Slot: funding_url 
 
 
-_Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess._
+_Public landing page for the individual award or its authoritative funding record. Use the funding organization's homepage on the Organization record instead when no award-specific page exists._
 
 
 
@@ -14,7 +14,7 @@ _Amount awarded by the funding organization, if public, in ILS unless noted in t
 
 
 
-URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
+URI: [schema:url](http://schema.org/url)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,9 +38,9 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](../types/Float.md) |
+| Range | [Uri](../types/Uri.md) |
 | Domain Of | [Funding](../classes/Funding.md) |
-| Slot URI | [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue) |
+| Slot URI | [schema:url](http://schema.org/url) |
 
 ### Cardinality and Requirements
 
@@ -74,8 +74,8 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | frapo:hasMonetaryValue |
-| native | idhi:funding_amount |
+| self | schema:url |
+| native | idhi:funding_url |
 
 
 
@@ -84,15 +84,16 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 <details>
 ```yaml
-name: funding_amount
-description: Amount awarded by the funding organization, if public, in ILS unless
-  noted in the project description. Omit rather than guess.
+name: funding_url
+description: Public landing page for the individual award or its authoritative funding
+  record. Use the funding organization's homepage on the Organization record instead
+  when no award-specific page exists.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: frapo:hasMonetaryValue
+slot_uri: schema:url
 domain_of:
 - Funding
-range: float
+range: uri
 
 ```
 </details></div>

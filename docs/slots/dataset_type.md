@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: datasets 
+# Slot: dataset_type 
 
 
-_Datasets aggregated by a Dataset that functions as a catalog (by id)._
+_The dataset's primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization._
 
 
 
@@ -14,7 +14,7 @@ _Datasets aggregated by a Dataset that functions as a catalog (by id)._
 
 
 
-URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
+URI: [dcterms:type](http://purl.org/dc/terms/type)
 <!-- no inheritance hierarchy -->
 
 
@@ -26,7 +26,6 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
-| [IndexContainer](../classes/IndexContainer.md) | Top-level holder for all IDHI records |  no  |
 
 
 
@@ -39,15 +38,14 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 | Property | Value |
 | --- | --- |
-| Range | [Dataset](../classes/Dataset.md) |
-| Domain Of | [Dataset](../classes/Dataset.md), [IndexContainer](../classes/IndexContainer.md) |
-| Slot URI | [dcat:dataset](http://www.w3.org/ns/dcat#dataset) |
+| Range | [DatasetTypeEnum](../enums/DatasetTypeEnum.md) |
+| Domain Of | [Dataset](../classes/Dataset.md) |
+| Slot URI | [dcterms:type](http://purl.org/dc/terms/type) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
-| Multivalued | Yes |
 
 
 
@@ -76,8 +74,8 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | dcat:dataset |
-| native | idhi:datasets |
+| self | dcterms:type |
+| native | idhi:dataset_type |
 
 
 
@@ -86,16 +84,16 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 <details>
 ```yaml
-name: datasets
-description: Datasets aggregated by a Dataset that functions as a catalog (by id).
+name: dataset_type
+description: The dataset's primary intellectual or collection form. Use this for discovery
+  categories such as digital edition, corpus or gazetteer; use media_type for its
+  technical serialization.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: dcat:dataset
+slot_uri: dcterms:type
 domain_of:
 - Dataset
-- IndexContainer
-range: Dataset
-multivalued: true
+range: DatasetTypeEnum
 
 ```
 </details></div>

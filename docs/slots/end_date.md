@@ -28,6 +28,7 @@ URI: [schema:endDate](http://schema.org/endDate)
 | [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 | [Relationship](../classes/Relationship.md) | Abstract base for reified, role-bearing relationships |  no  |
+| [Funding](../classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |  no  |
 | [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation in a project |  no  |
 | [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, with a position and d... |  no  |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project |  no  |
@@ -46,7 +47,7 @@ URI: [schema:endDate](http://schema.org/endDate)
 | Property | Value |
 | --- | --- |
 | Range | [Date](../types/Date.md) |
-| Domain Of | [Project](../classes/Project.md), [Event](../classes/Event.md), [Relationship](../classes/Relationship.md) |
+| Domain Of | [Project](../classes/Project.md), [Event](../classes/Event.md), [Relationship](../classes/Relationship.md), [Funding](../classes/Funding.md) |
 | Slot URI | [schema:endDate](http://schema.org/endDate) |
 
 ### Cardinality and Requirements
@@ -101,6 +102,7 @@ domain_of:
 - Project
 - Event
 - Relationship
+- Funding
 range: date
 
 ```

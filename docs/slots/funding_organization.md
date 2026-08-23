@@ -25,7 +25,7 @@ URI: [schema:funder](http://schema.org/funder)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Funding](../classes/Funding.md) | A funding award for a project, identifying the organization that provides it ... |  no  |
+| [Funding](../classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |  no  |
 
 
 

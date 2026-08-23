@@ -154,6 +154,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
   end_date:
     name: end_date
@@ -167,6 +168,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
 class_uri: schema:Role
 

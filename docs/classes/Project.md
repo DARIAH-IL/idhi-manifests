@@ -73,6 +73,19 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
     
 
         
+      Project : funding_status
+        
+          
+    
+        
+        
+        Project --> "0..1" FundingStatusEnum : funding_status
+        
+        click FundingStatusEnum href "../../enums/FundingStatusEnum/"
+        
+    
+
+        
       Project : homepage
         
       Project : id
@@ -247,12 +260,13 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 | [studied_periods](../slots/studied_periods.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Historical period(s) the project studies (e.g. Ottoman period), as free multilingual labels — distinct from the project's own start_date/end_date.">Historical period(s) the project studies (e</span> | direct |
 | [studied_places](../slots/studied_places.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Geographic focus of the research (places studied), as free multilingual labels — distinct from where the project team sits.">Geographic focus of the research (places studied), as free multilingual label...</span> | direct |
 | [project_participations](../slots/project_participations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | <span title="The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates.">The person's project involvements, as reified ProjectParticipation objects ca...</span> | direct |
-| [organization_roles](../slots/organization_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | <span title="Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, funder, host).">Organizations engaged in the project, as reified OrganizationProjectRole obje...</span> | direct |
+| [organization_roles](../slots/organization_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | <span title="Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding.">Organizations engaged in the project, as reified OrganizationProjectRole obje...</span> | direct |
 | [outputs_tools](../slots/outputs_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools produced by this project (by id).">Tools produced by this project (by id)</span> | direct |
 | [outputs_datasets](../slots/outputs_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets produced or curated by this project (by id).">Datasets produced or curated by this project (by id)</span> | direct |
 | [outputs_publications](../slots/outputs_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications resulting from this project (by id).">Publications resulting from this project (by id)</span> | direct |
 | [outputs_training_materials](../slots/outputs_training_materials.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [TrainingMaterial](../classes/TrainingMaterial.md) | <span title="Training materials produced by this project (by IDHI URN); use only for project outputs, not materials merely used by the project.">Training materials produced by this project (by IDHI URN); use only for proje...</span> | direct |
-| [funding](../slots/funding.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Funding](../classes/Funding.md) | <span title="Funding awards received by the project. Use one entry for each funding organization and award.">Funding awards received by the project</span> | direct |
+| [funding](../slots/funding.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Funding](../classes/Funding.md) | <span title="Funding awards received by the project. Use one entry per distinct award, including successive awards from the same organization, and record award dates here rather than duplicating the same fact as a FUNDER organization role.">Funding awards received by the project</span> | direct |
+| [funding_status](../slots/funding_status.md) | <span title="Optional: at most one value">0..1</span> <br/> [FundingStatusEnum](../enums/FundingStatusEnum.md) | <span title="The project's current primary funding or sustainability status at the time the record is maintained. Use this for present support, while funding records preserve past and current award history; update it when the project's circumstances change. This uses an IDHI-specific property because established vocabularies do not provide a controlled current-sustainability status for projects.">The project's current primary funding or sustainability status at the time th...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -347,6 +361,7 @@ slots:
 - outputs_publications
 - outputs_training_materials
 - funding
+- funding_status
 - additional_urls
 - contact_email
 slot_usage:
@@ -453,6 +468,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
   end_date:
     name: end_date
@@ -466,6 +482,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
   studied_periods:
     name: studied_periods
@@ -512,7 +529,8 @@ attributes:
   organization_roles:
     name: organization_roles
     description: Organizations engaged in the project, as reified OrganizationProjectRole
-      objects (coordinator, partner, funder, host).
+      objects (coordinator, partner, data provider, funder or host). Use FUNDER only
+      when no distinct award can be represented in funding.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
@@ -567,8 +585,9 @@ attributes:
     multivalued: true
   funding:
     name: funding
-    description: Funding awards received by the project. Use one entry for each funding
-      organization and award.
+    description: Funding awards received by the project. Use one entry per distinct
+      award, including successive awards from the same organization, and record award
+      dates here rather than duplicating the same fact as a FUNDER organization role.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
@@ -578,6 +597,20 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  funding_status:
+    name: funding_status
+    description: The project's current primary funding or sustainability status at
+      the time the record is maintained. Use this for present support, while funding
+      records preserve past and current award history; update it when the project's
+      circumstances change. This uses an IDHI-specific property because established
+      vocabularies do not provide a controlled current-sustainability status for projects.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: idhi:fundingStatus
+    owner: Project
+    domain_of:
+    - Project
+    range: FundingStatusEnum
   additional_urls:
     name: additional_urls
     description: Further relevant web pages beyond the homepage (blog, social-media

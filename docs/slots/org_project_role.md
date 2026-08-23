@@ -6,7 +6,7 @@ search:
 # Slot: org_project_role 
 
 
-_The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, FUNDER provides money, HOST provides the institutional home. Create one relationship instance per role._
+_The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding._
 
 
 
@@ -86,8 +86,10 @@ URI: [schema:roleName](http://schema.org/roleName)
 ```yaml
 name: org_project_role
 description: 'The organization''s function in the project: COORDINATOR leads the consortium,
-  PARTNER contributes work, FUNDER provides money, HOST provides the institutional
-  home. Create one relationship instance per role.'
+  PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding
+  when no distinct award can be described, and HOST provides the institutional home.
+  Create one relationship instance per role, and do not duplicate an award already
+  represented in funding.'
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName

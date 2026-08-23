@@ -6,7 +6,7 @@ search:
 # Class: Organization 
 
 
-_An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form._
+_An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form._
 
 
 
@@ -234,8 +234,8 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 ```yaml
 name: Organization
 description: An organization of any kind. Its kind (academic institution, GLAM, research
-  center, funder, company, non-profit) is given by organization_type. All organizations
-  use the idhi:organization:<shortid> URN form.
+  center, funder, company, non-profit or informal group) is given by organization_type.
+  All organizations use the idhi:organization:<shortid> URN form.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
@@ -270,8 +270,8 @@ class_uri: foaf:Organization
 ```yaml
 name: Organization
 description: An organization of any kind. Its kind (academic institution, GLAM, research
-  center, funder, company, non-profit) is given by organization_type. All organizations
-  use the idhi:organization:<shortid> URN form.
+  center, funder, company, non-profit or informal group) is given by organization_type.
+  All organizations use the idhi:organization:<shortid> URN form.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi

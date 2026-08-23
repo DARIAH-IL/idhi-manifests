@@ -1,0 +1,424 @@
+
+persons:
+  - type: idhi:Person
+    id: idhi:person:pigorsch
+    orcid: https://orcid.org/0009-0000-3194-503X
+    given_name:
+      - {language: en, value: Stephanie}
+    family_name:
+      - {language: en, value: Pigorsch}
+    affiliations:
+      - member: idhi:person:pigorsch
+        organization: idhi:organization:dzib
+        affiliation_role: EMPLOYEE
+    project_participations:
+      - participant: idhi:person:pigorsch
+        project: idhi:project:sandstars
+        participation_role: PRINCIPAL_INVESTIGATOR
+    authorships:
+      - author: idhi:person:pigorsch
+        publication: idhi:publication:sandstarsbk
+        author_order: 4
+        authorship_role: EDITOR
+
+  - type: idhi:Person
+    id: idhi:person:halpern
+    given_name:
+      - {language: en, value: Ayana}
+      - {language: he, value: עיינה}
+    family_name:
+      - {language: en, value: Halpern}
+      - {language: he, value: הלפרן}
+    affiliations:
+      - member: idhi:person:halpern
+        organization: idhi:organization:huji
+        affiliation_role: ASSOCIATE
+    project_participations:
+      - participant: idhi:person:halpern
+        project: idhi:project:sandstars
+        participation_role: RESEARCHER
+    authorships:
+      - author: idhi:person:halpern
+        publication: idhi:publication:sandstarsbk
+        author_order: 2
+        authorship_role: EDITOR
+
+  - type: idhi:Person
+    id: idhi:person:avnir
+    given_name:
+      - {language: en, value: Yehudit}
+      - {language: he, value: יהודית}
+    family_name:
+      - {language: en, value: Avnir}
+      - {language: he, value: אבניר}
+    affiliations:
+      - member: idhi:person:avnir
+        organization: idhi:organization:huji
+        affiliation_role: PROFESSOR
+    project_participations:
+      - participant: idhi:person:avnir
+        project: idhi:project:sandstars
+        participation_role: ADVISOR
+    authorships:
+      - author: idhi:person:avnir
+        publication: idhi:publication:sandstarsbk
+        author_order: 1
+        authorship_role: EDITOR
+
+  - type: idhi:Person
+    id: idhi:person:laud
+    given_name:
+      - {language: en, value: Dayana}
+    family_name:
+      - {language: en, value: Lau}
+    affiliations:
+      - member: idhi:person:laud
+        organization: idhi:organization:ashb
+        affiliation_role: EMPLOYEE
+    project_participations:
+      - participant: idhi:person:laud
+        project: idhi:project:sandstars
+        participation_role: RESEARCHER
+    authorships:
+      - author: idhi:person:laud
+        publication: idhi:publication:sandstarsbk
+        author_order: 3
+        authorship_role: EDITOR
+
+  - type: idhi:Person
+    id: idhi:person:wilke
+    given_name:
+      - {language: en, value: Burkhard}
+    family_name:
+      - {language: en, value: Wilke}
+    affiliations:
+      - member: idhi:person:wilke
+        organization: idhi:organization:dzib
+        affiliation_role: EMPLOYEE
+    project_participations:
+      - participant: idhi:person:wilke
+        project: idhi:project:sandstars
+        participation_role: CONTRIBUTOR
+    authorships:
+      - author: idhi:person:wilke
+        publication: idhi:publication:sandstarsbk
+        author_order: 5
+        authorship_role: EDITOR
+
+  - type: idhi:Person
+    id: idhi:person:rusinek
+    orcid: https://orcid.org/0000-0003-1043-7954
+    given_name:
+      - {language: en, value: Sinai}
+      - {language: he, value: סיני}
+    family_name:
+      - {language: en, value: Rusinek}
+      - {language: he, value: רוסינק}
+    description:
+      - {language: en, value: "Digital-humanities lead and consultant on behalf of the e-Lijah Lab: TEI modelling of the three-version synoptic edition and its alignment."}
+    affiliations:
+      - member: idhi:person:rusinek
+        organization: idhi:organization:elijahlab
+        affiliation_role: AFFILIATE
+    project_participations:
+      - participant: idhi:person:rusinek
+        project: idhi:project:sandstars
+        participation_role: DH_LEAD
+
+  - type: idhi:Person
+    id: idhi:person:baumgarten
+    given_name:
+      - {language: en, value: Eliezer}
+      - {language: he, value: אליעזר}
+    family_name:
+      - {language: en, value: Baumgarten}
+      - {language: he, value: באומגרטן}
+    affiliations:
+      - member: idhi:person:baumgarten
+        organization: idhi:organization:elijahlab
+        affiliation_role: MEMBER
+    project_participations:
+      - participant: idhi:person:baumgarten
+        project: idhi:project:sandstars
+        participation_role: CONTRIBUTOR
+
+  - type: idhi:Person
+    id: idhi:person:shalit
+    homepage: https://dh-dev.com
+    given_name:
+      - {language: en, value: Gil}
+      - {language: he, value: גיל}
+    family_name:
+      - {language: en, value: Shalit}
+      - {language: he, value: שליט}
+    affiliations:
+      - member: idhi:person:shalit
+        organization: idhi:organization:elijahlab
+        affiliation_role: AFFILIATE
+    project_participations:
+      - participant: idhi:person:shalit
+        project: idhi:project:sandstars
+        participation_role: DEVELOPER
+
+organizations:
+  - type: idhi:Organization
+    id: idhi:organization:dzib
+    name:
+      - {language: en, value: "German Central Institute for Social Issues (DZI)"}
+      - {language: de, value: "Deutsches Zentralinstitut für soziale Fragen (DZI)"}
+    organization_type: RESEARCH_CENTER
+    homepage: https://www.dzi.de
+    location:
+      - {language: en, value: Berlin}
+      - {language: he, value: ברלין}
+      - {language: ar, value: برلين}
+
+  - type: idhi:Organization
+    id: idhi:organization:haifa
+    name:
+      - {language: en, value: University of Haifa}
+      - {language: he, value: אוניברסיטת חיפה}
+      - {language: ar, value: جامعة حيفا}
+    ror: https://ror.org/02f009v59
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.haifa.ac.il
+    location:
+      - {language: en, value: Haifa}
+      - {language: he, value: חיפה}
+      - {language: ar, value: حيفا}
+
+  - type: idhi:Organization
+    id: idhi:organization:elijahlab
+    name:
+      - {language: en, value: "The Eliyahu Lab (e-Lijah Lab) – Laboratory and Incubator for Digital Humanities, University of Haifa"}
+      - {language: he, value: "מעבדת אליהו – מעבדה וחממה למדעי הרוח הדיגיטליים, אוניברסיטת חיפה"}
+    description:
+      - language: en
+        value: >-
+          A digital humanities space at the University of Haifa, operating within
+          the Department of Jewish History, Jewish Thought and the Bible. The lab
+          conducts research, development and knowledge accessibility in Jewish
+          studies with advanced technological tools — data processing, historical
+          mapping, knowledge modelling, digital preservation of manuscripts and
+          historical sources, AI and machine learning, and network analysis —
+          and serves as an incubator for DH methods beyond Jewish studies, in
+          other humanities fields and in education, law and society. It offers
+          advice and support at all stages of DH research, from idea and grant
+          proposal to tool development, database creation and public access.
+          Headed by Prof. Moshe Lavee; home of the Haifa team of the ERC Synergy
+          project MIDRASH.
+      - language: he
+        value: >-
+          מרחב למדעי הרוח הדיגיטליים באוניברסיטת חיפה, הפועל במסגרת החוג
+          להיסטוריה של עם ישראל, מחשבת ישראל ומקרא. המעבדה עוסקת במחקר, בפיתוח
+          ובהנגשת ידע בתחומי מדעי היהדות תוך שילוב כלים טכנולוגיים מתקדמים —
+          עיבוד נתונים, מיפוי היסטורי, מידול ידע, שימור דיגיטלי של כתבי יד
+          ומקורות היסטוריים, בינה מלאכותית, למידת מכונה וניתוח רשתות — ומשמשת
+          חממה ליישום כלי מדעי הרוח הדיגיטליים גם מחוץ למדעי היהדות. בראשות
+          פרופ' משה לביא.
+    organization_type: RESEARCH_CENTER
+    parent_organization: idhi:organization:haifa
+    homepage: https://elijahlab.haifa.ac.il/
+    location:
+      - {language: en, value: Haifa}
+      - {language: he, value: חיפה}
+      - {language: ar, value: حيفا}
+
+  - type: idhi:Organization
+    id: idhi:organization:huji
+    name:
+      - {language: en, value: Hebrew University of Jerusalem}
+      - {language: he, value: האוניברסיטה העברית בירושלים}
+      - {language: ar, value: الجامعة العبرية في القدس}
+    ror: https://ror.org/03qxff017
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.huji.ac.il
+
+  - type: idhi:Organization
+    id: idhi:organization:ashb
+    name:
+      - {language: en, value: Alice Salomon University of Applied Sciences Berlin}
+      - {language: de, value: Alice Salomon Hochschule Berlin}
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.ash-berlin.eu
+    location:
+      - {language: en, value: Berlin}
+
+  - type: idhi:Organization
+    id: idhi:organization:czaj
+    name:
+      - {language: en, value: Central Zionist Archives}
+      - {language: he, value: הארכיון הציוני המרכזי}
+    organization_type: GLAM_INSTITUTION
+    homepage: https://www.zionistarchives.org.il
+    location:
+      - {language: en, value: Jerusalem}
+      - {language: he, value: ירושלים}
+      - {language: ar, value: القدس}
+
+  - type: idhi:Organization
+    id: idhi:organization:digis
+    name:
+      - {language: en, value: "digiS — Research and Competence Centre for Digitisation Berlin, Zuse Institute Berlin"}
+      - {language: de, value: "digiS — Forschungs- und Kompetenzzentrum Digitalisierung Berlin, Zuse-Institut Berlin"}
+    description:
+      - {language: en, value: "Implements the State of Berlin's funding programme for the digitisation of cultural heritage (Förderprogramm zur Digitalisierung von Kulturgütern des Landes Berlin)."}
+    organization_type: FUNDER
+    homepage: https://www.digis-berlin.de
+
+  - type: idhi:Organization
+    id: idhi:organization:nomos
+    name:
+      - {language: en, value: Nomos Verlagsgesellschaft}
+    organization_type: COMPANY
+    homepage: https://www.nomos.de
+
+projects:
+  - type: idhi:Project
+    id: idhi:project:sandstars
+    name:
+      - {language: en, value: "Sand and Stars: Synoptic Digital Edition of Siddy Wronsky's Novel"}
+      - {language: de, value: "Sand und Sterne: Synoptische digitale Edition von Siddy Wronskys Roman"}
+      - {language: he, value: "חול וכוכבים: מהדורה דיגיטלית סינופטית של הרומן מאת סידי ורונסקי"}
+    description:
+      - language: en
+        value: >-
+          Digitisation and scholarly edition of "Sand und Sterne", an unpublished
+          novel written in the late 1930s by the social-work pioneer Siddy
+          (Sidonie) Wronsky (Berlin 1883 – Jerusalem 1947), narrating the flight
+          of four young Jews from Nazi Germany to Mandatory Palestine. The
+          edition presents three parallel versions — the German original
+          manuscript, a Hebrew translation by Yossef Achai, and an anonymous
+          English translation — aligned at the sub-sentence level in TEI XML and
+          published as a synoptic edition in TEI Publisher, with a parallel
+          open-access print edition (Nomos, 2025). The TEI sources are
+          archived on Zenodo and on GitHub. Led by the Deutsches Zentralinstitut
+          für soziale Fragen (DZI), Berlin, with partners in Jerusalem, Haifa
+          and Berlin; funded by the State of Berlin's digitisation programme
+          via digiS.
+      - language: he
+        value: >-
+          דיגיטציה ומהדורה מדעית של "חול וכוכבים", רומן גנוז שכתבה בסוף שנות
+          השלושים חלוצת העבודה הסוציאלית סידי ורונסקי (ברלין 1883 – ירושלים
+          1947), המתאר את בריחתם של ארבעה צעירים יהודים מגרמניה הנאצית לארץ
+          ישראל המנדטורית. המהדורה מציגה זו לצד זו שלוש גרסאות — כתב היד הגרמני
+          המקורי, תרגום לעברית מאת יוסף אחאי ותרגום אנונימי לאנגלית — מיושרות
+          ברמת תת־המשפט ב־TEI XML ומוגשות כמהדורה סינופטית ב־TEI Publisher,
+          לצד מהדורה מודפסת בגישה פתוחה (Nomos, 2025).
+    homepage: https://sand-and-stars.dzi.de:8443/exist/apps/Sand-and-Stars/index.html
+    additional_urls:
+      - https://www.dzi.de/ueber-uns/geschichte/digitalisierungsprojekt-sand-und-sterne/
+      - https://github.com/sinairusinek/Sand-and-Stars
+      - https://doi.org/10.5281/zenodo.18704331
+    digital_humanities_activities:
+      - tadirah:transcribing
+      - tadirah:encoding
+      - tadirah:editing
+      - tadirah:sequenceAlignment
+      - tadirah:translating
+      - tadirah:publishing
+    research_disciplines:
+      - {language: en, value: History of social work}
+      - {language: en, value: German-Jewish literature}
+      - {language: en, value: Jewish history}
+      - {language: en, value: Translation studies}
+    tags:
+      - TEI
+      - TEI Publisher
+      - digital edition
+      - synoptic edition
+      - documentary edition
+      - Siddy Wronsky
+      - Zionism
+      - migration
+      - gender
+    end_date: "2025-12-31"
+    studied_periods:
+      - {language: en, value: 1930s}
+      - {language: he, value: שנות השלושים של המאה העשרים}
+    studied_places:
+      - {language: en, value: Germany}
+      - {language: he, value: גרמניה}
+      - {language: en, value: Mandatory Palestine}
+      - {language: he, value: ארץ ישראל המנדטורית}
+      - {language: ar, value: فلسطين الانتدابية}
+    organization_roles:
+      - organization: idhi:organization:dzib
+        project: idhi:project:sandstars
+        org_project_role: HOST
+      - organization: idhi:organization:dzib
+        project: idhi:project:sandstars
+        org_project_role: COORDINATOR
+      - organization: idhi:organization:elijahlab
+        project: idhi:project:sandstars
+        org_project_role: PARTNER
+      - organization: idhi:organization:czaj
+        project: idhi:project:sandstars
+        org_project_role: PARTNER
+      - organization: idhi:organization:ashb
+        project: idhi:project:sandstars
+        org_project_role: PARTNER
+    funding:
+      - funding_organization: idhi:organization:digis
+        grant_name:
+          - {language: en, value: Sand and Stars digitisation project}
+          - {language: de, value: Digitalisierungsprojekt Sand und Sterne}
+        funding_program:
+          - {language: en, value: State of Berlin programme for the digitisation of cultural heritage}
+          - {language: de, value: Förderprogramm zur Digitalisierung von Kulturgütern des Landes Berlin}
+        funding_url: https://www.dzi.de/ueber-uns/geschichte/digitalisierungsprojekt-sand-und-sterne/
+    outputs_datasets:
+      - idhi:dataset:sandstarstei
+    outputs_publications:
+      - idhi:publication:sandstarsbk
+
+datasets:
+  - type: idhi:Dataset
+    id: idhi:dataset:sandstarstei
+    name:
+      - {language: en, value: "Sand and Stars: A Synoptic Digital Edition (TEI XML)"}
+      - {language: de, value: "Sand und Sterne: Eine synoptische digitale Edition (TEI XML)"}
+      - {language: he, value: "חול וכוכבים: מהדורה דיגיטלית סינופטית (TEI XML)"}
+    description:
+      - {language: en, value: "TEI XML sources of the synoptic edition: German original, Hebrew translation (Yossef Achai) and English translation, aligned at sub-sentence level. Archived on Zenodo (v0.1.0, 2026-02-19) and developed on GitHub; rendered online in TEI Publisher."}
+    homepage: https://sand-and-stars.dzi.de:8443/exist/apps/Sand-and-Stars/index.html
+    doi: https://doi.org/10.5281/zenodo.18704331
+    same_as:
+      - https://github.com/sinairusinek/Sand-and-Stars
+    dataset_type: DIGITAL_EDITION
+    publisher: idhi:organization:dzib
+    license: CC_BY_4_0
+    date_issued: "2026-02-19"
+    distribution_url: https://zenodo.org/records/18704331
+    extent:
+      - Three aligned language versions
+    in_languages:
+      - de
+      - he
+      - en
+    media_type:
+      - application/tei+xml
+    related_publications:
+      - idhi:publication:sandstarsbk
+    themes:
+      - {language: en, value: digital scholarly edition}
+      - {language: en, value: German-Jewish literature}
+      - {language: en, value: social work history}
+    tags:
+      - TEI
+      - synoptic edition
+      - Zenodo
+
+publications:
+  - type: idhi:Publication
+    id: idhi:publication:sandstarsbk
+    name:
+      - {language: en, value: "Siddy Wronsky. Sand and Stars"}
+      - {language: de, value: "Siddy Wronsky. Sand und Sterne"}
+      - {language: he, value: "סידי ורונסקי. חול וכוכבים"}
+    doi: https://doi.org/10.5771/9783748940814
+    publication_type: coar:c_2f33
+    date_issued: "2025-01-01"
+    publisher: idhi:organization:nomos
+    description:
+      - {language: en, value: "Open-access trilingual print edition (German 188 pp., English 109 pp., Hebrew 84 pp.), CC BY, edited by Avnir, Halpern, Lau, Pigorsch and Wilke."}

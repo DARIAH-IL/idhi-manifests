@@ -187,11 +187,22 @@ URI: [ToplevelEntity](../subsets/ToplevelEntity.md)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ## Classes in subset
 
 | Class | Description |
 | --- | --- |
-| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |
+| [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |
 | [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |
 | [Organization](../classes/Organization.md) | An organization of any kind |

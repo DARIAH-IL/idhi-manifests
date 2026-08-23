@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: datasets 
+# Slot: extent 
 
 
-_Datasets aggregated by a Dataset that functions as a catalog (by id)._
+_Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes._
 
 
 
@@ -14,7 +14,7 @@ _Datasets aggregated by a Dataset that functions as a catalog (by id)._
 
 
 
-URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
+URI: [dcterms:extent](http://purl.org/dc/terms/extent)
 <!-- no inheritance hierarchy -->
 
 
@@ -26,7 +26,6 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
-| [IndexContainer](../classes/IndexContainer.md) | Top-level holder for all IDHI records |  no  |
 
 
 
@@ -39,9 +38,9 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 | Property | Value |
 | --- | --- |
-| Range | [Dataset](../classes/Dataset.md) |
-| Domain Of | [Dataset](../classes/Dataset.md), [IndexContainer](../classes/IndexContainer.md) |
-| Slot URI | [dcat:dataset](http://www.w3.org/ns/dcat#dataset) |
+| Range | [String](../types/String.md) |
+| Domain Of | [Dataset](../classes/Dataset.md) |
+| Slot URI | [dcterms:extent](http://purl.org/dc/terms/extent) |
 
 ### Cardinality and Requirements
 
@@ -76,8 +75,8 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | dcat:dataset |
-| native | idhi:datasets |
+| self | dcterms:extent |
+| native | idhi:extent |
 
 
 
@@ -86,15 +85,16 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 <details>
 ```yaml
-name: datasets
-description: Datasets aggregated by a Dataset that functions as a catalog (by id).
+name: extent
+description: Technical extent statements such as record, item, issue, image or file
+  counts. Use one concise statement per measure, include its unit, and use byte_size
+  rather than prose for total bytes.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: dcat:dataset
+slot_uri: dcterms:extent
 domain_of:
 - Dataset
-- IndexContainer
-range: Dataset
+range: string
 multivalued: true
 
 ```

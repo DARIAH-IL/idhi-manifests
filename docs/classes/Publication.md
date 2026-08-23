@@ -160,7 +160,7 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
-| [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.">The publication's persistent identifier</span> | direct |
+| [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
 | [publication_type](../slots/publication_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [PublicationTypeEnum](../enums/PublicationTypeEnum.md) | <span title="The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value.">The kind of publication (journal article, book part, conference paper, thesis</span> | direct |
 | [authorships](../slots/authorships.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Authorship](../classes/Authorship.md) | <span title="The person's publication contributions, as reified Authorship objects carrying byline order and role.">The person's publication contributions, as reified Authorship objects carryin...</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
@@ -185,6 +185,7 @@ URI: [bibo:Document](http://purl.org/ontology/bibo/Document)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Project](../classes/Project.md) | [outputs_publications](../slots/outputs_publications.md) | range | [Publication](../classes/Publication.md) |
+| [Dataset](../classes/Dataset.md) | [related_publications](../slots/related_publications.md) | range | [Publication](../classes/Publication.md) |
 | [Authorship](../classes/Authorship.md) | [publication](../slots/publication.md) | range | [Publication](../classes/Publication.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [publications](../slots/publications.md) | range | [Publication](../classes/Publication.md) |
 
@@ -316,14 +317,18 @@ attributes:
     inlined_as_list: true
   doi:
     name: doi
-    description: The publication's persistent identifier. Record it whenever one exists;
-      it is the preferred deduplication key.
+    description: The publication, dataset, tool or training material's DOI persistent
+      identifier. Record it whenever one exists; it is the preferred deduplication
+      key and is supplementary to the IDHI URN.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: bibo:doi
     owner: Publication
     domain_of:
+    - Tool
     - Publication
+    - Dataset
+    - TrainingMaterial
     range: uri
     structured_pattern:
       syntax: https://doi.org/{doi}

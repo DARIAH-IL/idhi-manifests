@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: datasets 
+# Slot: derived_from 
 
 
-_Datasets aggregated by a Dataset that functions as a catalog (by id)._
+_Source datasets from which this dataset was re-OCRed, cleaned, transformed, subsetted or otherwise derived. Reference each immediate source by IDHI URN; use datasets only for catalog aggregation rather than provenance._
 
 
 
@@ -14,7 +14,7 @@ _Datasets aggregated by a Dataset that functions as a catalog (by id)._
 
 
 
-URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
+URI: [prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom)
 <!-- no inheritance hierarchy -->
 
 
@@ -26,7 +26,6 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
-| [IndexContainer](../classes/IndexContainer.md) | Top-level holder for all IDHI records |  no  |
 
 
 
@@ -40,8 +39,8 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 | Property | Value |
 | --- | --- |
 | Range | [Dataset](../classes/Dataset.md) |
-| Domain Of | [Dataset](../classes/Dataset.md), [IndexContainer](../classes/IndexContainer.md) |
-| Slot URI | [dcat:dataset](http://www.w3.org/ns/dcat#dataset) |
+| Domain Of | [Dataset](../classes/Dataset.md) |
+| Slot URI | [prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) |
 
 ### Cardinality and Requirements
 
@@ -76,8 +75,8 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | dcat:dataset |
-| native | idhi:datasets |
+| self | prov:wasDerivedFrom |
+| native | idhi:derived_from |
 
 
 
@@ -86,14 +85,15 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 
 <details>
 ```yaml
-name: datasets
-description: Datasets aggregated by a Dataset that functions as a catalog (by id).
+name: derived_from
+description: Source datasets from which this dataset was re-OCRed, cleaned, transformed,
+  subsetted or otherwise derived. Reference each immediate source by IDHI URN; use
+  datasets only for catalog aggregation rather than provenance.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: dcat:dataset
+slot_uri: prov:wasDerivedFrom
 domain_of:
 - Dataset
-- IndexContainer
 range: Dataset
 multivalued: true
 

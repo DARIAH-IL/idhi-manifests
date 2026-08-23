@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: themes 
+# Slot: grant_name 
 
 
-_Thematic keywords for the dataset, multilingual._
+_Official multilingual title of the individual grant or award. Use this for the award's title, not the broader recurring programme, which belongs in funding_program._
 
 
 
@@ -14,7 +14,7 @@ _Thematic keywords for the dataset, multilingual._
 
 
 
-URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
+URI: [schema:name](http://schema.org/name)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
+| [Funding](../classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |  no  |
 
 
 
@@ -39,8 +39,8 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 | Property | Value |
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Dataset](../classes/Dataset.md) |
-| Slot URI | [dcat:theme](http://www.w3.org/ns/dcat#theme) |
+| Domain Of | [Funding](../classes/Funding.md) |
+| Slot URI | [schema:name](http://schema.org/name) |
 
 ### Cardinality and Requirements
 
@@ -75,8 +75,8 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | dcat:theme |
-| native | idhi:themes |
+| self | schema:name |
+| native | idhi:grant_name |
 
 
 
@@ -85,13 +85,14 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 
 <details>
 ```yaml
-name: themes
-description: Thematic keywords for the dataset, multilingual.
+name: grant_name
+description: Official multilingual title of the individual grant or award. Use this
+  for the award's title, not the broader recurring programme, which belongs in funding_program.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: dcat:theme
+slot_uri: schema:name
 domain_of:
-- Dataset
+- Funding
 range: LangString
 multivalued: true
 inlined: true

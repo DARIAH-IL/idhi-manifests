@@ -6,7 +6,7 @@ search:
 # Slot: language 
 
 
-_BCP-47 language tag of the value (en, he or ar)._
+_BCP-47 language tag of the value, such as en, he, ar, de, yi or lad. Use the shortest registered tag that accurately identifies the text; the deliberately permissive syntax guard accepts private and grandfathered tags and does not verify registration in the IANA language-subtag registry._
 
 
 
@@ -38,7 +38,7 @@ URI: [dcterms:language](http://purl.org/dc/terms/language)
 
 | Property | Value |
 | --- | --- |
-| Range | [LanguageEnum](../enums/LanguageEnum.md) |
+| Range | [String](../types/String.md) |
 | Domain Of | [LangString](../classes/LangString.md) |
 | Slot URI | [dcterms:language](http://purl.org/dc/terms/language) |
 
@@ -47,6 +47,13 @@ URI: [dcterms:language](http://purl.org/dc/terms/language)
 | Property | Value |
 | --- | --- |
 | Required | Yes |
+### Value Constraints
+
+| Property | Value |
+| --- | --- |
+| Regex Pattern | `^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$` |
+
+
 
 
 
@@ -86,14 +93,18 @@ URI: [dcterms:language](http://purl.org/dc/terms/language)
 <details>
 ```yaml
 name: language
-description: BCP-47 language tag of the value (en, he or ar).
+description: BCP-47 language tag of the value, such as en, he, ar, de, yi or lad.
+  Use the shortest registered tag that accurately identifies the text; the deliberately
+  permissive syntax guard accepts private and grandfathered tags and does not verify
+  registration in the IANA language-subtag registry.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:language
 domain_of:
 - LangString
-range: LanguageEnum
+range: string
 required: true
+pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
 
 ```
 </details></div>

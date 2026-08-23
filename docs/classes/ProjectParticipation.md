@@ -95,7 +95,7 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 | ---  | --- | --- | --- |
 | [participant](../slots/participant.md) | <span title="Required: exactly one value">1</span> <br/> [Person](../classes/Person.md) | <span title="The person taking part in the project (by IDHI URN).">The person taking part in the project (by IDHI URN)</span> | direct |
 | [project](../slots/project.md) | <span title="Required: exactly one value">1</span> <br/> [Project](../classes/Project.md) | <span title="The project side of the relationship (by IDHI URN).">The project side of the relationship (by IDHI URN)</span> | direct |
-| [participation_role](../slots/participation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [ProjectRoleEnum](../enums/ProjectRoleEnum.md) | <span title="The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER, software work is DEVELOPER, enrolled students are STUDENT regardless of their task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else.">The person's function within the project team</span> | direct |
+| [participation_role](../slots/participation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [ProjectRoleEnum](../enums/ProjectRoleEnum.md) | <span title="The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); DH_LEAD for digital method and architecture, TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation, CONSULTANT for bounded external professional work, RESEARCHER for scholarly research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when none of the specific values fits.">The person's function within the project team</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
@@ -203,10 +203,11 @@ attributes:
   participation_role:
     name: participation_role
     description: The person's function within the project team. Use PRINCIPAL_INVESTIGATOR
-      only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER,
-      software work is DEVELOPER, enrolled students are STUDENT regardless of their
-      task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything
-      else.
+      only for the formally designated PI(s); DH_LEAD for digital method and architecture,
+      TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation,
+      CONSULTANT for bounded external professional work, RESEARCHER for scholarly
+      research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR
+      only when none of the specific values fits.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
@@ -226,6 +227,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
   end_date:
     name: end_date
@@ -239,6 +241,7 @@ attributes:
     - Project
     - Event
     - Relationship
+    - Funding
     range: date
 class_uri: cerif:Project_Person
 

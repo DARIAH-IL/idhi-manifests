@@ -6,7 +6,7 @@ search:
 # Slot: doi 
 
 
-_The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key._
+_The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN._
 
 
 
@@ -25,7 +25,10 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
+| [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 
 
@@ -39,7 +42,7 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 | Property | Value |
 | --- | --- |
 | Range | [Uri](../types/Uri.md) |
-| Domain Of | [Publication](../classes/Publication.md) |
+| Domain Of | [Tool](../classes/Tool.md), [Publication](../classes/Publication.md), [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [bibo:doi](http://purl.org/ontology/bibo/doi) |
 
 ### Cardinality and Requirements
@@ -94,13 +97,17 @@ URI: [bibo:doi](http://purl.org/ontology/bibo/doi)
 <details>
 ```yaml
 name: doi
-description: The publication's persistent identifier. Record it whenever one exists;
-  it is the preferred deduplication key.
+description: The publication, dataset, tool or training material's DOI persistent
+  identifier. Record it whenever one exists; it is the preferred deduplication key
+  and is supplementary to the IDHI URN.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: bibo:doi
 domain_of:
+- Tool
 - Publication
+- Dataset
+- TrainingMaterial
 range: uri
 structured_pattern:
   syntax: https://doi.org/{doi}

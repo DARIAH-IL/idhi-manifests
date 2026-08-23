@@ -6,7 +6,7 @@ search:
 # Slot: funding 
 
 
-_Funding awards received by the project. Use one entry for each funding organization and award._
+_Funding awards received by the project. Use one entry per distinct award, including successive awards from the same organization, and record award dates here rather than duplicating the same fact as a FUNDER organization role._
 
 
 
@@ -85,8 +85,9 @@ URI: [idhi:slot/funding](https://idhi_placeholder/linkml/slot/funding)
 <details>
 ```yaml
 name: funding
-description: Funding awards received by the project. Use one entry for each funding
-  organization and award.
+description: Funding awards received by the project. Use one entry per distinct award,
+  including successive awards from the same organization, and record award dates here
+  rather than duplicating the same fact as a FUNDER organization role.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

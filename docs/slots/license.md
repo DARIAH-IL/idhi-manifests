@@ -26,7 +26,7 @@ URI: [dcterms:license](http://purl.org/dc/terms/license)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
-| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 

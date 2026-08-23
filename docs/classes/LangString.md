@@ -6,7 +6,7 @@ search:
 # Class: LangString 
 
 
-_A single language-tagged text value. Instances are combined in a multivalued slot to give English/Hebrew/Arabic variants of one field. Use one LangString per language; do not repeat a language within the same field._
+_A single language-tagged text value. Instances are combined in a multivalued slot to give variants of one field in any language identified by a BCP-47 tag. Use one LangString per language; do not repeat a language within the same field._
 
 
 
@@ -28,17 +28,6 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 
       LangString : language
         
-          
-    
-        
-        
-        LangString --> "1" LanguageEnum : language
-        
-        click LanguageEnum href "../../enums/LanguageEnum/"
-        
-    
-
-        
       LangString : value
         
       
@@ -57,7 +46,7 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [language](../slots/language.md) | <span title="Required: exactly one value">1</span> <br/> [LanguageEnum](../enums/LanguageEnum.md) | <span title="BCP-47 language tag of the value (en, he or ar).">BCP-47 language tag of the value (en, he or ar)</span> | direct |
+| [language](../slots/language.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="BCP-47 language tag of the value, such as en, he, ar, de, yi or lad. Use the shortest registered tag that accurately identifies the text; the deliberately permissive syntax guard accepts private and grandfathered tags and does not verify registration in the IANA language-subtag registry.">BCP-47 language tag of the value, such as en, he, ar, de, yi or lad</span> | direct |
 | [value](../slots/value.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="A localized text, in the language given by 'language'.">A localized text, in the language given by 'language'</span> | direct |
 
 
@@ -106,6 +95,8 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [prerequisites](../slots/prerequisites.md) | range | [LangString](../classes/LangString.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [educational_level](../slots/educational_level.md) | range | [LangString](../classes/LangString.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
+| [Funding](../classes/Funding.md) | [grant_name](../slots/grant_name.md) | range | [LangString](../classes/LangString.md) |
+| [Funding](../classes/Funding.md) | [funding_program](../slots/funding_program.md) | range | [LangString](../classes/LangString.md) |
 
 
 
@@ -152,8 +143,8 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 ```yaml
 name: LangString
 description: A single language-tagged text value. Instances are combined in a multivalued
-  slot to give English/Hebrew/Arabic variants of one field. Use one LangString per
-  language; do not repeat a language within the same field.
+  slot to give variants of one field in any language identified by a BCP-47 tag. Use
+  one LangString per language; do not repeat a language within the same field.
 from_schema: https://idhi_placeholder/linkml/idhi
 slots:
 - language
@@ -169,21 +160,25 @@ class_uri: rdf:langString
 ```yaml
 name: LangString
 description: A single language-tagged text value. Instances are combined in a multivalued
-  slot to give English/Hebrew/Arabic variants of one field. Use one LangString per
-  language; do not repeat a language within the same field.
+  slot to give variants of one field in any language identified by a BCP-47 tag. Use
+  one LangString per language; do not repeat a language within the same field.
 from_schema: https://idhi_placeholder/linkml/idhi
 attributes:
   language:
     name: language
-    description: BCP-47 language tag of the value (en, he or ar).
+    description: BCP-47 language tag of the value, such as en, he, ar, de, yi or lad.
+      Use the shortest registered tag that accurately identifies the text; the deliberately
+      permissive syntax guard accepts private and grandfathered tags and does not
+      verify registration in the IANA language-subtag registry.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:language
     owner: LangString
     domain_of:
     - LangString
-    range: LanguageEnum
+    range: string
     required: true
+    pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
   value:
     name: value
     description: A localized text, in the language given by 'language'.

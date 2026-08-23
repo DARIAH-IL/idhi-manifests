@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: funding_amount 
+# Slot: grant_number 
 
 
-_Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess._
+_Identifier assigned to the grant by its funding organization. Use the funder's exact value and omit it when none is published._
 
 
 
@@ -14,7 +14,7 @@ _Amount awarded by the funding organization, if public, in ILS unless noted in t
 
 
 
-URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
+URI: [frapo:hasGrantNumber](http://purl.org/cerif/frapo/hasGrantNumber)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,9 +38,9 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](../types/Float.md) |
+| Range | [String](../types/String.md) |
 | Domain Of | [Funding](../classes/Funding.md) |
-| Slot URI | [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue) |
+| Slot URI | [frapo:hasGrantNumber](http://purl.org/cerif/frapo/hasGrantNumber) |
 
 ### Cardinality and Requirements
 
@@ -74,8 +74,8 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | frapo:hasMonetaryValue |
-| native | idhi:funding_amount |
+| self | frapo:hasGrantNumber |
+| native | idhi:grant_number |
 
 
 
@@ -84,15 +84,15 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 <details>
 ```yaml
-name: funding_amount
-description: Amount awarded by the funding organization, if public, in ILS unless
-  noted in the project description. Omit rather than guess.
+name: grant_number
+description: Identifier assigned to the grant by its funding organization. Use the
+  funder's exact value and omit it when none is published.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: frapo:hasMonetaryValue
+slot_uri: frapo:hasGrantNumber
 domain_of:
 - Funding
-range: float
+range: string
 
 ```
 </details></div>

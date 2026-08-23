@@ -1,0 +1,299 @@
+
+persons:
+  - type: idhi:Person
+    id: idhi:person:goldstein
+    given_name:
+      - {language: en, value: Amir}
+      - {language: he, value: אמיר}
+    family_name:
+      - {language: en, value: Goldstein}
+      - {language: he, value: גולדשטיין}
+    affiliations:
+      - member: idhi:person:goldstein
+        organization: idhi:organization:telhai
+        affiliation_role: PROFESSOR
+    project_participations:
+      - participant: idhi:person:goldstein
+        project: idhi:project:hebnewsocr
+        participation_role: PRINCIPAL_INVESTIGATOR
+
+  - type: idhi:Person
+    id: idhi:person:rusinek
+    orcid: https://orcid.org/0000-0003-1043-7954
+    given_name:
+      - {language: en, value: Sinai}
+      - {language: he, value: סיני}
+    family_name:
+      - {language: en, value: Rusinek}
+      - {language: he, value: רוסינק}
+    description:
+      - {language: en, value: "Digital-humanities project lead: designed and ran the OCR re-reading pipeline (Transkribus at OMILab, then Kraken) and prepared the corpus documentation. Her work on this dataset was funded by the ISF grant \"The Double Movement? Towards a Socioeconomic Historiography of the Right in Israel (1948–1984)\" (PI Amir Goldstein)."}
+    project_participations:
+      - participant: idhi:person:rusinek
+        project: idhi:project:hebnewsocr
+        participation_role: DH_LEAD
+
+  - type: idhi:Person
+    id: idhi:person:snapir
+    given_name:
+      - {language: en, value: Yoad}
+      - {language: he, value: יועד}
+    family_name:
+      - {language: en, value: Snapir}
+      - {language: he, value: סנפיר}
+    homepage: https://huggingface.co/yoad
+    affiliations:
+      - member: idhi:person:snapir
+        organization: idhi:organization:ivritai
+        affiliation_role: MEMBER
+    project_participations:
+      - participant: idhi:person:snapir
+        project: idhi:project:hebnewsocr
+        participation_role: DEVELOPER
+
+organizations:
+  - type: idhi:Organization
+    id: idhi:organization:telhai
+    name:
+      - {language: en, value: Tel-Hai Academic College}
+      - {language: he, value: המכללה האקדמית תל־חי}
+      - {language: ar, value: كلية تل حاي الأكاديمية}
+    ror: https://ror.org/04sxgkw05
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.telhai.ac.il
+    location:
+      - {language: en, value: Upper Galilee}
+      - {language: he, value: הגליל העליון}
+
+  - type: idhi:Organization
+    id: idhi:organization:isfil
+    name:
+      - {language: en, value: Israel Science Foundation}
+      - {language: he, value: הקרן הלאומית למדע}
+    ror: https://ror.org/03x8rhq63
+    organization_type: FUNDER
+    homepage: https://www.isf.org.il
+
+  - type: idhi:Organization
+    id: idhi:organization:openu
+    name:
+      - {language: en, value: The Open University of Israel}
+      - {language: he, value: האוניברסיטה הפתוחה}
+      - {language: ar, value: الجامعة المفتوحة}
+    ror: https://ror.org/04ksbdh43
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.openu.ac.il
+
+  - type: idhi:Organization
+    id: idhi:organization:omilab
+    name:
+      - {language: en, value: "OMILab – Open Media and Information Lab, The Open University of Israel"}
+      - {language: he, value: "מעבדת OMILab למדיה ומידע פתוחים, האוניברסיטה הפתוחה"}
+    organization_type: RESEARCH_CENTER
+    parent_organization: idhi:organization:openu
+    homepage: https://www.openu.ac.il/en/omilab/pages/historicalnewspaper
+
+  - type: idhi:Organization
+    id: idhi:organization:ivritai
+    name:
+      - {language: en, value: ivrit.ai}
+    description:
+      - {language: en, value: "Non-profit initiative building open Hebrew speech and language datasets and models. Helped pro bono with the OCR pipeline and published the dataset on Hugging Face."}
+    organization_type: NON_PROFIT
+    homepage: https://www.ivrit.ai
+
+  - type: idhi:Organization
+    id: idhi:organization:nlil
+    name:
+      - {language: en, value: National Library of Israel}
+      - {language: he, value: הספרייה הלאומית}
+      - {language: ar, value: المكتبة الوطنية الإسرائيلية}
+    ror: https://ror.org/05hj9vw76
+    organization_type: GLAM_INSTITUTION
+    homepage: https://www.nli.org.il
+    location:
+      - {language: en, value: Jerusalem}
+      - {language: he, value: ירושלים}
+      - {language: ar, value: القدس}
+
+  - type: idhi:Organization
+    id: idhi:organization:telaviv
+    name:
+      - {language: en, value: Tel Aviv University}
+      - {language: he, value: אוניברסיטת תל אביב}
+      - {language: ar, value: جامعة تل أبيب}
+    ror: https://ror.org/04mhzgx49
+    organization_type: ACADEMIC_INSTITUTION
+    homepage: https://www.tau.ac.il
+
+projects:
+  - type: idhi:Project
+    id: idhi:project:hebnewsocr
+    name:
+      - {language: en, value: "Improved OCR Corpus of Mid-20th-Century Hebrew Newspapers"}
+      - {language: he, value: "קורפוס OCR משופר של עיתונות עברית מאמצע המאה העשרים"}
+    description:
+      - language: en
+        value: >-
+          A series of consecutive projects to improve the OCR of digitised
+          historical Hebrew newspapers from the Historical Jewish Press (JPress)
+          collection of the National Library of Israel and Tel Aviv University,
+          whose two decades of digitisation left OCR of uneven quality that
+          impedes advanced text analysis. Segmented newspaper pages were re-read
+          with trained models: a first pipeline built at the Open University's
+          OMILab on the Transkribus platform, then ported to the open-source
+          Kraken engine. The resulting corpus — over 2.6 million items (articles
+          and advertisements) from 17,957 issues of five Israeli dailies: Maariv,
+          Davar, Herut, Haboker and Hayom — was prepared as a research corpus for
+          the ISF project "The Double Movement? Towards a Socioeconomic
+          Historiography of the Right in Israel (1948–1984)", led by Prof. Amir
+          Goldstein (Tel-Hai Academic College), which funded the OCR work.
+          ivrit.ai helped pro bono with the pipeline and published the dataset
+          on Hugging Face, where it is openly available for text analysis and
+          for further OCR training.
+      - language: he
+        value: >-
+          סדרת פרויקטים לשיפור ה־OCR של עיתונים עבריים היסטוריים מאוסף "עיתונות
+          יהודית היסטורית" (JPress) של הספרייה הלאומית ואוניברסיטת תל אביב.
+          עמודי עיתון מפולחים נקראו מחדש באמצעות מודלים מאומנים — תחילה
+          בפלטפורמת Transkribus במעבדת OMILab של האוניברסיטה הפתוחה, ולאחר מכן
+          במנוע הקוד הפתוח Kraken. הקורפוס — למעלה מ־2.6 מיליון פריטים (כתבות
+          ומודעות) מ־17,957 גיליונות של חמישה יומונים: מעריב, דבר, חרות, הבוקר
+          והיום — הוכן כקורפוס מחקר לפרויקט ISF "התנועה הכפולה? לקראת
+          היסטוריוגרפיה חברתית־כלכלית של הימין בישראל (1984–1948)" בראשות פרופ'
+          אמיר גולדשטיין (המכללה האקדמית תל־חי), שמימן את עבודת ה־OCR. ivrit.ai
+          סייעה בהתנדבות בבניית הצינור והעלתה את מאגר הנתונים ל־Hugging Face, שם
+          הוא זמין באופן פתוח.
+    homepage: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus_transformed
+    additional_urls:
+      - https://huggingface.co/datasets/yoad/heb_news_ocr_corpus
+      - https://docs.google.com/document/d/1bUV5CyuYvgyJIU_IoIjqwd-oMtuwEB55qdGnuyj_258/
+      - https://www.openu.ac.il/en/omilab/pages/historicalnewspaper
+      - https://www.nli.org.il/en/discover/newspapers/jpress
+    digital_humanities_activities:
+      - tadirah:opticalCharacterRecognition
+      - tadirah:segmenting
+      - tadirah:machineLearning
+      - tadirah:dataCleansing
+      - tadirah:converting
+      - tadirah:disseminating
+    research_disciplines:
+      - {language: en, value: History of the press}
+      - {language: en, value: Israeli history}
+      - {language: en, value: Computational linguistics}
+    tags:
+      - OCR
+      - Kraken
+      - Transkribus
+      - historical newspapers
+      - JPress
+      - Hebrew
+      - corpus
+      - Hugging Face
+      - Maariv
+      - Davar
+      - Herut
+      - Haboker
+      - Hayom
+    end_date: "2025-05-10"
+    studied_periods:
+      - {language: en, value: 1925–1969}
+      - {language: he, value: 1969–1925}
+    studied_places:
+      - {language: en, value: Mandatory Palestine and Israel}
+      - {language: he, value: ארץ ישראל המנדטורית ומדינת ישראל}
+      - {language: ar, value: فلسطين الانتدابية وإسرائيل}
+    organization_roles:
+      - organization: idhi:organization:telhai
+        project: idhi:project:hebnewsocr
+        org_project_role: HOST
+      - organization: idhi:organization:omilab
+        project: idhi:project:hebnewsocr
+        org_project_role: PARTNER
+      - organization: idhi:organization:ivritai
+        project: idhi:project:hebnewsocr
+        org_project_role: PARTNER
+      - organization: idhi:organization:nlil
+        project: idhi:project:hebnewsocr
+        org_project_role: DATA_PROVIDER
+    funding:
+      - funding_organization: idhi:organization:isfil
+        grant_name:
+          - {language: en, value: "The Double Movement? Towards a Socioeconomic Historiography of the Right in Israel (1948–1984)"}
+          - {language: he, value: "התנועה הכפולה? לקראת היסטוריוגרפיה חברתית־כלכלית של הימין בישראל (1984–1948)"}
+    outputs_datasets:
+      - idhi:dataset:hebnewsocr
+      - idhi:dataset:hebnewsocrtf
+
+datasets:
+  - type: idhi:Dataset
+    id: idhi:dataset:jpress
+    name:
+      - {language: en, value: "Historical Jewish Press (JPress)"}
+      - {language: he, value: "עיתונות יהודית היסטורית (JPress)"}
+    description:
+      - {language: en, value: "Digitised Jewish newspapers with original OCR; joint project of the National Library of Israel and Tel Aviv University and source collection of the re-OCRed corpora."}
+    homepage: https://www.nli.org.il/en/discover/newspapers/jpress
+    dataset_type: CORPUS
+    publisher: idhi:organization:nlil
+    themes:
+      - {language: en, value: historical newspapers}
+
+  - type: idhi:Dataset
+    id: idhi:dataset:hebnewsocr
+    name:
+      - {language: en, value: "Hebrew News OCR Corpus (heb_news_ocr_corpus)"}
+      - {language: he, value: "קורפוס OCR של עיתונות עברית (heb_news_ocr_corpus)"}
+    description:
+      - {language: en, value: "Raw Kraken OCR output: 2,739,218 items from 17,957 issues of Maariv, Davar, Herut, Haboker and Hayom, with article_id, region ids, title, type (article/advertisement), page, ocr_text, newspaper_name and date. 50 Parquet files, 3.4 GB. Derived from JPress page images."}
+    homepage: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus
+    dataset_type: CORPUS
+    derived_from:
+      - idhi:dataset:jpress
+    publisher: idhi:organization:ivritai
+    date_issued: "2025-02-01"
+    distribution_url: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus
+    extent:
+      - 2,739,218 items
+      - 17,957 newspaper issues
+      - 50 Parquet files
+    byte_size: 3400000000
+    in_languages:
+      - he
+    media_type:
+      - application/vnd.apache.parquet
+    themes:
+      - {language: en, value: historical newspapers}
+      - {language: en, value: OCR}
+    tags:
+      - parquet
+      - Hugging Face
+
+  - type: idhi:Dataset
+    id: idhi:dataset:hebnewsocrtf
+    name:
+      - {language: en, value: "Hebrew News OCR Corpus, transformed (heb_news_ocr_corpus_transformed)"}
+      - {language: he, value: "קורפוס OCR של עיתונות עברית, גרסה מעובדת"}
+    description:
+      - {language: en, value: "Cleaned derivative of heb_news_ocr_corpus: 2,618,671 items with clean_ocr_text, typed dates and an article_url linking each item back to its JPress page. 3.1 GB Parquet. License not stated on Hugging Face (TODO)."}
+    homepage: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus_transformed
+    dataset_type: CORPUS
+    derived_from:
+      - idhi:dataset:hebnewsocr
+    publisher: idhi:organization:ivritai
+    date_issued: "2025-05-05"
+    distribution_url: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus_transformed
+    extent:
+      - 2,618,671 items
+    byte_size: 3100000000
+    in_languages:
+      - he
+    media_type:
+      - application/vnd.apache.parquet
+    themes:
+      - {language: en, value: historical newspapers}
+      - {language: en, value: OCR}
+    tags:
+      - parquet
+      - Hugging Face
+      - croissant

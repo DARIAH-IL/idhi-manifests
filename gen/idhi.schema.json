@@ -167,8 +167,19 @@
         },
         "Dataset": {
             "additionalProperties": false,
-            "description": "A dataset, digital archive or catalog produced or curated by a project: corpora, databases, image collections, annotation sets and collections of metadata records. Use Dataset for both research data and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.",
+            "description": "A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.",
             "properties": {
+                "byte_size": {
+                    "description": "Total size of the described dataset distribution in bytes. Use an exact or documented aggregate byte count and omit it when only an unreliable estimate is available.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "dataset_type": {
+                    "$ref": "#/$defs/DatasetTypeEnum",
+                    "description": "The dataset's primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization."
+                },
                 "datasets": {
                     "description": "Datasets aggregated by a Dataset that functions as a catalog (by id).",
                     "items": {
@@ -187,6 +198,16 @@
                         "null"
                     ]
                 },
+                "derived_from": {
+                    "description": "Source datasets from which this dataset was re-OCRed, cleaned, transformed, subsetted or otherwise derived. Reference each immediate source by IDHI URN; use datasets only for catalog aggregation rather than provenance.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "description": {
                     "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
                     "items": {
@@ -202,6 +223,25 @@
                     "format": "uri",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "doi": {
+                    "description": "The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.",
+                    "format": "uri",
+                    "pattern": "https://doi.org/.+",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "extent": {
+                    "description": "Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -225,9 +265,30 @@
                         "null"
                     ]
                 },
+                "in_languages": {
+                    "description": "Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page.",
+                    "items": {
+                        "pattern": "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "license": {
                     "$ref": "#/$defs/LicenseEnum",
                     "description": "The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown."
+                },
+                "media_type": {
+                    "description": "Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "name": {
                     "description": "The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.",
@@ -240,6 +301,16 @@
                     "description": "The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "related_publications": {
+                    "description": "Publications that are counterparts or direct scholarly companions of the dataset, such as the print counterpart of a digital edition. Reference Publication records by IDHI URN; use outputs_publications on Project for outputs that are related only by their project of origin.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -287,6 +358,21 @@
             ],
             "title": "Dataset",
             "type": "object"
+        },
+        "DatasetTypeEnum": {
+            "description": "IDHI-governed discovery categories for datasets and dataset-like intellectual objects. Choose the primary form and use tags for secondary characteristics.",
+            "enum": [
+                "DIGITAL_EDITION",
+                "CORPUS",
+                "DATABASE",
+                "GAZETTEER",
+                "IMAGE_COLLECTION",
+                "ANNOTATION_SET",
+                "METADATA_CATALOG",
+                "OTHER_RESEARCH_DATA"
+            ],
+            "title": "DatasetTypeEnum",
+            "type": "string"
         },
         "DigitalHumanitiesActivityEnum": {
             "description": "Digital-humanities research activities: Analyzing, Capturing, Creating, Disseminating, Enriching, Interpreting, Storing, and their more specific subactivities.",
@@ -859,8 +945,16 @@
         },
         "Funding": {
             "additionalProperties": false,
-            "description": "A funding award for a project, identifying the organization that provides it and its amount when public. It is inlined within the funded Project and has no independent ID.",
+            "description": "A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. Use Funding when an award or grant is known; use an OrganizationProjectRole with FUNDER only when the funder's involvement is known but no distinct award can be described, and do not record the same funding fact in both structures. It is inlined within the funded Project and has no independent ID.",
             "properties": {
+                "end_date": {
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "funding_amount": {
                     "description": "Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.",
                     "type": [
@@ -871,6 +965,49 @@
                 "funding_organization": {
                     "description": "The organization that provides this funding award (by IDHI URN).",
                     "type": "string"
+                },
+                "funding_program": {
+                    "description": "Multilingual name of the broader funding programme or scheme under which the award was made. This uses an IDHI-specific property because FRAPO defines FundingProgramme as a class but has no fitting property for a literal programme label.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "funding_url": {
+                    "description": "Public landing page for the individual award or its authoritative funding record. Use the funding organization's homepage on the Organization record instead when no award-specific page exists.",
+                    "format": "uri",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "grant_name": {
+                    "description": "Official multilingual title of the individual grant or award. Use this for the award's title, not the broader recurring programme, which belongs in funding_program.",
+                    "items": {
+                        "$ref": "#/$defs/LangString"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "grant_number": {
+                    "description": "Identifier assigned to the grant by its funding organization. Use the funder's exact value and omit it when none is published.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "start_date": {
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -878,6 +1015,18 @@
             ],
             "title": "Funding",
             "type": "object"
+        },
+        "FundingStatusEnum": {
+            "description": "IDHI-governed values for the current primary way a project is financially or operationally sustained; no established controlled vocabulary covers these project-maintenance states. Historical grants belong in Funding records; choose the value that best describes the project's present circumstances.",
+            "enum": [
+                "ACTIVE_GRANT_FUNDING",
+                "INSTITUTIONALLY_SUSTAINED",
+                "IN_KIND_ONLY",
+                "VOLUNTEER_RUN",
+                "UNFUNDED"
+            ],
+            "title": "FundingStatusEnum",
+            "type": "string"
         },
         "IndexContainer": {
             "additionalProperties": false,
@@ -989,11 +1138,12 @@
         },
         "LangString": {
             "additionalProperties": false,
-            "description": "A single language-tagged text value. Instances are combined in a multivalued slot to give English/Hebrew/Arabic variants of one field. Use one LangString per language; do not repeat a language within the same field.",
+            "description": "A single language-tagged text value. Instances are combined in a multivalued slot to give variants of one field in any language identified by a BCP-47 tag. Use one LangString per language; do not repeat a language within the same field.",
             "properties": {
                 "language": {
-                    "$ref": "#/$defs/LanguageEnum",
-                    "description": "BCP-47 language tag of the value (en, he or ar)."
+                    "description": "BCP-47 language tag of the value, such as en, he, ar, de, yi or lad. Use the shortest registered tag that accurately identifies the text; the deliberately permissive syntax guard accepts private and grandfathered tags and does not verify registration in the IANA language-subtag registry.",
+                    "pattern": "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$",
+                    "type": "string"
                 },
                 "value": {
                     "description": "A localized text, in the language given by 'language'.",
@@ -1006,16 +1156,6 @@
             ],
             "title": "LangString",
             "type": "object"
-        },
-        "LanguageEnum": {
-            "description": "Languages supported for free-text fields (BCP-47 tags).",
-            "enum": [
-                "en",
-                "he",
-                "ar"
-            ],
-            "title": "LanguageEnum",
-            "type": "string"
         },
         "LicenseEnum": {
             "description": "Common licenses for tools, datasets and training materials. Extend as needed with canonical meanings.",
@@ -1035,6 +1175,7 @@
             "enum": [
                 "COORDINATOR",
                 "PARTNER",
+                "DATA_PROVIDER",
                 "FUNDER",
                 "HOST"
             ],
@@ -1043,7 +1184,7 @@
         },
         "Organization": {
             "additionalProperties": false,
-            "description": "An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form.",
+            "description": "An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form.",
             "properties": {
                 "additional_urls": {
                     "description": "Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.",
@@ -1184,7 +1325,7 @@
         },
         "OrganizationProjectRole": {
             "additionalProperties": false,
-            "description": "An organization's engagement in a project. Use one instance per role: an organization that both hosts and funds a project gets two instances.",
+            "description": "An organization's engagement in a project. Use one instance per role. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described.",
             "properties": {
                 "end_date": {
                     "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
@@ -1196,7 +1337,7 @@
                 },
                 "org_project_role": {
                     "$ref": "#/$defs/OrgProjectRoleEnum",
-                    "description": "The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, FUNDER provides money, HOST provides the institutional home. Create one relationship instance per role."
+                    "description": "The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding."
                 },
                 "organization": {
                     "description": "The organization side of the relationship (by IDHI URN).",
@@ -1230,7 +1371,8 @@
                 "RESEARCH_CENTER",
                 "FUNDER",
                 "COMPANY",
-                "NON_PROFIT"
+                "NON_PROFIT",
+                "INFORMAL_GROUP"
             ],
             "title": "OrganizationTypeEnum",
             "type": "string"
@@ -1436,7 +1578,7 @@
                     ]
                 },
                 "funding": {
-                    "description": "Funding awards received by the project. Use one entry for each funding organization and award.",
+                    "description": "Funding awards received by the project. Use one entry per distinct award, including successive awards from the same organization, and record award dates here rather than duplicating the same fact as a FUNDER organization role.",
                     "items": {
                         "$ref": "#/$defs/Funding"
                     },
@@ -1444,6 +1586,10 @@
                         "array",
                         "null"
                     ]
+                },
+                "funding_status": {
+                    "$ref": "#/$defs/FundingStatusEnum",
+                    "description": "The project's current primary funding or sustainability status at the time the record is maintained. Use this for present support, while funding records preserve past and current award history; update it when the project's circumstances change. This uses an IDHI-specific property because established vocabularies do not provide a controlled current-sustainability status for projects."
                 },
                 "homepage": {
                     "description": "Public landing page of the entity, if one exists.",
@@ -1473,7 +1619,7 @@
                     "type": "array"
                 },
                 "organization_roles": {
-                    "description": "Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, funder, host).",
+                    "description": "Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding.",
                     "items": {
                         "$ref": "#/$defs/OrganizationProjectRole"
                     },
@@ -1623,7 +1769,7 @@
                 },
                 "participation_role": {
                     "$ref": "#/$defs/ProjectRoleEnum",
-                    "description": "The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); day-to-day scholarly work is RESEARCHER, software work is DEVELOPER, enrolled students are STUDENT regardless of their task, external mentors are ADVISOR, and CONTRIBUTOR is the fallback for anything else."
+                    "description": "The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); DH_LEAD for digital method and architecture, TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation, CONSULTANT for bounded external professional work, RESEARCHER for scholarly research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when none of the specific values fits."
                 },
                 "project": {
                     "description": "The project side of the relationship (by IDHI URN).",
@@ -1651,9 +1797,12 @@
                 "PRINCIPAL_INVESTIGATOR",
                 "CO_PI",
                 "RESEARCHER",
+                "DH_LEAD",
+                "TECHNICAL_LEAD",
                 "DEVELOPER",
                 "STUDENT",
                 "ADVISOR",
+                "CONSULTANT",
                 "CONTRIBUTOR"
             ],
             "title": "ProjectRoleEnum",
@@ -1692,7 +1841,7 @@
                     ]
                 },
                 "doi": {
-                    "description": "The publication's persistent identifier. Record it whenever one exists; it is the preferred deduplication key.",
+                    "description": "The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.",
                     "format": "uri",
                     "pattern": "https://doi.org/.+",
                     "type": [
@@ -2122,6 +2271,15 @@
                         "null"
                     ]
                 },
+                "doi": {
+                    "description": "The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.",
+                    "format": "uri",
+                    "pattern": "https://doi.org/.+",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "homepage": {
                     "description": "Public landing page of the entity, if one exists.",
                     "format": "uri",
@@ -2274,6 +2432,15 @@
                         "null"
                     ]
                 },
+                "doi": {
+                    "description": "The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.",
+                    "format": "uri",
+                    "pattern": "https://doi.org/.+",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "educational_level": {
                     "description": "Expected learner level, as multilingual text such as beginner, intermediate or graduate. Use target_audiences for who the material serves rather than their proficiency.",
                     "items": {
@@ -2305,9 +2472,10 @@
                     ]
                 },
                 "in_languages": {
-                    "description": "Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.",
+                    "description": "Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page.",
                     "items": {
-                        "$ref": "#/$defs/LanguageEnum"
+                        "pattern": "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$",
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -2337,7 +2505,7 @@
                     ]
                 },
                 "media_type": {
-                    "description": "Technical media type of the primary resource, preferably an IANA media type such as text/html, application/pdf or video/mp4. Do not use this for the didactic form; use training_material_type instead.",
+                    "description": "Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.",
                     "type": [
                         "string",
                         "null"

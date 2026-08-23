@@ -6,7 +6,7 @@ search:
 # Class: Dataset 
 
 
-_A dataset, digital archive or catalog produced or curated by a project: corpora, databases, image collections, annotation sets and collections of metadata records. Use Dataset for both research data and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets._
+_A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets._
 
 
 
@@ -28,6 +28,21 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
       
 
+      Dataset : byte_size
+        
+      Dataset : dataset_type
+        
+          
+    
+        
+        
+        Dataset --> "0..1" DatasetTypeEnum : dataset_type
+        
+        click DatasetTypeEnum href "../../enums/DatasetTypeEnum/"
+        
+    
+
+        
       Dataset : datasets
         
           
@@ -40,6 +55,17 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
         
       Dataset : date_issued
+        
+      Dataset : derived_from
+        
+          
+    
+        
+        
+        Dataset --> "*" Dataset : derived_from
+        
+    
+
         
       Dataset : description
         
@@ -56,11 +82,17 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
       Dataset : distribution_url
         
+      Dataset : doi
+        
+      Dataset : extent
+        
       Dataset : homepage
         
       Dataset : id
         
       Dataset : image
+        
+      Dataset : in_languages
         
       Dataset : license
         
@@ -74,6 +106,8 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         
     
 
+        
+      Dataset : media_type
         
       Dataset : name
         
@@ -97,6 +131,19 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
         Dataset --> "0..1" Organization : publisher
         
         click Organization href "../../classes/Organization/"
+        
+    
+
+        
+      Dataset : related_publications
+        
+          
+    
+        
+        
+        Dataset --> "*" Publication : related_publications
+        
+        click Publication href "../../classes/Publication/"
         
     
 
@@ -143,11 +190,19 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
+| [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
+| [dataset_type](../slots/dataset_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [DatasetTypeEnum](../enums/DatasetTypeEnum.md) | <span title="The dataset's primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization.">The dataset's primary intellectual or collection form</span> | direct |
 | [datasets](../slots/datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets aggregated by a Dataset that functions as a catalog (by id).">Datasets aggregated by a Dataset that functions as a catalog (by id)</span> | direct |
+| [derived_from](../slots/derived_from.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Source datasets from which this dataset was re-OCRed, cleaned, transformed, subsetted or otherwise derived. Reference each immediate source by IDHI URN; use datasets only for catalog aggregation rather than provenance.">Source datasets from which this dataset was re-OCRed, cleaned, transformed, s...</span> | direct |
 | [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
 | [distribution_url](../slots/distribution_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Direct download or access URL for the dataset.">Direct download or access URL for the dataset</span> | direct |
+| [extent](../slots/extent.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.">Technical extent statements such as record, item, issue, image or file counts</span> | direct |
+| [byte_size](../slots/byte_size.md) | <span title="Optional: at most one value">0..1</span> <br/> [Integer](../types/Integer.md) | <span title="Total size of the described dataset distribution in bytes. Use an exact or documented aggregate byte count and omit it when only an unreliable estimate is available.">Total size of the described dataset distribution in bytes</span> | direct |
+| [in_languages](../slots/in_languages.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page.">Languages substantially represented in a dataset or in which instructional co...</span> | direct |
+| [media_type](../slots/media_type.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.">Technical media type of the primary dataset distribution or training resource...</span> | direct |
+| [related_publications](../slots/related_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications that are counterparts or direct scholarly companions of the dataset, such as the print counterpart of a digital edition. Reference Publication records by IDHI URN; use outputs_publications on Project for outputs that are related only by their project of origin.">Publications that are counterparts or direct scholarly companions of the data...</span> | direct |
 | [themes](../slots/themes.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Thematic keywords for the dataset, multilingual.">Thematic keywords for the dataset, multilingual</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | [Entity](../classes/Entity.md) |
@@ -167,6 +222,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | ---  | --- | --- | --- |
 | [Project](../classes/Project.md) | [outputs_datasets](../slots/outputs_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Dataset](../classes/Dataset.md) | [datasets](../slots/datasets.md) | range | [Dataset](../classes/Dataset.md) |
+| [Dataset](../classes/Dataset.md) | [derived_from](../slots/derived_from.md) | range | [Dataset](../classes/Dataset.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_datasets](../slots/related_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [datasets](../slots/datasets.md) | range | [Dataset](../classes/Dataset.md) |
 
@@ -220,21 +276,30 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 <details>
 ```yaml
 name: Dataset
-description: 'A dataset, digital archive or catalog produced or curated by a project:
-  corpora, databases, image collections, annotation sets and collections of metadata
-  records. Use Dataset for both research data and catalogs that describe other resources;
-  a catalog can link the datasets it aggregates through datasets.'
+description: 'A dataset or dataset-like intellectual object produced or curated by
+  a project: digital editions, corpora, databases, gazetteers, image collections,
+  annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly
+  editions and catalogs that describe other resources; a catalog can link the datasets
+  it aggregates through datasets.'
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
+- doi
+- dataset_type
 - datasets
+- derived_from
 - publisher
 - license
 - date_issued
 - distribution_url
+- extent
+- byte_size
+- in_languages
+- media_type
+- related_publications
 - themes
 slot_usage:
   type:
@@ -245,6 +310,9 @@ slot_usage:
     structured_pattern:
       syntax: ^idhi:dataset:{shortid}$
       interpolated: true
+  media_type:
+    name: media_type
+    multivalued: true
 class_uri: dcat:Dataset
 
 ```
@@ -255,10 +323,11 @@ class_uri: dcat:Dataset
 <details>
 ```yaml
 name: Dataset
-description: 'A dataset, digital archive or catalog produced or curated by a project:
-  corpora, databases, image collections, annotation sets and collections of metadata
-  records. Use Dataset for both research data and catalogs that describe other resources;
-  a catalog can link the datasets it aggregates through datasets.'
+description: 'A dataset or dataset-like intellectual object produced or curated by
+  a project: digital editions, corpora, databases, gazetteers, image collections,
+  annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly
+  editions and catalogs that describe other resources; a catalog can link the datasets
+  it aggregates through datasets.'
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
@@ -272,6 +341,9 @@ slot_usage:
     structured_pattern:
       syntax: ^idhi:dataset:{shortid}$
       interpolated: true
+  media_type:
+    name: media_type
+    multivalued: true
 attributes:
   name:
     name: name
@@ -298,6 +370,36 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  doi:
+    name: doi
+    description: The publication, dataset, tool or training material's DOI persistent
+      identifier. Record it whenever one exists; it is the preferred deduplication
+      key and is supplementary to the IDHI URN.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: bibo:doi
+    owner: Dataset
+    domain_of:
+    - Tool
+    - Publication
+    - Dataset
+    - TrainingMaterial
+    range: uri
+    structured_pattern:
+      syntax: https://doi.org/{doi}
+      interpolated: true
+  dataset_type:
+    name: dataset_type
+    description: The dataset's primary intellectual or collection form. Use this for
+      discovery categories such as digital edition, corpus or gazetteer; use media_type
+      for its technical serialization.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:type
+    owner: Dataset
+    domain_of:
+    - Dataset
+    range: DatasetTypeEnum
   datasets:
     name: datasets
     description: Datasets aggregated by a Dataset that functions as a catalog (by
@@ -309,6 +411,19 @@ attributes:
     domain_of:
     - Dataset
     - IndexContainer
+    range: Dataset
+    multivalued: true
+  derived_from:
+    name: derived_from
+    description: Source datasets from which this dataset was re-OCRed, cleaned, transformed,
+      subsetted or otherwise derived. Reference each immediate source by IDHI URN;
+      use datasets only for catalog aggregation rather than provenance.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: prov:wasDerivedFrom
+    owner: Dataset
+    domain_of:
+    - Dataset
     range: Dataset
     multivalued: true
   publisher:
@@ -361,6 +476,78 @@ attributes:
     domain_of:
     - Dataset
     range: uri
+  extent:
+    name: extent
+    description: Technical extent statements such as record, item, issue, image or
+      file counts. Use one concise statement per measure, include its unit, and use
+      byte_size rather than prose for total bytes.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:extent
+    owner: Dataset
+    domain_of:
+    - Dataset
+    range: string
+    multivalued: true
+  byte_size:
+    name: byte_size
+    description: Total size of the described dataset distribution in bytes. Use an
+      exact or documented aggregate byte count and omit it when only an unreliable
+      estimate is available.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcat:byteSize
+    owner: Dataset
+    domain_of:
+    - Dataset
+    range: integer
+  in_languages:
+    name: in_languages
+    description: Languages substantially represented in a dataset or in which instructional
+      content is available, using BCP-47 tags. For training material, record every
+      complete language version and do not include a language used only in captions
+      or examples; for datasets, record the languages of the data rather than its
+      metadata page.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:language
+    owner: Dataset
+    domain_of:
+    - Dataset
+    - TrainingMaterial
+    range: string
+    multivalued: true
+    pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
+  media_type:
+    name: media_type
+    description: Technical media type of the primary dataset distribution or training
+      resource, preferably an IANA media type such as text/html, application/pdf,
+      application/vnd.apache.parquet or video/mp4. Dataset records may list multiple
+      formats; do not use this for an intellectual or didactic form, which belongs
+      in dataset_type or training_material_type.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:format
+    owner: Dataset
+    domain_of:
+    - Dataset
+    - TrainingMaterial
+    range: string
+    multivalued: true
+  related_publications:
+    name: related_publications
+    description: Publications that are counterparts or direct scholarly companions
+      of the dataset, such as the print counterpart of a digital edition. Reference
+      Publication records by IDHI URN; use outputs_publications on Project for outputs
+      that are related only by their project of origin.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:relation
+    owner: Dataset
+    domain_of:
+    - Dataset
+    range: Publication
+    multivalued: true
   themes:
     name: themes
     description: Thematic keywords for the dataset, multilingual.

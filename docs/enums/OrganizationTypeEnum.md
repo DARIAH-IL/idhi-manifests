@@ -25,6 +25,7 @@ URI: [idhi:enum/OrganizationTypeEnum](https://idhi_placeholder/linkml/enum/Organ
 | FUNDER | [schema:FundingScheme](http://schema.org/FundingScheme) | <span title="A body whose primary role is funding research.">A body whose primary role is funding research</span> |
 | COMPANY | [schema:Corporation](http://schema.org/Corporation) | <span title="A commercial company.">A commercial company</span> |
 | NON_PROFIT | [schema:NGO](http://schema.org/NGO) | <span title="A non-profit organization / NGO.">A non-profit organization / NGO</span> |
+| INFORMAL_GROUP | None | <span title="A named collective without formal incorporation or institutional status. Use this only when the collective itself needs an Organization record; represent independent practitioners as Person records, and leave a project host-less when no organization hosts it. No established organization-type term captures this distinction closely enough for an external meaning.">A named collective without formal incorporation or institutional status</span> |
 
 
 
@@ -94,6 +95,13 @@ permissible_values:
     text: NON_PROFIT
     description: A non-profit organization / NGO.
     meaning: schema:NGO
+  INFORMAL_GROUP:
+    text: INFORMAL_GROUP
+    description: A named collective without formal incorporation or institutional
+      status. Use this only when the collective itself needs an Organization record;
+      represent independent practitioners as Person records, and leave a project host-less
+      when no organization hosts it. No established organization-type term captures
+      this distinction closely enough for an external meaning.
 
 ```
 </details>

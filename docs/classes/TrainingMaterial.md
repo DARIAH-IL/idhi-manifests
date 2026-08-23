@@ -73,6 +73,8 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
     
 
         
+      TrainingMaterial : doi
+        
       TrainingMaterial : educational_level
         
           
@@ -93,17 +95,6 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
       TrainingMaterial : image
         
       TrainingMaterial : in_languages
-        
-          
-    
-        
-        
-        TrainingMaterial --> "*" LanguageEnum : in_languages
-        
-        click LanguageEnum href "../../enums/LanguageEnum/"
-        
-    
-
         
       TrainingMaterial : learning_outcomes
         
@@ -279,6 +270,7 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
+| [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
 | [training_material_type](../slots/training_material_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [TrainingMaterialTypeEnum](../enums/TrainingMaterialTypeEnum.md) | <span title="The material's primary didactic form. Choose the single value that best describes how learners engage with it, not its file format.">The material's primary didactic form</span> | direct |
 | [creators](../slots/creators.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Agent](../classes/Agent.md) | <span title="People or organizations responsible for creating the training material (by IDHI URN). Use publisher for the organization that formally releases it when that differs from its creators.">People or organizations responsible for creating the training material (by ID...</span> | direct |
 | [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
@@ -286,9 +278,9 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
 | [target_audiences](../slots/target_audiences.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Intended learner groups, as multilingual labels such as researchers, librarians or students. Use educational_level separately for the expected level of study or expertise.">Intended learner groups, as multilingual labels such as researchers, libraria...</span> | direct |
 | [prerequisites](../slots/prerequisites.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Knowledge, skills, software or prior material learners should have before starting, expressed as multilingual text. Omit when no prerequisites apply.">Knowledge, skills, software or prior material learners should have before sta...</span> | direct |
 | [educational_level](../slots/educational_level.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Expected learner level, as multilingual text such as beginner, intermediate or graduate. Use target_audiences for who the material serves rather than their proficiency.">Expected learner level, as multilingual text such as beginner, intermediate o...</span> | direct |
-| [in_languages](../slots/in_languages.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LanguageEnum](../enums/LanguageEnum.md) | <span title="Languages in which the instructional content is available. Record every complete language version; do not include a language used only in captions or examples.">Languages in which the instructional content is available</span> | direct |
+| [in_languages](../slots/in_languages.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page.">Languages substantially represented in a dataset or in which instructional co...</span> | direct |
 | [material_url](../slots/material_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Direct landing or access URL for the instructional resource. Use homepage for a broader site about the material and material_url for the resource learners open.">Direct landing or access URL for the instructional resource</span> | direct |
-| [media_type](../slots/media_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Technical media type of the primary resource, preferably an IANA media type such as text/html, application/pdf or video/mp4. Do not use this for the didactic form; use training_material_type instead.">Technical media type of the primary resource, preferably an IANA media type s...</span> | direct |
+| [media_type](../slots/media_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.">Technical media type of the primary dataset distribution or training resource...</span> | direct |
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
@@ -378,6 +370,7 @@ from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
+- doi
 - training_material_type
 - creators
 - publisher
@@ -459,6 +452,24 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  doi:
+    name: doi
+    description: The publication, dataset, tool or training material's DOI persistent
+      identifier. Record it whenever one exists; it is the preferred deduplication
+      key and is supplementary to the IDHI URN.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: bibo:doi
+    owner: TrainingMaterial
+    domain_of:
+    - Tool
+    - Publication
+    - Dataset
+    - TrainingMaterial
+    range: uri
+    structured_pattern:
+      syntax: https://doi.org/{doi}
+      interpolated: true
   training_material_type:
     name: training_material_type
     description: The material's primary didactic form. Choose the single value that
@@ -559,17 +570,21 @@ attributes:
     inlined_as_list: true
   in_languages:
     name: in_languages
-    description: Languages in which the instructional content is available. Record
-      every complete language version; do not include a language used only in captions
-      or examples.
+    description: Languages substantially represented in a dataset or in which instructional
+      content is available, using BCP-47 tags. For training material, record every
+      complete language version and do not include a language used only in captions
+      or examples; for datasets, record the languages of the data rather than its
+      metadata page.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:language
     owner: TrainingMaterial
     domain_of:
+    - Dataset
     - TrainingMaterial
-    range: LanguageEnum
+    range: string
     multivalued: true
+    pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
   material_url:
     name: material_url
     description: Direct landing or access URL for the instructional resource. Use
@@ -584,14 +599,17 @@ attributes:
     range: uri
   media_type:
     name: media_type
-    description: Technical media type of the primary resource, preferably an IANA
-      media type such as text/html, application/pdf or video/mp4. Do not use this
-      for the didactic form; use training_material_type instead.
+    description: Technical media type of the primary dataset distribution or training
+      resource, preferably an IANA media type such as text/html, application/pdf,
+      application/vnd.apache.parquet or video/mp4. Dataset records may list multiple
+      formats; do not use this for an intellectual or didactic form, which belongs
+      in dataset_type or training_material_type.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:format
     owner: TrainingMaterial
     domain_of:
+    - Dataset
     - TrainingMaterial
     range: string
   license:

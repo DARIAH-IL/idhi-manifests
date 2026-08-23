@@ -1,6 +1,6 @@
 # Israeli Digital Humanities Index Schema
 
-A LinkML schema for an index of Digital Humanities (DH) research in Israel. Entities and properties reuse established vocabularies (FOAF, schema.org, Dublin Core Terms, BIBO, DCAT, EDM, SKOS, CERIF); DH projects are classified with TaDiRAH 2.0 research-activity concepts (dynamic enum over the full taxonomy). Free text supports English, Hebrew and Arabic. All entities are identified by IDHI URNs (idhi:<class>:<shortid>); external PIDs are supplementary.
+A LinkML schema for an index of Digital Humanities (DH) research in Israel. Entities and properties reuse established vocabularies (FOAF, schema.org, Dublin Core Terms, BIBO, DCAT, PROV, EDM, SKOS, CERIF); DH projects are classified with TaDiRAH 2.0 research-activity concepts (dynamic enum over the full taxonomy). Free text supports any syntactically valid BCP-47 language tag. All entities are identified by IDHI URNs (idhi:<class>:<shortid>); external PIDs are supplementary.
 
 URI: https://idhi_placeholder/linkml/idhi
 
@@ -16,7 +16,7 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Agent](classes/Agent.md) | A person or an organization |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Organization](classes/Organization.md) | An organization of any kind |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dataset](classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dataset](classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Event](classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Facility](classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Project](classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |
@@ -24,7 +24,7 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Service](classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tool](classes/Tool.md) | A reusable software tool, typically produced by a project |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TrainingMaterial](classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |
-| [Funding](classes/Funding.md) | A funding award for a project, identifying the organization that provides it ... |
+| [Funding](classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |
 | [IndexContainer](classes/IndexContainer.md) | Top-level holder for all IDHI records |
 | [LangString](classes/LangString.md) | A single language-tagged text value |
 | [Relationship](classes/Relationship.md) | Abstract base for reified, role-bearing relationships |
@@ -48,21 +48,25 @@ Name: idhi
 | [author_order](slots/author_order.md) | Position in the byline; 1 = first author |
 | [authorship_role](slots/authorship_role.md) | The kind of contribution |
 | [authorships](slots/authorships.md) | The person's publication contributions, as reified Authorship objects carryin... |
+| [byte_size](slots/byte_size.md) | Total size of the described dataset distribution in bytes |
 | [code_repository](slots/code_repository.md) | Source-code repository URL (GitHub, GitLab |
 | [contact_email](slots/contact_email.md) | A published contact address for the entity (office, team or service-desk mail... |
 | [creators](slots/creators.md) | People or organizations responsible for creating the training material (by ID... |
+| [dataset_type](slots/dataset_type.md) | The dataset's primary intellectual or collection form |
 | [datasets](slots/datasets.md) | Datasets aggregated by a Dataset that functions as a catalog (by id) |
 | [date_issued](slots/date_issued.md) | Formal publication date (or year-01-01 if only the year is known) |
+| [derived_from](slots/derived_from.md) | Source datasets from which this dataset was re-OCRed, cleaned, transformed, s... |
 | [description](slots/description.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... |
 | [digital_humanities_activities](slots/digital_humanities_activities.md) | Digital-humanities research activities practiced in this project, tool or ser... |
 | [distribution_url](slots/distribution_url.md) | Direct download or access URL for the dataset |
 | [documentation_url](slots/documentation_url.md) | User or developer documentation for the tool or service (manual, wiki, API re... |
-| [doi](slots/doi.md) | The publication's persistent identifier |
+| [doi](slots/doi.md) | The publication, dataset, tool or training material's DOI persistent identifi... |
 | [educational_level](slots/educational_level.md) | Expected learner level, as multilingual text such as beginner, intermediate o... |
 | [emails](slots/emails.md) | Contact email addresses (zero or more) |
 | [end_date](slots/end_date.md) | End of the event, project runtime or relationship |
 | [event_type](slots/event_type.md) | The kind of scholarly event |
 | [events](slots/events.md) | All Event records in the index |
+| [extent](slots/extent.md) | Technical extent statements such as record, item, issue, image or file counts |
 | [facilities](slots/facilities.md) | All Facility records in the index |
 | [facility](slots/facility.md) | The facility side of the relationship (by IDHI URN) |
 | [facility_affiliations](slots/facility_affiliations.md) | The organization(s) hosting or owning this facility, as reified FacilityAffil... |
@@ -70,18 +74,23 @@ Name: idhi
 | [funding](slots/funding.md) | Funding awards received by the project |
 | [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in ILS unless noted in... |
 | [funding_organization](slots/funding_organization.md) | The organization that provides this funding award (by IDHI URN) |
+| [funding_program](slots/funding_program.md) | Multilingual name of the broader funding programme or scheme under which the ... |
+| [funding_status](slots/funding_status.md) | The project's current primary funding or sustainability status at the time th... |
+| [funding_url](slots/funding_url.md) | Public landing page for the individual award or its authoritative funding rec... |
 | [given_name](slots/given_name.md) | Given (first) name as multilingual text |
+| [grant_name](slots/grant_name.md) | Official multilingual title of the individual grant or award |
+| [grant_number](slots/grant_number.md) | Identifier assigned to the grant by its funding organization |
 | [homepage](slots/homepage.md) | Public landing page of the entity, if one exists |
 | [id](slots/id.md) | The entity's primary identifier: an IDHI URN of the form |
 | [image](slots/image.md) | A representative image embedded as Base64-encoded binary content |
-| [in_languages](slots/in_languages.md) | Languages in which the instructional content is available |
-| [language](slots/language.md) | BCP-47 language tag of the value (en, he or ar) |
+| [in_languages](slots/in_languages.md) | Languages substantially represented in a dataset or in which instructional co... |
+| [language](slots/language.md) | BCP-47 language tag of the value, such as en, he, ar, de, yi or lad |
 | [learning_outcomes](slots/learning_outcomes.md) | Knowledge or skills a learner should gain by completing the material, as mult... |
 | [license](slots/license.md) | The license under which the tool, dataset or training material is released |
 | [location](slots/location.md) | Place name where the organization, facility or event is physically situated (... |
 | [marketplace_sync](slots/marketplace_sync.md) | Opt-in flag for synchronization with the DARIAH SSH Open Marketplace |
 | [material_url](slots/material_url.md) | Direct landing or access URL for the instructional resource |
-| [media_type](slots/media_type.md) | Technical media type of the primary resource, preferably an IANA media type s... |
+| [media_type](slots/media_type.md) | Technical media type of the primary dataset distribution or training resource... |
 | [member](slots/member.md) | The person affiliated with the organization (by IDHI URN) |
 | [name](slots/name.md) | The multilingual name or title used to identify the entity |
 | [orcid](slots/orcid.md) | The person's persistent researcher identifier |
@@ -113,6 +122,7 @@ Name: idhi
 | [published_in](slots/published_in.md) | Name of the journal, book or proceedings the publication appeared in, as free... |
 | [publisher](slots/publisher.md) | The organization formally publishing the dataset, publication or training mat... |
 | [related_datasets](slots/related_datasets.md) | Datasets used as the subject or worked example of the material (by IDHI URN) |
+| [related_publications](slots/related_publications.md) | Publications that are counterparts or direct scholarly companions of the data... |
 | [related_services](slots/related_services.md) | Services that the material explains how to access or use (by IDHI URN) |
 | [related_tools](slots/related_tools.md) | Tools whose use the material teaches or demonstrates (by IDHI URN) |
 | [research_disciplines](slots/research_disciplines.md) | Humanities discipline(s) of the project (history, linguistics, archaeology |
@@ -141,9 +151,10 @@ Name: idhi
 | Enumeration | Description |
 | --- | --- |
 | [AuthorshipRoleEnum](enums/AuthorshipRoleEnum.md) | The kind of contribution to a publication |
+| [DatasetTypeEnum](enums/DatasetTypeEnum.md) | IDHI-governed discovery categories for datasets and dataset-like intellectual... |
 | [DigitalHumanitiesActivityEnum](enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities: Analyzing, Capturing, Creating, Disse... |
 | [EventTypeEnum](enums/EventTypeEnum.md) | Kinds of scholarly events |
-| [LanguageEnum](enums/LanguageEnum.md) | Languages supported for free-text fields (BCP-47 tags) |
+| [FundingStatusEnum](enums/FundingStatusEnum.md) | IDHI-governed values for the current primary way a project is financially or ... |
 | [LicenseEnum](enums/LicenseEnum.md) | Common licenses for tools, datasets and training materials |
 | [OrganizationTypeEnum](enums/OrganizationTypeEnum.md) | Kinds of organization |
 | [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's role in a project (one instance per role) |

@@ -1,0 +1,210 @@
+
+persons:
+  - type: idhi:Person
+    id: idhi:person:rusinek
+    orcid: https://orcid.org/0000-0003-1043-7954
+    emails:
+      - sinai.rusinek@gmail.com
+    given_name:
+      - {language: en, value: Sinai}
+      - {language: he, value: סיני}
+    family_name:
+      - {language: en, value: Rusinek}
+      - {language: he, value: רוסינק}
+    project_participations:
+      - participant: idhi:person:rusinek
+        project: idhi:project:kima
+        participation_role: PRINCIPAL_INVESTIGATOR
+        start_date: "2016-01-01"
+      - participant: idhi:person:rusinek
+        project: idhi:project:kima
+        participation_role: DH_LEAD
+        start_date: "2016-01-01"
+
+  - type: idhi:Person
+    id: idhi:person:shalit
+    given_name:
+      - {language: en, value: Gil}
+      - {language: he, value: גיל}
+    family_name:
+      - {language: en, value: Shalit}
+      - {language: he, value: שליט}
+    homepage: https://dh-dev.com
+    description:
+      - {language: en, value: "Technical lead and co-maintainer of Kima; created its database, website and API in 2019 and has developed and maintained them since."}
+    project_participations:
+      - participant: idhi:person:shalit
+        project: idhi:project:kima
+        participation_role: TECHNICAL_LEAD
+        start_date: "2019-01-01"
+
+  - type: idhi:Person
+    id: idhi:person:mantegari
+    given_name:
+      - {language: en, value: Glauco}
+    family_name:
+      - {language: en, value: Mantegari}
+    description:
+      - {language: en, value: "Data designer (consultant) for Kima's original data model, 2016–2017."}
+    project_participations:
+      - participant: idhi:person:mantegari
+        project: idhi:project:kima
+        participation_role: CONSULTANT
+        start_date: "2016-01-01"
+        end_date: "2017-12-31"
+
+  - type: idhi:Person
+    id: idhi:person:duchovny
+    given_name:
+      - {language: en, value: Dimid}
+    family_name:
+      - {language: en, value: Duchovny}
+    project_participations:
+      - participant: idhi:person:duchovny
+        project: idhi:project:kima
+        participation_role: DEVELOPER
+        start_date: "2016-01-01"
+        end_date: "2017-12-31"
+
+organizations:
+  - type: idhi:Organization
+    id: idhi:organization:pelagios
+    name:
+      - {language: en, value: Pelagios Commons}
+    organization_type: NON_PROFIT
+    homepage: https://pelagios.org
+
+projects:
+  - type: idhi:Project
+    id: idhi:project:kima
+    name:
+      - {language: en, value: "Kima: Place Names in the Hebrew Script"}
+      - {language: he, value: "כימה: שמות מקומות בכתב עברי"}
+    description:
+      - language: en
+        value: >-
+          An open, attestation-based, historical database of place names in
+          languages written in the Hebrew script. Centuries of Jewish diasporic
+          existence projected their coordinate systems on the world map; Hebrew
+          languages interacted with local contemporaneous place names wherever
+          Jewish people dwelled, and diverging cultural, Halachic and liturgical
+          traditions created toponymic categories at once anchored in geography
+          and mutable by time and culture. Kima provides a comprehensive, dynamic
+          and interoperable gazetteer that serves as a stable, shared reference
+          for linking place names in digitized resources. Being grounded in
+          textual attestations, it enables — beyond the study, visualization and
+          use of changing historical place names — the study of place names as a
+          linguistic, discursive phenomenon. Kima currently holds 48,124 places,
+          150,018 name variants and 235,867 attestations, available on the
+          website, via an API, in Recogito, in the DiJeSt triplestore, and as an
+          OpenRefine reconciliation service. Kima was founded with seed
+          funding from two Pelagios Commons Resource Grants (2016–2017); since
+          then it has been developed and maintained pro bono by Sinai Rusinek
+          and Gil Shalit (dh-dev.com), with no institutional host or ongoing funding.
+      - language: he
+        value: >-
+          מסד נתונים היסטורי, פתוח ומבוסס־היקרויות של שמות מקומות בלשונות
+          הנכתבות בכתב עברי. כימה מספקת גזטיר מקיף, דינמי ובר־פעולה הדדית
+          המשמש נקודת ייחוס יציבה ומשותפת לקישור שמות מקומות במשאבים דיגיטליים,
+          ומאפשר, מעבר לחקר שמות מקומות משתנים, את חקר השם כתופעה לשונית
+          ושיחית. הפרויקט הוקם בסיוע שני מענקים ראשוניים מטעם Pelagios Commons
+          (2016–2017), ומאז הוא מפותח ומתוחזק בהתנדבות על ידי סיני רוסינק וגיל
+          שליט (dh-dev.com), ללא מוסד מארח וללא מימון שוטף.
+    homepage: https://data.geo-kima.org/
+    additional_urls:
+      - https://data.geo-kima.org/api/swagger/ui
+      - https://dh-dev.com
+    contact_email: sinai.rusinek@gmail.com
+    digital_humanities_activities:
+      - tadirah:capturing
+      - tadirah:enriching
+      - tadirah:spatialAnalysis
+      - tadirah:disseminating
+    research_disciplines:
+      - {language: en, value: Jewish studies}
+      - {language: en, value: Historical geography}
+      - {language: en, value: Onomastics}
+      - {language: en, value: Linguistics}
+    tags:
+      - gazetteer
+      - toponymy
+      - Hebrew script
+      - Yiddish
+      - Judaeo-Arabic
+      - Ladino
+      - linked open data
+      - reconciliation service
+      - Pelagios
+    start_date: "2016-01-01"
+    studied_periods:
+      - {language: en, value: Antiquity to the present}
+    studied_places:
+      - {language: en, value: Worldwide}
+      - {language: he, value: כלל־עולמי}
+      - {language: ar, value: عالمي}
+    funding_status: VOLUNTEER_RUN
+    funding:
+      - funding_organization: idhi:organization:pelagios
+        grant_name:
+          - {language: en, value: Pelagios Commons Resource Grant 2016}
+        funding_program:
+          - {language: en, value: Pelagios Commons Resource Grants}
+        start_date: "2016-01-01"
+        end_date: "2016-12-31"
+      - funding_organization: idhi:organization:pelagios
+        grant_name:
+          - {language: en, value: Pelagios Commons Resource Grant 2017}
+        funding_program:
+          - {language: en, value: Pelagios Commons Resource Grants}
+        start_date: "2017-01-01"
+        end_date: "2017-12-31"
+    outputs_datasets:
+      - idhi:dataset:kimadata
+    outputs_tools:
+      - idhi:tool:kimaapi
+      - idhi:tool:kimarecon
+
+datasets:
+  - type: idhi:Dataset
+    id: idhi:dataset:kimadata
+    name:
+      - {language: en, value: Kima gazetteer data}
+      - {language: he, value: נתוני הגזטיר כימה}
+    description:
+      - {language: en, value: "48,124 places, 150,018 name variants and 235,867 textual attestations, with links to VIAF, Wikidata, GeoNames and the NLI place authority."}
+    dataset_type: GAZETTEER
+    distribution_url: https://data.geo-kima.org/api/swagger/ui
+    extent:
+      - 48,124 places
+      - 150,018 name variants
+      - 235,867 textual attestations
+    themes:
+      - {language: en, value: place names}
+      - {language: en, value: historical geography}
+
+tools:
+  - type: idhi:Tool
+    id: idhi:tool:kimaapi
+    name:
+      - {language: en, value: Kima API}
+    tool_type: API_SERVICE
+    homepage: https://data.geo-kima.org/api/
+    documentation_url: https://data.geo-kima.org/api/swagger/ui
+    digital_humanities_activities:
+      - tadirah:enriching
+    tags:
+      - REST
+      - geocoding
+      - entity linking
+  - type: idhi:Tool
+    id: idhi:tool:kimarecon
+    name:
+      - {language: en, value: Kima reconciliation service}
+    description:
+      - {language: en, value: OpenRefine-compatible reconciliation endpoint for Kima places and variants.}
+    tool_type: API_SERVICE
+    digital_humanities_activities:
+      - tadirah:enriching
+    tags:
+      - OpenRefine
+      - reconciliation

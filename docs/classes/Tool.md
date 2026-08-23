@@ -62,6 +62,8 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
       Tool : documentation_url
         
+      Tool : doi
+        
       Tool : homepage
         
       Tool : id
@@ -138,6 +140,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
+| [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
 | [tool_type](../slots/tool_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | <span title="The delivery form of the tool (web app, library, CLI...). Pick the single value describing how users primarily consume it.">The delivery form of the tool (web app, library, CLI</span> | direct |
 | [code_repository](../slots/code_repository.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Source-code repository URL (GitHub, GitLab...), if open.">Source-code repository URL (GitHub, GitLab</span> | direct |
 | [programming_language](../slots/programming_language.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.">Main implementation language, as a single technical label such as Python</span> | direct |
@@ -226,6 +229,7 @@ from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Entity
 slots:
 - name
+- doi
 - tool_type
 - code_repository
 - programming_language
@@ -295,6 +299,24 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  doi:
+    name: doi
+    description: The publication, dataset, tool or training material's DOI persistent
+      identifier. Record it whenever one exists; it is the preferred deduplication
+      key and is supplementary to the IDHI URN.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: bibo:doi
+    owner: Tool
+    domain_of:
+    - Tool
+    - Publication
+    - Dataset
+    - TrainingMaterial
+    range: uri
+    structured_pattern:
+      syntax: https://doi.org/{doi}
+      interpolated: true
   tool_type:
     name: tool_type
     description: The delivery form of the tool (web app, library, CLI...). Pick the

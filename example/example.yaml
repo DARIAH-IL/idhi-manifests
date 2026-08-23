@@ -74,6 +74,7 @@ projects:
     id: idhi:project:a83bq1
     name:
       - {language: en, value: Example Genizah Fragments Project}
+      - {language: de, value: Beispielprojekt zu Geniza-Fragmenten}
     description:
       - {language: en, value: Computational analysis of medieval manuscript fragments.}
     image: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=
@@ -101,12 +102,21 @@ projects:
       - organization: idhi:organization:k3v9p2
         project: idhi:project:a83bq1
         org_project_role: HOST
-      - organization: idhi:organization:f9d3h6
+      - organization: idhi:organization:k3v9p2
         project: idhi:project:a83bq1
-        org_project_role: FUNDER
+        org_project_role: DATA_PROVIDER
+    funding_status: ACTIVE_GRANT_FUNDING
     funding:
       - funding_organization: idhi:organization:f9d3h6
         funding_amount: 150000
+        grant_name:
+          - {language: en, value: Example Manuscript Data Grant}
+        funding_program:
+          - {language: en, value: Example Digital Heritage Programme}
+        grant_number: EDH-2022-41
+        funding_url: https://fund.example.org/grants/EDH-2022-41
+        start_date: "2022-10-01"
+        end_date: "2026-09-30"
     outputs_tools:
       - idhi:tool:g5j7x2
     outputs_datasets:
@@ -121,6 +131,7 @@ tools:
     id: idhi:tool:g5j7x2
     name:
       - {language: en, value: FragmentMatcher}
+    doi: https://doi.org/10.1234/example.software.3456
     tool_type: WEB_APPLICATION
     code_repository: https://github.com/example/fragmentmatcher
     programming_language: Python
@@ -175,6 +186,7 @@ datasets:
     id: idhi:dataset:q6r1v5
     name:
       - {language: en, value: Example Fragments Archive}
+    dataset_type: METADATA_CATALOG
     publisher: idhi:organization:k3v9p2
     datasets:
       - idhi:dataset:d7y2u9
@@ -183,10 +195,22 @@ datasets:
     id: idhi:dataset:d7y2u9
     name:
       - {language: en, value: Annotated fragment images}
+    doi: https://doi.org/10.1234/example.dataset.9012
+    dataset_type: ANNOTATION_SET
     publisher: idhi:organization:k3v9p2
     license: CC_BY_4_0
     date_issued: "2024-01-10"
     distribution_url: https://data.idhi.co.il/fragments/v1.zip
+    extent:
+      - 12,500 annotated images
+    byte_size: 2400000000
+    in_languages:
+      - he
+      - ar
+    media_type:
+      - application/zip
+    related_publications:
+      - idhi:publication:p4w8n1
     themes:
       - {language: en, value: manuscripts}
 
@@ -218,6 +242,7 @@ training_materials:
     id: idhi:training_material:t4m8k2
     name:
       - {language: en, value: Matching Manuscript Fragments Tutorial}
+    doi: https://doi.org/10.1234/example.training.7890
     training_material_type: TUTORIAL
     creators:
       - idhi:person:x7k2m9

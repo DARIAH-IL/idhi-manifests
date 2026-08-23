@@ -6,7 +6,7 @@ search:
 # Slot: media_type 
 
 
-_Technical media type of the primary resource, preferably an IANA media type such as text/html, application/pdf or video/mp4. Do not use this for the didactic form; use training_material_type instead._
+_Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type._
 
 
 
@@ -25,6 +25,7 @@ URI: [dcterms:format](http://purl.org/dc/terms/format)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  yes  |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
 
@@ -39,7 +40,7 @@ URI: [dcterms:format](http://purl.org/dc/terms/format)
 | Property | Value |
 | --- | --- |
 | Range | [String](../types/String.md) |
-| Domain Of | [TrainingMaterial](../classes/TrainingMaterial.md) |
+| Domain Of | [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [dcterms:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements
@@ -85,13 +86,15 @@ URI: [dcterms:format](http://purl.org/dc/terms/format)
 <details>
 ```yaml
 name: media_type
-description: Technical media type of the primary resource, preferably an IANA media
-  type such as text/html, application/pdf or video/mp4. Do not use this for the didactic
-  form; use training_material_type instead.
+description: Technical media type of the primary dataset distribution or training
+  resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet
+  or video/mp4. Dataset records may list multiple formats; do not use this for an
+  intellectual or didactic form, which belongs in dataset_type or training_material_type.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:format
 domain_of:
+- Dataset
 - TrainingMaterial
 range: string
 

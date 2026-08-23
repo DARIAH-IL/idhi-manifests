@@ -25,7 +25,7 @@ URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dataset](../classes/Dataset.md) | A dataset, digital archive or catalog produced or curated by a project: corpo... |  no  |
+| [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
 
 
 
