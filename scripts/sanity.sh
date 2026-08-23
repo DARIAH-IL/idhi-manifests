@@ -15,8 +15,8 @@ ok()   { echo "${GREEN}✔${RESET} $*"; }
 warn() { echo "${YELLOW}⚠${RESET} $*"; }
 die()  { echo "${RED}✘${RESET} $*"; exit 1; }
 
-echo "IDHI schema sanity check: lint, materialize dynamic enums, generate artifacts, validate the example."
-echo "Lint issues only warn; generator failures are fatal and exit non-zero, so this can be a CI gate."
+echo "IDHI schema sanity check: lint, materialize dynamic enums, generate artifacts, validate all examples."
+echo "Lint issues only warn; generator and validation failures are fatal and exit non-zero, so this can be a CI gate."
 echo
 
 # --- 1. Lint ----------------------------------------------------------
@@ -39,11 +39,16 @@ ok "JSON Schema -> $GEN/idhi.schema.json"
 ok "OWL/Turtle -> $GEN/idhi.owl.ttl"
 ok "Docs -> docs/"
 
-# --- 3. Validate the golden example -----------------------------------
-echo "── validate (golden example) ────────────────────────────────────"
-echo "Validates the golden example data file against the schema."
-make validate DATA="example/example.yaml" || die "validation of example/example.yaml failed"
-ok "example/example.yaml validates against the schema"
+# --- 3. Validate the examples -----------------------------------------
+echo "── validate (examples) ──────────────────────────────────────────"
+echo "Validates every YAML data file in example/ against the schema."
+shopt -s nullglob
+example_files=(example/*.yaml)
+((${#example_files[@]} > 0)) || die "no YAML example files found in example/"
+for example_file in "${example_files[@]}"; do
+    make validate DATA="$example_file" || die "validation of $example_file failed"
+    ok "$example_file validates against the schema"
+done
 
 echo
 ok "All sanity checks passed. Artifacts are in $GEN/"

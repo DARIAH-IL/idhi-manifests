@@ -98,6 +98,19 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
         
       Tool : programming_language
         
+      Tool : resource_contributions
+        
+          
+    
+        
+        
+        Tool --> "*" ResourceContribution : resource_contributions
+        
+        click ResourceContribution href "../../classes/ResourceContribution/"
+        
+    
+
+        
       Tool : same_as
         
       Tool : tags
@@ -149,6 +162,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
+| [resource_contributions](../slots/resource_contributions.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ResourceContribution](../classes/ResourceContribution.md) | <span title="Named contributions to the containing Tool or Dataset, with contributor, role and optional dates. Define each contribution only on the resource; use publisher where supported for the organization formally releasing it and Project.project_participations for work described only at project level.">Named contributions to the containing Tool or Dataset, with contributor, role...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | [Entity](../classes/Entity.md) |
 | [description](../slots/description.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span> | [Entity](../classes/Entity.md) |
@@ -166,6 +180,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Facility](../classes/Facility.md) | [tools_provided](../slots/tools_provided.md) | range | [Tool](../classes/Tool.md) |
+| [Project](../classes/Project.md) | [uses_tools](../slots/uses_tools.md) | range | [Tool](../classes/Tool.md) |
 | [Project](../classes/Project.md) | [outputs_tools](../slots/outputs_tools.md) | range | [Tool](../classes/Tool.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_tools](../slots/related_tools.md) | range | [Tool](../classes/Tool.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [tools](../slots/tools.md) | range | [Tool](../classes/Tool.md) |
@@ -238,6 +253,7 @@ slots:
 - additional_urls
 - contact_email
 - digital_humanities_activities
+- resource_contributions
 slot_usage:
   type:
     name: type
@@ -428,6 +444,23 @@ attributes:
     - TrainingMaterial
     range: DigitalHumanitiesActivityEnum
     multivalued: true
+  resource_contributions:
+    name: resource_contributions
+    description: Named contributions to the containing Tool or Dataset, with contributor,
+      role and optional dates. Define each contribution only on the resource; use
+      publisher where supported for the organization formally releasing it and Project.project_participations
+      for work described only at project level.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:contributor
+    owner: Tool
+    domain_of:
+    - Tool
+    - Dataset
+    range: ResourceContribution
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   type:
     name: type
     description: Discriminator identifying the record's class; used for polymorphic

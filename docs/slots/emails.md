@@ -14,7 +14,7 @@ _Contact email addresses (zero or more). Only record addresses the person has ag
 
 
 
-URI: [foaf:mbox](https://xmlns.com/foaf/spec/#term_mbox)
+URI: [foaf:mbox](http://xmlns.com/foaf/0.1/mbox)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [foaf:mbox](https://xmlns.com/foaf/spec/#term_mbox)
 | --- | --- |
 | Range | [String](../types/String.md) |
 | Domain Of | [Person](../classes/Person.md) |
-| Slot URI | [foaf:mbox](https://xmlns.com/foaf/spec/#term_mbox) |
+| Slot URI | [foaf:mbox](http://xmlns.com/foaf/0.1/mbox) |
 
 ### Cardinality and Requirements
 

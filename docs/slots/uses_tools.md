@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: project_participations 
+# Slot: uses_tools 
 
 
-_People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person._
+_Tools used to conduct the containing project (by IDHI URN). Use for substantive research or technical dependencies, not tools produced by the project, which belong in outputs_tools._
 
 
 
@@ -14,7 +14,7 @@ _People involved in the containing project, as reified ProjectParticipation obje
 
 
 
-URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/project_participations)
+URI: [schema:instrument](http://schema.org/instrument)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,8 +38,9 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Property | Value |
 | --- | --- |
-| Range | [ProjectParticipation](../classes/ProjectParticipation.md) |
+| Range | [Tool](../classes/Tool.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [schema:instrument](http://schema.org/instrument) |
 
 ### Cardinality and Requirements
 
@@ -74,8 +75,8 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:project_participations |
-| native | idhi:project_participations |
+| self | schema:instrument |
+| native | idhi:uses_tools |
 
 
 
@@ -84,18 +85,17 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 <details>
 ```yaml
-name: project_participations
-description: People involved in the containing project, as reified ProjectParticipation
-  objects carrying participant, role and dates. Define each participation only here
-  on its Project; do not duplicate it on the Person.
+name: uses_tools
+description: Tools used to conduct the containing project (by IDHI URN). Use for substantive
+  research or technical dependencies, not tools produced by the project, which belong
+  in outputs_tools.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:instrument
 domain_of:
 - Project
-range: ProjectParticipation
+range: Tool
 multivalued: true
-inlined: true
-inlined_as_list: true
 
 ```
 </details></div>

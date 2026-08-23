@@ -11,15 +11,6 @@ persons:
     family_name:
       - {language: en, value: Rusinek}
       - {language: he, value: רוסינק}
-    project_participations:
-      - participant: idhi:person:rusinek
-        project: idhi:project:kima
-        participation_role: PRINCIPAL_INVESTIGATOR
-        start_date: "2016-01-01"
-      - participant: idhi:person:rusinek
-        project: idhi:project:kima
-        participation_role: DH_LEAD
-        start_date: "2016-01-01"
 
   - type: idhi:Person
     id: idhi:person:shalit
@@ -32,11 +23,6 @@ persons:
     homepage: https://dh-dev.com
     description:
       - {language: en, value: "Technical lead and co-maintainer of Kima; created its database, website and API in 2019 and has developed and maintained them since."}
-    project_participations:
-      - participant: idhi:person:shalit
-        project: idhi:project:kima
-        participation_role: TECHNICAL_LEAD
-        start_date: "2019-01-01"
 
   - type: idhi:Person
     id: idhi:person:mantegari
@@ -46,12 +32,6 @@ persons:
       - {language: en, value: Mantegari}
     description:
       - {language: en, value: "Data designer (consultant) for Kima's original data model, 2016–2017."}
-    project_participations:
-      - participant: idhi:person:mantegari
-        project: idhi:project:kima
-        participation_role: CONSULTANT
-        start_date: "2016-01-01"
-        end_date: "2017-12-31"
 
   - type: idhi:Person
     id: idhi:person:duchovny
@@ -59,12 +39,6 @@ persons:
       - {language: en, value: Dimid}
     family_name:
       - {language: en, value: Duchovny}
-    project_participations:
-      - participant: idhi:person:duchovny
-        project: idhi:project:kima
-        participation_role: DEVELOPER
-        start_date: "2016-01-01"
-        end_date: "2017-12-31"
 
 organizations:
   - type: idhi:Organization
@@ -142,6 +116,24 @@ projects:
       - {language: en, value: Worldwide}
       - {language: he, value: כלל־עולמי}
       - {language: ar, value: عالمي}
+    project_participations:
+      - participant: idhi:person:rusinek
+        participation_role: PRINCIPAL_INVESTIGATOR
+        start_date: "2016-01-01"
+      - participant: idhi:person:rusinek
+        participation_role: DH_LEAD
+        start_date: "2016-01-01"
+      - participant: idhi:person:shalit
+        participation_role: TECHNICAL_LEAD
+        start_date: "2019-01-01"
+      - participant: idhi:person:mantegari
+        participation_role: CONSULTANT
+        start_date: "2016-01-01"
+        end_date: "2017-12-31"
+      - participant: idhi:person:duchovny
+        participation_role: DEVELOPER
+        start_date: "2016-01-01"
+        end_date: "2017-12-31"
     funding_status: VOLUNTEER_RUN
     funding:
       - funding_organization: idhi:organization:pelagios

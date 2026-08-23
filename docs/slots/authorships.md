@@ -6,7 +6,7 @@ search:
 # Slot: authorships 
 
 
-_The person's publication contributions, as reified Authorship objects carrying byline order and role._
+_People who contributed to the containing publication, as reified Authorship objects carrying author, byline order and role. Define each authorship only here on its Publication; do not duplicate it on the Person._
 
 
 
@@ -25,7 +25,6 @@ URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |  no  |
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 
 
@@ -40,7 +39,7 @@ URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
 | Property | Value |
 | --- | --- |
 | Range | [Authorship](../classes/Authorship.md) |
-| Domain Of | [Person](../classes/Person.md), [Publication](../classes/Publication.md) |
+| Domain Of | [Publication](../classes/Publication.md) |
 
 ### Cardinality and Requirements
 
@@ -86,12 +85,12 @@ URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
 <details>
 ```yaml
 name: authorships
-description: The person's publication contributions, as reified Authorship objects
-  carrying byline order and role.
+description: People who contributed to the containing publication, as reified Authorship
+  objects carrying author, byline order and role. Define each authorship only here
+  on its Publication; do not duplicate it on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
-- Person
 - Publication
 range: Authorship
 multivalued: true

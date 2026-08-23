@@ -6,7 +6,7 @@ search:
 # Class: ProjectParticipation 
 
 
-_A person's participation in a project. Create one instance per (person, project, role) combination; if a person changed roles over time, create one instance per role with start/end dates._
+_A person's participation nested in a Project, so the project is inferred from the containing record. Use one instance per participant and role in Project.project_participations and do not define project participation in Person; if a person changed roles over time, create one instance per role with start and end dates._
 
 
 
@@ -56,19 +56,6 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
     
 
         
-      ProjectParticipation : project
-        
-          
-    
-        
-        
-        ProjectParticipation --> "1" Project : project
-        
-        click Project href "../../classes/Project/"
-        
-    
-
-        
       ProjectParticipation : start_date
         
       
@@ -93,10 +80,9 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [participant](../slots/participant.md) | <span title="Required: exactly one value">1</span> <br/> [Person](../classes/Person.md) | <span title="The person taking part in the project (by IDHI URN).">The person taking part in the project (by IDHI URN)</span> | direct |
-| [project](../slots/project.md) | <span title="Required: exactly one value">1</span> <br/> [Project](../classes/Project.md) | <span title="The project side of the relationship (by IDHI URN).">The project side of the relationship (by IDHI URN)</span> | direct |
+| [participant](../slots/participant.md) | <span title="Required: exactly one value">1</span> <br/> [Person](../classes/Person.md) | <span title="The person taking part in the containing project (by IDHI URN). Use in Project.project_participations; do not define the relationship on the Person.">The person taking part in the containing project (by IDHI URN)</span> | direct |
 | [participation_role](../slots/participation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [ProjectRoleEnum](../enums/ProjectRoleEnum.md) | <span title="The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); DH_LEAD for digital method and architecture, TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation, CONSULTANT for bounded external professional work, RESEARCHER for scholarly research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when none of the specific values fits.">The person's function within the project team</span> | direct |
-| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
 
@@ -107,7 +93,6 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Person](../classes/Person.md) | [project_participations](../slots/project_participations.md) | range | [ProjectParticipation](../classes/ProjectParticipation.md) |
 | [Project](../classes/Project.md) | [project_participations](../slots/project_participations.md) | range | [ProjectParticipation](../classes/ProjectParticipation.md) |
 
 
@@ -154,14 +139,14 @@ URI: [cerif:Project_Person](https://w3id.org/cerif/model#Project_Person)
 <details>
 ```yaml
 name: ProjectParticipation
-description: A person's participation in a project. Create one instance per (person,
-  project, role) combination; if a person changed roles over time, create one instance
-  per role with start/end dates.
+description: A person's participation nested in a Project, so the project is inferred
+  from the containing record. Use one instance per participant and role in Project.project_participations
+  and do not define project participation in Person; if a person changed roles over
+  time, create one instance per role with start and end dates.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - participant
-- project
 - participation_role
 class_uri: cerif:Project_Person
 
@@ -173,32 +158,23 @@ class_uri: cerif:Project_Person
 <details>
 ```yaml
 name: ProjectParticipation
-description: A person's participation in a project. Create one instance per (person,
-  project, role) combination; if a person changed roles over time, create one instance
-  per role with start/end dates.
+description: A person's participation nested in a Project, so the project is inferred
+  from the containing record. Use one instance per participant and role in Project.project_participations
+  and do not define project participation in Person; if a person changed roles over
+  time, create one instance per role with start and end dates.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
   participant:
     name: participant
-    description: The person taking part in the project (by IDHI URN).
+    description: The person taking part in the containing project (by IDHI URN). Use
+      in Project.project_participations; do not define the relationship on the Person.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: ProjectParticipation
     domain_of:
     - ProjectParticipation
     range: Person
-    required: true
-  project:
-    name: project
-    description: The project side of the relationship (by IDHI URN).
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    owner: ProjectParticipation
-    domain_of:
-    - ProjectParticipation
-    - OrganizationProjectRole
-    range: Project
     required: true
   participation_role:
     name: participation_role
@@ -218,7 +194,8 @@ attributes:
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
-      validity (e.g. when a person joined a project or organization).
+      validity, such as when participation, affiliation, maintenance responsibility
+      or formal containment began.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate

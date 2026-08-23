@@ -14,7 +14,7 @@ _An organization of any kind. Its kind (academic institution, GLAM, research cen
 
 
 
-URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
+URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 
 
 
@@ -92,6 +92,19 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
     
 
         
+      Organization : organization_hierarchy
+        
+          
+    
+        
+        
+        Organization --> "*" OrganizationHierarchy : organization_hierarchy
+        
+        click OrganizationHierarchy href "../../classes/OrganizationHierarchy/"
+        
+    
+
+        
       Organization : organization_type
         
           
@@ -101,17 +114,6 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
         Organization --> "0..1" OrganizationTypeEnum : organization_type
         
         click OrganizationTypeEnum href "../../enums/OrganizationTypeEnum/"
-        
-    
-
-        
-      Organization : parent_organization
-        
-          
-    
-        
-        
-        Organization --> "0..1" Organization : parent_organization
         
     
 
@@ -140,7 +142,7 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization) |
+| Class URI | [foaf:Organization](http://xmlns.com/foaf/0.1/Organization) |
 
 
 ## Slots
@@ -150,7 +152,7 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [ror](../slots/ror.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR — most universities and research institutes are.">The organization's persistent registry identifier</span> | direct |
 | [organization_type](../slots/organization_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrganizationTypeEnum](../enums/OrganizationTypeEnum.md) | <span title="The kind of organization. Always set it.">The kind of organization</span> | direct |
-| [parent_organization](../slots/parent_organization.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.">The larger organization this one is part of (e</span> | direct |
+| [organization_hierarchy](../slots/organization_hierarchy.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationHierarchy](../classes/OrganizationHierarchy.md) | <span title="Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, with the parent a...</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
 | [marketplace_sync](../slots/marketplace_sync.md) | <span title="Optional: at most one value">0..1</span> <br/> [Boolean](../types/Boolean.md) | <span title="Opt-in flag for synchronization with the DARIAH SSH Open Marketplace. Set true to allow the organization and entities related to it through IDHI references, such as services and tools, to be synchronized; false or omission means they must not be synchronized on this organization's authority. This operational flag does not assert ownership of related entities. It uses an IDHI-specific property because established descriptive vocabularies do not provide a term for this synchronization policy.">Opt-in flag for synchronization with the DARIAH SSH Open Marketplace</span> | direct |
@@ -172,11 +174,11 @@ URI: [foaf:Organization](https://xmlns.com/foaf/spec/#term_Organization)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Organization](../classes/Organization.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
 | [Service](../classes/Service.md) | [provider](../slots/provider.md) | range | [Organization](../classes/Organization.md) |
 | [Publication](../classes/Publication.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [Dataset](../classes/Dataset.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
+| [OrganizationHierarchy](../classes/OrganizationHierarchy.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |
 | [Affiliation](../classes/Affiliation.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [Funding](../classes/Funding.md) | [funding_organization](../slots/funding_organization.md) | range | [Organization](../classes/Organization.md) |
@@ -244,7 +246,7 @@ slots:
 - name
 - ror
 - organization_type
-- parent_organization
+- organization_hierarchy
 - location
 - address
 - marketplace_sync
@@ -336,18 +338,24 @@ attributes:
     domain_of:
     - Organization
     range: OrganizationTypeEnum
-  parent_organization:
-    name: parent_organization
-    description: The larger organization this one is part of (e.g. a department's
-      university). Use for formal containment only; looser partnerships belong in
-      relationship classes.
+  organization_hierarchy:
+    name: organization_hierarchy
+    description: Formal parent relationships of the containing organization, with
+      the parent and optional start and end dates. Define each containment relationship
+      only on the child organization; use organization_roles for project partnerships
+      and omit this slot for informal associations. This uses an IDHI-specific property
+      because established parent-organization properties point directly to the parent
+      and cannot carry relationship dates.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
-    slot_uri: schema:parentOrganization
+    slot_uri: idhi:organizationHierarchy
     owner: Organization
     domain_of:
     - Organization
-    range: Organization
+    range: OrganizationHierarchy
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   location:
     name: location
     description: Place name where the organization, facility or event is physically

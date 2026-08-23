@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: authorship_role 
+# Slot: event_agent_role 
 
 
-_The kind of contribution. AUTHOR is the default for byline authors; use EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named non-byline contributions._
+_The capacity in which the agent is involved in the containing event. Choose the most specific applicable role and create separate relationships when the same agent has multiple roles._
 
 
 
@@ -25,7 +25,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Authorship](../classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |  no  |
+| [EventAgentRole](../classes/EventAgentRole.md) | A person or organization involved in the containing Event in a defined capaci... |  no  |
 
 
 
@@ -38,14 +38,15 @@ URI: [schema:roleName](http://schema.org/roleName)
 
 | Property | Value |
 | --- | --- |
-| Range | [AuthorshipRoleEnum](../enums/AuthorshipRoleEnum.md) |
-| Domain Of | [Authorship](../classes/Authorship.md) |
+| Range | [EventAgentRoleEnum](../enums/EventAgentRoleEnum.md) |
+| Domain Of | [EventAgentRole](../classes/EventAgentRole.md) |
 | Slot URI | [schema:roleName](http://schema.org/roleName) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
+| Required | Yes |
 
 
 
@@ -75,7 +76,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | schema:roleName |
-| native | idhi:authorship_role |
+| native | idhi:event_agent_role |
 
 
 
@@ -84,16 +85,17 @@ URI: [schema:roleName](http://schema.org/roleName)
 
 <details>
 ```yaml
-name: authorship_role
-description: The kind of contribution. AUTHOR is the default for byline authors; use
-  EDITOR/TRANSLATOR for edited volumes and translations; CONTRIBUTOR for named non-byline
-  contributions.
+name: event_agent_role
+description: The capacity in which the agent is involved in the containing event.
+  Choose the most specific applicable role and create separate relationships when
+  the same agent has multiple roles.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName
 domain_of:
-- Authorship
-range: AuthorshipRoleEnum
+- EventAgentRole
+range: EventAgentRoleEnum
+required: true
 
 ```
 </details></div>

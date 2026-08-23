@@ -97,7 +97,7 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 | [funding_program](../slots/funding_program.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name of the broader funding programme or scheme under which the award was made. This uses an IDHI-specific property because FRAPO defines FundingProgramme as a class but has no fitting property for a literal programme label.">Multilingual name of the broader funding programme or scheme under which the ...</span> | direct |
 | [grant_number](../slots/grant_number.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Identifier assigned to the grant by its funding organization. Use the funder's exact value and omit it when none is published.">Identifier assigned to the grant by its funding organization</span> | direct |
 | [funding_url](../slots/funding_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Public landing page for the individual award or its authoritative funding record. Use the funding organization's homepage on the Organization record instead when no award-specific page exists.">Public landing page for the individual award or its authoritative funding rec...</span> | direct |
-| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
 
 
@@ -267,7 +267,8 @@ attributes:
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
-      validity (e.g. when a person joined a project or organization).
+      validity, such as when participation, affiliation, maintenance responsibility
+      or formal containment began.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate

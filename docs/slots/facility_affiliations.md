@@ -6,7 +6,7 @@ search:
 # Slot: facility_affiliations 
 
 
-_The organization(s) hosting or owning this facility, as reified FacilityAffiliation objects with dates._
+_The organizations hosting or owning the containing facility, as reified FacilityAffiliation objects with a required relationship role and optional dates. Reference each organization and infer the facility from its containing record; define separate relationships if different organizations host and own the facility._
 
 
 
@@ -85,8 +85,10 @@ URI: [idhi:slot/facility_affiliations](https://idhi_placeholder/linkml/slot/faci
 <details>
 ```yaml
 name: facility_affiliations
-description: The organization(s) hosting or owning this facility, as reified FacilityAffiliation
-  objects with dates.
+description: The organizations hosting or owning the containing facility, as reified
+  FacilityAffiliation objects with a required relationship role and optional dates.
+  Reference each organization and infer the facility from its containing record; define
+  separate relationships if different organizations host and own the facility.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

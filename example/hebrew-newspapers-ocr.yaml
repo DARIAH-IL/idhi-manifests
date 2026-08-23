@@ -9,13 +9,8 @@ persons:
       - {language: en, value: Goldstein}
       - {language: he, value: גולדשטיין}
     affiliations:
-      - member: idhi:person:goldstein
-        organization: idhi:organization:telhai
+      - organization: idhi:organization:telhai
         affiliation_role: PROFESSOR
-    project_participations:
-      - participant: idhi:person:goldstein
-        project: idhi:project:hebnewsocr
-        participation_role: PRINCIPAL_INVESTIGATOR
 
   - type: idhi:Person
     id: idhi:person:rusinek
@@ -28,10 +23,6 @@ persons:
       - {language: he, value: רוסינק}
     description:
       - {language: en, value: "Digital-humanities project lead: designed and ran the OCR re-reading pipeline (Transkribus at OMILab, then Kraken) and prepared the corpus documentation. Her work on this dataset was funded by the ISF grant \"The Double Movement? Towards a Socioeconomic Historiography of the Right in Israel (1948–1984)\" (PI Amir Goldstein)."}
-    project_participations:
-      - participant: idhi:person:rusinek
-        project: idhi:project:hebnewsocr
-        participation_role: DH_LEAD
 
   - type: idhi:Person
     id: idhi:person:snapir
@@ -43,13 +34,8 @@ persons:
       - {language: he, value: סנפיר}
     homepage: https://huggingface.co/yoad
     affiliations:
-      - member: idhi:person:snapir
-        organization: idhi:organization:ivritai
+      - organization: idhi:organization:ivritai
         affiliation_role: MEMBER
-    project_participations:
-      - participant: idhi:person:snapir
-        project: idhi:project:hebnewsocr
-        participation_role: DEVELOPER
 
 organizations:
   - type: idhi:Organization
@@ -90,7 +76,8 @@ organizations:
       - {language: en, value: "OMILab – Open Media and Information Lab, The Open University of Israel"}
       - {language: he, value: "מעבדת OMILab למדיה ומידע פתוחים, האוניברסיטה הפתוחה"}
     organization_type: RESEARCH_CENTER
-    parent_organization: idhi:organization:openu
+    organization_hierarchy:
+      - parent_organization: idhi:organization:openu
     homepage: https://www.openu.ac.il/en/omilab/pages/historicalnewspaper
 
   - type: idhi:Organization
@@ -203,18 +190,21 @@ projects:
       - {language: en, value: Mandatory Palestine and Israel}
       - {language: he, value: ארץ ישראל המנדטורית ומדינת ישראל}
       - {language: ar, value: فلسطين الانتدابية وإسرائيل}
+    project_participations:
+      - participant: idhi:person:goldstein
+        participation_role: PRINCIPAL_INVESTIGATOR
+      - participant: idhi:person:rusinek
+        participation_role: DH_LEAD
+      - participant: idhi:person:snapir
+        participation_role: DEVELOPER
     organization_roles:
       - organization: idhi:organization:telhai
-        project: idhi:project:hebnewsocr
         org_project_role: HOST
       - organization: idhi:organization:omilab
-        project: idhi:project:hebnewsocr
         org_project_role: PARTNER
       - organization: idhi:organization:ivritai
-        project: idhi:project:hebnewsocr
         org_project_role: PARTNER
       - organization: idhi:organization:nlil
-        project: idhi:project:hebnewsocr
         org_project_role: DATA_PROVIDER
     funding:
       - funding_organization: idhi:organization:isfil

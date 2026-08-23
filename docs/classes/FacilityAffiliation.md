@@ -6,7 +6,7 @@ search:
 # Class: FacilityAffiliation 
 
 
-_A facility's affiliation with an organization. Use one instance per hosting/owning organization; joint labs get several._
+_A facility's affiliation with an organization, nested in a Facility so the facility is inferred from the containing record. Use one instance per hosting or owning organization in Facility.facility_affiliations and do not provide the containing facility's ID; joint labs get several._
 
 
 
@@ -30,15 +30,15 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 
       FacilityAffiliation : end_date
         
-      FacilityAffiliation : facility
+      FacilityAffiliation : facility_affiliation_role
         
           
     
         
         
-        FacilityAffiliation --> "1" Facility : facility
+        FacilityAffiliation --> "1" FacilityAffiliationRoleEnum : facility_affiliation_role
         
-        click Facility href "../../classes/Facility/"
+        click FacilityAffiliationRoleEnum href "../../enums/FacilityAffiliationRoleEnum/"
         
     
 
@@ -80,9 +80,9 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [facility](../slots/facility.md) | <span title="Required: exactly one value">1</span> <br/> [Facility](../classes/Facility.md) | <span title="The facility side of the relationship (by IDHI URN).">The facility side of the relationship (by IDHI URN)</span> | direct |
-| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization side of the relationship (by IDHI URN).">The organization side of the relationship (by IDHI URN)</span> | direct |
-| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
+| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.">The organization referenced by a person affiliation, facility affiliation or ...</span> | direct |
+| [facility_affiliation_role](../slots/facility_affiliation_role.md) | <span title="Required: exactly one value">1</span> <br/> [FacilityAffiliationRoleEnum](../enums/FacilityAffiliationRoleEnum.md) | <span title="The organization's relationship to the containing facility. Use HOST when it provides the facility's institutional or operational home and OWNER when it legally or administratively owns the facility; create two relationships when distinct organizations fill those roles.">The organization's relationship to the containing facility</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
 
@@ -139,13 +139,15 @@ URI: [cerif:Facility_OrganisationUnit](https://w3id.org/cerif/model#Facility_Org
 <details>
 ```yaml
 name: FacilityAffiliation
-description: A facility's affiliation with an organization. Use one instance per hosting/owning
-  organization; joint labs get several.
+description: A facility's affiliation with an organization, nested in a Facility so
+  the facility is inferred from the containing record. Use one instance per hosting
+  or owning organization in Facility.facility_affiliations and do not provide the
+  containing facility's ID; joint labs get several.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
-- facility
 - organization
+- facility_affiliation_role
 class_uri: cerif:Facility_OrganisationUnit
 
 ```
@@ -156,24 +158,18 @@ class_uri: cerif:Facility_OrganisationUnit
 <details>
 ```yaml
 name: FacilityAffiliation
-description: A facility's affiliation with an organization. Use one instance per hosting/owning
-  organization; joint labs get several.
+description: A facility's affiliation with an organization, nested in a Facility so
+  the facility is inferred from the containing record. Use one instance per hosting
+  or owning organization in Facility.facility_affiliations and do not provide the
+  containing facility's ID; joint labs get several.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
-  facility:
-    name: facility
-    description: The facility side of the relationship (by IDHI URN).
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    owner: FacilityAffiliation
-    domain_of:
-    - FacilityAffiliation
-    range: Facility
-    required: true
   organization:
     name: organization
-    description: The organization side of the relationship (by IDHI URN).
+    description: The organization referenced by a person affiliation, facility affiliation
+      or project role (by IDHI URN). The Person, Facility or Project containing the
+      relationship supplies its other endpoint.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: FacilityAffiliation
@@ -183,10 +179,25 @@ attributes:
     - FacilityAffiliation
     range: Organization
     required: true
+  facility_affiliation_role:
+    name: facility_affiliation_role
+    description: The organization's relationship to the containing facility. Use HOST
+      when it provides the facility's institutional or operational home and OWNER
+      when it legally or administratively owns the facility; create two relationships
+      when distinct organizations fill those roles.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:roleName
+    owner: FacilityAffiliation
+    domain_of:
+    - FacilityAffiliation
+    range: FacilityAffiliationRoleEnum
+    required: true
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
-      validity (e.g. when a person joined a project or organization).
+      validity, such as when participation, affiliation, maintenance responsibility
+      or formal containment began.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate

@@ -157,6 +157,7 @@ URI: [schema:Service](http://schema.org/Service)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Facility](../classes/Facility.md) | [services_offered](../slots/services_offered.md) | range | [Service](../classes/Service.md) |
+| [Project](../classes/Project.md) | [uses_services](../slots/uses_services.md) | range | [Service](../classes/Service.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_services](../slots/related_services.md) | range | [Service](../classes/Service.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [services](../slots/services.md) | range | [Service](../classes/Service.md) |
 

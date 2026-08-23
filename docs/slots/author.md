@@ -6,7 +6,7 @@ search:
 # Slot: author 
 
 
-_The contributing person (by IDHI URN)._
+_The person contributing to the containing publication (by IDHI URN). Use in Publication.authorships; do not define the relationship on the Person._
 
 
 
@@ -25,7 +25,7 @@ URI: [idhi:slot/author](https://idhi_placeholder/linkml/slot/author)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Authorship](../classes/Authorship.md) | A person's contribution to a publication, with author order and role |  no  |
+| [Authorship](../classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |  no  |
 
 
 
@@ -85,7 +85,8 @@ URI: [idhi:slot/author](https://idhi_placeholder/linkml/slot/author)
 <details>
 ```yaml
 name: author
-description: The contributing person (by IDHI URN).
+description: The person contributing to the containing publication (by IDHI URN).
+  Use in Publication.authorships; do not define the relationship on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

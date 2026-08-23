@@ -14,7 +14,7 @@ _Family (last) name as multilingual text. Use one LangString per available langu
 
 
 
-URI: [foaf:familyName](https://xmlns.com/foaf/spec/#term_familyName)
+URI: [foaf:familyName](http://xmlns.com/foaf/0.1/familyName)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [foaf:familyName](https://xmlns.com/foaf/spec/#term_familyName)
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Person](../classes/Person.md) |
-| Slot URI | [foaf:familyName](https://xmlns.com/foaf/spec/#term_familyName) |
+| Slot URI | [foaf:familyName](http://xmlns.com/foaf/0.1/familyName) |
 
 ### Cardinality and Requirements
 

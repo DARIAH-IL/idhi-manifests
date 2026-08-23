@@ -14,7 +14,7 @@ _A human agent in the DH index: researcher, developer, librarian, student, etc._
 
 
 
-URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
+URI: [foaf:Person](http://xmlns.com/foaf/0.1/Person)
 
 
 
@@ -37,19 +37,6 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         Person --> "*" Affiliation : affiliations
         
         click Affiliation href "../../classes/Affiliation/"
-        
-    
-
-        
-      Person : authorships
-        
-          
-    
-        
-        
-        Person --> "*" Authorship : authorships
-        
-        click Authorship href "../../classes/Authorship/"
         
     
 
@@ -103,19 +90,6 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
         
       Person : orcid
         
-      Person : project_participations
-        
-          
-    
-        
-        
-        Person --> "*" ProjectParticipation : project_participations
-        
-        click ProjectParticipation href "../../classes/ProjectParticipation/"
-        
-    
-
-        
       Person : same_as
         
       Person : tags
@@ -138,7 +112,7 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Person](https://xmlns.com/foaf/spec/#term_Person) |
+| Class URI | [foaf:Person](http://xmlns.com/foaf/0.1/Person) |
 
 
 ## Slots
@@ -149,9 +123,7 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 | [family_name](../slots/family_name.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Family (last) name as multilingual text. Use one LangString per available language with given_name when the person's name is conventionally expressed in separate parts; do not use it for a full name.">Family (last) name as multilingual text</span> | direct |
 | [orcid](../slots/orcid.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The person's persistent researcher identifier. It supplements the IDHI record id. Strongly recommended for every researcher; enables deduplication and linking to the scholarly record.">The person's persistent researcher identifier</span> | direct |
 | [emails](../slots/emails.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Contact email addresses (zero or more). Only record addresses the person has agreed to publish in the index.">Contact email addresses (zero or more)</span> | direct |
-| [affiliations](../slots/affiliations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Affiliation](../classes/Affiliation.md) | <span title="The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement — that goes in project_participations.">The person's institutional affiliations, as reified Affiliation objects (orga...</span> | direct |
-| [project_participations](../slots/project_participations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | <span title="The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates.">The person's project involvements, as reified ProjectParticipation objects ca...</span> | direct |
-| [authorships](../slots/authorships.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Authorship](../classes/Authorship.md) | <span title="The person's publication contributions, as reified Authorship objects carrying byline order and role.">The person's publication contributions, as reified Authorship objects carryin...</span> | direct |
+| [affiliations](../slots/affiliations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Affiliation](../classes/Affiliation.md) | <span title="The containing person's institutional affiliations, as reified Affiliation objects with organization, position and dates. Use for employment or formal membership, not for project involvement; the containing person's ID is inferred and must not be repeated in each relationship.">The containing person's institutional affiliations, as reified Affiliation ob...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | [Entity](../classes/Entity.md) |
 | [description](../slots/description.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span> | [Entity](../classes/Entity.md) |
@@ -169,7 +141,6 @@ URI: [foaf:Person](https://xmlns.com/foaf/spec/#term_Person)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [ProjectParticipation](../classes/ProjectParticipation.md) | [participant](../slots/participant.md) | range | [Person](../classes/Person.md) |
-| [Affiliation](../classes/Affiliation.md) | [member](../slots/member.md) | range | [Person](../classes/Person.md) |
 | [Authorship](../classes/Authorship.md) | [author](../slots/author.md) | range | [Person](../classes/Person.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [persons](../slots/persons.md) | range | [Person](../classes/Person.md) |
 
@@ -235,8 +206,6 @@ slots:
 - orcid
 - emails
 - affiliations
-- project_participations
-- authorships
 slot_usage:
   type:
     name: type
@@ -333,43 +302,16 @@ attributes:
     multivalued: true
   affiliations:
     name: affiliations
-    description: The person's institutional affiliations, as reified Affiliation objects
-      (organization + position + dates). Use for employment or formal membership,
-      NOT for project involvement — that goes in project_participations.
+    description: The containing person's institutional affiliations, as reified Affiliation
+      objects with organization, position and dates. Use for employment or formal
+      membership, not for project involvement; the containing person's ID is inferred
+      and must not be repeated in each relationship.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Person
     domain_of:
     - Person
     range: Affiliation
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  project_participations:
-    name: project_participations
-    description: The person's project involvements, as reified ProjectParticipation
-      objects carrying the role (PI, developer...) and dates.
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    owner: Person
-    domain_of:
-    - Person
-    - Project
-    range: ProjectParticipation
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  authorships:
-    name: authorships
-    description: The person's publication contributions, as reified Authorship objects
-      carrying byline order and role.
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    owner: Person
-    domain_of:
-    - Person
-    - Publication
-    range: Authorship
     multivalued: true
     inlined: true
     inlined_as_list: true

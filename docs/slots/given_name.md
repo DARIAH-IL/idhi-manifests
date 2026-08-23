@@ -14,7 +14,7 @@ _Given (first) name as multilingual text. Use one LangString per available langu
 
 
 
-URI: [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName)
+URI: [foaf:givenName](http://xmlns.com/foaf/0.1/givenName)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName)
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
 | Domain Of | [Person](../classes/Person.md) |
-| Slot URI | [foaf:givenName](https://xmlns.com/foaf/spec/#term_givenName) |
+| Slot URI | [foaf:givenName](http://xmlns.com/foaf/0.1/givenName) |
 
 ### Cardinality and Requirements
 

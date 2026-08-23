@@ -60,6 +60,19 @@ URI: [schema:Event](http://schema.org/Event)
         
       Event : end_date
         
+      Event : event_agent_roles
+        
+          
+    
+        
+        
+        Event --> "*" EventAgentRole : event_agent_roles
+        
+        click EventAgentRole href "../../classes/EventAgentRole/"
+        
+    
+
+        
       Event : event_type
         
           
@@ -137,10 +150,11 @@ URI: [schema:Event](http://schema.org/Event)
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [event_type](../slots/event_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [EventTypeEnum](../enums/EventTypeEnum.md) | <span title="The kind of scholarly event.">The kind of scholarly event</span> | direct |
-| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
+| [event_agent_roles](../slots/event_agent_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [EventAgentRole](../classes/EventAgentRole.md) | <span title="People and organizations involved in the containing event, with their role and optional relationship dates. Define each involvement only on the Event; use Publication.authorships for authorship and presented_at for the event at which a publication was presented.">People and organizations involved in the containing event, with their role an...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -226,6 +240,7 @@ slots:
 - end_date
 - location
 - address
+- event_agent_roles
 - additional_urls
 - contact_email
 slot_usage:
@@ -302,7 +317,8 @@ attributes:
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
-      validity (e.g. when a person joined a project or organization).
+      validity, such as when participation, affiliation, maintenance responsibility
+      or formal containment began.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
@@ -355,6 +371,22 @@ attributes:
     - Facility
     - Event
     range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  event_agent_roles:
+    name: event_agent_roles
+    description: People and organizations involved in the containing event, with their
+      role and optional relationship dates. Define each involvement only on the Event;
+      use Publication.authorships for authorship and presented_at for the event at
+      which a publication was presented.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:participant
+    owner: Event
+    domain_of:
+    - Event
+    range: EventAgentRole
     multivalued: true
     inlined: true
     inlined_as_list: true

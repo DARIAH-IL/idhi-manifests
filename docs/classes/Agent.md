@@ -16,7 +16,7 @@ _A person or an organization._
 * __NOTE__: this is an abstract class and should not be instantiated directly
 
 
-URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
+URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 
 
@@ -76,7 +76,7 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent) |
+| Class URI | [foaf:Agent](http://xmlns.com/foaf/0.1/Agent) |
 
 
 ## Slots
@@ -100,6 +100,8 @@ URI: [foaf:Agent](https://xmlns.com/foaf/spec/#term_Agent)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [creators](../slots/creators.md) | range | [Agent](../classes/Agent.md) |
+| [EventAgentRole](../classes/EventAgentRole.md) | [event_agent](../slots/event_agent.md) | range | [Agent](../classes/Agent.md) |
+| [ResourceContribution](../classes/ResourceContribution.md) | [contributor](../slots/contributor.md) | range | [Agent](../classes/Agent.md) |
 
 
 

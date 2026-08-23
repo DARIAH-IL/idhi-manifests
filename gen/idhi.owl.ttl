@@ -3,7 +3,7 @@
 @prefix coar: <http://purl.org/coar/resource_type/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf1: <https://xmlns.com/foaf/spec/#term_> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix idhi: <https://idhi_placeholder/linkml/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -19,11 +19,8 @@
 idhi:IndexContainer a owl:Class ;
     rdfs:label "IndexContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Service ;
-            owl:onProperty idhi:services ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:training_materials ],
+            owl:allValuesFrom idhi:Tool ;
+            owl:onProperty idhi:tools ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:services ],
@@ -31,23 +28,32 @@ idhi:IndexContainer a owl:Class ;
             owl:allValuesFrom idhi:Publication ;
             owl:onProperty idhi:publications ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:datasets ],
+            owl:allValuesFrom idhi:Service ;
+            owl:onProperty idhi:services ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:facilities ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:publications ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Person ;
-            owl:onProperty idhi:persons ],
+            owl:onProperty idhi:events ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:tools ],
+            owl:onProperty idhi:projects ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:TrainingMaterial ;
             owl:onProperty idhi:training_materials ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:training_materials ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Facility ;
+            owl:onProperty idhi:facilities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:datasets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Person ;
+            owl:onProperty idhi:persons ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:Organization ;
             owl:onProperty idhi:organizations ],
@@ -55,29 +61,23 @@ idhi:IndexContainer a owl:Class ;
             owl:allValuesFrom idhi:Event ;
             owl:onProperty idhi:events ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Dataset ;
-            owl:onProperty idhi:datasets ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Facility ;
-            owl:onProperty idhi:facilities ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Project ;
-            owl:onProperty idhi:projects ],
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:persons ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:organizations ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:persons ],
+            owl:onProperty idhi:tools ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty idhi:publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Project ;
             owl:onProperty idhi:projects ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:events ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Tool ;
-            owl:onProperty idhi:tools ] ;
+            owl:allValuesFrom idhi:Dataset ;
+            owl:onProperty idhi:datasets ] ;
     skos:definition "Top-level holder for all IDHI records. Big entities live exactly once in these lists; everything else references them by their IDHI URN." ;
     skos:inScheme idhi:idhi .
 
@@ -748,6 +748,16 @@ coar:c_f744 a owl:Class ;
     rdfs:subClassOf idhi:PublicationTypeEnum ;
     skos:definition "Conference proceedings is the official record of a conference meeting. It is a collection of documents which corresponds to the presentations given at the conference. It may include additional content. [Source: http://www.ieee.org/documents/confprocdefined.pdf ]" .
 
+dcterms:contributor a owl:Class ;
+    rdfs:label "CONTRIBUTOR" ;
+    rdfs:subClassOf idhi:ResourceContributionRoleEnum ;
+    skos:definition "Makes a named contribution that does not fit creator, developer, maintainer or data curator; use only after the more specific roles have been considered." .
+
+dcterms:creator a owl:Class ;
+    rdfs:label "CREATOR" ;
+    rdfs:subClassOf idhi:ResourceContributionRoleEnum ;
+    skos:definition "Originates the resource as a whole; use DEVELOPER for software implementation and DATA_CURATOR for stewardship of dataset contents." .
+
 bibo:Conference a owl:Class ;
     rdfs:label "CONFERENCE" ;
     rdfs:subClassOf idhi:EventTypeEnum ;
@@ -781,17 +791,42 @@ schema1:NGO a owl:Class ;
 schema1:ResearchOrganization a owl:Class ;
     rdfs:label "RESEARCH_CENTER" ;
     rdfs:subClassOf idhi:OrganizationTypeEnum ;
-    skos:definition "A research center or institute, whether independent or within a university (if within one, also set parent_organization)." .
+    skos:definition "A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_hierarchy with that parent and any known dates." .
 
 schema1:WebApplication a owl:Class ;
     rdfs:label "WEB_APPLICATION" ;
     rdfs:subClassOf idhi:ToolServiceTypeEnum ;
     skos:definition "Software used through a browser." .
 
+schema1:attendee a owl:Class ;
+    rdfs:label "PARTICIPANT" ;
+    rdfs:subClassOf idhi:EventAgentRoleEnum ;
+    skos:definition "Takes an active named part in the event when no more specific organizer, host, speaker or panelist role applies; do not use for unrecorded general attendance." .
+
+schema1:maintainer a owl:Class ;
+    rdfs:label "MAINTAINER" ;
+    rdfs:subClassOf idhi:ResourceContributionRoleEnum ;
+    skos:definition "Holds ongoing technical or operational responsibility for the resource after its creation; use DEVELOPER for implementation work without continuing maintenance responsibility." .
+
+schema1:organizer a owl:Class ;
+    rdfs:label "ORGANIZER" ;
+    rdfs:subClassOf idhi:EventAgentRoleEnum ;
+    skos:definition "Plans or administers the event; use HOST for the institution providing the venue or institutional home." .
+
+schema1:owns a owl:Class ;
+    rdfs:label "OWNER" ;
+    rdfs:subClassOf idhi:FacilityAffiliationRoleEnum ;
+    skos:definition "The organization legally or administratively owns the facility; use HOST instead when it operates or houses a facility it does not own." .
+
 schema1:provider a owl:Class ;
     rdfs:label "DATA_PROVIDER" ;
     rdfs:subClassOf idhi:OrgProjectRoleEnum ;
     skos:definition "Supplies a source collection or data used by the project without thereby acting as its host, coordinator or funder." .
+
+schema1:sponsor a owl:Class ;
+    rdfs:label "SPONSOR" ;
+    rdfs:subClassOf idhi:EventAgentRoleEnum ;
+    skos:definition "Provides financial or material sponsorship for the event; use ORGANIZER when the same agent also administers the event." .
 
 xsd:base64Binary a rdfs:Datatype .
 
@@ -809,6 +844,11 @@ xsd:base64Binary a rdfs:Datatype .
     rdfs:label "CC0_1_0" ;
     rdfs:subClassOf idhi:LicenseEnum ;
     skos:definition "Creative Commons Zero (public domain dedication)." .
+
+<https://credit.niso.org/contributor-roles/data-curation/> a owl:Class ;
+    rdfs:label "DATA_CURATOR" ;
+    rdfs:subClassOf idhi:ResourceContributionRoleEnum ;
+    skos:definition "Manages, cleans, annotates, preserves or documents the contents of a Dataset; use CREATOR for originating the resource as a whole." .
 
 <https://credit.niso.org/contributor-roles/investigation/> a owl:Class ;
     rdfs:label "RESEARCHER" ;
@@ -885,6 +925,21 @@ xsd:base64Binary a rdfs:Datatype .
     rdfs:subClassOf idhi:DatasetTypeEnum ;
     skos:definition "Research data that fits none of the more specific forms; use only after the digital-edition, corpus, database, gazetteer, image-collection, annotation-set and metadata-catalog values have been considered." .
 
+<https://idhi_placeholder/linkml/EventAgentRoleEnum#HOST> a owl:Class ;
+    rdfs:label "HOST" ;
+    rdfs:subClassOf idhi:EventAgentRoleEnum ;
+    skos:definition "Provides the event's venue or institutional home without necessarily organizing its programme. No established controlled concept precisely distinguishes this role from organizer." .
+
+<https://idhi_placeholder/linkml/EventAgentRoleEnum#PANELIST> a owl:Class ;
+    rdfs:label "PANELIST" ;
+    rdfs:subClassOf idhi:EventAgentRoleEnum ;
+    skos:definition "Participates as a named member of a panel; use SPEAKER for a standalone talk and PARTICIPANT for another active capacity." .
+
+<https://idhi_placeholder/linkml/EventAgentRoleEnum#SPEAKER> a owl:Class ;
+    rdfs:label "SPEAKER" ;
+    rdfs:subClassOf idhi:EventAgentRoleEnum ;
+    skos:definition "Delivers a lecture, presentation or other individual spoken contribution; use PANELIST for participation in a panel discussion." .
+
 <https://idhi_placeholder/linkml/EventTypeEnum#EXHIBITION> a owl:Class ;
     rdfs:label "EXHIBITION" ;
     rdfs:subClassOf idhi:EventTypeEnum ;
@@ -910,74 +965,157 @@ xsd:base64Binary a rdfs:Datatype .
     rdfs:subClassOf idhi:EventTypeEnum ;
     skos:definition "A hands-on or small-group working meeting." .
 
+idhi:Facility a owl:Class ;
+    rdfs:label "Facility" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Service ;
+            owl:onProperty idhi:services_offered ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:facility_affiliations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:address ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:services_offered ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:location ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:location ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Tool ;
+            owl:onProperty idhi:tools_provided ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:FacilityAffiliation ;
+            owl:onProperty idhi:facility_affiliations ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Facility" ] ) ] ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:address ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:tools_provided ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        idhi:Entity ;
+    skos:definition "A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations. Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization." ;
+    skos:exactMatch cerif:Facility ;
+    skos:inScheme idhi:idhi .
+
+<https://idhi_placeholder/linkml/FacilityAffiliationRoleEnum#HOST> a owl:Class ;
+    rdfs:label "HOST" ;
+    rdfs:subClassOf idhi:FacilityAffiliationRoleEnum ;
+    skos:definition "The organization provides the facility's institutional or operational home; use OWNER instead when only legal or administrative ownership is asserted. No established controlled concept precisely captures this facility-host role." .
+
 idhi:Funding a owl:Class ;
     rdfs:label "Funding" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:funding_program ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:grant_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Organization ;
+            owl:onProperty idhi:funding_organization ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty idhi:grant_number ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:funding_url ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:funding_amount ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:funding_program ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:grant_name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:funding_program ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:grant_name ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty idhi:funding_url ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:grant_number ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:grant_number ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:funding_organization ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:funding_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:grant_number ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty idhi:funding_amount ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty idhi:funding_organization ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:funding_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:funding_amount ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Organization ;
             owl:onProperty idhi:funding_organization ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:start_date ],
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty idhi:funding_amount ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:grant_number ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:end_date ] ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:end_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:funding_program ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:funding_amount ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:grant_name ] ;
     skos:definition "A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. Use Funding when an award or grant is known; use an OrganizationProjectRole with FUNDER only when the funder's involvement is known but no distinct award can be described, and do not record the same funding fact in both structures. It is inlined within the funded Project and has no independent ID." ;
     skos:exactMatch schema1:MonetaryGrant ;
     skos:inScheme idhi:idhi .
@@ -1067,6 +1205,165 @@ idhi:Funding a owl:Class ;
     rdfs:subClassOf idhi:PersonOrgRoleEnum ;
     skos:definition "Faculty member of any professorial rank." .
 
+idhi:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:research_disciplines ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:end_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Dataset ;
+            owl:onProperty idhi:outputs_datasets ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:funding_status ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:end_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:OrganizationProjectRole ;
+            owl:onProperty idhi:organization_roles ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Publication ;
+            owl:onProperty idhi:outputs_publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Service ;
+            owl:onProperty idhi:uses_services ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:digital_humanities_activities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:outputs_tools ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:studied_periods ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:studied_places ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:TrainingMaterial ;
+            owl:onProperty idhi:outputs_training_materials ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:end_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:funding ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Tool ;
+            owl:onProperty idhi:uses_tools ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
+            owl:onProperty idhi:digital_humanities_activities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:uses_services ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:FundingStatusEnum ;
+            owl:onProperty idhi:funding_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:ProjectParticipation ;
+            owl:onProperty idhi:project_participations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:outputs_training_materials ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Project" ] ) ] ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:project_participations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:outputs_publications ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:uses_tools ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:funding_status ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:organization_roles ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:research_disciplines ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:studied_periods ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:outputs_datasets ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:uses_datasets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Funding ;
+            owl:onProperty idhi:funding ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:studied_places ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Tool ;
+            owl:onProperty idhi:outputs_tools ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Dataset ;
+            owl:onProperty idhi:uses_datasets ],
+        idhi:Entity ;
+    skos:definition "A Digital Humanities research project, classified by its research activities and disciplines. This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it." ;
+    skos:exactMatch foaf:Project ;
+    skos:inScheme idhi:idhi .
+
 <https://idhi_placeholder/linkml/ProjectRoleEnum#CONSULTANT> a owl:Class ;
     rdfs:label "CONSULTANT" ;
     rdfs:subClassOf idhi:ProjectRoleEnum ;
@@ -1155,7 +1452,13 @@ idhi:Funding a owl:Class ;
 idhi:affiliations a owl:ObjectProperty ;
     rdfs:label "affiliations" ;
     rdfs:range idhi:Affiliation ;
-    skos:definition "The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement — that goes in project_participations." ;
+    skos:definition "The containing person's institutional affiliations, as reified Affiliation objects with organization, position and dates. Use for employment or formal membership, not for project involvement; the containing person's ID is inferred and must not be repeated in each relationship." ;
+    skos:inScheme idhi:idhi .
+
+idhi:authorships a owl:ObjectProperty ;
+    rdfs:label "authorships" ;
+    rdfs:range idhi:Authorship ;
+    skos:definition "People who contributed to the containing publication, as reified Authorship objects carrying author, byline order and role. Define each authorship only here on its Publication; do not duplicate it on the Person." ;
     skos:inScheme idhi:idhi .
 
 idhi:creators a owl:ObjectProperty ;
@@ -1187,6 +1490,12 @@ idhi:emails a owl:DatatypeProperty ;
     skos:definition "Contact email addresses (zero or more). Only record addresses the person has agreed to publish in the index." ;
     skos:inScheme idhi:idhi .
 
+idhi:event_agent_roles a owl:ObjectProperty ;
+    rdfs:label "event_agent_roles" ;
+    rdfs:range idhi:EventAgentRole ;
+    skos:definition "People and organizations involved in the containing event, with their role and optional relationship dates. Define each involvement only on the Event; use Publication.authorships for authorship and presented_at for the event at which a publication was presented." ;
+    skos:inScheme idhi:idhi .
+
 idhi:events a owl:ObjectProperty ;
     rdfs:label "events" ;
     skos:definition "All Event records in the index." ;
@@ -1206,7 +1515,7 @@ idhi:facilities a owl:ObjectProperty ;
 idhi:facility_affiliations a owl:ObjectProperty ;
     rdfs:label "facility_affiliations" ;
     rdfs:range idhi:FacilityAffiliation ;
-    skos:definition "The organization(s) hosting or owning this facility, as reified FacilityAffiliation objects with dates." ;
+    skos:definition "The organizations hosting or owning the containing facility, as reified FacilityAffiliation objects with a required relationship role and optional dates. Reference each organization and infer the facility from its containing record; define separate relationships if different organizations host and own the facility." ;
     skos:inScheme idhi:idhi .
 
 idhi:family_name a owl:ObjectProperty ;
@@ -1245,10 +1554,16 @@ idhi:learning_outcomes a owl:ObjectProperty ;
     skos:definition "Knowledge or skills a learner should gain by completing the material, as multilingual statements. Use one entry per distinct outcome; do not use this for prerequisites." ;
     skos:inScheme idhi:idhi .
 
+idhi:organization_hierarchy a owl:ObjectProperty ;
+    rdfs:label "organization_hierarchy" ;
+    rdfs:range idhi:OrganizationHierarchy ;
+    skos:definition "Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates." ;
+    skos:inScheme idhi:idhi .
+
 idhi:organization_roles a owl:ObjectProperty ;
     rdfs:label "organization_roles" ;
     rdfs:range idhi:OrganizationProjectRole ;
-    skos:definition "Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding." ;
+    skos:definition "Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider, funder or host role. Reference each organization and infer the project from its containing record; use FUNDER only when no distinct award can be represented in funding." ;
     skos:inScheme idhi:idhi .
 
 idhi:organizations a owl:ObjectProperty ;
@@ -1295,6 +1610,12 @@ idhi:presented_at a owl:ObjectProperty ;
     rdfs:label "presented_at" ;
     rdfs:range idhi:Event ;
     skos:definition "Event(s) in the index where this publication was presented (by IDHI URN), e.g. the conference where the paper was given. Distinct from published_in, the container it appeared in." ;
+    skos:inScheme idhi:idhi .
+
+idhi:project_participations a owl:ObjectProperty ;
+    rdfs:label "project_participations" ;
+    rdfs:range idhi:ProjectParticipation ;
+    skos:definition "People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person." ;
     skos:inScheme idhi:idhi .
 
 idhi:projects a owl:ObjectProperty ;
@@ -1404,6 +1725,24 @@ idhi:tools_provided a owl:ObjectProperty ;
 idhi:training_materials a owl:ObjectProperty ;
     rdfs:label "training_materials" ;
     skos:definition "All TrainingMaterial records in the index, including tutorials, lessons and other didactic resources." ;
+    skos:inScheme idhi:idhi .
+
+idhi:uses_datasets a owl:ObjectProperty ;
+    rdfs:label "uses_datasets" ;
+    rdfs:range idhi:Dataset ;
+    skos:definition "Existing datasets used as research inputs by the containing project (by IDHI URN). Use for source or reference data consumed by the project, not datasets produced by it, which belong in outputs_datasets." ;
+    skos:inScheme idhi:idhi .
+
+idhi:uses_services a owl:ObjectProperty ;
+    rdfs:label "uses_services" ;
+    rdfs:range idhi:Service ;
+    skos:definition "Services used by the containing project (by IDHI URN). Use for externally or institutionally delivered services that support the work, not services produced as project outputs." ;
+    skos:inScheme idhi:idhi .
+
+idhi:uses_tools a owl:ObjectProperty ;
+    rdfs:label "uses_tools" ;
+    rdfs:range idhi:Tool ;
+    skos:definition "Tools used to conduct the containing project (by IDHI URN). Use for substantive research or technical dependencies, not tools produced by the project, which belong in outputs_tools." ;
     skos:inScheme idhi:idhi .
 
 spdx:Apache-2.0 a owl:Class ;
@@ -2375,27 +2714,17 @@ tadirah:writing a owl:Class ;
     rdfs:subClassOf idhi:DigitalHumanitiesActivityEnum ;
     skos:definition "writing designates the activity of creating new texts (instead of capturing existing text). Here, it primarily concerns research papers and reports, but may include other textually-oriented objects." .
 
-<https://credit.niso.org/contributor-roles/software/> a owl:Class ;
-    rdfs:label "DEVELOPER",
-        "TECHNICAL_LEAD" ;
-    rdfs:subClassOf idhi:ProjectRoleEnum ;
-    skos:definition "A team member implementing the project's software under their own or another person's technical direction; use TECHNICAL_LEAD when they own the engineering architecture and maintenance.",
-        "Owns or directs the project's software engineering and technical maintenance. Use this when responsibility exceeds implementation by a DEVELOPER; use DH_LEAD instead for leadership of the scholarly digital method or data model." .
-
 idhi:Affiliation a owl:Class ;
     rdfs:label "Affiliation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Person ;
-            owl:onProperty idhi:member ],
+            owl:allValuesFrom idhi:PersonOrgRoleEnum ;
+            owl:onProperty idhi:affiliation_role ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:affiliation_role ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:member ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty idhi:member ],
+            owl:onProperty idhi:organization ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:organization ],
@@ -2405,74 +2734,159 @@ idhi:Affiliation a owl:Class ;
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:affiliation_role ],
+        idhi:Relationship ;
+    skos:definition "A person's employment or membership at an organization, nested in a Person so the member is inferred from the containing record. Use in Person.affiliations for the person's institutional home(s), independent of any project; do not provide the containing person's ID in the relationship." ;
+    skos:exactMatch cerif:Person_OrganisationUnit ;
+    skos:inScheme idhi:idhi .
+
+idhi:Authorship a owl:Class ;
+    rdfs:label "Authorship" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:authorship_role ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty idhi:author_order ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty idhi:organization ],
+            owl:onProperty idhi:author ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:PersonOrgRoleEnum ;
-            owl:onProperty idhi:affiliation_role ],
+            owl:allValuesFrom idhi:Person ;
+            owl:onProperty idhi:author ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:AuthorshipRoleEnum ;
+            owl:onProperty idhi:authorship_role ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:author_order ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:author ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:author_order ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:authorship_role ],
         idhi:Relationship ;
-    skos:definition "A person's employment or membership at an organization, with a position and dates. Use for the person's institutional home(s), independent of any project." ;
-    skos:exactMatch cerif:Person_OrganisationUnit ;
+    skos:definition "A person's contribution nested in a Publication, so the publication is inferred from the containing record. Use one instance per author in Publication.authorships and do not define authorship in Person; author_order preserves the byline sequence with 1 as the first author." ;
+    skos:exactMatch schema1:Role ;
+    skos:inScheme idhi:idhi .
+
+idhi:EventAgentRole a owl:Class ;
+    rdfs:label "EventAgentRole" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:event_agent_role ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:event_agent ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:event_agent_role ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:EventAgentRoleEnum ;
+            owl:onProperty idhi:event_agent_role ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:event_agent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Agent ;
+            owl:onProperty idhi:event_agent ],
+        idhi:Relationship ;
+    skos:definition "A person or organization involved in the containing Event in a defined capacity, with optional dates when the involvement covers only part of a multi-day event or programme. Use in Event.event_agent_roles for organizers, hosts, speakers, panelists, participants or sponsors; do not use it merely because an agent authored a publication presented at the event." ;
+    skos:exactMatch schema1:Role ;
     skos:inScheme idhi:idhi .
 
 idhi:FacilityAffiliation a owl:Class ;
     rdfs:label "FacilityAffiliation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty idhi:organization ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty idhi:facility ],
+            owl:onProperty idhi:facility_affiliation_role ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:FacilityAffiliationRoleEnum ;
+            owl:onProperty idhi:facility_affiliation_role ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:organization ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:facility_affiliation_role ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:Organization ;
             owl:onProperty idhi:organization ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Facility ;
-            owl:onProperty idhi:facility ],
+        idhi:Relationship ;
+    skos:definition "A facility's affiliation with an organization, nested in a Facility so the facility is inferred from the containing record. Use one instance per hosting or owning organization in Facility.facility_affiliations and do not provide the containing facility's ID; joint labs get several." ;
+    skos:exactMatch cerif:Facility_OrganisationUnit ;
+    skos:inScheme idhi:idhi .
+
+idhi:OrganizationHierarchy a owl:Class ;
+    rdfs:label "OrganizationHierarchy" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:parent_organization ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:facility ],
+            owl:onProperty idhi:parent_organization ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:organization ],
+            owl:allValuesFrom idhi:Organization ;
+            owl:onProperty idhi:parent_organization ],
         idhi:Relationship ;
-    skos:definition "A facility's affiliation with an organization. Use one instance per hosting/owning organization; joint labs get several." ;
-    skos:exactMatch cerif:Facility_OrganisationUnit ;
+    skos:definition "Formal containment of the containing Organization within a larger parent organization, with optional validity dates. Use in Organization.organization_hierarchy for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association." ;
+    skos:exactMatch schema1:Role ;
     skos:inScheme idhi:idhi .
 
 idhi:OrganizationProjectRole a owl:Class ;
     rdfs:label "OrganizationProjectRole" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:organization ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:organization ],
-        [ a owl:Restriction ;
             owl:allValuesFrom idhi:OrgProjectRoleEnum ;
-            owl:onProperty idhi:org_project_role ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:project ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty idhi:org_project_role ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:Organization ;
             owl:onProperty idhi:organization ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:project ],
+            owl:onProperty idhi:org_project_role ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Project ;
-            owl:onProperty idhi:project ],
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:org_project_role ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:org_project_role ],
+            owl:onProperty idhi:organization ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:organization ],
         idhi:Relationship ;
-    skos:definition "An organization's engagement in a project. Use one instance per role. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described." ;
+    skos:definition "An organization's engagement nested in a Project, so the project is inferred from the containing record. Use one instance per role in Project.organization_roles and do not provide the containing project's ID. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described." ;
     skos:exactMatch cerif:Project_OrganisationUnit ;
+    skos:inScheme idhi:idhi .
+
+idhi:ProjectParticipation a owl:Class ;
+    rdfs:label "ProjectParticipation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:participation_role ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:participant ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:participation_role ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:participant ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:ProjectRoleEnum ;
+            owl:onProperty idhi:participation_role ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Person ;
+            owl:onProperty idhi:participant ],
+        idhi:Relationship ;
+    skos:definition "A person's participation nested in a Project, so the project is inferred from the containing record. Use one instance per participant and role in Project.project_participations and do not define project participation in Person; if a person changed roles over time, create one instance per role with start and end dates." ;
+    skos:exactMatch cerif:Project_Person ;
     skos:inScheme idhi:idhi .
 
 idhi:affiliation_role a owl:ObjectProperty ;
@@ -2484,7 +2898,7 @@ idhi:affiliation_role a owl:ObjectProperty ;
 idhi:author a owl:ObjectProperty ;
     rdfs:label "author" ;
     rdfs:range idhi:Person ;
-    skos:definition "The contributing person (by IDHI URN)." ;
+    skos:definition "The person contributing to the containing publication (by IDHI URN). Use in Publication.authorships; do not define the relationship on the Person." ;
     skos:inScheme idhi:idhi .
 
 idhi:author_order a owl:DatatypeProperty ;
@@ -2511,6 +2925,12 @@ idhi:code_repository a owl:DatatypeProperty ;
     skos:definition "Source-code repository URL (GitHub, GitLab...), if open." ;
     skos:inScheme idhi:idhi .
 
+idhi:contributor a owl:ObjectProperty ;
+    rdfs:label "contributor" ;
+    rdfs:range idhi:Agent ;
+    skos:definition "The person or organization contributing to the containing Tool or Dataset (by IDHI URN). Use only in resource_contributions; do not duplicate the relationship on the Agent." ;
+    skos:inScheme idhi:idhi .
+
 idhi:dataset_type a owl:ObjectProperty ;
     rdfs:label "dataset_type" ;
     rdfs:range idhi:DatasetTypeEnum ;
@@ -2523,16 +2943,28 @@ idhi:distribution_url a owl:DatatypeProperty ;
     skos:definition "Direct download or access URL for the dataset." ;
     skos:inScheme idhi:idhi .
 
+idhi:event_agent a owl:ObjectProperty ;
+    rdfs:label "event_agent" ;
+    rdfs:range idhi:Agent ;
+    skos:definition "The person or organization involved in the containing event (by IDHI URN). Use only in Event.event_agent_roles; do not duplicate the relationship on the Agent." ;
+    skos:inScheme idhi:idhi .
+
+idhi:event_agent_role a owl:ObjectProperty ;
+    rdfs:label "event_agent_role" ;
+    rdfs:range idhi:EventAgentRoleEnum ;
+    skos:definition "The capacity in which the agent is involved in the containing event. Choose the most specific applicable role and create separate relationships when the same agent has multiple roles." ;
+    skos:inScheme idhi:idhi .
+
 idhi:event_type a owl:ObjectProperty ;
     rdfs:label "event_type" ;
     rdfs:range idhi:EventTypeEnum ;
     skos:definition "The kind of scholarly event." ;
     skos:inScheme idhi:idhi .
 
-idhi:facility a owl:ObjectProperty ;
-    rdfs:label "facility" ;
-    rdfs:range idhi:Facility ;
-    skos:definition "The facility side of the relationship (by IDHI URN)." ;
+idhi:facility_affiliation_role a owl:ObjectProperty ;
+    rdfs:label "facility_affiliation_role" ;
+    rdfs:range idhi:FacilityAffiliationRoleEnum ;
+    skos:definition "The organization's relationship to the containing facility. Use HOST when it provides the facility's institutional or operational home and OWNER when it legally or administratively owns the facility; create two relationships when distinct organizations fill those roles." ;
     skos:inScheme idhi:idhi .
 
 idhi:funding_amount a owl:DatatypeProperty ;
@@ -2598,12 +3030,6 @@ idhi:material_url a owl:DatatypeProperty ;
     skos:definition "Direct landing or access URL for the instructional resource. Use homepage for a broader site about the material and material_url for the resource learners open." ;
     skos:inScheme idhi:idhi .
 
-idhi:member a owl:ObjectProperty ;
-    rdfs:label "member" ;
-    rdfs:range idhi:Person ;
-    skos:definition "The person affiliated with the organization (by IDHI URN)." ;
-    skos:inScheme idhi:idhi .
-
 idhi:orcid a owl:DatatypeProperty ;
     rdfs:label "orcid" ;
     rdfs:range xsd:anyURI ;
@@ -2625,7 +3051,7 @@ idhi:organization_type a owl:ObjectProperty ;
 idhi:parent_organization a owl:ObjectProperty ;
     rdfs:label "parent_organization" ;
     rdfs:range idhi:Organization ;
-    skos:definition "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes." ;
+    skos:definition "The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent." ;
     skos:inScheme idhi:idhi .
 
 idhi:part_of a owl:DatatypeProperty ;
@@ -2643,7 +3069,7 @@ idhi:part_of_training_material a owl:ObjectProperty ;
 idhi:participant a owl:ObjectProperty ;
     rdfs:label "participant" ;
     rdfs:range idhi:Person ;
-    skos:definition "The person taking part in the project (by IDHI URN)." ;
+    skos:definition "The person taking part in the containing project (by IDHI URN). Use in Project.project_participations; do not define the relationship on the Person." ;
     skos:inScheme idhi:idhi .
 
 idhi:participation_role a owl:ObjectProperty ;
@@ -2664,16 +3090,16 @@ idhi:provider a owl:ObjectProperty ;
     skos:definition "The organization formally responsible for delivering the service (the one you'd contact or contract with) — set this even when the service is listed under a Facility." ;
     skos:inScheme idhi:idhi .
 
-idhi:publication a owl:ObjectProperty ;
-    rdfs:label "publication" ;
-    rdfs:range idhi:Publication ;
-    skos:definition "The publication contributed to (by IDHI URN)." ;
-    skos:inScheme idhi:idhi .
-
 idhi:publication_type a owl:ObjectProperty ;
     rdfs:label "publication_type" ;
     rdfs:range idhi:PublicationTypeEnum ;
     skos:definition "The kind of publication (journal article, book part, conference paper, thesis...). Pick the most specific applicable value." ;
+    skos:inScheme idhi:idhi .
+
+idhi:resource_contribution_role a owl:ObjectProperty ;
+    rdfs:label "resource_contribution_role" ;
+    rdfs:range idhi:ResourceContributionRoleEnum ;
+    skos:definition "The contributor's responsibility for the containing Tool or Dataset. Choose the most specific applicable role and create separate relationships when one contributor has materially distinct responsibilities." ;
     skos:inScheme idhi:idhi .
 
 idhi:ror a owl:DatatypeProperty ;
@@ -2706,252 +3132,130 @@ idhi:value a owl:DatatypeProperty ;
     skos:definition "A localized text, in the language given by 'language'." ;
     skos:inScheme idhi:idhi .
 
-idhi:Authorship a owl:Class ;
-    rdfs:label "Authorship" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:publication ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:author_order ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:AuthorshipRoleEnum ;
-            owl:onProperty idhi:authorship_role ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:authorship_role ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:author ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:authorship_role ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Publication ;
-            owl:onProperty idhi:publication ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty idhi:author_order ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:publication ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Person ;
-            owl:onProperty idhi:author ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:author ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:author_order ],
-        idhi:Relationship ;
-    skos:definition "A person's contribution to a publication, with author order and role. Create one instance per (person, publication); author_order preserves the byline sequence (1 = first author)." ;
-    skos:exactMatch schema1:Role ;
-    skos:inScheme idhi:idhi .
-
 idhi:Event a owl:Class ;
     rdfs:label "Event" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:address ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:start_date ],
+            owl:onProperty idhi:event_agent_roles ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:id ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:address ],
+            owl:allValuesFrom idhi:EventTypeEnum ;
+            owl:onProperty idhi:event_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:event_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty idhi:additional_urls ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:name ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:end_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty idhi:contact_email ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:end_date ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:location ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:start_date ],
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:start_date ],
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:onDatatype xsd:string ;
                     owl:withRestrictions ( [ xsd:pattern "idhi:Event" ] ) ] ;
             owl:onProperty idhi:type ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:event_type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:event_type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:EventTypeEnum ;
-            owl:onProperty idhi:event_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:address ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
+            owl:onProperty idhi:start_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:LangString ;
             owl:onProperty idhi:location ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:location ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:EventAgentRole ;
+            owl:onProperty idhi:event_agent_roles ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:address ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:event_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:start_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
         idhi:Entity ;
     skos:definition "A scholarly event: conference, workshop, seminar, lecture, hackathon or exhibition. Use Event for time-bounded gatherings; recurring series should be modeled as one Event per occurrence." ;
     skos:exactMatch schema1:Event ;
     skos:inScheme idhi:idhi .
 
-idhi:Facility a owl:Class ;
-    rdfs:label "Facility" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Facility" ] ) ] ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:address ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:services_offered ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:address ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:facility_affiliations ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:FacilityAffiliation ;
-            owl:onProperty idhi:facility_affiliations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Service ;
-            owl:onProperty idhi:services_offered ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Tool ;
-            owl:onProperty idhi:tools_provided ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:location ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:location ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:tools_provided ],
-        idhi:Entity ;
-    skos:definition "A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations. Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization." ;
-    skos:exactMatch cerif:Facility ;
-    skos:inScheme idhi:idhi .
+idhi:FacilityAffiliationRoleEnum a owl:Class ;
+    rdfs:label "FacilityAffiliationRoleEnum" ;
+    owl:unionOf ( <https://idhi_placeholder/linkml/FacilityAffiliationRoleEnum#HOST> schema1:owns ) ;
+    skos:definition "IDHI-governed roles distinguishing the organizations connected to a facility. Use one relationship per organization and role so hosting and ownership are not conflated." ;
+    skos:inScheme idhi:idhi ;
+    linkml:permissible_values schema1:owns,
+        <https://idhi_placeholder/linkml/FacilityAffiliationRoleEnum#HOST> .
 
-idhi:ProjectParticipation a owl:Class ;
-    rdfs:label "ProjectParticipation" ;
+idhi:ResourceContribution a owl:Class ;
+    rdfs:label "ResourceContribution" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:participation_role ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:resource_contribution_role ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Project ;
-            owl:onProperty idhi:project ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contributor ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty idhi:participant ],
+            owl:onProperty idhi:contributor ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:ProjectRoleEnum ;
-            owl:onProperty idhi:participation_role ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Person ;
-            owl:onProperty idhi:participant ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:project ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:participant ],
+            owl:allValuesFrom idhi:ResourceContributionRoleEnum ;
+            owl:onProperty idhi:resource_contribution_role ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty idhi:project ],
+            owl:onProperty idhi:resource_contribution_role ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:participation_role ],
+            owl:allValuesFrom idhi:Agent ;
+            owl:onProperty idhi:contributor ],
         idhi:Relationship ;
-    skos:definition "A person's participation in a project. Create one instance per (person, project, role) combination; if a person changed roles over time, create one instance per role with start/end dates." ;
-    skos:exactMatch cerif:Project_Person ;
-    skos:inScheme idhi:idhi .
-
-idhi:authorships a owl:ObjectProperty ;
-    rdfs:label "authorships" ;
-    rdfs:range idhi:Authorship ;
-    skos:definition "The person's publication contributions, as reified Authorship objects carrying byline order and role." ;
+    skos:definition "A person or organization contributing to the containing Tool or Dataset in a defined capacity, with optional dates for time-bounded responsibility. Use in Tool.resource_contributions or Dataset.resource_contributions for creation, software development, maintenance, data curation or other named contributions; use publisher where supported for formal publication responsibility and Project.project_participations for project-level work." ;
+    skos:exactMatch schema1:Role ;
     skos:inScheme idhi:idhi .
 
 idhi:datasets a owl:ObjectProperty ;
@@ -2970,185 +3274,20 @@ idhi:in_languages a owl:DatatypeProperty ;
     skos:definition "Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page." ;
     skos:inScheme idhi:idhi .
 
-idhi:project_participations a owl:ObjectProperty ;
-    rdfs:label "project_participations" ;
-    rdfs:range idhi:ProjectParticipation ;
-    skos:definition "The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates." ;
+idhi:resource_contributions a owl:ObjectProperty ;
+    rdfs:label "resource_contributions" ;
+    rdfs:range idhi:ResourceContribution ;
+    skos:definition "Named contributions to the containing Tool or Dataset, with contributor, role and optional dates. Define each contribution only on the resource; use publisher where supported for the organization formally releasing it and Project.project_participations for work described only at project level." ;
     skos:inScheme idhi:idhi .
 
-idhi:Agent a owl:Class ;
-    rdfs:label "Agent" ;
-    rdfs:subClassOf [ owl:unionOf ( idhi:Organization idhi:Person ) ],
-        idhi:Entity ;
-    skos:definition "A person or an organization." ;
-    skos:exactMatch foaf1:Agent ;
-    skos:inScheme idhi:idhi .
-
-idhi:Project a owl:Class ;
-    rdfs:label "Project" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Tool ;
-            owl:onProperty idhi:outputs_tools ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:FundingStatusEnum ;
-            owl:onProperty idhi:funding_status ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:studied_periods ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:outputs_datasets ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:studied_places ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:funding_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:studied_places ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:ProjectParticipation ;
-            owl:onProperty idhi:project_participations ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Dataset ;
-            owl:onProperty idhi:outputs_datasets ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:project_participations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Project" ] ) ] ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
-            owl:onProperty idhi:digital_humanities_activities ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:outputs_tools ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:TrainingMaterial ;
-            owl:onProperty idhi:outputs_training_materials ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:funding ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:research_disciplines ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:OrganizationProjectRole ;
-            owl:onProperty idhi:organization_roles ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:studied_periods ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:outputs_training_materials ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:research_disciplines ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Publication ;
-            owl:onProperty idhi:outputs_publications ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:outputs_publications ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Funding ;
-            owl:onProperty idhi:funding ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:funding_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:digital_humanities_activities ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:organization_roles ],
-        idhi:Entity ;
-    skos:definition "A Digital Humanities research project, classified by its research activities and disciplines. This is the central entity of the index; people, organizations, outputs and studied periods/places all hang off it." ;
-    skos:exactMatch foaf1:Project ;
-    skos:inScheme idhi:idhi .
-
-idhi:Relationship a owl:Class ;
-    rdfs:label "Relationship" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:end_date ],
-        [ owl:unionOf ( idhi:Affiliation idhi:Authorship idhi:FacilityAffiliation idhi:OrganizationProjectRole idhi:ProjectParticipation ) ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:start_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:end_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:end_date ] ;
-    skos:definition "Abstract base for reified, role-bearing relationships. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly." ;
-    skos:exactMatch schema1:Role ;
-    skos:inScheme idhi:idhi .
+<https://credit.niso.org/contributor-roles/software/> a owl:Class ;
+    rdfs:label "DEVELOPER",
+        "TECHNICAL_LEAD" ;
+    rdfs:subClassOf idhi:ProjectRoleEnum,
+        idhi:ResourceContributionRoleEnum ;
+    skos:definition "A team member implementing the project's software under their own or another person's technical direction; use TECHNICAL_LEAD when they own the engineering architecture and maintenance.",
+        "Designs or implements software in a Tool; do not use for dataset curation or for project-level participation without a specific resource contribution.",
+        "Owns or directs the project's software engineering and technical maintenance. Use this when responsibility exceeds implementation by a DEVELOPER; use DH_LEAD instead for leadership of the scholarly digital method or data model." .
 
 idhi:media_type a owl:DatatypeProperty ;
     rdfs:label "media_type" ;
@@ -3166,170 +3305,215 @@ idhi:AuthorshipRoleEnum a owl:Class ;
         <https://idhi_placeholder/linkml/AuthorshipRoleEnum#EDITOR>,
         <https://idhi_placeholder/linkml/AuthorshipRoleEnum#TRANSLATOR> .
 
-idhi:Service a owl:Class ;
-    rdfs:label "Service" ;
+idhi:Person a owl:Class ;
+    rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:provider ],
+            owl:onProperty idhi:orcid ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:provider ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:digital_humanities_activities ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:family_name ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:documentation_url ],
+            owl:onProperty idhi:orcid ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:service_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
             owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:documentation_url ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty idhi:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:ToolServiceTypeEnum ;
-            owl:onProperty idhi:service_type ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:orcid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:given_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:emails ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:emails ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:given_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Person" ] ) ] ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:family_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:affiliations ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty idhi:type ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:contact_email ],
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Affiliation ;
+            owl:onProperty idhi:affiliations ],
+        idhi:Agent ;
+    skos:definition "A human agent in the DH index: researcher, developer, librarian, student, etc." ;
+    skos:exactMatch foaf:Person ;
+    skos:inScheme idhi:idhi .
+
+idhi:Publication a owl:Class ;
+    rdfs:label "Publication" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:presented_at ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Authorship ;
+            owl:onProperty idhi:authorships ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Publication" ] ) ] ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:publication_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:part_of ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Event ;
+            owl:onProperty idhi:presented_at ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:published_in ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:PublicationTypeEnum ;
+            owl:onProperty idhi:publication_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:part_of ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Organization ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:published_in ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:publisher ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:LangString ;
             owl:onProperty idhi:name ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
+            owl:onProperty idhi:date_issued ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:documentation_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Organization ;
-            owl:onProperty idhi:provider ],
+            owl:onProperty idhi:publication_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
-            owl:onProperty idhi:digital_humanities_activities ],
+            owl:onProperty idhi:doi ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:service_type ],
+            owl:onProperty idhi:doi ],
         [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Service" ] ) ] ;
-            owl:onProperty idhi:type ],
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:authorships ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:part_of ],
         idhi:Entity ;
-    skos:definition "A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support). Use Service when the offering requires the provider to act; use Tool for self-service software." ;
-    skos:exactMatch schema1:Service ;
+    skos:definition "An academic publication: journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type." ;
+    skos:exactMatch bibo:Document ;
     skos:inScheme idhi:idhi .
 
 idhi:TrainingMaterial a owl:Class ;
     rdfs:label "TrainingMaterial" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Service ;
-            owl:onProperty idhi:related_services ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
-            owl:onProperty idhi:digital_humanities_activities ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:prerequisites ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:training_material_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:educational_level ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty idhi:doi ],
         [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( xsd:string [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:string ;
-                                owl:withRestrictions ( [ xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" ] ) ] ) ] ;
-            owl:onProperty idhi:in_languages ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:related_datasets ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:in_languages ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:TrainingMaterialTypeEnum ;
-            owl:onProperty idhi:training_material_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LicenseEnum ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:educational_level ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:related_services ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:prerequisites ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:part_of_training_material ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:media_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:LangString ;
             owl:onProperty idhi:target_audiences ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Dataset ;
+            owl:allValuesFrom idhi:TrainingMaterialTypeEnum ;
+            owl:onProperty idhi:training_material_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty idhi:related_datasets ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:training_material_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:part_of_training_material ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Tool ;
+            owl:onProperty idhi:related_tools ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:license ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Organization ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:learning_outcomes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:creators ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contact_email ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:onDatatype xsd:string ;
@@ -3337,16 +3521,115 @@ idhi:TrainingMaterial a owl:Class ;
             owl:onProperty idhi:type ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:media_type ],
+            owl:onProperty idhi:additional_urls ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:training_material_type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:creators ],
+            owl:onProperty idhi:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:educational_level ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:TrainingMaterial ;
+            owl:onProperty idhi:part_of_training_material ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:material_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:digital_humanities_activities ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( xsd:string [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:string ;
+                                owl:withRestrictions ( [ xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" ] ) ] ) ] ;
+            owl:onProperty idhi:in_languages ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Service ;
+            owl:onProperty idhi:related_services ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:material_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:related_services ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:material_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:prerequisites ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Agent ;
+            owl:onProperty idhi:creators ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
+            owl:onProperty idhi:digital_humanities_activities ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LicenseEnum ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Dataset ;
+            owl:onProperty idhi:related_datasets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:prerequisites ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:learning_outcomes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:related_tools ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:part_of_training_material ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:educational_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:media_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:training_material_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:media_type ],
@@ -3355,76 +3638,7 @@ idhi:TrainingMaterial a owl:Class ;
             owl:onProperty idhi:contact_email ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:media_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:learning_outcomes ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Organization ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:part_of_training_material ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:learning_outcomes ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Agent ;
-            owl:onProperty idhi:creators ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:related_tools ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Tool ;
-            owl:onProperty idhi:related_tools ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:TrainingMaterial ;
-            owl:onProperty idhi:part_of_training_material ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:material_url ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:digital_humanities_activities ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty idhi:target_audiences ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:material_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:material_url ],
         idhi:Entity ;
     skos:definition "A tutorial, lesson or other didactic resource that explains how to perform an action or states learning outcomes gained by using it. Use TrainingMaterial for resources intended to teach; use Publication for scholarly communication and Tool for software that performs the action itself." ;
     skos:exactMatch schema1:LearningResource ;
@@ -3446,12 +3660,6 @@ idhi:location a owl:ObjectProperty ;
     rdfs:label "location" ;
     rdfs:range idhi:LangString ;
     skos:definition "Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text." ;
-    skos:inScheme idhi:idhi .
-
-idhi:project a owl:ObjectProperty ;
-    rdfs:label "project" ;
-    rdfs:range idhi:Project ;
-    skos:definition "The project side of the relationship (by IDHI URN)." ;
     skos:inScheme idhi:idhi .
 
 idhi:FundingStatusEnum a owl:Class ;
@@ -3476,6 +3684,29 @@ idhi:OrgProjectRoleEnum a owl:Class ;
         <https://idhi_placeholder/linkml/OrgProjectRoleEnum#HOST>,
         <https://idhi_placeholder/linkml/OrgProjectRoleEnum#PARTNER> .
 
+idhi:ResourceContributionRoleEnum a owl:Class ;
+    rdfs:label "ResourceContributionRoleEnum" ;
+    owl:unionOf ( dcterms:creator <https://credit.niso.org/contributor-roles/software/> schema1:maintainer <https://credit.niso.org/contributor-roles/data-curation/> dcterms:contributor ) ;
+    skos:definition "Roles for named contributions to tools and datasets. Use the most specific responsibility and record separate contributions when one agent holds multiple materially different roles." ;
+    skos:inScheme idhi:idhi ;
+    linkml:permissible_values dcterms:contributor,
+        dcterms:creator,
+        schema1:maintainer,
+        <https://credit.niso.org/contributor-roles/data-curation/>,
+        <https://credit.niso.org/contributor-roles/software/> .
+
+idhi:EventAgentRoleEnum a owl:Class ;
+    rdfs:label "EventAgentRoleEnum" ;
+    owl:unionOf ( schema1:organizer <https://idhi_placeholder/linkml/EventAgentRoleEnum#HOST> <https://idhi_placeholder/linkml/EventAgentRoleEnum#SPEAKER> <https://idhi_placeholder/linkml/EventAgentRoleEnum#PANELIST> schema1:attendee schema1:sponsor ) ;
+    skos:definition "IDHI-governed roles for people and organizations involved in events. Choose the most specific role and use separate EventAgentRole instances for multiple capacities." ;
+    skos:inScheme idhi:idhi ;
+    linkml:permissible_values schema1:attendee,
+        schema1:organizer,
+        schema1:sponsor,
+        <https://idhi_placeholder/linkml/EventAgentRoleEnum#HOST>,
+        <https://idhi_placeholder/linkml/EventAgentRoleEnum#PANELIST>,
+        <https://idhi_placeholder/linkml/EventAgentRoleEnum#SPEAKER> .
+
 idhi:EventTypeEnum a owl:Class ;
     rdfs:label "EventTypeEnum" ;
     owl:unionOf ( bibo:Conference <https://idhi_placeholder/linkml/EventTypeEnum#WORKSHOP> <https://idhi_placeholder/linkml/EventTypeEnum#SEMINAR> <https://idhi_placeholder/linkml/EventTypeEnum#LECTURE> <https://idhi_placeholder/linkml/EventTypeEnum#HACKATHON> <https://idhi_placeholder/linkml/EventTypeEnum#EXHIBITION> ) ;
@@ -3487,78 +3718,6 @@ idhi:EventTypeEnum a owl:Class ;
         <https://idhi_placeholder/linkml/EventTypeEnum#LECTURE>,
         <https://idhi_placeholder/linkml/EventTypeEnum#SEMINAR>,
         <https://idhi_placeholder/linkml/EventTypeEnum#WORKSHOP> .
-
-idhi:Person a owl:Class ;
-    rdfs:label "Person" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:orcid ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Affiliation ;
-            owl:onProperty idhi:affiliations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Person" ] ) ] ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:ProjectParticipation ;
-            owl:onProperty idhi:project_participations ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:family_name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:given_name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:orcid ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:project_participations ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:given_name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:family_name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:emails ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:orcid ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:authorships ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:emails ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Authorship ;
-            owl:onProperty idhi:authorships ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:affiliations ],
-        idhi:Agent ;
-    skos:definition "A human agent in the DH index: researcher, developer, librarian, student, etc." ;
-    skos:exactMatch foaf1:Person ;
-    skos:inScheme idhi:idhi .
 
 idhi:PersonOrgRoleEnum a owl:Class ;
     rdfs:label "PersonOrgRoleEnum" ;
@@ -3572,208 +3731,110 @@ idhi:PersonOrgRoleEnum a owl:Class ;
         <https://idhi_placeholder/linkml/PersonOrgRoleEnum#MEMBER>,
         <https://idhi_placeholder/linkml/PersonOrgRoleEnum#PROFESSOR> .
 
-idhi:Publication a owl:Class ;
-    rdfs:label "Publication" ;
+idhi:Relationship a owl:Class ;
+    rdfs:label "Relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:published_in ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Organization ;
-            owl:onProperty idhi:publisher ],
+            owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:part_of ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:published_in ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
+            owl:onProperty idhi:start_date ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:authorships ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:date_issued ],
+            owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:date_issued ],
+            owl:onProperty idhi:end_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:PublicationTypeEnum ;
-            owl:onProperty idhi:publication_type ],
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:start_date ],
+        [ owl:unionOf ( idhi:Affiliation idhi:Authorship idhi:EventAgentRole idhi:FacilityAffiliation idhi:OrganizationHierarchy idhi:OrganizationProjectRole idhi:ProjectParticipation idhi:ResourceContribution ) ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:start_date ] ;
+    skos:definition "Abstract base for reified relationships that carry their own role or validity metadata. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly." ;
+    skos:exactMatch schema1:Role ;
+    skos:inScheme idhi:idhi .
+
+idhi:Service a owl:Class ;
+    rdfs:label "Service" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom idhi:ToolServiceTypeEnum ;
+            owl:onProperty idhi:service_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:documentation_url ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Publication" ] ) ] ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Service" ] ) ] ;
             owl:onProperty idhi:type ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:part_of ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Authorship ;
-            owl:onProperty idhi:authorships ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:part_of ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Event ;
-            owl:onProperty idhi:presented_at ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:presented_at ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:publication_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:publication_type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:doi ],
+            owl:onProperty idhi:documentation_url ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:doi ],
-        idhi:Entity ;
-    skos:definition "An academic publication: journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type." ;
-    skos:exactMatch bibo:Document ;
-    skos:inScheme idhi:idhi .
-
-idhi:Tool a owl:Class ;
-    rdfs:label "Tool" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:programming_language ],
+            owl:onProperty idhi:documentation_url ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty idhi:digital_humanities_activities ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:documentation_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:tool_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Tool" ] ) ] ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
+            owl:minCardinality 1 ;
             owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:code_repository ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LicenseEnum ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:programming_language ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:code_repository ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:programming_language ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty idhi:id ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:documentation_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:documentation_url ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:tool_type ],
+            owl:onProperty idhi:service_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:contact_email ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:doi ],
+            owl:onProperty idhi:additional_urls ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
             owl:onProperty idhi:digital_humanities_activities ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:code_repository ],
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:provider ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:service_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty idhi:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom idhi:ToolServiceTypeEnum ;
-            owl:onProperty idhi:tool_type ],
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:doi ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:contact_email ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Organization ;
+            owl:onProperty idhi:provider ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:provider ],
         idhi:Entity ;
-    skos:definition "A reusable software tool, typically produced by a project. Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead." ;
-    skos:exactMatch schema1:SoftwareApplication ;
+    skos:definition "A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support). Use Service when the offering requires the provider to act; use Tool for self-service software." ;
+    skos:exactMatch schema1:Service ;
     skos:inScheme idhi:idhi .
 
 idhi:TrainingMaterialTypeEnum a owl:Class ;
@@ -3794,11 +3855,65 @@ idhi:digital_humanities_activities a owl:ObjectProperty ;
     skos:definition "Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery." ;
     skos:inScheme idhi:idhi .
 
+idhi:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:subClassOf [ owl:unionOf ( idhi:Organization idhi:Person ) ],
+        idhi:Entity ;
+    skos:definition "A person or an organization." ;
+    skos:exactMatch foaf:Agent ;
+    skos:inScheme idhi:idhi .
+
 idhi:Entity a owl:Class ;
     rdfs:label "Entity" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:same_as ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:same_as ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:tags ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty idhi:tags ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:homepage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:homepage ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:image ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:homepage ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:image ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:description ],
+        [ owl:unionOf ( idhi:Agent idhi:Dataset idhi:Event idhi:Facility idhi:Project idhi:Publication idhi:Service idhi:Tool idhi:TrainingMaterial ) ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:base64Binary ;
+            owl:onProperty idhi:image ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:intersectionOf ( xsd:string [ a rdfs:Datatype ;
@@ -3806,54 +3921,8 @@ idhi:Entity a owl:Class ;
                                 owl:withRestrictions ( [ xsd:pattern "^idhi:[a-z_]+:[0-9a-z]{4,12}$" ] ) ] ) ] ;
             owl:onProperty idhi:id ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:description ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:tags ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:homepage ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:image ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:base64Binary ;
-            owl:onProperty idhi:image ],
-        [ owl:unionOf ( idhi:Agent idhi:Dataset idhi:Event idhi:Facility idhi:Project idhi:Publication idhi:Service idhi:Tool idhi:TrainingMaterial ) ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:image ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:homepage ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:homepage ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:same_as ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:same_as ] ;
+            owl:onProperty idhi:type ] ;
     skos:definition "Root class for any identifiable IDHI entity. Provides the IDHI URN id, multilingual description, optional embedded image, homepage, same_as links and tags. Never instantiated directly; every concrete entity inherits from it and constrains the id's class token via slot_usage." ;
     skos:exactMatch schema1:Thing ;
     skos:inScheme idhi:idhi .
@@ -3886,154 +3955,13 @@ idhi:license a owl:ObjectProperty ;
 idhi:organization a owl:ObjectProperty ;
     rdfs:label "organization" ;
     rdfs:range idhi:Organization ;
-    skos:definition "The organization side of the relationship (by IDHI URN)." ;
+    skos:definition "The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint." ;
     skos:inScheme idhi:idhi .
 
 idhi:publisher a owl:ObjectProperty ;
     rdfs:label "publisher" ;
     rdfs:range idhi:Organization ;
     skos:definition "The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material." ;
-    skos:inScheme idhi:idhi .
-
-idhi:Dataset a owl:Class ;
-    rdfs:label "Dataset" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:byte_size ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:extent ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:dataset_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "idhi:Dataset" ] ) ] ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:derived_from ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:distribution_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:related_publications ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( xsd:string [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:string ;
-                                owl:withRestrictions ( [ xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" ] ) ] ) ] ;
-            owl:onProperty idhi:in_languages ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Organization ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LicenseEnum ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:media_type ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:byte_size ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:themes ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:distribution_url ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:license ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Publication ;
-            owl:onProperty idhi:related_publications ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:datasets ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:in_languages ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:extent ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:distribution_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty idhi:byte_size ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Dataset ;
-            owl:onProperty idhi:derived_from ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:themes ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:dataset_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:DatasetTypeEnum ;
-            owl:onProperty idhi:dataset_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:media_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Dataset ;
-            owl:onProperty idhi:datasets ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:doi ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:publisher ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:date_issued ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:name ],
-        idhi:Entity ;
-    skos:definition "A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets." ;
-    skos:exactMatch dcat:Dataset ;
     skos:inScheme idhi:idhi .
 
 idhi:DatasetTypeEnum a owl:Class ;
@@ -4062,6 +3990,120 @@ idhi:LicenseEnum a owl:Class ;
         spdx:GPL-3.0-or-later,
         spdx:MIT .
 
+idhi:Tool a owl:Class ;
+    rdfs:label "Tool" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:documentation_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LicenseEnum ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:ResourceContribution ;
+            owl:onProperty idhi:resource_contributions ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:programming_language ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:tool_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:code_repository ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:documentation_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:programming_language ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:DigitalHumanitiesActivityEnum ;
+            owl:onProperty idhi:digital_humanities_activities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:ToolServiceTypeEnum ;
+            owl:onProperty idhi:tool_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:code_repository ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:programming_language ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:code_repository ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:documentation_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:tool_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Tool" ] ) ] ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:digital_humanities_activities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:resource_contributions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contact_email ],
+        idhi:Entity ;
+    skos:definition "A reusable software tool, typically produced by a project. Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead." ;
+    skos:exactMatch schema1:SoftwareApplication ;
+    skos:inScheme idhi:idhi .
+
 idhi:ProjectRoleEnum a owl:Class ;
     rdfs:label "ProjectRoleEnum" ;
     owl:unionOf ( <https://idhi_placeholder/linkml/ProjectRoleEnum#PRINCIPAL_INVESTIGATOR> <https://idhi_placeholder/linkml/ProjectRoleEnum#CO_PI> <https://credit.niso.org/contributor-roles/investigation/> <https://credit.niso.org/contributor-roles/methodology/> <https://credit.niso.org/contributor-roles/software/> <https://credit.niso.org/contributor-roles/software/> <https://idhi_placeholder/linkml/ProjectRoleEnum#STUDENT> <https://credit.niso.org/contributor-roles/supervision/> <https://idhi_placeholder/linkml/ProjectRoleEnum#CONSULTANT> <https://idhi_placeholder/linkml/ProjectRoleEnum#CONTRIBUTOR> ) ;
@@ -4076,6 +4118,153 @@ idhi:ProjectRoleEnum a owl:Class ;
         <https://idhi_placeholder/linkml/ProjectRoleEnum#CO_PI>,
         <https://idhi_placeholder/linkml/ProjectRoleEnum#PRINCIPAL_INVESTIGATOR>,
         <https://idhi_placeholder/linkml/ProjectRoleEnum#STUDENT> .
+
+idhi:Dataset a owl:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Dataset ;
+            owl:onProperty idhi:derived_from ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:distribution_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "idhi:Dataset" ] ) ] ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Publication ;
+            owl:onProperty idhi:related_publications ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:byte_size ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:distribution_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:distribution_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:in_languages ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:byte_size ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:ResourceContribution ;
+            owl:onProperty idhi:resource_contributions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Dataset ;
+            owl:onProperty idhi:datasets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:Organization ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:doi ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:themes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:extent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:media_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:derived_from ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:dataset_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:related_publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:datasets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:DatasetTypeEnum ;
+            owl:onProperty idhi:dataset_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:dataset_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LicenseEnum ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:themes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty idhi:byte_size ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:media_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( xsd:string [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:string ;
+                                owl:withRestrictions ( [ xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" ] ) ] ) ] ;
+            owl:onProperty idhi:in_languages ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:license ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:extent ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:resource_contributions ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:date_issued ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:id ],
+        idhi:Entity ;
+    skos:definition "A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets." ;
+    skos:exactMatch dcat:Dataset ;
+    skos:inScheme idhi:idhi .
 
 idhi:ToolServiceTypeEnum a owl:Class ;
     rdfs:label "ToolServiceTypeEnum" ;
@@ -4106,7 +4295,7 @@ idhi:end_date a owl:DatatypeProperty ;
 idhi:start_date a owl:DatatypeProperty ;
     rdfs:label "start_date" ;
     rdfs:range xsd:date ;
-    skos:definition "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization)." ;
+    skos:definition "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began." ;
     skos:inScheme idhi:idhi .
 
 idhi:additional_urls a owl:DatatypeProperty ;
@@ -4118,97 +4307,94 @@ idhi:additional_urls a owl:DatatypeProperty ;
 idhi:Organization a owl:Class ;
     rdfs:label "Organization" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:organization_type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:type ],
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:organization_hierarchy ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:contact_email ],
+            owl:onProperty idhi:additional_urls ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty idhi:ror ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:organization_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:additional_urls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty idhi:ror ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:marketplace_sync ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:ror ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:address ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:marketplace_sync ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:onDatatype xsd:string ;
                     owl:withRestrictions ( [ xsd:pattern "idhi:Organization" ] ) ] ;
             owl:onProperty idhi:type ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:marketplace_sync ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:parent_organization ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:address ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:additional_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:Organization ;
-            owl:onProperty idhi:parent_organization ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:LangString ;
-            owl:onProperty idhi:location ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:ror ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty idhi:name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:ror ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:contact_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:organization_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom idhi:OrganizationTypeEnum ;
-            owl:onProperty idhi:organization_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty idhi:contact_email ],
+            owl:onProperty idhi:type ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty idhi:marketplace_sync ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:address ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom idhi:LangString ;
             owl:onProperty idhi:location ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty idhi:parent_organization ],
+            owl:allValuesFrom idhi:LangString ;
+            owl:onProperty idhi:address ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty idhi:type ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:OrganizationTypeEnum ;
+            owl:onProperty idhi:organization_type ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty idhi:additional_urls ],
+            owl:onProperty idhi:contact_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom idhi:OrganizationHierarchy ;
+            owl:onProperty idhi:organization_hierarchy ],
         [ a owl:Restriction ;
             owl:allValuesFrom idhi:LangString ;
             owl:onProperty idhi:name ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 1 ;
             owl:onProperty idhi:id ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty idhi:marketplace_sync ],
+            owl:onProperty idhi:organization_type ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty idhi:ror ],
+            owl:minCardinality 0 ;
+            owl:onProperty idhi:location ],
         idhi:Agent ;
     skos:definition "An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form." ;
-    skos:exactMatch foaf1:Organization ;
+    skos:exactMatch foaf:Organization ;
     skos:inScheme idhi:idhi .
 
 idhi:name a owl:ObjectProperty ;
@@ -4242,14 +4428,17 @@ idhi:type a owl:DatatypeProperty ;
 idhi:LangString a owl:Class ;
     rdfs:label "LangString" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:language ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty idhi:value ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty idhi:language ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty idhi:value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty idhi:value ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:intersectionOf ( xsd:string [ a rdfs:Datatype ;
@@ -4258,10 +4447,7 @@ idhi:LangString a owl:Class ;
             owl:onProperty idhi:language ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty idhi:value ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty idhi:value ] ;
+            owl:onProperty idhi:language ] ;
     skos:definition "A single language-tagged text value. Instances are combined in a multivalued slot to give variants of one field in any language identified by a BCP-47 tag. Use one LangString per language; do not repeat a language within the same field." ;
     skos:exactMatch rdf:langString ;
     skos:inScheme idhi:idhi .

@@ -25,7 +25,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation in a project |  no  |
+| [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |  no  |
 
 
 

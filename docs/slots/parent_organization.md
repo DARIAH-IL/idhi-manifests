@@ -6,7 +6,7 @@ search:
 # Slot: parent_organization 
 
 
-_The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes._
+_The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent._
 
 
 
@@ -25,7 +25,7 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
+| [OrganizationHierarchy](../classes/OrganizationHierarchy.md) | Formal containment of the containing Organization within a larger parent orga... |  no  |
 
 
 
@@ -39,13 +39,14 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 | Property | Value |
 | --- | --- |
 | Range | [Organization](../classes/Organization.md) |
-| Domain Of | [Organization](../classes/Organization.md) |
+| Domain Of | [OrganizationHierarchy](../classes/OrganizationHierarchy.md) |
 | Slot URI | [schema:parentOrganization](http://schema.org/parentOrganization) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
+| Required | Yes |
 
 
 
@@ -85,14 +86,16 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 <details>
 ```yaml
 name: parent_organization
-description: The larger organization this one is part of (e.g. a department's university).
-  Use for formal containment only; looser partnerships belong in relationship classes.
+description: The larger organization containing the current child organization (by
+  IDHI URN). Use only in Organization.organization_hierarchy; define the relationship
+  on the child rather than the parent.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:parentOrganization
 domain_of:
-- Organization
+- OrganizationHierarchy
 range: Organization
+required: true
 
 ```
 </details></div>

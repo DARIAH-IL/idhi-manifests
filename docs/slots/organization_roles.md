@@ -6,7 +6,7 @@ search:
 # Slot: organization_roles 
 
 
-_Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding._
+_Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider, funder or host role. Reference each organization and infer the project from its containing record; use FUNDER only when no distinct award can be represented in funding._
 
 
 
@@ -85,9 +85,10 @@ URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organiz
 <details>
 ```yaml
 name: organization_roles
-description: Organizations engaged in the project, as reified OrganizationProjectRole
-  objects (coordinator, partner, data provider, funder or host). Use FUNDER only when
-  no distinct award can be represented in funding.
+description: Organizations engaged in the containing project, as reified OrganizationProjectRole
+  objects carrying a coordinator, partner, data provider, funder or host role. Reference
+  each organization and infer the project from its containing record; use FUNDER only
+  when no distinct award can be represented in funding.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

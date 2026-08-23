@@ -6,7 +6,7 @@ search:
 # Slot: organization 
 
 
-_The organization side of the relationship (by IDHI URN)._
+_The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint._
 
 
 
@@ -25,9 +25,9 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, with a position and d... |  no  |
-| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement in a project |  no  |
-| [FacilityAffiliation](../classes/FacilityAffiliation.md) | A facility's affiliation with an organization |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |  no  |
+| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |  no  |
+| [FacilityAffiliation](../classes/FacilityAffiliation.md) | A facility's affiliation with an organization, nested in a Facility so the fa... |  no  |
 
 
 
@@ -87,7 +87,9 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 <details>
 ```yaml
 name: organization
-description: The organization side of the relationship (by IDHI URN).
+description: The organization referenced by a person affiliation, facility affiliation
+  or project role (by IDHI URN). The Person, Facility or Project containing the relationship
+  supplies its other endpoint.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

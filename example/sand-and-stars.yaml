@@ -8,18 +8,8 @@ persons:
     family_name:
       - {language: en, value: Pigorsch}
     affiliations:
-      - member: idhi:person:pigorsch
-        organization: idhi:organization:dzib
+      - organization: idhi:organization:dzib
         affiliation_role: EMPLOYEE
-    project_participations:
-      - participant: idhi:person:pigorsch
-        project: idhi:project:sandstars
-        participation_role: PRINCIPAL_INVESTIGATOR
-    authorships:
-      - author: idhi:person:pigorsch
-        publication: idhi:publication:sandstarsbk
-        author_order: 4
-        authorship_role: EDITOR
 
   - type: idhi:Person
     id: idhi:person:halpern
@@ -30,18 +20,8 @@ persons:
       - {language: en, value: Halpern}
       - {language: he, value: הלפרן}
     affiliations:
-      - member: idhi:person:halpern
-        organization: idhi:organization:huji
+      - organization: idhi:organization:huji
         affiliation_role: ASSOCIATE
-    project_participations:
-      - participant: idhi:person:halpern
-        project: idhi:project:sandstars
-        participation_role: RESEARCHER
-    authorships:
-      - author: idhi:person:halpern
-        publication: idhi:publication:sandstarsbk
-        author_order: 2
-        authorship_role: EDITOR
 
   - type: idhi:Person
     id: idhi:person:avnir
@@ -52,18 +32,8 @@ persons:
       - {language: en, value: Avnir}
       - {language: he, value: אבניר}
     affiliations:
-      - member: idhi:person:avnir
-        organization: idhi:organization:huji
+      - organization: idhi:organization:huji
         affiliation_role: PROFESSOR
-    project_participations:
-      - participant: idhi:person:avnir
-        project: idhi:project:sandstars
-        participation_role: ADVISOR
-    authorships:
-      - author: idhi:person:avnir
-        publication: idhi:publication:sandstarsbk
-        author_order: 1
-        authorship_role: EDITOR
 
   - type: idhi:Person
     id: idhi:person:laud
@@ -72,18 +42,8 @@ persons:
     family_name:
       - {language: en, value: Lau}
     affiliations:
-      - member: idhi:person:laud
-        organization: idhi:organization:ashb
+      - organization: idhi:organization:ashb
         affiliation_role: EMPLOYEE
-    project_participations:
-      - participant: idhi:person:laud
-        project: idhi:project:sandstars
-        participation_role: RESEARCHER
-    authorships:
-      - author: idhi:person:laud
-        publication: idhi:publication:sandstarsbk
-        author_order: 3
-        authorship_role: EDITOR
 
   - type: idhi:Person
     id: idhi:person:wilke
@@ -92,18 +52,8 @@ persons:
     family_name:
       - {language: en, value: Wilke}
     affiliations:
-      - member: idhi:person:wilke
-        organization: idhi:organization:dzib
+      - organization: idhi:organization:dzib
         affiliation_role: EMPLOYEE
-    project_participations:
-      - participant: idhi:person:wilke
-        project: idhi:project:sandstars
-        participation_role: CONTRIBUTOR
-    authorships:
-      - author: idhi:person:wilke
-        publication: idhi:publication:sandstarsbk
-        author_order: 5
-        authorship_role: EDITOR
 
   - type: idhi:Person
     id: idhi:person:rusinek
@@ -117,13 +67,8 @@ persons:
     description:
       - {language: en, value: "Digital-humanities lead and consultant on behalf of the e-Lijah Lab: TEI modelling of the three-version synoptic edition and its alignment."}
     affiliations:
-      - member: idhi:person:rusinek
-        organization: idhi:organization:elijahlab
+      - organization: idhi:organization:elijahlab
         affiliation_role: AFFILIATE
-    project_participations:
-      - participant: idhi:person:rusinek
-        project: idhi:project:sandstars
-        participation_role: DH_LEAD
 
   - type: idhi:Person
     id: idhi:person:baumgarten
@@ -134,13 +79,8 @@ persons:
       - {language: en, value: Baumgarten}
       - {language: he, value: באומגרטן}
     affiliations:
-      - member: idhi:person:baumgarten
-        organization: idhi:organization:elijahlab
+      - organization: idhi:organization:elijahlab
         affiliation_role: MEMBER
-    project_participations:
-      - participant: idhi:person:baumgarten
-        project: idhi:project:sandstars
-        participation_role: CONTRIBUTOR
 
   - type: idhi:Person
     id: idhi:person:shalit
@@ -152,13 +92,8 @@ persons:
       - {language: en, value: Shalit}
       - {language: he, value: שליט}
     affiliations:
-      - member: idhi:person:shalit
-        organization: idhi:organization:elijahlab
+      - organization: idhi:organization:elijahlab
         affiliation_role: AFFILIATE
-    project_participations:
-      - participant: idhi:person:shalit
-        project: idhi:project:sandstars
-        participation_role: DEVELOPER
 
 organizations:
   - type: idhi:Organization
@@ -217,7 +152,8 @@ organizations:
           חממה ליישום כלי מדעי הרוח הדיגיטליים גם מחוץ למדעי היהדות. בראשות
           פרופ' משה לביא.
     organization_type: RESEARCH_CENTER
-    parent_organization: idhi:organization:haifa
+    organization_hierarchy:
+      - parent_organization: idhi:organization:haifa
     homepage: https://elijahlab.haifa.ac.il/
     location:
       - {language: en, value: Haifa}
@@ -342,21 +278,33 @@ projects:
       - {language: en, value: Mandatory Palestine}
       - {language: he, value: ארץ ישראל המנדטורית}
       - {language: ar, value: فلسطين الانتدابية}
+    project_participations:
+      - participant: idhi:person:pigorsch
+        participation_role: PRINCIPAL_INVESTIGATOR
+      - participant: idhi:person:halpern
+        participation_role: RESEARCHER
+      - participant: idhi:person:avnir
+        participation_role: ADVISOR
+      - participant: idhi:person:laud
+        participation_role: RESEARCHER
+      - participant: idhi:person:wilke
+        participation_role: CONTRIBUTOR
+      - participant: idhi:person:rusinek
+        participation_role: DH_LEAD
+      - participant: idhi:person:baumgarten
+        participation_role: CONTRIBUTOR
+      - participant: idhi:person:shalit
+        participation_role: DEVELOPER
     organization_roles:
       - organization: idhi:organization:dzib
-        project: idhi:project:sandstars
         org_project_role: HOST
       - organization: idhi:organization:dzib
-        project: idhi:project:sandstars
         org_project_role: COORDINATOR
       - organization: idhi:organization:elijahlab
-        project: idhi:project:sandstars
         org_project_role: PARTNER
       - organization: idhi:organization:czaj
-        project: idhi:project:sandstars
         org_project_role: PARTNER
       - organization: idhi:organization:ashb
-        project: idhi:project:sandstars
         org_project_role: PARTNER
     funding:
       - funding_organization: idhi:organization:digis
@@ -418,6 +366,22 @@ publications:
       - {language: he, value: "סידי ורונסקי. חול וכוכבים"}
     doi: https://doi.org/10.5771/9783748940814
     publication_type: coar:c_2f33
+    authorships:
+      - author: idhi:person:avnir
+        author_order: 1
+        authorship_role: EDITOR
+      - author: idhi:person:halpern
+        author_order: 2
+        authorship_role: EDITOR
+      - author: idhi:person:laud
+        author_order: 3
+        authorship_role: EDITOR
+      - author: idhi:person:pigorsch
+        author_order: 4
+        authorship_role: EDITOR
+      - author: idhi:person:wilke
+        author_order: 5
+        authorship_role: EDITOR
     date_issued: "2025-01-01"
     publisher: idhi:organization:nomos
     description:

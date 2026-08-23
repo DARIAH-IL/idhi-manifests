@@ -14,7 +14,7 @@ _A Digital Humanities research project, classified by its research activities an
 
 
 
-URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
+URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 
 
 
@@ -230,6 +230,45 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
         
       Project : type
         
+      Project : uses_datasets
+        
+          
+    
+        
+        
+        Project --> "*" Dataset : uses_datasets
+        
+        click Dataset href "../../classes/Dataset/"
+        
+    
+
+        
+      Project : uses_services
+        
+          
+    
+        
+        
+        Project --> "*" Service : uses_services
+        
+        click Service href "../../classes/Service/"
+        
+    
+
+        
+      Project : uses_tools
+        
+          
+    
+        
+        
+        Project --> "*" Tool : uses_tools
+        
+        click Tool href "../../classes/Tool/"
+        
+    
+
+        
       
 ```
 
@@ -245,7 +284,7 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [foaf:Project](https://xmlns.com/foaf/spec/#term_Project) |
+| Class URI | [foaf:Project](http://xmlns.com/foaf/0.1/Project) |
 
 
 ## Slots
@@ -255,12 +294,15 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
 | [research_disciplines](../slots/research_disciplines.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade.">Humanities discipline(s) of the project (history, linguistics, archaeology</span> | direct |
-| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
 | [studied_periods](../slots/studied_periods.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Historical period(s) the project studies (e.g. Ottoman period), as free multilingual labels — distinct from the project's own start_date/end_date.">Historical period(s) the project studies (e</span> | direct |
 | [studied_places](../slots/studied_places.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Geographic focus of the research (places studied), as free multilingual labels — distinct from where the project team sits.">Geographic focus of the research (places studied), as free multilingual label...</span> | direct |
-| [project_participations](../slots/project_participations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | <span title="The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates.">The person's project involvements, as reified ProjectParticipation objects ca...</span> | direct |
-| [organization_roles](../slots/organization_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | <span title="Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding.">Organizations engaged in the project, as reified OrganizationProjectRole obje...</span> | direct |
+| [project_participations](../slots/project_participations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | <span title="People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person.">People involved in the containing project, as reified ProjectParticipation ob...</span> | direct |
+| [organization_roles](../slots/organization_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | <span title="Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider, funder or host role. Reference each organization and infer the project from its containing record; use FUNDER only when no distinct award can be represented in funding.">Organizations engaged in the containing project, as reified OrganizationProje...</span> | direct |
+| [uses_tools](../slots/uses_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools used to conduct the containing project (by IDHI URN). Use for substantive research or technical dependencies, not tools produced by the project, which belong in outputs_tools.">Tools used to conduct the containing project (by IDHI URN)</span> | direct |
+| [uses_services](../slots/uses_services.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services used by the containing project (by IDHI URN). Use for externally or institutionally delivered services that support the work, not services produced as project outputs.">Services used by the containing project (by IDHI URN)</span> | direct |
+| [uses_datasets](../slots/uses_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Existing datasets used as research inputs by the containing project (by IDHI URN). Use for source or reference data consumed by the project, not datasets produced by it, which belong in outputs_datasets.">Existing datasets used as research inputs by the containing project (by IDHI ...</span> | direct |
 | [outputs_tools](../slots/outputs_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools produced by this project (by id).">Tools produced by this project (by id)</span> | direct |
 | [outputs_datasets](../slots/outputs_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets produced or curated by this project (by id).">Datasets produced or curated by this project (by id)</span> | direct |
 | [outputs_publications](../slots/outputs_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications resulting from this project (by id).">Publications resulting from this project (by id)</span> | direct |
@@ -285,8 +327,6 @@ URI: [foaf:Project](https://xmlns.com/foaf/spec/#term_Project)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ProjectParticipation](../classes/ProjectParticipation.md) | [project](../slots/project.md) | range | [Project](../classes/Project.md) |
-| [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | [project](../slots/project.md) | range | [Project](../classes/Project.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [projects](../slots/projects.md) | range | [Project](../classes/Project.md) |
 
 
@@ -356,6 +396,9 @@ slots:
 - studied_places
 - project_participations
 - organization_roles
+- uses_tools
+- uses_services
+- uses_datasets
 - outputs_tools
 - outputs_datasets
 - outputs_publications
@@ -459,7 +502,8 @@ attributes:
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
-      validity (e.g. when a person joined a project or organization).
+      validity, such as when participation, affiliation, maintenance responsibility
+      or formal containment began.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
@@ -514,13 +558,13 @@ attributes:
     inlined_as_list: true
   project_participations:
     name: project_participations
-    description: The person's project involvements, as reified ProjectParticipation
-      objects carrying the role (PI, developer...) and dates.
+    description: People involved in the containing project, as reified ProjectParticipation
+      objects carrying participant, role and dates. Define each participation only
+      here on its Project; do not duplicate it on the Person.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
-    - Person
     - Project
     range: ProjectParticipation
     multivalued: true
@@ -528,9 +572,10 @@ attributes:
     inlined_as_list: true
   organization_roles:
     name: organization_roles
-    description: Organizations engaged in the project, as reified OrganizationProjectRole
-      objects (coordinator, partner, data provider, funder or host). Use FUNDER only
-      when no distinct award can be represented in funding.
+    description: Organizations engaged in the containing project, as reified OrganizationProjectRole
+      objects carrying a coordinator, partner, data provider, funder or host role.
+      Reference each organization and infer the project from its containing record;
+      use FUNDER only when no distinct award can be represented in funding.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
@@ -540,6 +585,45 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  uses_tools:
+    name: uses_tools
+    description: Tools used to conduct the containing project (by IDHI URN). Use for
+      substantive research or technical dependencies, not tools produced by the project,
+      which belong in outputs_tools.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:instrument
+    owner: Project
+    domain_of:
+    - Project
+    range: Tool
+    multivalued: true
+  uses_services:
+    name: uses_services
+    description: Services used by the containing project (by IDHI URN). Use for externally
+      or institutionally delivered services that support the work, not services produced
+      as project outputs.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:requires
+    owner: Project
+    domain_of:
+    - Project
+    range: Service
+    multivalued: true
+  uses_datasets:
+    name: uses_datasets
+    description: Existing datasets used as research inputs by the containing project
+      (by IDHI URN). Use for source or reference data consumed by the project, not
+      datasets produced by it, which belong in outputs_datasets.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: prov:used
+    owner: Project
+    domain_of:
+    - Project
+    range: Dataset
+    multivalued: true
   outputs_tools:
     name: outputs_tools
     description: Tools produced by this project (by id).

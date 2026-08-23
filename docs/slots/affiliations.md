@@ -6,7 +6,7 @@ search:
 # Slot: affiliations 
 
 
-_The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement — that goes in project_participations._
+_The containing person's institutional affiliations, as reified Affiliation objects with organization, position and dates. Use for employment or formal membership, not for project involvement; the containing person's ID is inferred and must not be repeated in each relationship._
 
 
 
@@ -85,9 +85,10 @@ URI: [idhi:slot/affiliations](https://idhi_placeholder/linkml/slot/affiliations)
 <details>
 ```yaml
 name: affiliations
-description: The person's institutional affiliations, as reified Affiliation objects
-  (organization + position + dates). Use for employment or formal membership, NOT
-  for project involvement — that goes in project_participations.
+description: The containing person's institutional affiliations, as reified Affiliation
+  objects with organization, position and dates. Use for employment or formal membership,
+  not for project involvement; the containing person's ID is inferred and must not
+  be repeated in each relationship.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

@@ -158,7 +158,7 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
-| [facility_affiliations](../slots/facility_affiliations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [FacilityAffiliation](../classes/FacilityAffiliation.md) | <span title="The organization(s) hosting or owning this facility, as reified FacilityAffiliation objects with dates.">The organization(s) hosting or owning this facility, as reified FacilityAffil...</span> | direct |
+| [facility_affiliations](../slots/facility_affiliations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [FacilityAffiliation](../classes/FacilityAffiliation.md) | <span title="The organizations hosting or owning the containing facility, as reified FacilityAffiliation objects with a required relationship role and optional dates. Reference each organization and infer the facility from its containing record; define separate relationships if different organizations host and own the facility.">The organizations hosting or owning the containing facility, as reified Facil...</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
 | [services_offered](../slots/services_offered.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services this facility offers to researchers. Reference Service records by id; the Service's own 'provider' may still point at the parent Organization.">Services this facility offers to researchers</span> | direct |
@@ -181,7 +181,6 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [FacilityAffiliation](../classes/FacilityAffiliation.md) | [facility](../slots/facility.md) | range | [Facility](../classes/Facility.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [facilities](../slots/facilities.md) | range | [Facility](../classes/Facility.md) |
 
 
@@ -315,8 +314,10 @@ attributes:
     inlined_as_list: true
   facility_affiliations:
     name: facility_affiliations
-    description: The organization(s) hosting or owning this facility, as reified FacilityAffiliation
-      objects with dates.
+    description: The organizations hosting or owning the containing facility, as reified
+      FacilityAffiliation objects with a required relationship role and optional dates.
+      Reference each organization and infer the facility from its containing record;
+      define separate relationships if different organizations host and own the facility.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Facility

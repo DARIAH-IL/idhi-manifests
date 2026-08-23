@@ -23,7 +23,7 @@ Each class carries a `class_uri` mapping it to an existing ontology class — e.
 Two special kinds of classes to know:
 
 - **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. Language accepts syntactically valid BCP-47 tags, so one field can hold parallel English, Hebrew, Arabic, German, Yiddish, Ladino or other localized text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
-- **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`) — see "Reified relationships" below.
+- **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`, `OrganizationHierarchy`, `EventAgentRole`, `ResourceContribution`) — see "Reified relationships" below.
 - **`Funding`** — an inlined project funding award that records its funder, amount, multilingual award and programme names, grant number, award URL and funding dates. Multiple awards from the same funder remain separate entries.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
@@ -31,6 +31,10 @@ Two special kinds of classes to know:
 `TrainingMaterial` is a top-level entity for tutorials, lessons and other resources intended to teach an action or learning outcome. Its metadata records the didactic form, creators and publisher, learning outcomes, audience, prerequisites, educational level, content languages, access URL, media type, license and issue date. It can reference the tools, services and datasets it teaches, belong to a larger training material, and be linked as an output of a project.
 
 `Dataset` covers digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs through `dataset_type`. Dataset records can carry a DOI, derivation links, technical extent and byte size, data languages, media types and related publications. `datasets` means catalog aggregation; `derived_from` means provenance, such as source OCR → re-OCRed corpus → cleaned derivative. A digital edition can use its Dataset record as the intellectual object: `homepage` is its web presentation, `distribution_url` and `doi` identify its archived digital form, and `related_publications` links a print counterpart.
+
+Tools and datasets can record named `resource_contributions` with creator, developer, maintainer, data-curator or contributor roles and optional dates. Use these for responsibility for a specific resource; use `Project.project_participations` for work described only at project level and `Dataset.publisher` for the organization formally releasing a dataset.
+
+Projects distinguish inputs from outputs. `uses_tools`, `uses_services` and `uses_datasets` identify resources consumed by the work, while the `outputs_*` slots identify resources produced by it. Do not record the same project-resource connection as both an input and an output unless the project genuinely consumed an existing resource and produced a distinct new version represented by another entity.
 
 `Project.funding_status` records the project's current primary support model, while `funding` preserves its award history. Use `Funding` whenever a distinct grant is known. Use an organization role of `FUNDER` only when the funding relationship is known but no award can be described, and never duplicate the same fact in both places. Host-less projects are valid: independent practitioners remain `Person` records, while `INFORMAL_GROUP` is available only for a named collective that needs its own Organization record.
 
@@ -70,24 +74,36 @@ Every entity's primary `id` is a URN minted by IDHI: `idhi:<class name>:<random 
 A plain edge like `Person → Project` can't say *in what capacity* or *when*. So relationships that need a role and dates are modeled as classes of their own — the [CERIF](https://eurocris.org/services/main-features-cerif) "link entity" / [schema.org `Role`](https://schema.org/Role) pattern:
 
 ```yaml
-persons:
-  - id: idhi:person:x7k2m9
+projects:
+  - id: idhi:project:a83bq1
     project_participations:
-      - participant: idhi:person:x7k2m9   # reference by id
-        project: idhi:project:a83bq1    # reference by id
+      - participant: idhi:person:x7k2m9
         participation_role: PRINCIPAL_INVESTIGATOR
-        start_date: "2022-10-01"              # no end_date = ongoing
+        start_date: "2022-10-01"
 ```
 
-The five relationship classes and when to use them:
+Each relationship has exactly one canonical owner. The containing entity supplies the relationship's main endpoint implicitly, while the opposite endpoint is written as a required IDHI reference. This lets clients create nested relationships before the containing entity has an ID, prevents a relationship from contradicting its container, and avoids duplicate definitions on both endpoints.
 
-| Class | Connects | Carries |
-|---|---|---|
-| `ProjectParticipation` | Person ↔ Project | role (PI, DH lead, technical lead, developer, consultant...), dates |
-| `Affiliation` | Person ↔ Organization | position (professor...), dates |
-| `OrganizationProjectRole` | Organization ↔ Project | role (coordinator, partner, data provider, funder, host), dates |
-| `Authorship` | Person ↔ Publication | byline order, role |
-| `FacilityAffiliation` | Facility ↔ Organization | dates |
+Apply these rules to every new relationship:
+
+- Choose the entity on which the relationship naturally belongs as its one canonical owner.
+- Inline the relationship only on that owner and never add a reverse copy on the opposite endpoint.
+- Omit the owner's ID from the nested object and require the opposite endpoint's IDHI reference.
+- Extend `Relationship` when the connection carries a role or validity dates; relationship objects remain inlined and have no ID of their own.
+- Derive reverse views in queries, exports or application code instead of storing the same fact twice.
+
+The relationship classes and their canonical owners are:
+
+| Relationship class | Defined once in | Required reference | Carries |
+|---|---|---|---|
+| `ProjectParticipation` | `Project.project_participations` | `participant` | role (PI, DH lead, technical lead, developer, consultant...), dates |
+| `Affiliation` | `Person.affiliations` | `organization` | position (professor...), dates |
+| `OrganizationProjectRole` | `Project.organization_roles` | `organization` | role (coordinator, partner, data provider, funder, host), dates |
+| `Authorship` | `Publication.authorships` | `author` | byline order, role |
+| `FacilityAffiliation` | `Facility.facility_affiliations` | `organization` | host or owner role, dates |
+| `OrganizationHierarchy` | `Organization.organization_hierarchy` | `parent_organization` | dates of formal containment |
+| `EventAgentRole` | `Event.event_agent_roles` | `event_agent` | organizer, host, speaker, panelist, participant or sponsor role, dates |
+| `ResourceContribution` | `Tool.resource_contributions` or `Dataset.resource_contributions` | `contributor` | creator, developer, maintainer, data-curator or contributor role, dates |
 
 Use one `OrganizationProjectRole` instance per (pair, role). If an organization hosts a project and also provides a known award, record the `HOST` role plus a `Funding` entry; add a `FUNDER` role only when no distinct award can be described.
 
@@ -98,6 +114,9 @@ Use one `OrganizationProjectRole` instance per (pair, role). If an organization 
 - **`Tool` vs `Service`** — self-service software vs a human-mediated offering.
 - **`TrainingMaterial` vs `Publication` vs `Tool`** — a resource intended to teach vs a scholarly communication vs software that performs the action.
 - **`affiliations` vs `project_participations`** — institutional home vs project involvement.
+- **`organization_hierarchy` vs `affiliations`/`organization_roles`** — formal containment of one organization within another vs a person's institutional position or an organization's role in a project.
+- **`uses_*` vs `outputs_*`** — resources consumed by a project vs resources produced by it.
+- **`resource_contributions` vs `project_participations`** — responsibility for a particular tool or dataset vs a person's role in the project as a whole.
 - **`homepage` vs `additional_urls` vs `same_as`** — the entity's own main page vs further pages about it (blog, socials, registry entries) vs records about the same entity in other systems ([Wikidata](https://www.wikidata.org/), [PeriodO](https://perio.do/)...).
 - **`emails` vs `contact_email`** — a person's own published addresses vs an entity's contact mailbox (office, team, service desk).
 - **`id` vs `orcid`/`ror`/`doi`** — the `id` is always an IDHI-minted URN (`idhi:<class>:<shortid>`); [ORCID](https://orcid.org/), [ROR](https://ror.org/) and [DOI](https://www.doi.org/) are *supplementary* external identifiers in their own slots and are never used as the primary id.
@@ -157,7 +176,7 @@ Both vocabularies are openly licensed, so committing the cached dumps in `vocab/
 ./scripts/sanity.sh
 ```
 
-Lint + materialize + generate in one go. The script explains each step as it runs; generator failures exit non-zero, so it can be a CI gate.
+Lint + materialize + generate + validate in one go. The script validates every `example/*.yaml` file; generator or validation failures exit non-zero, so it can be a CI gate.
 
 ### Running individual commands
 

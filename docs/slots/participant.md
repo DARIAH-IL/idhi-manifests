@@ -6,7 +6,7 @@ search:
 # Slot: participant 
 
 
-_The person taking part in the project (by IDHI URN)._
+_The person taking part in the containing project (by IDHI URN). Use in Project.project_participations; do not define the relationship on the Person._
 
 
 
@@ -25,7 +25,7 @@ URI: [idhi:slot/participant](https://idhi_placeholder/linkml/slot/participant)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation in a project |  no  |
+| [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |  no  |
 
 
 
@@ -85,7 +85,8 @@ URI: [idhi:slot/participant](https://idhi_placeholder/linkml/slot/participant)
 <details>
 ```yaml
 name: participant
-description: The person taking part in the project (by IDHI URN).
+description: The person taking part in the containing project (by IDHI URN). Use in
+  Project.project_participations; do not define the relationship on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:

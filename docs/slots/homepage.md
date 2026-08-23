@@ -14,7 +14,7 @@ _Public landing page of the entity, if one exists._
 
 
 
-URI: [foaf:homepage](https://xmlns.com/foaf/spec/#term_homepage)
+URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 <!-- no inheritance hierarchy -->
 
 
@@ -51,7 +51,7 @@ URI: [foaf:homepage](https://xmlns.com/foaf/spec/#term_homepage)
 | --- | --- |
 | Range | [Uri](../types/Uri.md) |
 | Domain Of | [Entity](../classes/Entity.md) |
-| Slot URI | [foaf:homepage](https://xmlns.com/foaf/spec/#term_homepage) |
+| Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
 
 ### Cardinality and Requirements
 

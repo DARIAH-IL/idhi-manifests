@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: project_participations 
+# Slot: uses_services 
 
 
-_People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person._
+_Services used by the containing project (by IDHI URN). Use for externally or institutionally delivered services that support the work, not services produced as project outputs._
 
 
 
@@ -14,7 +14,7 @@ _People involved in the containing project, as reified ProjectParticipation obje
 
 
 
-URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/project_participations)
+URI: [dcterms:requires](http://purl.org/dc/terms/requires)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,8 +38,9 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Property | Value |
 | --- | --- |
-| Range | [ProjectParticipation](../classes/ProjectParticipation.md) |
+| Range | [Service](../classes/Service.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [dcterms:requires](http://purl.org/dc/terms/requires) |
 
 ### Cardinality and Requirements
 
@@ -74,8 +75,8 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:project_participations |
-| native | idhi:project_participations |
+| self | dcterms:requires |
+| native | idhi:uses_services |
 
 
 
@@ -84,18 +85,17 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 <details>
 ```yaml
-name: project_participations
-description: People involved in the containing project, as reified ProjectParticipation
-  objects carrying participant, role and dates. Define each participation only here
-  on its Project; do not duplicate it on the Person.
+name: uses_services
+description: Services used by the containing project (by IDHI URN). Use for externally
+  or institutionally delivered services that support the work, not services produced
+  as project outputs.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: dcterms:requires
 domain_of:
 - Project
-range: ProjectParticipation
+range: Service
 multivalued: true
-inlined: true
-inlined_as_list: true
 
 ```
 </details></div>

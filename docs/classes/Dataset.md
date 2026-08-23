@@ -148,6 +148,19 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
     
 
         
+      Dataset : resource_contributions
+        
+          
+    
+        
+        
+        Dataset --> "*" ResourceContribution : resource_contributions
+        
+        click ResourceContribution href "../../classes/ResourceContribution/"
+        
+    
+
+        
       Dataset : same_as
         
       Dataset : tags
@@ -204,6 +217,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | [media_type](../slots/media_type.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.">Technical media type of the primary dataset distribution or training resource...</span> | direct |
 | [related_publications](../slots/related_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications that are counterparts or direct scholarly companions of the dataset, such as the print counterpart of a digital edition. Reference Publication records by IDHI URN; use outputs_publications on Project for outputs that are related only by their project of origin.">Publications that are counterparts or direct scholarly companions of the data...</span> | direct |
 | [themes](../slots/themes.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Thematic keywords for the dataset, multilingual.">Thematic keywords for the dataset, multilingual</span> | direct |
+| [resource_contributions](../slots/resource_contributions.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ResourceContribution](../classes/ResourceContribution.md) | <span title="Named contributions to the containing Tool or Dataset, with contributor, role and optional dates. Define each contribution only on the resource; use publisher where supported for the organization formally releasing it and Project.project_participations for work described only at project level.">Named contributions to the containing Tool or Dataset, with contributor, role...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | [Entity](../classes/Entity.md) |
 | [description](../slots/description.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span> | [Entity](../classes/Entity.md) |
@@ -220,6 +234,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Project](../classes/Project.md) | [uses_datasets](../slots/uses_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Project](../classes/Project.md) | [outputs_datasets](../slots/outputs_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Dataset](../classes/Dataset.md) | [datasets](../slots/datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Dataset](../classes/Dataset.md) | [derived_from](../slots/derived_from.md) | range | [Dataset](../classes/Dataset.md) |
@@ -301,6 +316,7 @@ slots:
 - media_type
 - related_publications
 - themes
+- resource_contributions
 slot_usage:
   type:
     name: type
@@ -558,6 +574,23 @@ attributes:
     domain_of:
     - Dataset
     range: LangString
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  resource_contributions:
+    name: resource_contributions
+    description: Named contributions to the containing Tool or Dataset, with contributor,
+      role and optional dates. Define each contribution only on the resource; use
+      publisher where supported for the organization formally releasing it and Project.project_participations
+      for work described only at project level.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:contributor
+    owner: Dataset
+    domain_of:
+    - Tool
+    - Dataset
+    range: ResourceContribution
     multivalued: true
     inlined: true
     inlined_as_list: true

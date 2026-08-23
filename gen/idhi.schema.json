@@ -2,7 +2,7 @@
     "$defs": {
         "Affiliation": {
             "additionalProperties": false,
-            "description": "A person's employment or membership at an organization, with a position and dates. Use for the person's institutional home(s), independent of any project.",
+            "description": "A person's employment or membership at an organization, nested in a Person so the member is inferred from the containing record. Use in Person.affiliations for the person's institutional home(s), independent of any project; do not provide the containing person's ID in the relationship.",
             "properties": {
                 "affiliation_role": {
                     "$ref": "#/$defs/PersonOrgRoleEnum",
@@ -16,16 +16,12 @@
                         "null"
                     ]
                 },
-                "member": {
-                    "description": "The person affiliated with the organization (by IDHI URN).",
-                    "type": "string"
-                },
                 "organization": {
-                    "description": "The organization side of the relationship (by IDHI URN).",
+                    "description": "The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.",
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -34,7 +30,6 @@
                 }
             },
             "required": [
-                "member",
                 "organization"
             ],
             "title": "Affiliation",
@@ -109,10 +104,10 @@
         },
         "Authorship": {
             "additionalProperties": false,
-            "description": "A person's contribution to a publication, with author order and role. Create one instance per (person, publication); author_order preserves the byline sequence (1 = first author).",
+            "description": "A person's contribution nested in a Publication, so the publication is inferred from the containing record. Use one instance per author in Publication.authorships and do not define authorship in Person; author_order preserves the byline sequence with 1 as the first author.",
             "properties": {
                 "author": {
-                    "description": "The contributing person (by IDHI URN).",
+                    "description": "The person contributing to the containing publication (by IDHI URN). Use in Publication.authorships; do not define the relationship on the Person.",
                     "type": "string"
                 },
                 "author_order": {
@@ -134,12 +129,8 @@
                         "null"
                     ]
                 },
-                "publication": {
-                    "description": "The publication contributed to (by IDHI URN).",
-                    "type": "string"
-                },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -148,8 +139,7 @@
                 }
             },
             "required": [
-                "author",
-                "publication"
+                "author"
             ],
             "title": "Authorship",
             "type": "object"
@@ -308,6 +298,16 @@
                     "description": "Publications that are counterparts or direct scholarly companions of the dataset, such as the print counterpart of a digital edition. Reference Publication records by IDHI URN; use outputs_publications on Project for outputs that are related only by their project of origin.",
                     "items": {
                         "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "resource_contributions": {
+                    "description": "Named contributions to the containing Tool or Dataset, with contributor, role and optional dates. Define each contribution only on the resource; use publisher where supported for the organization formally releasing it and Project.project_participations for work described only at project level.",
+                    "items": {
+                        "$ref": "#/$defs/ResourceContribution"
                     },
                     "type": [
                         "array",
@@ -666,6 +666,16 @@
                         "null"
                     ]
                 },
+                "event_agent_roles": {
+                    "description": "People and organizations involved in the containing event, with their role and optional relationship dates. Define each involvement only on the Event; use Publication.authorships for authorship and presented_at for the event at which a publication was presented.",
+                    "items": {
+                        "$ref": "#/$defs/EventAgentRole"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "event_type": {
                     "$ref": "#/$defs/EventTypeEnum",
                     "description": "The kind of scholarly event."
@@ -719,7 +729,7 @@
                     ]
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -749,6 +759,55 @@
             ],
             "title": "Event",
             "type": "object"
+        },
+        "EventAgentRole": {
+            "additionalProperties": false,
+            "description": "A person or organization involved in the containing Event in a defined capacity, with optional dates when the involvement covers only part of a multi-day event or programme. Use in Event.event_agent_roles for organizers, hosts, speakers, panelists, participants or sponsors; do not use it merely because an agent authored a publication presented at the event.",
+            "properties": {
+                "end_date": {
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "event_agent": {
+                    "description": "The person or organization involved in the containing event (by IDHI URN). Use only in Event.event_agent_roles; do not duplicate the relationship on the Agent.",
+                    "type": "string"
+                },
+                "event_agent_role": {
+                    "$ref": "#/$defs/EventAgentRoleEnum",
+                    "description": "The capacity in which the agent is involved in the containing event. Choose the most specific applicable role and create separate relationships when the same agent has multiple roles."
+                },
+                "start_date": {
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "event_agent",
+                "event_agent_role"
+            ],
+            "title": "EventAgentRole",
+            "type": "object"
+        },
+        "EventAgentRoleEnum": {
+            "description": "IDHI-governed roles for people and organizations involved in events. Choose the most specific role and use separate EventAgentRole instances for multiple capacities.",
+            "enum": [
+                "ORGANIZER",
+                "HOST",
+                "SPEAKER",
+                "PANELIST",
+                "PARTICIPANT",
+                "SPONSOR"
+            ],
+            "title": "EventAgentRoleEnum",
+            "type": "string"
         },
         "EventTypeEnum": {
             "description": "Kinds of scholarly events.",
@@ -806,7 +865,7 @@
                     ]
                 },
                 "facility_affiliations": {
-                    "description": "The organization(s) hosting or owning this facility, as reified FacilityAffiliation objects with dates.",
+                    "description": "The organizations hosting or owning the containing facility, as reified FacilityAffiliation objects with a required relationship role and optional dates. Reference each organization and infer the facility from its containing record; define separate relationships if different organizations host and own the facility.",
                     "items": {
                         "$ref": "#/$defs/FacilityAffiliation"
                     },
@@ -909,7 +968,7 @@
         },
         "FacilityAffiliation": {
             "additionalProperties": false,
-            "description": "A facility's affiliation with an organization. Use one instance per hosting/owning organization; joint labs get several.",
+            "description": "A facility's affiliation with an organization, nested in a Facility so the facility is inferred from the containing record. Use one instance per hosting or owning organization in Facility.facility_affiliations and do not provide the containing facility's ID; joint labs get several.",
             "properties": {
                 "end_date": {
                     "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
@@ -919,16 +978,16 @@
                         "null"
                     ]
                 },
-                "facility": {
-                    "description": "The facility side of the relationship (by IDHI URN).",
-                    "type": "string"
+                "facility_affiliation_role": {
+                    "$ref": "#/$defs/FacilityAffiliationRoleEnum",
+                    "description": "The organization's relationship to the containing facility. Use HOST when it provides the facility's institutional or operational home and OWNER when it legally or administratively owns the facility; create two relationships when distinct organizations fill those roles."
                 },
                 "organization": {
-                    "description": "The organization side of the relationship (by IDHI URN).",
+                    "description": "The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.",
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -937,11 +996,20 @@
                 }
             },
             "required": [
-                "facility",
-                "organization"
+                "organization",
+                "facility_affiliation_role"
             ],
             "title": "FacilityAffiliation",
             "type": "object"
+        },
+        "FacilityAffiliationRoleEnum": {
+            "description": "IDHI-governed roles distinguishing the organizations connected to a facility. Use one relationship per organization and role so hosting and ownership are not conflated.",
+            "enum": [
+                "HOST",
+                "OWNER"
+            ],
+            "title": "FacilityAffiliationRoleEnum",
+            "type": "string"
         },
         "Funding": {
             "additionalProperties": false,
@@ -1002,7 +1070,7 @@
                     ]
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -1268,16 +1336,19 @@
                     },
                     "type": "array"
                 },
+                "organization_hierarchy": {
+                    "description": "Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.",
+                    "items": {
+                        "$ref": "#/$defs/OrganizationHierarchy"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "organization_type": {
                     "$ref": "#/$defs/OrganizationTypeEnum",
                     "description": "The kind of organization. Always set it."
-                },
-                "parent_organization": {
-                    "description": "The larger organization this one is part of (e.g. a department's university). Use for formal containment only; looser partnerships belong in relationship classes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
                 },
                 "ror": {
                     "description": "The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR \u2014 most universities and research institutes are.",
@@ -1323,9 +1394,40 @@
             "title": "Organization",
             "type": "object"
         },
+        "OrganizationHierarchy": {
+            "additionalProperties": false,
+            "description": "Formal containment of the containing Organization within a larger parent organization, with optional validity dates. Use in Organization.organization_hierarchy for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.",
+            "properties": {
+                "end_date": {
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "parent_organization": {
+                    "description": "The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent.",
+                    "type": "string"
+                },
+                "start_date": {
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "parent_organization"
+            ],
+            "title": "OrganizationHierarchy",
+            "type": "object"
+        },
         "OrganizationProjectRole": {
             "additionalProperties": false,
-            "description": "An organization's engagement in a project. Use one instance per role. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described.",
+            "description": "An organization's engagement nested in a Project, so the project is inferred from the containing record. Use one instance per role in Project.organization_roles and do not provide the containing project's ID. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described.",
             "properties": {
                 "end_date": {
                     "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
@@ -1340,15 +1442,11 @@
                     "description": "The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding."
                 },
                 "organization": {
-                    "description": "The organization side of the relationship (by IDHI URN).",
-                    "type": "string"
-                },
-                "project": {
-                    "description": "The project side of the relationship (by IDHI URN).",
+                    "description": "The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.",
                     "type": "string"
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -1357,8 +1455,7 @@
                 }
             },
             "required": [
-                "organization",
-                "project"
+                "organization"
             ],
             "title": "OrganizationProjectRole",
             "type": "object"
@@ -1382,19 +1479,9 @@
             "description": "A human agent in the DH index: researcher, developer, librarian, student, etc.",
             "properties": {
                 "affiliations": {
-                    "description": "The person's institutional affiliations, as reified Affiliation objects (organization + position + dates). Use for employment or formal membership, NOT for project involvement \u2014 that goes in project_participations.",
+                    "description": "The containing person's institutional affiliations, as reified Affiliation objects with organization, position and dates. Use for employment or formal membership, not for project involvement; the containing person's ID is inferred and must not be repeated in each relationship.",
                     "items": {
                         "$ref": "#/$defs/Affiliation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "authorships": {
-                    "description": "The person's publication contributions, as reified Authorship objects carrying byline order and role.",
-                    "items": {
-                        "$ref": "#/$defs/Authorship"
                     },
                     "type": [
                         "array",
@@ -1467,16 +1554,6 @@
                     "pattern": "https://orcid.org/\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "project_participations": {
-                    "description": "The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates.",
-                    "items": {
-                        "$ref": "#/$defs/ProjectParticipation"
-                    },
-                    "type": [
-                        "array",
                         "null"
                     ]
                 },
@@ -1619,7 +1696,7 @@
                     "type": "array"
                 },
                 "organization_roles": {
-                    "description": "Organizations engaged in the project, as reified OrganizationProjectRole objects (coordinator, partner, data provider, funder or host). Use FUNDER only when no distinct award can be represented in funding.",
+                    "description": "Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider, funder or host role. Reference each organization and infer the project from its containing record; use FUNDER only when no distinct award can be represented in funding.",
                     "items": {
                         "$ref": "#/$defs/OrganizationProjectRole"
                     },
@@ -1669,7 +1746,7 @@
                     ]
                 },
                 "project_participations": {
-                    "description": "The person's project involvements, as reified ProjectParticipation objects carrying the role (PI, developer...) and dates.",
+                    "description": "People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person.",
                     "items": {
                         "$ref": "#/$defs/ProjectParticipation"
                     },
@@ -1700,7 +1777,7 @@
                     ]
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -1741,6 +1818,36 @@
                     "const": "idhi:Project",
                     "description": "Discriminator identifying the record's class; used for polymorphic serialization and deserialization.",
                     "type": "string"
+                },
+                "uses_datasets": {
+                    "description": "Existing datasets used as research inputs by the containing project (by IDHI URN). Use for source or reference data consumed by the project, not datasets produced by it, which belong in outputs_datasets.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "uses_services": {
+                    "description": "Services used by the containing project (by IDHI URN). Use for externally or institutionally delivered services that support the work, not services produced as project outputs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "uses_tools": {
+                    "description": "Tools used to conduct the containing project (by IDHI URN). Use for substantive research or technical dependencies, not tools produced by the project, which belong in outputs_tools.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -1753,7 +1860,7 @@
         },
         "ProjectParticipation": {
             "additionalProperties": false,
-            "description": "A person's participation in a project. Create one instance per (person, project, role) combination; if a person changed roles over time, create one instance per role with start/end dates.",
+            "description": "A person's participation nested in a Project, so the project is inferred from the containing record. Use one instance per participant and role in Project.project_participations and do not define project participation in Person; if a person changed roles over time, create one instance per role with start and end dates.",
             "properties": {
                 "end_date": {
                     "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
@@ -1764,19 +1871,15 @@
                     ]
                 },
                 "participant": {
-                    "description": "The person taking part in the project (by IDHI URN).",
+                    "description": "The person taking part in the containing project (by IDHI URN). Use in Project.project_participations; do not define the relationship on the Person.",
                     "type": "string"
                 },
                 "participation_role": {
                     "$ref": "#/$defs/ProjectRoleEnum",
                     "description": "The person's function within the project team. Use PRINCIPAL_INVESTIGATOR only for the formally designated PI(s); DH_LEAD for digital method and architecture, TECHNICAL_LEAD for ownership of software engineering, DEVELOPER for implementation, CONSULTANT for bounded external professional work, RESEARCHER for scholarly research, STUDENT for enrolled students, ADVISOR for mentorship, and CONTRIBUTOR only when none of the specific values fits."
                 },
-                "project": {
-                    "description": "The project side of the relationship (by IDHI URN).",
-                    "type": "string"
-                },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -1785,8 +1888,7 @@
                 }
             },
             "required": [
-                "participant",
-                "project"
+                "participant"
             ],
             "title": "ProjectParticipation",
             "type": "object"
@@ -1813,7 +1915,7 @@
             "description": "An academic publication: journal article, book, chapter, conference paper, thesis, report, etc. The precise kind is given by publication_type.",
             "properties": {
                 "authorships": {
-                    "description": "The person's publication contributions, as reified Authorship objects carrying byline order and role.",
+                    "description": "People who contributed to the containing publication, as reified Authorship objects carrying author, byline order and role. Define each authorship only here on its Publication; do not duplicate it on the Person.",
                     "items": {
                         "$ref": "#/$defs/Authorship"
                     },
@@ -2068,7 +2170,7 @@
         },
         "Relationship": {
             "additionalProperties": false,
-            "description": "Abstract base for reified, role-bearing relationships. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly.",
+            "description": "Abstract base for reified relationships that carry their own role or validity metadata. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly.",
             "properties": {
                 "end_date": {
                     "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
@@ -2079,7 +2181,7 @@
                     ]
                 },
                 "start_date": {
-                    "description": "Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).",
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
                     "format": "date",
                     "type": [
                         "string",
@@ -2089,6 +2191,54 @@
             },
             "title": "Relationship",
             "type": "object"
+        },
+        "ResourceContribution": {
+            "additionalProperties": false,
+            "description": "A person or organization contributing to the containing Tool or Dataset in a defined capacity, with optional dates for time-bounded responsibility. Use in Tool.resource_contributions or Dataset.resource_contributions for creation, software development, maintenance, data curation or other named contributions; use publisher where supported for formal publication responsibility and Project.project_participations for project-level work.",
+            "properties": {
+                "contributor": {
+                    "description": "The person or organization contributing to the containing Tool or Dataset (by IDHI URN). Use only in resource_contributions; do not duplicate the relationship on the Agent.",
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "resource_contribution_role": {
+                    "$ref": "#/$defs/ResourceContributionRoleEnum",
+                    "description": "The contributor's responsibility for the containing Tool or Dataset. Choose the most specific applicable role and create separate relationships when one contributor has materially distinct responsibilities."
+                },
+                "start_date": {
+                    "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "contributor",
+                "resource_contribution_role"
+            ],
+            "title": "ResourceContribution",
+            "type": "object"
+        },
+        "ResourceContributionRoleEnum": {
+            "description": "Roles for named contributions to tools and datasets. Use the most specific responsibility and record separate contributions when one agent holds multiple materially different roles.",
+            "enum": [
+                "CREATOR",
+                "DEVELOPER",
+                "MAINTAINER",
+                "DATA_CURATOR",
+                "CONTRIBUTOR"
+            ],
+            "title": "ResourceContributionRoleEnum",
+            "type": "string"
         },
         "Service": {
             "additionalProperties": false,
@@ -2315,6 +2465,16 @@
                     "description": "Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "resource_contributions": {
+                    "description": "Named contributions to the containing Tool or Dataset, with contributor, role and optional dates. Define each contribution only on the resource; use publisher where supported for the organization formally releasing it and Project.project_participations for work described only at project level.",
+                    "items": {
+                        "$ref": "#/$defs/ResourceContribution"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },

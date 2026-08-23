@@ -16,20 +16,9 @@ persons:
       - {language: en, value: Cohen}
       - {language: he, value: כהן}
     affiliations:
-      - member: idhi:person:x7k2m9
-        organization: idhi:organization:k3v9p2
+      - organization: idhi:organization:k3v9p2
         affiliation_role: PROFESSOR
         start_date: "2015-10-01"
-    project_participations:
-      - participant: idhi:person:x7k2m9
-        project: idhi:project:a83bq1
-        participation_role: PRINCIPAL_INVESTIGATOR
-        start_date: "2022-10-01"
-    authorships:
-      - author: idhi:person:x7k2m9
-        publication: idhi:publication:p4w8n1
-        author_order: 1
-        authorship_role: AUTHOR
 
 organizations:
   - type: idhi:Organization
@@ -50,6 +39,14 @@ organizations:
     name:
       - {language: en, value: Example Research Fund}
     organization_type: FUNDER
+  - type: idhi:Organization
+    id: idhi:organization:c8r2m5
+    name:
+      - {language: en, value: Example Digital Humanities Center}
+    organization_type: RESEARCH_CENTER
+    organization_hierarchy:
+      - parent_organization: idhi:organization:k3v9p2
+        start_date: "2012-01-01"
 
 facilities:
   - type: idhi:Facility
@@ -61,8 +58,11 @@ facilities:
       - https://twitter.com/exampledhlab
     contact_email: dhlab@example.ac.il
     facility_affiliations:
-      - facility: idhi:facility:l8m2q4
-        organization: idhi:organization:k3v9p2
+      - organization: idhi:organization:c8r2m5
+        facility_affiliation_role: HOST
+        start_date: "2019-01-01"
+      - organization: idhi:organization:k3v9p2
+        facility_affiliation_role: OWNER
         start_date: "2019-01-01"
     services_offered:
       - idhi:service:s6b1z3
@@ -98,13 +98,21 @@ projects:
     studied_places:
       - {language: en, value: Jerusalem}
       - {language: he, value: ירושלים}
+    project_participations:
+      - participant: idhi:person:x7k2m9
+        participation_role: PRINCIPAL_INVESTIGATOR
+        start_date: "2022-10-01"
     organization_roles:
       - organization: idhi:organization:k3v9p2
-        project: idhi:project:a83bq1
         org_project_role: HOST
       - organization: idhi:organization:k3v9p2
-        project: idhi:project:a83bq1
         org_project_role: DATA_PROVIDER
+    uses_tools:
+      - idhi:tool:u2k4m6
+    uses_services:
+      - idhi:service:s6b1z3
+    uses_datasets:
+      - idhi:dataset:q6r1v5
     funding_status: ACTIVE_GRANT_FUNDING
     funding:
       - funding_organization: idhi:organization:f9d3h6
@@ -140,6 +148,21 @@ tools:
     documentation_url: https://fragmentmatcher.example.ac.il/docs
     digital_humanities_activities:
       - tadirah:analyzing
+    resource_contributions:
+      - contributor: idhi:person:x7k2m9
+        resource_contribution_role: DEVELOPER
+        start_date: "2022-10-01"
+      - contributor: idhi:person:x7k2m9
+        resource_contribution_role: MAINTAINER
+        start_date: "2024-01-01"
+  - type: idhi:Tool
+    id: idhi:tool:u2k4m6
+    name:
+      - {language: en, value: Example OCR Toolkit}
+    tool_type: LIBRARY
+    license: APACHE_2_0
+    digital_humanities_activities:
+      - tadirah:capturing
     tags:
       - image matching
       - computer vision
@@ -161,6 +184,10 @@ publications:
       - {language: en, value: Matching Genizah fragments at scale}
     doi: https://doi.org/10.1234/example.5678
     publication_type: coar:c_6501
+    authorships:
+      - author: idhi:person:x7k2m9
+        author_order: 1
+        authorship_role: AUTHOR
     date_issued: "2024-03-15"
     published_in:
       - {language: en, value: Journal of Example Digital Humanities}
@@ -180,6 +207,11 @@ events:
       - {language: en, value: Jerusalem}
     address:
       - {language: en, value: "Example Campus, Mount Scopus, Jerusalem"}
+    event_agent_roles:
+      - event_agent: idhi:organization:c8r2m5
+        event_agent_role: ORGANIZER
+      - event_agent: idhi:person:x7k2m9
+        event_agent_role: SPEAKER
 
 datasets:
   - type: idhi:Dataset
@@ -213,6 +245,9 @@ datasets:
       - idhi:publication:p4w8n1
     themes:
       - {language: en, value: manuscripts}
+    resource_contributions:
+      - contributor: idhi:organization:c8r2m5
+        resource_contribution_role: CREATOR
 
 training_materials:
   - type: idhi:TrainingMaterial

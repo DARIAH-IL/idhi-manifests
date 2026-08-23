@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: project_participations 
+# Slot: uses_datasets 
 
 
-_People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person._
+_Existing datasets used as research inputs by the containing project (by IDHI URN). Use for source or reference data consumed by the project, not datasets produced by it, which belong in outputs_datasets._
 
 
 
@@ -14,7 +14,7 @@ _People involved in the containing project, as reified ProjectParticipation obje
 
 
 
-URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/project_participations)
+URI: [prov:used](http://www.w3.org/ns/prov#used)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,8 +38,9 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Property | Value |
 | --- | --- |
-| Range | [ProjectParticipation](../classes/ProjectParticipation.md) |
+| Range | [Dataset](../classes/Dataset.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [prov:used](http://www.w3.org/ns/prov#used) |
 
 ### Cardinality and Requirements
 
@@ -74,8 +75,8 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:project_participations |
-| native | idhi:project_participations |
+| self | prov:used |
+| native | idhi:uses_datasets |
 
 
 
@@ -84,18 +85,17 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 <details>
 ```yaml
-name: project_participations
-description: People involved in the containing project, as reified ProjectParticipation
-  objects carrying participant, role and dates. Define each participation only here
-  on its Project; do not duplicate it on the Person.
+name: uses_datasets
+description: Existing datasets used as research inputs by the containing project (by
+  IDHI URN). Use for source or reference data consumed by the project, not datasets
+  produced by it, which belong in outputs_datasets.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: prov:used
 domain_of:
 - Project
-range: ProjectParticipation
+range: Dataset
 multivalued: true
-inlined: true
-inlined_as_list: true
 
 ```
 </details></div>

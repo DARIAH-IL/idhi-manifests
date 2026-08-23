@@ -14,7 +14,7 @@ _Further relevant web pages beyond the homepage (blog, social-media profile, reg
 
 
 
-URI: [foaf:page](https://xmlns.com/foaf/spec/#term_page)
+URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 <!-- no inheritance hierarchy -->
 
 
@@ -46,7 +46,7 @@ URI: [foaf:page](https://xmlns.com/foaf/spec/#term_page)
 | --- | --- |
 | Range | [Uri](../types/Uri.md) |
 | Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Event](../classes/Event.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
-| Slot URI | [foaf:page](https://xmlns.com/foaf/spec/#term_page) |
+| Slot URI | [foaf:page](http://xmlns.com/foaf/0.1/page) |
 
 ### Cardinality and Requirements
 

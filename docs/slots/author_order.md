@@ -25,7 +25,7 @@ URI: [schema:position](http://schema.org/position)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Authorship](../classes/Authorship.md) | A person's contribution to a publication, with author order and role |  no  |
+| [Authorship](../classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |  no  |
 
 
 

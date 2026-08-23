@@ -6,7 +6,7 @@ search:
 # Class: Relationship 
 
 
-_Abstract base for reified, role-bearing relationships. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly._
+_Abstract base for reified relationships that carry their own role or validity metadata. A Relationship is used instead of a direct edge whenever the connection between two entities needs its own metadata: a role and/or a validity interval. Never instantiated directly._
 
 
 
@@ -26,6 +26,8 @@ URI: [schema:Role](http://schema.org/Role)
     class Relationship
       
 
+      Relationship <|-- OrganizationHierarchy
+        click OrganizationHierarchy href "../../classes/OrganizationHierarchy/"
       Relationship <|-- ProjectParticipation
         click ProjectParticipation href "../../classes/ProjectParticipation/"
       Relationship <|-- Affiliation
@@ -36,6 +38,10 @@ URI: [schema:Role](http://schema.org/Role)
         click Authorship href "../../classes/Authorship/"
       Relationship <|-- FacilityAffiliation
         click FacilityAffiliation href "../../classes/FacilityAffiliation/"
+      Relationship <|-- EventAgentRole
+        click EventAgentRole href "../../classes/EventAgentRole/"
+      Relationship <|-- ResourceContribution
+        click ResourceContribution href "../../classes/ResourceContribution/"
       
 
       Relationship : end_date
@@ -50,11 +56,14 @@ URI: [schema:Role](http://schema.org/Role)
 
 ## Inheritance
 * **Relationship**
+    * [OrganizationHierarchy](../classes/OrganizationHierarchy.md)
     * [ProjectParticipation](../classes/ProjectParticipation.md)
     * [Affiliation](../classes/Affiliation.md)
     * [OrganizationProjectRole](../classes/OrganizationProjectRole.md)
     * [Authorship](../classes/Authorship.md)
     * [FacilityAffiliation](../classes/FacilityAffiliation.md)
+    * [EventAgentRole](../classes/EventAgentRole.md)
+    * [ResourceContribution](../classes/ResourceContribution.md)
 
 
 ## Class Properties
@@ -68,7 +77,7 @@ URI: [schema:Role](http://schema.org/Role)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity (e.g. when a person joined a project or organization).">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
+| [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
 
 
@@ -118,9 +127,10 @@ URI: [schema:Role](http://schema.org/Role)
 <details>
 ```yaml
 name: Relationship
-description: 'Abstract base for reified, role-bearing relationships. A Relationship
-  is used instead of a direct edge whenever the connection between two entities needs
-  its own metadata: a role and/or a validity interval. Never instantiated directly.'
+description: 'Abstract base for reified relationships that carry their own role or
+  validity metadata. A Relationship is used instead of a direct edge whenever the
+  connection between two entities needs its own metadata: a role and/or a validity
+  interval. Never instantiated directly.'
 from_schema: https://idhi_placeholder/linkml/idhi
 abstract: true
 slots:
@@ -136,16 +146,18 @@ class_uri: schema:Role
 <details>
 ```yaml
 name: Relationship
-description: 'Abstract base for reified, role-bearing relationships. A Relationship
-  is used instead of a direct edge whenever the connection between two entities needs
-  its own metadata: a role and/or a validity interval. Never instantiated directly.'
+description: 'Abstract base for reified relationships that carry their own role or
+  validity metadata. A Relationship is used instead of a direct edge whenever the
+  connection between two entities needs its own metadata: a role and/or a validity
+  interval. Never instantiated directly.'
 from_schema: https://idhi_placeholder/linkml/idhi
 abstract: true
 attributes:
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's
-      validity (e.g. when a person joined a project or organization).
+      validity, such as when participation, affiliation, maintenance responsibility
+      or formal containment began.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
