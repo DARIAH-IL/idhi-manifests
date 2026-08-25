@@ -19,7 +19,7 @@ gen-materialize:
 
 gen-json-schema: gen-materialize
 	@mkdir -p $(GEN)
-	uv run gen-json-schema $(GEN_INPUT) > $(GEN)/idhi.schema.json
+	uv run gen-json-schema $(GEN_INPUT) | uv run python scripts/enrich_json_schema.py -s $(GEN_INPUT) > $(GEN)/idhi.schema.json
 
 gen-owl: gen-materialize
 	@mkdir -p $(GEN)
