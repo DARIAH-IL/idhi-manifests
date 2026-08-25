@@ -30,6 +30,19 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
         
       Funding : funding_amount
         
+      Funding : funding_currency
+        
+          
+    
+        
+        
+        Funding --> "0..1" CurrencyEnum : funding_currency
+        
+        click CurrencyEnum href "../../enums/CurrencyEnum/"
+        
+    
+
+        
       Funding : funding_organization
         
           
@@ -92,7 +105,8 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [funding_organization](../slots/funding_organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization that provides this funding award (by IDHI URN).">The organization that provides this funding award (by IDHI URN)</span> | direct |
-| [funding_amount](../slots/funding_amount.md) | <span title="Optional: at most one value">0..1</span> <br/> [Float](../types/Float.md) | <span title="Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.">Amount awarded by the funding organization, if public, in ILS unless noted in...</span> | direct |
+| [funding_amount](../slots/funding_amount.md) | <span title="Optional: at most one value">0..1</span> <br/> [Float](../types/Float.md) | <span title="Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess.">Amount awarded by the funding organization, if public, in the currency given ...</span> | direct |
+| [funding_currency](../slots/funding_currency.md) | <span title="Optional: at most one value">0..1</span> <br/> [CurrencyEnum](../enums/CurrencyEnum.md) | <span title="Currency of funding_amount. Record it whenever the amount is present and the currency is known; omit it when no amount is recorded.">Currency of funding_amount</span> | direct |
 | [grant_name](../slots/grant_name.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Official multilingual title of the individual grant or award. Use this for the award's title, not the broader recurring programme, which belongs in funding_program.">Official multilingual title of the individual grant or award</span> | direct |
 | [funding_program](../slots/funding_program.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual name of the broader funding programme or scheme under which the award was made. This uses an IDHI-specific property because FRAPO defines FundingProgramme as a class but has no fitting property for a literal programme label.">Multilingual name of the broader funding programme or scheme under which the ...</span> | direct |
 | [grant_number](../slots/grant_number.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Identifier assigned to the grant by its funding organization. Use the funder's exact value and omit it when none is published.">Identifier assigned to the grant by its funding organization</span> | direct |
@@ -164,6 +178,7 @@ from_schema: https://idhi_placeholder/linkml/idhi
 slots:
 - funding_organization
 - funding_amount
+- funding_currency
 - grant_name
 - funding_program
 - grant_number
@@ -201,8 +216,9 @@ attributes:
     required: true
   funding_amount:
     name: funding_amount
-    description: Amount awarded by the funding organization, if public, in ILS unless
-      noted in the project description. Omit rather than guess.
+    description: Amount awarded by the funding organization, if public, in the currency
+      given by funding_currency, or ILS when no currency is recorded. Omit rather
+      than guess.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: frapo:hasMonetaryValue
@@ -210,6 +226,17 @@ attributes:
     domain_of:
     - Funding
     range: float
+  funding_currency:
+    name: funding_currency
+    description: Currency of funding_amount. Record it whenever the amount is present
+      and the currency is known; omit it when no amount is recorded.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:currency
+    owner: Funding
+    domain_of:
+    - Funding
+    range: CurrencyEnum
   grant_name:
     name: grant_name
     description: Official multilingual title of the individual grant or award. Use

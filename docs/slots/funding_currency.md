@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: funding_amount 
+# Slot: funding_currency 
 
 
-_Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess._
+_Currency of funding_amount. Record it whenever the amount is present and the currency is known; omit it when no amount is recorded._
 
 
 
@@ -14,7 +14,7 @@ _Amount awarded by the funding organization, if public, in the currency given by
 
 
 
-URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
+URI: [schema:currency](http://schema.org/currency)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,9 +38,9 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](../types/Float.md) |
+| Range | [CurrencyEnum](../enums/CurrencyEnum.md) |
 | Domain Of | [Funding](../classes/Funding.md) |
-| Slot URI | [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue) |
+| Slot URI | [schema:currency](http://schema.org/currency) |
 
 ### Cardinality and Requirements
 
@@ -74,8 +74,8 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | frapo:hasMonetaryValue |
-| native | idhi:funding_amount |
+| self | schema:currency |
+| native | idhi:funding_currency |
 
 
 
@@ -84,16 +84,15 @@ URI: [frapo:hasMonetaryValue](http://purl.org/cerif/frapo/hasMonetaryValue)
 
 <details>
 ```yaml
-name: funding_amount
-description: Amount awarded by the funding organization, if public, in the currency
-  given by funding_currency, or ILS when no currency is recorded. Omit rather than
-  guess.
+name: funding_currency
+description: Currency of funding_amount. Record it whenever the amount is present
+  and the currency is known; omit it when no amount is recorded.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: frapo:hasMonetaryValue
+slot_uri: schema:currency
 domain_of:
 - Funding
-range: float
+range: CurrencyEnum
 
 ```
 </details></div>

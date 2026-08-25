@@ -24,7 +24,7 @@ Two special kinds of classes to know:
 
 - **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. Language accepts syntactically valid BCP-47 tags, so one field can hold parallel English, Hebrew, Arabic, German, Yiddish, Ladino or other localized text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
 - **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`, `OrganizationHierarchy`, `EventAgentRole`, `ResourceContribution`) — see "Reified relationships" below.
-- **`Funding`** — an inlined project funding award that records its funder, amount, multilingual award and programme names, grant number, award URL and funding dates. Multiple awards from the same funder remain separate entries.
+- **`Funding`** — an inlined project funding award that records its funder, amount and currency, multilingual award and programme names, grant number, award URL and funding dates. Multiple awards from the same funder remain separate entries.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
 

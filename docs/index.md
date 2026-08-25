@@ -79,7 +79,8 @@ Name: idhi
 | [facility_affiliations](slots/facility_affiliations.md) | The organizations hosting or owning the containing facility, as reified Facil... |
 | [family_name](slots/family_name.md) | Family (last) name as multilingual text |
 | [funding](slots/funding.md) | Funding awards received by the project |
-| [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in ILS unless noted in... |
+| [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in the currency given ... |
+| [funding_currency](slots/funding_currency.md) | Currency of funding_amount |
 | [funding_organization](slots/funding_organization.md) | The organization that provides this funding award (by IDHI URN) |
 | [funding_program](slots/funding_program.md) | Multilingual name of the broader funding programme or scheme under which the ... |
 | [funding_status](slots/funding_status.md) | The project's current primary funding or sustainability status at the time th... |
@@ -161,6 +162,7 @@ Name: idhi
 | Enumeration | Description |
 | --- | --- |
 | [AuthorshipRoleEnum](enums/AuthorshipRoleEnum.md) | The kind of contribution to a publication |
+| [CurrencyEnum](enums/CurrencyEnum.md) | Currencies in which a funding award amount may be expressed, as ISO 4217 code... |
 | [DatasetTypeEnum](enums/DatasetTypeEnum.md) | IDHI-governed discovery categories for datasets and dataset-like intellectual... |
 | [DigitalHumanitiesActivityEnum](enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities: Analyzing, Capturing, Creating, Disse... |
 | [EventAgentRoleEnum](enums/EventAgentRoleEnum.md) | IDHI-governed roles for people and organizations involved in events |

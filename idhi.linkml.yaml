@@ -437,6 +437,7 @@ classes:
     slots:
       - funding_organization
       - funding_amount
+      - funding_currency
       - grant_name
       - funding_program
       - grant_number
@@ -835,8 +836,13 @@ slots:
   funding_amount:
     range: float
     description: >-
-      Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.
+      Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess.
     slot_uri: frapo:hasMonetaryValue
+  funding_currency:
+    range: CurrencyEnum
+    description: >-
+      Currency of funding_amount. Record it whenever the amount is present and the currency is known; omit it when no amount is recorded.
+    slot_uri: schema:currency
   grant_name:
     range: LangString
     multivalued: true
@@ -1374,6 +1380,20 @@ enums:
         description: The project is currently developed or maintained primarily through unpaid individual labor; past seed grants should still be recorded separately in funding.
       UNFUNDED:
         description: The project currently has neither direct funding nor material institutional, in-kind or volunteer support; do not use this merely because a past grant has ended if active maintenance continues under another model.
+
+  CurrencyEnum:
+    description: >-
+      Currencies in which a funding award amount may be expressed, as ISO 4217 codes. The list covers the currencies relevant to IDHI records; extend it before recording an award in another currency.
+    permissible_values:
+      ILS:
+        description: Israeli new shekel, the default currency for awards from Israeli funders when none is stated.
+        meaning: http://www.wikidata.org/entity/Q131309
+      USD:
+        description: United States dollar; use for awards denominated in dollars, not for converted approximations of another currency.
+        meaning: http://www.wikidata.org/entity/Q4917
+      EUR:
+        description: Euro; use for awards denominated in euros, such as European Union programme grants, not for converted approximations of another currency.
+        meaning: http://www.wikidata.org/entity/Q4916
 
   DatasetTypeEnum:
     description: >-
