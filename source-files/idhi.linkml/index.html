@@ -1172,6 +1172,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../enums/CurrencyEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: CurrencyEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../enums/DatasetTypeEnum/" class="md-nav__link">
         
   
@@ -2698,6 +2725,33 @@
     
   
   Slot: funding_amount
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/funding_currency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: funding_currency
 
     
   </span>
@@ -5871,6 +5925,7 @@
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_organization</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_amount</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_currency</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grant_name</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_program</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grant_number</span>
@@ -6269,8 +6324,13 @@
 <span class="w">  </span><span class="nt">funding_amount</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.</span>
+<span class="w">      </span><span class="no">Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frapo:hasMonetaryValue</span>
+<span class="w">  </span><span class="nt">funding_currency</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CurrencyEnum</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">Currency of funding_amount. Record it whenever the amount is present and the currency is known; omit it when no amount is recorded.</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:currency</span>
 <span class="w">  </span><span class="nt">grant_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -6808,6 +6868,20 @@
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The project is currently developed or maintained primarily through unpaid individual labor; past seed grants should still be recorded separately in funding.</span>
 <span class="w">      </span><span class="nt">UNFUNDED</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The project currently has neither direct funding nor material institutional, in-kind or volunteer support; do not use this merely because a past grant has ended if active maintenance continues under another model.</span>
+
+<span class="w">  </span><span class="nt">CurrencyEnum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">Currencies in which a funding award amount may be expressed, as ISO 4217 codes. The list covers the currencies relevant to IDHI records; extend it before recording an award in another currency.</span>
+<span class="w">    </span><span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">ILS</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Israeli new shekel, the default currency for awards from Israeli funders when none is stated.</span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.wikidata.org/entity/Q131309</span>
+<span class="w">      </span><span class="nt">USD</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">United States dollar; use for awards denominated in dollars, not for converted approximations of another currency.</span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.wikidata.org/entity/Q4917</span>
+<span class="w">      </span><span class="nt">EUR</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Euro; use for awards denominated in euros, such as European Union programme grants, not for converted approximations of another currency.</span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.wikidata.org/entity/Q4916</span>
 
 <span class="w">  </span><span class="nt">DatasetTypeEnum</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>

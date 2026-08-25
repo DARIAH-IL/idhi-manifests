@@ -12,7 +12,7 @@
         <link rel="prev" href="../funding/">
       
       
-        <link rel="next" href="../funding_organization/">
+        <link rel="next" href="../funding_currency/">
       
       
         
@@ -1139,6 +1139,33 @@
     
   
   Enum: AuthorshipRoleEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/CurrencyEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: CurrencyEnum
 
     
   </span>
@@ -2842,6 +2869,33 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funding_currency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: funding_currency
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -5677,7 +5731,7 @@
                   
 
 <h1 id="slot-funding_amount">Slot: funding_amount</h1>
-<p><em>Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.</em></p>
+<p><em>Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://purl.org/cerif/frapo/hasMonetaryValue">frapo:hasMonetaryValue</a></p>
 <!-- no inheritance hierarchy -->
@@ -5764,8 +5818,9 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_amount</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amount awarded by the funding organization, if public, in ILS unless</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">noted in the project description. Omit rather than guess.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amount awarded by the funding organization, if public, in the currency</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">given by funding_currency, or ILS when no currency is recorded. Omit rather than</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">guess.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frapo:hasMonetaryValue</span>

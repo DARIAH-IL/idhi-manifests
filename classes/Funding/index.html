@@ -1320,6 +1320,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../enums/CurrencyEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: CurrencyEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../enums/DatasetTypeEnum/" class="md-nav__link">
         
   
@@ -2846,6 +2873,33 @@
     
   
   Slot: funding_amount
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/funding_currency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: funding_currency
 
     
   </span>
@@ -5712,6 +5766,19 @@
 
       Funding : funding_amount
 
+      Funding : funding_currency
+
+
+
+
+
+        Funding --&gt; "0..1" CurrencyEnum : funding_currency
+
+        click CurrencyEnum href "../../enums/CurrencyEnum/"
+
+
+
+
       Funding : funding_organization
 
 
@@ -5793,7 +5860,13 @@
 <tr>
 <td><a href="../../slots/funding_amount/">funding_amount</a></td>
 <td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Float/">Float</a></td>
-<td><span title="Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.">Amount awarded by the funding organization, if public, in ILS unless noted in...</span></td>
+<td><span title="Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess.">Amount awarded by the funding organization, if public, in the currency given ...</span></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/funding_currency/">funding_currency</a></td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../enums/CurrencyEnum/">CurrencyEnum</a></td>
+<td><span title="Currency of funding_amount. Record it whenever the amount is present and the currency is known; omit it when no amount is recorded.">Currency of funding_amount</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5891,6 +5964,7 @@
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_organization</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_amount</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_currency</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grant_name</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_program</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grant_number</span>
@@ -5924,8 +5998,9 @@
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">funding_amount</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_amount</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amount awarded by the funding organization, if public, in ILS unless</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">noted in the project description. Omit rather than guess.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amount awarded by the funding organization, if public, in the currency</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">given by funding_currency, or ILS when no currency is recorded. Omit rather</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">than guess.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frapo:hasMonetaryValue</span>
@@ -5933,6 +6008,17 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
+<span class="w">  </span><span class="nt">funding_currency</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_currency</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Currency of funding_amount. Record it whenever the amount is present</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and the currency is known; omit it when no amount is recorded.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:currency</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CurrencyEnum</span>
 <span class="w">  </span><span class="nt">grant_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grant_name</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Official multilingual title of the individual grant or award. Use</span>

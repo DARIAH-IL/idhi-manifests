@@ -1172,6 +1172,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../enums/CurrencyEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: CurrencyEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../enums/DatasetTypeEnum/" class="md-nav__link">
         
   
@@ -2698,6 +2725,33 @@
     
   
   Slot: funding_amount
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/funding_currency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: funding_currency
 
     
   </span>
@@ -5608,6 +5662,21 @@
 <span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AuthorshipRoleEnum&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;CurrencyEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Currencies in which a funding award amount may be expressed, as ISO 4217 codes. The list covers the currencies relevant to IDHI records; extend it before recording an award in another currency.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;ILS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;USD&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;EUR&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CurrencyEnum&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;x-termUris&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ILS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.wikidata.org/entity/Q131309&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;USD&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.wikidata.org/entity/Q4917&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;EUR&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.wikidata.org/entity/Q4916&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;Dataset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.&quot;</span><span class="p">,</span>
@@ -6734,12 +6803,17 @@
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:endDate&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;funding_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Amount awarded by the funding organization, if public, in ILS unless noted in the project description. Omit rather than guess.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Amount awarded by the funding organization, if public, in the currency given by funding_currency, or ILS when no currency is recorded. Omit rather than guess.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frapo:hasMonetaryValue&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;funding_currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/CurrencyEnum&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Currency of funding_amount. Record it whenever the amount is present and the currency is known; omit it when no amount is recorded.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:currency&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;funding_organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The organization that provides this funding award (by IDHI URN).&quot;</span><span class="p">,</span>
