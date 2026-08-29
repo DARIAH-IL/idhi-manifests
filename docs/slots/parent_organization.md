@@ -6,7 +6,7 @@ search:
 # Slot: parent_organization 
 
 
-_The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent._
+_The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent._
 
 
 
@@ -25,7 +25,7 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OrganizationHierarchy](../classes/OrganizationHierarchy.md) | Formal containment of the containing Organization within a larger parent orga... |  no  |
+| [OrganizationStructure](../classes/OrganizationStructure.md) | Formal containment of the containing Organization within a larger parent orga... |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 | Property | Value |
 | --- | --- |
 | Range | [Organization](../classes/Organization.md) |
-| Domain Of | [OrganizationHierarchy](../classes/OrganizationHierarchy.md) |
+| Domain Of | [OrganizationStructure](../classes/OrganizationStructure.md) |
 | Slot URI | [schema:parentOrganization](http://schema.org/parentOrganization) |
 
 ### Cardinality and Requirements
@@ -87,13 +87,13 @@ URI: [schema:parentOrganization](http://schema.org/parentOrganization)
 ```yaml
 name: parent_organization
 description: The larger organization containing the current child organization (by
-  IDHI URN). Use only in Organization.organization_hierarchy; define the relationship
+  IDHI URN). Use only in Organization.organization_structure; define the relationship
   on the child rather than the parent.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:parentOrganization
 domain_of:
-- OrganizationHierarchy
+- OrganizationStructure
 range: Organization
 required: true
 

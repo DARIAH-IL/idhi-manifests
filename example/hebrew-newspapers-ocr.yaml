@@ -76,7 +76,7 @@ organizations:
       - {language: en, value: "OMILab – Open Media and Information Lab, The Open University of Israel"}
       - {language: he, value: "מעבדת OMILab למדיה ומידע פתוחים, האוניברסיטה הפתוחה"}
     organization_type: RESEARCH_CENTER
-    organization_hierarchy:
+    organization_structure:
       - parent_organization: idhi:organization:openu
     homepage: https://www.openu.ac.il/en/omilab/pages/historicalnewspaper
 

@@ -3,10 +3,10 @@ search:
   boost: 10.0
 ---
 
-# Class: OrganizationHierarchy 
+# Class: OrganizationStructure 
 
 
-_Formal containment of the containing Organization within a larger parent organization, with optional validity dates. Use in Organization.organization_hierarchy for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association._
+_Formal containment of the containing Organization within a larger parent organization, with optional validity dates. Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association._
 
 
 
@@ -21,29 +21,29 @@ URI: [schema:Role](http://schema.org/Role)
 
 ```mermaid
  classDiagram
-    class OrganizationHierarchy
-      Relationship <|-- OrganizationHierarchy
+    class OrganizationStructure
+      Relationship <|-- OrganizationStructure
         click Relationship href "../../classes/Relationship/"
       
 
       
 
-      OrganizationHierarchy : end_date
+      OrganizationStructure : end_date
         
-      OrganizationHierarchy : parent_organization
+      OrganizationStructure : parent_organization
         
           
     
         
         
-        OrganizationHierarchy --> "1" Organization : parent_organization
+        OrganizationStructure --> "1" Organization : parent_organization
         
         click Organization href "../../classes/Organization/"
         
     
 
         
-      OrganizationHierarchy : start_date
+      OrganizationStructure : start_date
         
       
 ```
@@ -53,7 +53,7 @@ URI: [schema:Role](http://schema.org/Role)
 
 ## Inheritance
 * [Relationship](../classes/Relationship.md)
-    * **OrganizationHierarchy**
+    * **OrganizationStructure**
 
 
 ## Class Properties
@@ -67,7 +67,7 @@ URI: [schema:Role](http://schema.org/Role)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [parent_organization](../slots/parent_organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent.">The larger organization containing the current child organization (by IDHI UR...</span> | direct |
+| [parent_organization](../slots/parent_organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent.">The larger organization containing the current child organization (by IDHI UR...</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
@@ -79,7 +79,7 @@ URI: [schema:Role](http://schema.org/Role)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Organization](../classes/Organization.md) | [organization_hierarchy](../slots/organization_hierarchy.md) | range | [OrganizationHierarchy](../classes/OrganizationHierarchy.md) |
+| [Organization](../classes/Organization.md) | [organization_structure](../slots/organization_structure.md) | range | [OrganizationStructure](../classes/OrganizationStructure.md) |
 
 
 
@@ -111,7 +111,7 @@ URI: [schema:Role](http://schema.org/Role)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | schema:Role |
-| native | idhi:OrganizationHierarchy |
+| native | idhi:OrganizationStructure |
 
 
 
@@ -124,9 +124,9 @@ URI: [schema:Role](http://schema.org/Role)
 
 <details>
 ```yaml
-name: OrganizationHierarchy
+name: OrganizationStructure
 description: Formal containment of the containing Organization within a larger parent
-  organization, with optional validity dates. Use in Organization.organization_hierarchy
+  organization, with optional validity dates. Use in Organization.organization_structure
   for departments, laboratories, centers or subsidiaries that are structurally part
   of another organization; do not use it for partnerships, project participation or
   informal association.
@@ -143,9 +143,9 @@ class_uri: schema:Role
 
 <details>
 ```yaml
-name: OrganizationHierarchy
+name: OrganizationStructure
 description: Formal containment of the containing Organization within a larger parent
-  organization, with optional validity dates. Use in Organization.organization_hierarchy
+  organization, with optional validity dates. Use in Organization.organization_structure
   for departments, laboratories, centers or subsidiaries that are structurally part
   of another organization; do not use it for partnerships, project participation or
   informal association.
@@ -155,14 +155,14 @@ attributes:
   parent_organization:
     name: parent_organization
     description: The larger organization containing the current child organization
-      (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship
+      (by IDHI URN). Use only in Organization.organization_structure; define the relationship
       on the child rather than the parent.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:parentOrganization
-    owner: OrganizationHierarchy
+    owner: OrganizationStructure
     domain_of:
-    - OrganizationHierarchy
+    - OrganizationStructure
     range: Organization
     required: true
   start_date:
@@ -173,7 +173,7 @@ attributes:
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
-    owner: OrganizationHierarchy
+    owner: OrganizationStructure
     domain_of:
     - Project
     - Event
@@ -187,7 +187,7 @@ attributes:
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
-    owner: OrganizationHierarchy
+    owner: OrganizationStructure
     domain_of:
     - Project
     - Event

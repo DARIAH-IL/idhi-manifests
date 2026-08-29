@@ -3,7 +3,7 @@ search:
   boost: 5.0
 ---
 
-# Slot: organization_hierarchy 
+# Slot: organization_structure 
 
 
 _Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates._
@@ -14,7 +14,7 @@ _Formal parent relationships of the containing organization, with the parent and
 
 
 
-URI: [idhi:organizationHierarchy](https://idhi_placeholder/linkml/organizationHierarchy)
+URI: [idhi:organizationStructure](https://idhi_placeholder/linkml/organizationStructure)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,9 +38,9 @@ URI: [idhi:organizationHierarchy](https://idhi_placeholder/linkml/organizationHi
 
 | Property | Value |
 | --- | --- |
-| Range | [OrganizationHierarchy](../classes/OrganizationHierarchy.md) |
+| Range | [OrganizationStructure](../classes/OrganizationStructure.md) |
 | Domain Of | [Organization](../classes/Organization.md) |
-| Slot URI | [idhi:organizationHierarchy](https://idhi_placeholder/linkml/organizationHierarchy) |
+| Slot URI | [idhi:organizationStructure](https://idhi_placeholder/linkml/organizationStructure) |
 
 ### Cardinality and Requirements
 
@@ -75,8 +75,8 @@ URI: [idhi:organizationHierarchy](https://idhi_placeholder/linkml/organizationHi
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:organizationHierarchy |
-| native | idhi:organization_hierarchy |
+| self | idhi:organizationStructure |
+| native | idhi:organization_structure |
 
 
 
@@ -85,7 +85,7 @@ URI: [idhi:organizationHierarchy](https://idhi_placeholder/linkml/organizationHi
 
 <details>
 ```yaml
-name: organization_hierarchy
+name: organization_structure
 description: Formal parent relationships of the containing organization, with the
   parent and optional start and end dates. Define each containment relationship only
   on the child organization; use organization_roles for project partnerships and omit
@@ -94,10 +94,10 @@ description: Formal parent relationships of the containing organization, with th
   carry relationship dates.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: idhi:organizationHierarchy
+slot_uri: idhi:organizationStructure
 domain_of:
 - Organization
-range: OrganizationHierarchy
+range: OrganizationStructure
 multivalued: true
 inlined: true
 inlined_as_list: true

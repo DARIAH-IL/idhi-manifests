@@ -23,7 +23,7 @@ Each class carries a `class_uri` mapping it to an existing ontology class — e.
 Two special kinds of classes to know:
 
 - **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. Language accepts syntactically valid BCP-47 tags, so one field can hold parallel English, Hebrew, Arabic, German, Yiddish, Ladino or other localized text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
-- **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`, `OrganizationHierarchy`, `EventAgentRole`, `ResourceContribution`) — see "Reified relationships" below.
+- **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`, `OrganizationStructure`, `EventAgentRole`, `ResourceContribution`) — see "Reified relationships" below.
 - **`Funding`** — an inlined project funding award that records its funder, amount and currency, multilingual award and programme names, grant number, award URL and funding dates. Multiple awards from the same funder remain separate entries.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
@@ -101,7 +101,7 @@ The relationship classes and their canonical owners are:
 | `OrganizationProjectRole` | `Project.organization_roles` | `organization` | role (coordinator, partner, data provider, funder, host), dates |
 | `Authorship` | `Publication.authorships` | `author` | byline order, role |
 | `FacilityAffiliation` | `Facility.facility_affiliations` | `organization` | host or owner role, dates |
-| `OrganizationHierarchy` | `Organization.organization_hierarchy` | `parent_organization` | dates of formal containment |
+| `OrganizationStructure` | `Organization.organization_structure` | `parent_organization` | dates of formal containment |
 | `EventAgentRole` | `Event.event_agent_roles` | `event_agent` | organizer, host, speaker, panelist, participant or sponsor role, dates |
 | `ResourceContribution` | `Tool.resource_contributions` or `Dataset.resource_contributions` | `contributor` | creator, developer, maintainer, data-curator or contributor role, dates |
 
@@ -114,7 +114,7 @@ Use one `OrganizationProjectRole` instance per (pair, role). If an organization 
 - **`Tool` vs `Service`** — self-service software vs a human-mediated offering.
 - **`TrainingMaterial` vs `Publication` vs `Tool`** — a resource intended to teach vs a scholarly communication vs software that performs the action.
 - **`affiliations` vs `project_participations`** — institutional home vs project involvement.
-- **`organization_hierarchy` vs `affiliations`/`organization_roles`** — formal containment of one organization within another vs a person's institutional position or an organization's role in a project.
+- **`organization_structure` vs `affiliations`/`organization_roles`** — formal containment of one organization within another vs a person's institutional position or an organization's role in a project.
 - **`uses_*` vs `outputs_*`** — resources consumed by a project vs resources produced by it.
 - **`resource_contributions` vs `project_participations`** — responsibility for a particular tool or dataset vs a person's role in the project as a whole.
 - **`homepage` vs `additional_urls` vs `same_as`** — the entity's own main page vs further pages about it (blog, socials, registry entries) vs records about the same entity in other systems ([Wikidata](https://www.wikidata.org/), [PeriodO](https://perio.do/)...).

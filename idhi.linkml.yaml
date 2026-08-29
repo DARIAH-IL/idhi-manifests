@@ -138,7 +138,7 @@ classes:
       - name
       - ror
       - organization_type
-      - organization_hierarchy
+      - organization_structure
       - location
       - address
       - marketplace_sync
@@ -389,11 +389,11 @@ classes:
       - start_date
       - end_date
 
-  OrganizationHierarchy:
+  OrganizationStructure:
     is_a: Relationship
     description: >-
       Formal containment of the containing Organization within a larger parent organization, with optional validity dates.
-      Use in Organization.organization_hierarchy for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.
+      Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.
     class_uri: schema:Role
     slots:
       - parent_organization
@@ -697,14 +697,14 @@ slots:
     description: >-
       The kind of organization. Always set it.
     slot_uri: dcterms:type
-  organization_hierarchy:
-    range: OrganizationHierarchy
+  organization_structure:
+    range: OrganizationStructure
     multivalued: true
     inlined_as_list: true
     description: >-
       Formal parent relationships of the containing organization, with the parent and optional start and end dates.
       Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.
-    slot_uri: idhi:organizationHierarchy
+    slot_uri: idhi:organizationStructure
   marketplace_sync:
     range: boolean
     description: >-
@@ -1118,7 +1118,7 @@ slots:
   parent_organization:
     range: Organization
     required: true
-    description: The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent.
+    description: The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent.
     slot_uri: schema:parentOrganization
   participation_role:
     range: ProjectRoleEnum
@@ -1236,7 +1236,7 @@ enums:
         description: A gallery, library, archive or museum.
       RESEARCH_CENTER:
         description: >-
-          A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_hierarchy with that parent and any known dates.
+          A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_structure with that parent and any known dates.
         meaning: schema:ResearchOrganization
       FUNDER:
         description: A body whose primary role is funding research.

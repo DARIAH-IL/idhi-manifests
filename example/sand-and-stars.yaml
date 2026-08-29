@@ -152,7 +152,7 @@ organizations:
           חממה ליישום כלי מדעי הרוח הדיגיטליים גם מחוץ למדעי היהדות. בראשות
           פרופ' משה לביא.
     organization_type: RESEARCH_CENTER
-    organization_hierarchy:
+    organization_structure:
       - parent_organization: idhi:organization:haifa
     homepage: https://elijahlab.haifa.ac.il/
     location:

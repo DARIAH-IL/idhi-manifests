@@ -26,8 +26,8 @@ URI: [schema:Role](http://schema.org/Role)
     class Relationship
       
 
-      Relationship <|-- OrganizationHierarchy
-        click OrganizationHierarchy href "../../classes/OrganizationHierarchy/"
+      Relationship <|-- OrganizationStructure
+        click OrganizationStructure href "../../classes/OrganizationStructure/"
       Relationship <|-- ProjectParticipation
         click ProjectParticipation href "../../classes/ProjectParticipation/"
       Relationship <|-- Affiliation
@@ -56,7 +56,7 @@ URI: [schema:Role](http://schema.org/Role)
 
 ## Inheritance
 * **Relationship**
-    * [OrganizationHierarchy](../classes/OrganizationHierarchy.md)
+    * [OrganizationStructure](../classes/OrganizationStructure.md)
     * [ProjectParticipation](../classes/ProjectParticipation.md)
     * [Affiliation](../classes/Affiliation.md)
     * [OrganizationProjectRole](../classes/OrganizationProjectRole.md)

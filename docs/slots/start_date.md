@@ -29,7 +29,7 @@ URI: [schema:startDate](http://schema.org/startDate)
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 | [Relationship](../classes/Relationship.md) | Abstract base for reified relationships that carry their own role or validity... |  no  |
 | [Funding](../classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |  no  |
-| [OrganizationHierarchy](../classes/OrganizationHierarchy.md) | Formal containment of the containing Organization within a larger parent orga... |  no  |
+| [OrganizationStructure](../classes/OrganizationStructure.md) | Formal containment of the containing Organization within a larger parent orga... |  no  |
 | [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |  no  |
 | [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |  no  |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |  no  |

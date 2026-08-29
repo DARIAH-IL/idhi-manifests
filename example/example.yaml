@@ -44,7 +44,7 @@ organizations:
     name:
       - {language: en, value: Example Digital Humanities Center}
     organization_type: RESEARCH_CENTER
-    organization_hierarchy:
+    organization_structure:
       - parent_organization: idhi:organization:k3v9p2
         start_date: "2012-01-01"
 

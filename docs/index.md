@@ -32,8 +32,8 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Authorship](classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[EventAgentRole](classes/EventAgentRole.md) | A person or organization involved in the containing Event in a defined capaci... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FacilityAffiliation](classes/FacilityAffiliation.md) | A facility's affiliation with an organization, nested in a Facility so the fa... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationHierarchy](classes/OrganizationHierarchy.md) | Formal containment of the containing Organization within a larger parent orga... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationProjectRole](classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationStructure](classes/OrganizationStructure.md) | Formal containment of the containing Organization within a larger parent orga... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ProjectParticipation](classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ResourceContribution](classes/ResourceContribution.md) | A person or organization contributing to the containing Tool or Dataset in a ... |
 
@@ -103,8 +103,8 @@ Name: idhi
 | [orcid](slots/orcid.md) | The person's persistent researcher identifier |
 | [org_project_role](slots/org_project_role.md) | The organization's function in the project: COORDINATOR leads the consortium,... |
 | [organization](slots/organization.md) | The organization referenced by a person affiliation, facility affiliation or ... |
-| [organization_hierarchy](slots/organization_hierarchy.md) | Formal parent relationships of the containing organization, with the parent a... |
 | [organization_roles](slots/organization_roles.md) | Organizations engaged in the containing project, as reified OrganizationProje... |
+| [organization_structure](slots/organization_structure.md) | Formal parent relationships of the containing organization, with the parent a... |
 | [organization_type](slots/organization_type.md) | The kind of organization |
 | [organizations](slots/organizations.md) | All Organization records in the index |
 | [outputs_datasets](slots/outputs_datasets.md) | Datasets produced or curated by this project (by id) |
