@@ -12,7 +12,7 @@
         <link rel="prev" href="../LangString/">
       
       
-        <link rel="next" href="../OrganizationHierarchy/">
+        <link rel="next" href="../OrganizationProjectRole/">
       
       
         
@@ -961,14 +961,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../OrganizationHierarchy/" class="md-nav__link">
+      <a href="../OrganizationProjectRole/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Class: OrganizationHierarchy
+  Class: OrganizationProjectRole
 
     
   </span>
@@ -988,14 +988,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../OrganizationProjectRole/" class="md-nav__link">
+      <a href="../OrganizationStructure/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Class: OrganizationProjectRole
+  Class: OrganizationStructure
 
     
   </span>
@@ -3535,14 +3535,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/organization_hierarchy/" class="md-nav__link">
+      <a href="../../slots/organization_roles/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: organization_hierarchy
+  Slot: organization_roles
 
     
   </span>
@@ -3562,14 +3562,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/organization_roles/" class="md-nav__link">
+      <a href="../../slots/organization_structure/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: organization_roles
+  Slot: organization_structure
 
     
   </span>
@@ -5872,15 +5872,15 @@
 
 
 
-      Organization : organization_hierarchy
+      Organization : organization_structure
 
 
 
 
 
-        Organization --&gt; "*" OrganizationHierarchy : organization_hierarchy
+        Organization --&gt; "*" OrganizationStructure : organization_structure
 
-        click OrganizationHierarchy href "../../classes/OrganizationHierarchy/"
+        click OrganizationStructure href "../../classes/OrganizationStructure/"
 
 
 
@@ -5962,8 +5962,8 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../../slots/organization_hierarchy/">organization_hierarchy</a></td>
-<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/OrganizationHierarchy/">OrganizationHierarchy</a></td>
+<td><a href="../../slots/organization_structure/">organization_structure</a></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/OrganizationStructure/">OrganizationStructure</a></td>
 <td><span title="Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, with the parent a...</span></td>
 <td>direct</td>
 </tr>
@@ -6077,7 +6077,7 @@
 <td><a href="../../classes/Organization/">Organization</a></td>
 </tr>
 <tr>
-<td><a href="../../classes/OrganizationHierarchy/">OrganizationHierarchy</a></td>
+<td><a href="../../classes/OrganizationStructure/">OrganizationStructure</a></td>
 <td><a href="../../slots/parent_organization/">parent_organization</a></td>
 <td>range</td>
 <td><a href="../../classes/Organization/">Organization</a></td>
@@ -6157,7 +6157,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ror</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_type</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_hierarchy</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">address</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">marketplace_sync</span>
@@ -6245,8 +6245,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationTypeEnum</span>
-<span class="w">  </span><span class="nt">organization_hierarchy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_hierarchy</span>
+<span class="w">  </span><span class="nt">organization_structure</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Formal parent relationships of the containing organization, with</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the parent and optional start and end dates. Define each containment relationship</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">only on the child organization; use organization_roles for project partnerships</span>
@@ -6255,11 +6255,11 @@
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and cannot carry relationship dates.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationHierarchy</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationStructure</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationHierarchy</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

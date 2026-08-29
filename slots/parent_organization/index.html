@@ -777,14 +777,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/OrganizationHierarchy/" class="md-nav__link">
+      <a href="../../classes/OrganizationProjectRole/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Class: OrganizationHierarchy
+  Class: OrganizationProjectRole
 
     
   </span>
@@ -804,14 +804,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/OrganizationProjectRole/" class="md-nav__link">
+      <a href="../../classes/OrganizationStructure/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Class: OrganizationProjectRole
+  Class: OrganizationStructure
 
     
   </span>
@@ -3353,14 +3353,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../organization_hierarchy/" class="md-nav__link">
+      <a href="../organization_roles/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: organization_hierarchy
+  Slot: organization_roles
 
     
   </span>
@@ -3380,14 +3380,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../organization_roles/" class="md-nav__link">
+      <a href="../organization_structure/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: organization_roles
+  Slot: organization_structure
 
     
   </span>
@@ -5731,7 +5731,7 @@
                   
 
 <h1 id="slot-parent_organization">Slot: parent_organization</h1>
-<p><em>The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent.</em></p>
+<p><em>The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://schema.org/parentOrganization">schema:parentOrganization</a></p>
 <!-- no inheritance hierarchy -->
@@ -5746,7 +5746,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/OrganizationHierarchy/">OrganizationHierarchy</a></td>
+<td><a href="../../classes/OrganizationStructure/">OrganizationStructure</a></td>
 <td>Formal containment of the containing Organization within a larger parent orga...</td>
 <td>no</td>
 </tr>
@@ -5768,7 +5768,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../../classes/OrganizationHierarchy/">OrganizationHierarchy</a></td>
+<td><a href="../../classes/OrganizationStructure/">OrganizationStructure</a></td>
 </tr>
 <tr>
 <td>Slot URI</td>
@@ -5819,13 +5819,13 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_organization</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The larger organization containing the current child organization (by</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">IDHI URN). Use only in Organization.organization_hierarchy; define the relationship</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">IDHI URN). Use only in Organization.organization_structure; define the relationship</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">on the child rather than the parent.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:parentOrganization</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationHierarchy</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>

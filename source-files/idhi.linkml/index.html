@@ -791,14 +791,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/OrganizationHierarchy/" class="md-nav__link">
+      <a href="../../classes/OrganizationProjectRole/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Class: OrganizationHierarchy
+  Class: OrganizationProjectRole
 
     
   </span>
@@ -818,14 +818,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/OrganizationProjectRole/" class="md-nav__link">
+      <a href="../../classes/OrganizationStructure/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Class: OrganizationProjectRole
+  Class: OrganizationStructure
 
     
   </span>
@@ -3365,14 +3365,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/organization_hierarchy/" class="md-nav__link">
+      <a href="../../slots/organization_roles/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: organization_hierarchy
+  Slot: organization_roles
 
     
   </span>
@@ -3392,14 +3392,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/organization_roles/" class="md-nav__link">
+      <a href="../../slots/organization_structure/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: organization_roles
+  Slot: organization_structure
 
     
   </span>
@@ -5626,7 +5626,7 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ror</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_type</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_hierarchy</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">address</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">marketplace_sync</span>
@@ -5877,11 +5877,11 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start_date</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end_date</span>
 
-<span class="w">  </span><span class="nt">OrganizationHierarchy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">OrganizationStructure</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">Formal containment of the containing Organization within a larger parent organization, with optional validity dates.</span>
-<span class="w">      </span><span class="no">Use in Organization.organization_hierarchy for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.</span>
+<span class="w">      </span><span class="no">Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Role</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_organization</span>
@@ -6185,14 +6185,14 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">The kind of organization. Always set it.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:type</span>
-<span class="w">  </span><span class="nt">organization_hierarchy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationHierarchy</span>
+<span class="w">  </span><span class="nt">organization_structure</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">Formal parent relationships of the containing organization, with the parent and optional start and end dates.</span>
 <span class="w">      </span><span class="no">Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationHierarchy</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationStructure</span>
 <span class="w">  </span><span class="nt">marketplace_sync</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boolean</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
@@ -6606,7 +6606,7 @@
 <span class="w">  </span><span class="nt">parent_organization</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_hierarchy; define the relationship on the child rather than the parent.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:parentOrganization</span>
 <span class="w">  </span><span class="nt">participation_role</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProjectRoleEnum</span>
@@ -6724,7 +6724,7 @@
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A gallery, library, archive or museum.</span>
 <span class="w">      </span><span class="nt">RESEARCH_CENTER</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">          </span><span class="no">A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_hierarchy with that parent and any known dates.</span>
+<span class="w">          </span><span class="no">A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_structure with that parent and any known dates.</span>
 <span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:ResearchOrganization</span>
 <span class="w">      </span><span class="nt">FUNDER</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A body whose primary role is funding research.</span>
