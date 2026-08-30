@@ -3967,14 +3967,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/programming_language/" class="md-nav__link">
+      <a href="../../slots/programming_languages/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Slot: programming_language
+  Slot: programming_languages
 
     
   </span>
@@ -5876,7 +5876,7 @@
 
 
 
-      Tool : programming_language
+      Tool : programming_languages
 
       Tool : resource_contributions
 
@@ -5969,9 +5969,9 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../../slots/programming_language/">programming_language</a></td>
-<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/String/">String</a></td>
-<td><span title="Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.">Main implementation language, as a single technical label such as Python</span></td>
+<td><a href="../../slots/programming_languages/">programming_languages</a></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../types/String/">String</a></td>
+<td><span title="Implementation languages, as technical labels such as Python or JavaScript. Use one value for each language in which the tool is implemented; do not use this slot for natural languages supported by the tool.">Implementation languages, as technical labels such as Python or JavaScript</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -6141,7 +6141,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doi</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tool_type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code_repository</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">programming_language</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">programming_languages</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">license</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">documentation_url</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
@@ -6244,10 +6244,11 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span>
-<span class="w">  </span><span class="nt">programming_language</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">programming_language</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Main implementation language, as a single technical label such as</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Python. Do not use this slot for natural languages supported by the tool.</span>
+<span class="w">  </span><span class="nt">programming_languages</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">programming_languages</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Implementation languages, as technical labels such as Python or JavaScript.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Use one value for each language in which the tool is implemented; do not use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">this slot for natural languages supported by the tool.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:programmingLanguage</span>
@@ -6255,6 +6256,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">license</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">license</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The license under which the tool, dataset or training material is</span>
