@@ -143,7 +143,9 @@ tools:
     doi: https://doi.org/10.1234/example.software.3456
     tool_type: WEB_APPLICATION
     code_repository: https://github.com/example/fragmentmatcher
-    programming_language: Python
+    programming_languages:
+      - Python
+      - JavaScript
     license: MIT
     homepage: https://fragmentmatcher.example.ac.il
     documentation_url: https://fragmentmatcher.example.ac.il/docs

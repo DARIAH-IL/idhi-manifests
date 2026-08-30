@@ -96,7 +96,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
     
 
         
-      Tool : programming_language
+      Tool : programming_languages
         
       Tool : resource_contributions
         
@@ -156,7 +156,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 | [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
 | [tool_type](../slots/tool_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | <span title="The delivery form of the tool (web app, library, CLI...). Pick the single value describing how users primarily consume it.">The delivery form of the tool (web app, library, CLI</span> | direct |
 | [code_repository](../slots/code_repository.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Source-code repository URL (GitHub, GitLab...), if open.">Source-code repository URL (GitHub, GitLab</span> | direct |
-| [programming_language](../slots/programming_language.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.">Main implementation language, as a single technical label such as Python</span> | direct |
+| [programming_languages](../slots/programming_languages.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Implementation languages, as technical labels such as Python or JavaScript. Use one value for each language in which the tool is implemented; do not use this slot for natural languages supported by the tool.">Implementation languages, as technical labels such as Python or JavaScript</span> | direct |
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [documentation_url](../slots/documentation_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="User or developer documentation for the tool or service (manual, wiki, API reference).">User or developer documentation for the tool or service (manual, wiki, API re...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
@@ -247,7 +247,7 @@ slots:
 - doi
 - tool_type
 - code_repository
-- programming_language
+- programming_languages
 - license
 - documentation_url
 - additional_urls
@@ -354,10 +354,11 @@ attributes:
     domain_of:
     - Tool
     range: uri
-  programming_language:
-    name: programming_language
-    description: Main implementation language, as a single technical label such as
-      Python. Do not use this slot for natural languages supported by the tool.
+  programming_languages:
+    name: programming_languages
+    description: Implementation languages, as technical labels such as Python or JavaScript.
+      Use one value for each language in which the tool is implemented; do not use
+      this slot for natural languages supported by the tool.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:programmingLanguage
@@ -365,6 +366,7 @@ attributes:
     domain_of:
     - Tool
     range: string
+    multivalued: true
   license:
     name: license
     description: The license under which the tool, dataset or training material is

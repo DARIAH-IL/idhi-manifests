@@ -119,7 +119,7 @@ Name: idhi
 | [persons](slots/persons.md) | All Person records in the index |
 | [prerequisites](slots/prerequisites.md) | Knowledge, skills, software or prior material learners should have before sta... |
 | [presented_at](slots/presented_at.md) | Event(s) in the index where this publication was presented (by IDHI URN), e |
-| [programming_language](slots/programming_language.md) | Main implementation language, as a single technical label such as Python |
+| [programming_languages](slots/programming_languages.md) | Implementation languages, as technical labels such as Python or JavaScript |
 | [project_participations](slots/project_participations.md) | People involved in the containing project, as reified ProjectParticipation ob... |
 | [projects](slots/projects.md) | All Project records in the index |
 | [provider](slots/provider.md) | The organization formally responsible for delivering the service (the one you... |

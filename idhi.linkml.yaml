@@ -224,7 +224,7 @@ classes:
       - doi
       - tool_type
       - code_repository
-      - programming_language
+      - programming_languages
       - license
       - documentation_url
       - additional_urls
@@ -878,9 +878,10 @@ slots:
     range: uri
     description: Source-code repository URL (GitHub, GitLab...), if open.
     slot_uri: schema:codeRepository
-  programming_language:
+  programming_languages:
     range: string
-    description: Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.
+    multivalued: true
+    description: Implementation languages, as technical labels such as Python or JavaScript. Use one value for each language in which the tool is implemented; do not use this slot for natural languages supported by the tool.
     slot_uri: schema:programmingLanguage
   license:
     range: LicenseEnum

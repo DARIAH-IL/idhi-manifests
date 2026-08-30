@@ -3047,10 +3047,13 @@
           "type": "array",
           "x-termUri": "skos:prefLabel"
         },
-        "programming_language": {
-          "description": "Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool.",
+        "programming_languages": {
+          "description": "Implementation languages, as technical labels such as Python or JavaScript. Use one value for each language in which the tool is implemented; do not use this slot for natural languages supported by the tool.",
+          "items": {
+            "type": "string"
+          },
           "type": [
-            "string",
+            "array",
             "null"
           ],
           "x-termUri": "schema:programmingLanguage"

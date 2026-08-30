@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: programming_language 
+# Slot: programming_languages 
 
 
-_Main implementation language, as a single technical label such as Python. Do not use this slot for natural languages supported by the tool._
+_Implementation languages, as technical labels such as Python or JavaScript. Use one value for each language in which the tool is implemented; do not use this slot for natural languages supported by the tool._
 
 
 
@@ -46,6 +46,7 @@ URI: [schema:programmingLanguage](http://schema.org/programmingLanguage)
 
 | Property | Value |
 | --- | --- |
+| Multivalued | Yes |
 
 
 
@@ -75,7 +76,7 @@ URI: [schema:programmingLanguage](http://schema.org/programmingLanguage)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | schema:programmingLanguage |
-| native | idhi:programming_language |
+| native | idhi:programming_languages |
 
 
 
@@ -84,15 +85,17 @@ URI: [schema:programmingLanguage](http://schema.org/programmingLanguage)
 
 <details>
 ```yaml
-name: programming_language
-description: Main implementation language, as a single technical label such as Python.
-  Do not use this slot for natural languages supported by the tool.
+name: programming_languages
+description: Implementation languages, as technical labels such as Python or JavaScript.
+  Use one value for each language in which the tool is implemented; do not use this
+  slot for natural languages supported by the tool.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:programmingLanguage
 domain_of:
 - Tool
 range: string
+multivalued: true
 
 ```
 </details></div>

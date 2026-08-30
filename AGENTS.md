@@ -17,7 +17,7 @@ Read `README.md` for domain concepts before making semantic changes.
 | `README.md` | The single doc source: schema guide, identifier scheme, build & tooling. Must stay in sync with the schema. | Yes, when schema or tooling changes |
 | `Makefile` | One target per pipeline step (lint, materialize, generators, validate). | Rarely |
 | `scripts/sanity.sh` | Full pipeline; runs the make targets with fallback logic. | Rarely |
-| `example/example.yaml` | Golden data file; must always validate. | Yes, extend when adding features |
+| `example/` | Maintained data examples, including the broad golden file `example/example.yaml` and focused real-world examples. Enumerate every YAML file in this directory rather than assuming the golden file is the only example; all must validate. | Yes, extend the appropriate examples when adding features |
 | `vocab/` | Cached external SKOS dumps (TaDiRAH, COAR), fetched by `scripts/materialize.py` from the `source_url` annotations in the schema. | Only to deliberately update a vocabulary |
 | `build/` | Intermediate materialized schema. | NEVER edit by hand; git-ignored |
 | `gen/` | Generated artifacts. | NEVER edit by hand |
@@ -37,9 +37,9 @@ Read `README.md` for domain concepts before making semantic changes.
 For any change to `idhi.linkml.yaml`:
 
 1. Make the edit, respecting the invariants above.
-2. If it adds a feature, extend `example/example.yaml` to exercise it.
+2. Enumerate every YAML file under `example/` before assessing example coverage; search results containing a schema key are not a complete file inventory. If the change adds a feature, extend at least one appropriate example to exercise it. If it renames or removes a key, check every example for the old key.
 3. `./scripts/sanity.sh` must pass (lint warnings are tolerated; generator failures are not) — per the ground rules, ask the human to run it rather than running it yourself.
-4. The example must validate: `make validate DATA=example/example.yaml` — same rule, ask the human to run it.
+4. Every example must validate: ask the human to run `make validate DATA=<example-path>` for each YAML file under `example/` rather than validating only `example/example.yaml`.
 5. Update `README.md` if the change affects anything it describes (new class/slot semantics, id scheme, enum policy, confused pairs, build workflow).
 
 **Versioning policy (semver-ish; NOT enforced while the schema is a draft — don't bump `version:` or keep a changelog yet):**
