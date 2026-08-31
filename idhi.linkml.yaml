@@ -141,7 +141,6 @@ classes:
       - organization_structure
       - location
       - address
-      - marketplace_sync
       - additional_urls
       - contact_email
 
@@ -705,12 +704,6 @@ slots:
       Formal parent relationships of the containing organization, with the parent and optional start and end dates.
       Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.
     slot_uri: idhi:organizationStructure
-  marketplace_sync:
-    range: boolean
-    description: >-
-      Opt-in flag for synchronization with the DARIAH SSH Open Marketplace. Set true to allow the organization and entities related to it through IDHI references, such as services and tools, to be synchronized; false or omission means they must not be synchronized on this organization's authority.
-      This operational flag does not assert ownership of related entities. It uses an IDHI-specific property because established descriptive vocabularies do not provide a term for this synchronization policy.
-    slot_uri: idhi:marketplaceSync
   location:
     range: LangString
     multivalued: true

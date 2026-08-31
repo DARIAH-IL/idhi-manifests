@@ -77,8 +77,6 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
     
 
         
-      Organization : marketplace_sync
-        
       Organization : name
         
           
@@ -155,7 +153,6 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 | [organization_structure](../slots/organization_structure.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationStructure](../classes/OrganizationStructure.md) | <span title="Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, with the parent a...</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
-| [marketplace_sync](../slots/marketplace_sync.md) | <span title="Optional: at most one value">0..1</span> <br/> [Boolean](../types/Boolean.md) | <span title="Opt-in flag for synchronization with the DARIAH SSH Open Marketplace. Set true to allow the organization and entities related to it through IDHI references, such as services and tools, to be synchronized; false or omission means they must not be synchronized on this organization's authority. This operational flag does not assert ownership of related entities. It uses an IDHI-specific property because established descriptive vocabularies do not provide a term for this synchronization policy.">Opt-in flag for synchronization with the DARIAH SSH Open Marketplace</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -249,7 +246,6 @@ slots:
 - organization_structure
 - location
 - address
-- marketplace_sync
 - additional_urls
 - contact_email
 slot_usage:
@@ -387,22 +383,6 @@ attributes:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  marketplace_sync:
-    name: marketplace_sync
-    description: Opt-in flag for synchronization with the DARIAH SSH Open Marketplace.
-      Set true to allow the organization and entities related to it through IDHI references,
-      such as services and tools, to be synchronized; false or omission means they
-      must not be synchronized on this organization's authority. This operational
-      flag does not assert ownership of related entities. It uses an IDHI-specific
-      property because established descriptive vocabularies do not provide a term
-      for this synchronization policy.
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    slot_uri: idhi:marketplaceSync
-    owner: Organization
-    domain_of:
-    - Organization
-    range: boolean
   additional_urls:
     name: additional_urls
     description: Further relevant web pages beyond the homepage (blog, social-media

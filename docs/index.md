@@ -96,7 +96,6 @@ Name: idhi
 | [learning_outcomes](slots/learning_outcomes.md) | Knowledge or skills a learner should gain by completing the material, as mult... |
 | [license](slots/license.md) | The license under which the tool, dataset or training material is released |
 | [location](slots/location.md) | Place name where the organization, facility or event is physically situated (... |
-| [marketplace_sync](slots/marketplace_sync.md) | Opt-in flag for synchronization with the DARIAH SSH Open Marketplace |
 | [material_url](slots/material_url.md) | Direct landing or access URL for the instructional resource |
 | [media_type](slots/media_type.md) | Technical media type of the primary dataset distribution or training resource... |
 | [name](slots/name.md) | The multilingual name or title used to identify the entity |

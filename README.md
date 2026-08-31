@@ -38,8 +38,6 @@ Projects distinguish inputs from outputs. `uses_tools`, `uses_services` and `use
 
 `Project.funding_status` records the project's current primary support model, while `funding` preserves its award history. Use `Funding` whenever a distinct grant is known. Use an organization role of `FUNDER` only when the funding relationship is known but no award can be described, and never duplicate the same fact in both places. Host-less projects are valid: independent practitioners remain `Person` records, while `INFORMAL_GROUP` is available only for a named collective that needs its own Organization record.
 
-Organizations can opt into synchronization with the [DARIAH SSH Open Marketplace](https://marketplace.sshopencloud.eu/) through `marketplace_sync: true`. This permits downstream synchronization of the organization and entities related to it through IDHI references, such as services and tools; `false` or an omitted value means no synchronization on that organization's authority. The flag controls export behavior and does not assert that the organization owns every related entity.
-
 ### 3. `slots` — the fields
 
 A **slot** is a field/attribute/property — LinkML's equivalent of a database column. Unlike most languages, slots are defined once in a global `slots:` section and classes *pick* which ones they use; this lets several classes share one definition (e.g. `end_date` is used by both `Event` and `Project`) and lets each slot carry a `slot_uri` mapping it to an existing RDF property (`description` → `dcterms:description`).

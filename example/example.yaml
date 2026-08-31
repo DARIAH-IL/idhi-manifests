@@ -27,7 +27,6 @@ organizations:
       - {language: en, value: Example University}
     ror: https://ror.org/04aj4c181
     organization_type: ACADEMIC_INSTITUTION
-    marketplace_sync: true
     homepage: https://www.example.ac.il
     contact_email: info@example.ac.il
     location:
