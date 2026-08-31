@@ -3176,33 +3176,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/marketplace_sync/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: marketplace_sync
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../slots/material_url/" class="md-nav__link">
         
   
@@ -5629,7 +5602,6 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">address</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">marketplace_sync</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_email</span>
 
@@ -6193,12 +6165,6 @@
 <span class="w">      </span><span class="no">Formal parent relationships of the containing organization, with the parent and optional start and end dates.</span>
 <span class="w">      </span><span class="no">Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationStructure</span>
-<span class="w">  </span><span class="nt">marketplace_sync</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boolean</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Opt-in flag for synchronization with the DARIAH SSH Open Marketplace. Set true to allow the organization and entities related to it through IDHI references, such as services and tools, to be synchronized; false or omission means they must not be synchronized on this organization&#39;s authority.</span>
-<span class="w">      </span><span class="no">This operational flag does not assert ownership of related entities. It uses an IDHI-specific property because established descriptive vocabularies do not provide a term for this synchronization policy.</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:marketplaceSync</span>
 <span class="w">  </span><span class="nt">location</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
