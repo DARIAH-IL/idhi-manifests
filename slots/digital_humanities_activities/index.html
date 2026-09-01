@@ -5704,7 +5704,7 @@
                   
 
 <h1 id="slot-digital_humanities_activities">Slot: digital_humanities_activities</h1>
-<p><em>Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.</em></p>
+<p><em>Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://purl.org/dc/terms/subject">dcterms:subject</a></p>
 <!-- no inheritance hierarchy -->
@@ -5734,6 +5734,11 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../../classes/Dataset/">Dataset</a></td>
+<td>A dataset or dataset-like intellectual object produced or curated by a projec...</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../../classes/TrainingMaterial/">TrainingMaterial</a></td>
 <td>A tutorial, lesson or other didactic resource that explains how to perform an...</td>
 <td>no</td>
@@ -5756,7 +5761,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../../classes/Project/">Project</a>, <a href="../../classes/Tool/">Tool</a>, <a href="../../classes/Service/">Service</a>, <a href="../../classes/TrainingMaterial/">TrainingMaterial</a></td>
+<td><a href="../../classes/Project/">Project</a>, <a href="../../classes/Tool/">Tool</a>, <a href="../../classes/Service/">Service</a>, <a href="../../classes/Dataset/">Dataset</a>, <a href="../../classes/TrainingMaterial/">TrainingMaterial</a></td>
 </tr>
 <tr>
 <td>Slot URI</td>
@@ -5806,9 +5811,10 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">digital_humanities_activities</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Digital-humanities research activities practiced in this project, tool</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">or service, or taught by this training material. Prefer the most specific applicable</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">activity; multiple values are expected. This is the primary DH-facet for discovery.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Digital-humanities research activities practiced in this project, tool,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">service or dataset, or taught by this training material. Prefer the most specific</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">applicable activity; multiple values are expected. This is the primary DH-facet</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">for discovery.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:subject</span>
@@ -5816,6 +5822,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DigitalHumanitiesActivityEnum</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
