@@ -248,6 +248,17 @@
           ],
           "x-termUri": "dcterms:description"
         },
+        "digital_humanities_activities": {
+          "description": "Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
+          "items": {
+            "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "x-termUri": "dcterms:subject"
+        },
         "distribution_url": {
           "description": "Direct download or access URL for the dataset.",
           "format": "uri",
@@ -2007,7 +2018,7 @@
           "x-termUri": "dcterms:description"
         },
         "digital_humanities_activities": {
-          "description": "Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
+          "description": "Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
           "items": {
             "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
           },
@@ -2827,7 +2838,7 @@
           "x-termUri": "dcterms:description"
         },
         "digital_humanities_activities": {
-          "description": "Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
+          "description": "Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
           "items": {
             "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
           },
@@ -2974,7 +2985,7 @@
           "x-termUri": "dcterms:description"
         },
         "digital_humanities_activities": {
-          "description": "Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
+          "description": "Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
           "items": {
             "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
           },
@@ -3179,7 +3190,7 @@
           "x-termUri": "dcterms:description"
         },
         "digital_humanities_activities": {
-          "description": "Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
+          "description": "Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.",
           "items": {
             "$ref": "#/$defs/DigitalHumanitiesActivityEnum"
           },

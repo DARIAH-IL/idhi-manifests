@@ -80,6 +80,19 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
     
 
         
+      Dataset : digital_humanities_activities
+        
+          
+    
+        
+        
+        Dataset --> "*" DigitalHumanitiesActivityEnum : digital_humanities_activities
+        
+        click DigitalHumanitiesActivityEnum href "../../enums/DigitalHumanitiesActivityEnum/"
+        
+    
+
+        
       Dataset : distribution_url
         
       Dataset : doi
@@ -205,6 +218,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
 | [dataset_type](../slots/dataset_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [DatasetTypeEnum](../enums/DatasetTypeEnum.md) | <span title="The dataset's primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization.">The dataset's primary intellectual or collection form</span> | direct |
+| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span> | direct |
 | [datasets](../slots/datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets aggregated by a Dataset that functions as a catalog (by id).">Datasets aggregated by a Dataset that functions as a catalog (by id)</span> | direct |
 | [derived_from](../slots/derived_from.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Source datasets from which this dataset was re-OCRed, cleaned, transformed, subsetted or otherwise derived. Reference each immediate source by IDHI URN; use datasets only for catalog aggregation rather than provenance.">Source datasets from which this dataset was re-OCRed, cleaned, transformed, s...</span> | direct |
 | [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
@@ -304,6 +318,7 @@ slots:
 - name
 - doi
 - dataset_type
+- digital_humanities_activities
 - datasets
 - derived_from
 - publisher
@@ -416,6 +431,24 @@ attributes:
     domain_of:
     - Dataset
     range: DatasetTypeEnum
+  digital_humanities_activities:
+    name: digital_humanities_activities
+    description: Digital-humanities research activities practiced in this project,
+      tool, service or dataset, or taught by this training material. Prefer the most
+      specific applicable activity; multiple values are expected. This is the primary
+      DH-facet for discovery.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: dcterms:subject
+    owner: Dataset
+    domain_of:
+    - Project
+    - Tool
+    - Service
+    - Dataset
+    - TrainingMaterial
+    range: DigitalHumanitiesActivityEnum
+    multivalued: true
   datasets:
     name: datasets
     description: Datasets aggregated by a Dataset that functions as a catalog (by

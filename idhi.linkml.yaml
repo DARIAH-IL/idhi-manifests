@@ -324,6 +324,7 @@ classes:
       - name
       - doi
       - dataset_type
+      - digital_humanities_activities
       - datasets
       - derived_from
       - publisher
@@ -738,7 +739,7 @@ slots:
     range: DigitalHumanitiesActivityEnum
     multivalued: true
     description: >-
-      Digital-humanities research activities practiced in this project, tool or service, or taught by this training material.
+      Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material.
       Prefer the most specific applicable activity; multiple values are expected.
       This is the primary DH-facet for discovery.
     slot_uri: dcterms:subject

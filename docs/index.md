@@ -61,7 +61,7 @@ Name: idhi
 | [date_issued](slots/date_issued.md) | Formal publication date (or year-01-01 if only the year is known) |
 | [derived_from](slots/derived_from.md) | Source datasets from which this dataset was re-OCRed, cleaned, transformed, s... |
 | [description](slots/description.md) | Multilingual free-text description (a few sentences aimed at index visitors, ... |
-| [digital_humanities_activities](slots/digital_humanities_activities.md) | Digital-humanities research activities practiced in this project, tool or ser... |
+| [digital_humanities_activities](slots/digital_humanities_activities.md) | Digital-humanities research activities practiced in this project, tool, servi... |
 | [distribution_url](slots/distribution_url.md) | Direct download or access URL for the dataset |
 | [documentation_url](slots/documentation_url.md) | User or developer documentation for the tool or service (manual, wiki, API re... |
 | [doi](slots/doi.md) | The publication, dataset, tool or training material's DOI persistent identifi... |

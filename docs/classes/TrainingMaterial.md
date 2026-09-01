@@ -283,7 +283,7 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
 | [media_type](../slots/media_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.">Technical media type of the primary dataset distribution or training resource...</span> | direct |
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
-| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
+| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span> | direct |
 | [related_tools](../slots/related_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools whose use the material teaches or demonstrates (by IDHI URN). Do not use this merely for software used to produce the material.">Tools whose use the material teaches or demonstrates (by IDHI URN)</span> | direct |
 | [related_services](../slots/related_services.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services that the material explains how to access or use (by IDHI URN). Do not use this for the organization publishing the material.">Services that the material explains how to access or use (by IDHI URN)</span> | direct |
 | [related_datasets](../slots/related_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets used as the subject or worked example of the material (by IDHI URN). Do not use this for incidental source data that learners never encounter.">Datasets used as the subject or worked example of the material (by IDHI URN)</span> | direct |
@@ -641,9 +641,9 @@ attributes:
   digital_humanities_activities:
     name: digital_humanities_activities
     description: Digital-humanities research activities practiced in this project,
-      tool or service, or taught by this training material. Prefer the most specific
-      applicable activity; multiple values are expected. This is the primary DH-facet
-      for discovery.
+      tool, service or dataset, or taught by this training material. Prefer the most
+      specific applicable activity; multiple values are expected. This is the primary
+      DH-facet for discovery.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -652,6 +652,7 @@ attributes:
     - Project
     - Tool
     - Service
+    - Dataset
     - TrainingMaterial
     range: DigitalHumanitiesActivityEnum
     multivalued: true

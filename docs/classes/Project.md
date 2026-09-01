@@ -292,7 +292,7 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
-| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool or service, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool or ser...</span> | direct |
+| [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span> | direct |
 | [research_disciplines](../slots/research_disciplines.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade.">Humanities discipline(s) of the project (history, linguistics, archaeology</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
@@ -471,9 +471,9 @@ attributes:
   digital_humanities_activities:
     name: digital_humanities_activities
     description: Digital-humanities research activities practiced in this project,
-      tool or service, or taught by this training material. Prefer the most specific
-      applicable activity; multiple values are expected. This is the primary DH-facet
-      for discovery.
+      tool, service or dataset, or taught by this training material. Prefer the most
+      specific applicable activity; multiple values are expected. This is the primary
+      DH-facet for discovery.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:subject
@@ -482,6 +482,7 @@ attributes:
     - Project
     - Tool
     - Service
+    - Dataset
     - TrainingMaterial
     range: DigitalHumanitiesActivityEnum
     multivalued: true
