@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: organization_roles 
+# Slot: facility_roles 
 
 
-_Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider or host role. Reference each organization and infer the project from its containing record; use Project.funding to record a funder, not a role here._
+_Facilities engaged in the containing project, as reified FacilityProjectRole objects carrying a coordinator, partner, data provider or host role. Reference each facility and infer the project from its containing record._
 
 
 
@@ -14,7 +14,7 @@ _Organizations engaged in the containing project, as reified OrganizationProject
 
 
 
-URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organization_roles)
+URI: [idhi:slot/facility_roles](https://idhi_placeholder/linkml/slot/facility_roles)
 <!-- no inheritance hierarchy -->
 
 
@@ -38,7 +38,7 @@ URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organiz
 
 | Property | Value |
 | --- | --- |
-| Range | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) |
+| Range | [FacilityProjectRole](../classes/FacilityProjectRole.md) |
 | Domain Of | [Project](../classes/Project.md) |
 
 ### Cardinality and Requirements
@@ -74,8 +74,8 @@ URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organiz
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:organization_roles |
-| native | idhi:organization_roles |
+| self | idhi:facility_roles |
+| native | idhi:facility_roles |
 
 
 
@@ -84,16 +84,15 @@ URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organiz
 
 <details>
 ```yaml
-name: organization_roles
-description: Organizations engaged in the containing project, as reified OrganizationProjectRole
+name: facility_roles
+description: Facilities engaged in the containing project, as reified FacilityProjectRole
   objects carrying a coordinator, partner, data provider or host role. Reference each
-  organization and infer the project from its containing record; use Project.funding
-  to record a funder, not a role here.
+  facility and infer the project from its containing record.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Project
-range: OrganizationProjectRole
+range: FacilityProjectRole
 multivalued: true
 inlined: true
 inlined_as_list: true

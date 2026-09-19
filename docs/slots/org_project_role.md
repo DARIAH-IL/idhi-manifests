@@ -6,7 +6,7 @@ search:
 # Slot: org_project_role 
 
 
-_The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding._
+_The organization's or facility's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here._
 
 
 
@@ -26,6 +26,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |  no  |
+| [FacilityProjectRole](../classes/FacilityProjectRole.md) | A facility's engagement nested in a Project, so the project is inferred from ... |  no  |
 
 
 
@@ -39,7 +40,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 | Property | Value |
 | --- | --- |
 | Range | [OrgProjectRoleEnum](../enums/OrgProjectRoleEnum.md) |
-| Domain Of | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) |
+| Domain Of | [OrganizationProjectRole](../classes/OrganizationProjectRole.md), [FacilityProjectRole](../classes/FacilityProjectRole.md) |
 | Slot URI | [schema:roleName](http://schema.org/roleName) |
 
 ### Cardinality and Requirements
@@ -85,16 +86,16 @@ URI: [schema:roleName](http://schema.org/roleName)
 <details>
 ```yaml
 name: org_project_role
-description: 'The organization''s function in the project: COORDINATOR leads the consortium,
-  PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding
-  when no distinct award can be described, and HOST provides the institutional home.
-  Create one relationship instance per role, and do not duplicate an award already
-  represented in funding.'
+description: 'The organization''s or facility''s function in the project: COORDINATOR
+  leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data,
+  and HOST provides the institutional home. Create one relationship instance per role;
+  record a funder with Project.funding, not with a role here.'
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName
 domain_of:
 - OrganizationProjectRole
+- FacilityProjectRole
 range: OrgProjectRoleEnum
 
 ```

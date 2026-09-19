@@ -6,7 +6,7 @@ search:
 # Class: Funding 
 
 
-_A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. Use Funding when an award or grant is known; use an OrganizationProjectRole with FUNDER only when the funder's involvement is known but no distinct award can be described, and do not record the same funding fact in both structures. It is inlined within the funded Project and has no independent ID._
+_A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. This is the only place to record a project's funder; do not add a funder role in organization_roles. It is inlined within the funded Project and has no independent ID._
 
 
 
@@ -170,10 +170,9 @@ URI: [schema:MonetaryGrant](http://schema.org/MonetaryGrant)
 name: Funding
 description: A distinct funding award for a project, identifying the organization
   that provides it and recording available award metadata and its funding period.
-  Use Funding when an award or grant is known; use an OrganizationProjectRole with
-  FUNDER only when the funder's involvement is known but no distinct award can be
-  described, and do not record the same funding fact in both structures. It is inlined
-  within the funded Project and has no independent ID.
+  This is the only place to record a project's funder; do not add a funder role in
+  organization_roles. It is inlined within the funded Project and has no independent
+  ID.
 from_schema: https://idhi_placeholder/linkml/idhi
 slots:
 - funding_organization
@@ -197,10 +196,9 @@ class_uri: schema:MonetaryGrant
 name: Funding
 description: A distinct funding award for a project, identifying the organization
   that provides it and recording available award metadata and its funding period.
-  Use Funding when an award or grant is known; use an OrganizationProjectRole with
-  FUNDER only when the funder's involvement is known but no distinct award can be
-  described, and do not record the same funding fact in both structures. It is inlined
-  within the funded Project and has no independent ID.
+  This is the only place to record a project's funder; do not add a funder role in
+  organization_roles. It is inlined within the funded Project and has no independent
+  ID.
 from_schema: https://idhi_placeholder/linkml/idhi
 attributes:
   funding_organization:

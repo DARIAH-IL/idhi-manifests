@@ -3,10 +3,10 @@ search:
   boost: 10.0
 ---
 
-# Class: OrganizationProjectRole 
+# Class: FacilityProjectRole 
 
 
-_An organization's engagement nested in a Project, so the project is inferred from the containing record. Use one instance per role in Project.organization_roles and do not provide the containing project's ID. Record a funder with Project.funding, not with a role here._
+_A facility's engagement nested in a Project, so the project is inferred from the containing record. Use one instance per role in Project.facility_roles and do not provide the containing project's ID. Record a funder with Project.funding, not with a role here._
 
 
 
@@ -14,49 +14,49 @@ _An organization's engagement nested in a Project, so the project is inferred fr
 
 
 
-URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_OrganisationUnit)
+URI: [schema:Role](http://schema.org/Role)
 
 
 
 
 ```mermaid
  classDiagram
-    class OrganizationProjectRole
-      Relationship <|-- OrganizationProjectRole
+    class FacilityProjectRole
+      Relationship <|-- FacilityProjectRole
         click Relationship href "../../classes/Relationship/"
       
 
       
 
-      OrganizationProjectRole : end_date
+      FacilityProjectRole : end_date
         
-      OrganizationProjectRole : org_project_role
+      FacilityProjectRole : facility
         
           
     
         
         
-        OrganizationProjectRole --> "0..1" OrgProjectRoleEnum : org_project_role
+        FacilityProjectRole --> "1" Facility : facility
+        
+        click Facility href "../../classes/Facility/"
+        
+    
+
+        
+      FacilityProjectRole : org_project_role
+        
+          
+    
+        
+        
+        FacilityProjectRole --> "0..1" OrgProjectRoleEnum : org_project_role
         
         click OrgProjectRoleEnum href "../../enums/OrgProjectRoleEnum/"
         
     
 
         
-      OrganizationProjectRole : organization
-        
-          
-    
-        
-        
-        OrganizationProjectRole --> "1" Organization : organization
-        
-        click Organization href "../../classes/Organization/"
-        
-    
-
-        
-      OrganizationProjectRole : start_date
+      FacilityProjectRole : start_date
         
       
 ```
@@ -66,21 +66,21 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 ## Inheritance
 * [Relationship](../classes/Relationship.md)
-    * **OrganizationProjectRole**
+    * **FacilityProjectRole**
 
 
 ## Class Properties
 
 | Property | Value |
 | --- | --- |
-| Class URI | [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_OrganisationUnit) |
+| Class URI | [schema:Role](http://schema.org/Role) |
 
 
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.">The organization referenced by a person affiliation, facility affiliation or ...</span> | direct |
+| [facility](../slots/facility.md) | <span title="Required: exactly one value">1</span> <br/> [Facility](../classes/Facility.md) | <span title="The facility referenced by a project role (by IDHI URN). Use only in FacilityProjectRole; the containing Project supplies the relationship's other endpoint.">The facility referenced by a project role (by IDHI URN)</span> | direct |
 | [org_project_role](../slots/org_project_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrgProjectRoleEnum](../enums/OrgProjectRoleEnum.md) | <span title="The organization's or facility's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here.">The organization's or facility's function in the project: COORDINATOR leads t...</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
@@ -93,7 +93,7 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Project](../classes/Project.md) | [organization_roles](../slots/organization_roles.md) | range | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) |
+| [Project](../classes/Project.md) | [facility_roles](../slots/facility_roles.md) | range | [FacilityProjectRole](../classes/FacilityProjectRole.md) |
 
 
 
@@ -124,8 +124,8 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | cerif:Project_OrganisationUnit |
-| native | idhi:OrganizationProjectRole |
+| self | schema:Role |
+| native | idhi:FacilityProjectRole |
 
 
 
@@ -138,17 +138,17 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 <details>
 ```yaml
-name: OrganizationProjectRole
-description: An organization's engagement nested in a Project, so the project is inferred
-  from the containing record. Use one instance per role in Project.organization_roles
+name: FacilityProjectRole
+description: A facility's engagement nested in a Project, so the project is inferred
+  from the containing record. Use one instance per role in Project.facility_roles
   and do not provide the containing project's ID. Record a funder with Project.funding,
   not with a role here.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
-- organization
+- facility
 - org_project_role
-class_uri: cerif:Project_OrganisationUnit
+class_uri: schema:Role
 
 ```
 </details>
@@ -157,27 +157,25 @@ class_uri: cerif:Project_OrganisationUnit
 
 <details>
 ```yaml
-name: OrganizationProjectRole
-description: An organization's engagement nested in a Project, so the project is inferred
-  from the containing record. Use one instance per role in Project.organization_roles
+name: FacilityProjectRole
+description: A facility's engagement nested in a Project, so the project is inferred
+  from the containing record. Use one instance per role in Project.facility_roles
   and do not provide the containing project's ID. Record a funder with Project.funding,
   not with a role here.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
-  organization:
-    name: organization
-    description: The organization referenced by a person affiliation, facility affiliation
-      or project role (by IDHI URN). The Person, Facility or Project containing the
-      relationship supplies its other endpoint.
+  facility:
+    name: facility
+    description: The facility referenced by a project role (by IDHI URN). Use only
+      in FacilityProjectRole; the containing Project supplies the relationship's other
+      endpoint.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
-    owner: OrganizationProjectRole
+    owner: FacilityProjectRole
     domain_of:
-    - Affiliation
-    - OrganizationProjectRole
-    - FacilityAffiliation
-    range: Organization
+    - FacilityProjectRole
+    range: Facility
     required: true
   org_project_role:
     name: org_project_role
@@ -188,7 +186,7 @@ attributes:
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName
-    owner: OrganizationProjectRole
+    owner: FacilityProjectRole
     domain_of:
     - OrganizationProjectRole
     - FacilityProjectRole
@@ -201,7 +199,7 @@ attributes:
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:startDate
-    owner: OrganizationProjectRole
+    owner: FacilityProjectRole
     domain_of:
     - Project
     - Event
@@ -215,14 +213,14 @@ attributes:
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:endDate
-    owner: OrganizationProjectRole
+    owner: FacilityProjectRole
     domain_of:
     - Project
     - Event
     - Relationship
     - Funding
     range: date
-class_uri: cerif:Project_OrganisationUnit
+class_uri: schema:Role
 
 ```
 </details></div>

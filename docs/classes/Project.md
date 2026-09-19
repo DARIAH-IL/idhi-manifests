@@ -60,6 +60,19 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
         
       Project : end_date
         
+      Project : facility_roles
+        
+          
+    
+        
+        
+        Project --> "*" FacilityProjectRole : facility_roles
+        
+        click FacilityProjectRole href "../../classes/FacilityProjectRole/"
+        
+    
+
+        
       Project : funding
         
           
@@ -299,7 +312,8 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 | [studied_periods](../slots/studied_periods.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Historical period(s) the project studies (e.g. Ottoman period), as free multilingual labels — distinct from the project's own start_date/end_date.">Historical period(s) the project studies (e</span> | direct |
 | [studied_places](../slots/studied_places.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Geographic focus of the research (places studied), as free multilingual labels — distinct from where the project team sits.">Geographic focus of the research (places studied), as free multilingual label...</span> | direct |
 | [project_participations](../slots/project_participations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [ProjectParticipation](../classes/ProjectParticipation.md) | <span title="People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person.">People involved in the containing project, as reified ProjectParticipation ob...</span> | direct |
-| [organization_roles](../slots/organization_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | <span title="Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider, funder or host role. Reference each organization and infer the project from its containing record; use FUNDER only when no distinct award can be represented in funding.">Organizations engaged in the containing project, as reified OrganizationProje...</span> | direct |
+| [organization_roles](../slots/organization_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | <span title="Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider or host role. Reference each organization and infer the project from its containing record; use Project.funding to record a funder, not a role here.">Organizations engaged in the containing project, as reified OrganizationProje...</span> | direct |
+| [facility_roles](../slots/facility_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [FacilityProjectRole](../classes/FacilityProjectRole.md) | <span title="Facilities engaged in the containing project, as reified FacilityProjectRole objects carrying a coordinator, partner, data provider or host role. Reference each facility and infer the project from its containing record.">Facilities engaged in the containing project, as reified FacilityProjectRole ...</span> | direct |
 | [uses_tools](../slots/uses_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools used to conduct the containing project (by IDHI URN). Use for substantive research or technical dependencies, not tools produced by the project, which belong in outputs_tools.">Tools used to conduct the containing project (by IDHI URN)</span> | direct |
 | [uses_services](../slots/uses_services.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services used by the containing project (by IDHI URN). Use for externally or institutionally delivered services that support the work, not services produced as project outputs.">Services used by the containing project (by IDHI URN)</span> | direct |
 | [uses_datasets](../slots/uses_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Existing datasets used as research inputs by the containing project (by IDHI URN). Use for source or reference data consumed by the project, not datasets produced by it, which belong in outputs_datasets.">Existing datasets used as research inputs by the containing project (by IDHI ...</span> | direct |
@@ -307,7 +321,7 @@ URI: [foaf:Project](http://xmlns.com/foaf/0.1/Project)
 | [outputs_datasets](../slots/outputs_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets produced or curated by this project (by id).">Datasets produced or curated by this project (by id)</span> | direct |
 | [outputs_publications](../slots/outputs_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications resulting from this project (by id).">Publications resulting from this project (by id)</span> | direct |
 | [outputs_training_materials](../slots/outputs_training_materials.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [TrainingMaterial](../classes/TrainingMaterial.md) | <span title="Training materials produced by this project (by IDHI URN); use only for project outputs, not materials merely used by the project.">Training materials produced by this project (by IDHI URN); use only for proje...</span> | direct |
-| [funding](../slots/funding.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Funding](../classes/Funding.md) | <span title="Funding awards received by the project. Use one entry per distinct award, including successive awards from the same organization, and record award dates here rather than duplicating the same fact as a FUNDER organization role.">Funding awards received by the project</span> | direct |
+| [funding](../slots/funding.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Funding](../classes/Funding.md) | <span title="Funding awards received by the project. Use one entry per distinct award, including successive awards from the same organization; this is the only place a project's funder is recorded.">Funding awards received by the project</span> | direct |
 | [funding_status](../slots/funding_status.md) | <span title="Optional: at most one value">0..1</span> <br/> [FundingStatusEnum](../enums/FundingStatusEnum.md) | <span title="The project's current primary funding or sustainability status at the time the record is maintained. Use this for present support, while funding records preserve past and current award history; update it when the project's circumstances change. This uses an IDHI-specific property because established vocabularies do not provide a controlled current-sustainability status for projects.">The project's current primary funding or sustainability status at the time th...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
@@ -396,6 +410,7 @@ slots:
 - studied_places
 - project_participations
 - organization_roles
+- facility_roles
 - uses_tools
 - uses_services
 - uses_datasets
@@ -574,15 +589,29 @@ attributes:
   organization_roles:
     name: organization_roles
     description: Organizations engaged in the containing project, as reified OrganizationProjectRole
-      objects carrying a coordinator, partner, data provider, funder or host role.
-      Reference each organization and infer the project from its containing record;
-      use FUNDER only when no distinct award can be represented in funding.
+      objects carrying a coordinator, partner, data provider or host role. Reference
+      each organization and infer the project from its containing record; use Project.funding
+      to record a funder, not a role here.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project
     domain_of:
     - Project
     range: OrganizationProjectRole
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  facility_roles:
+    name: facility_roles
+    description: Facilities engaged in the containing project, as reified FacilityProjectRole
+      objects carrying a coordinator, partner, data provider or host role. Reference
+      each facility and infer the project from its containing record.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    owner: Project
+    domain_of:
+    - Project
+    range: FacilityProjectRole
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -671,8 +700,8 @@ attributes:
   funding:
     name: funding
     description: Funding awards received by the project. Use one entry per distinct
-      award, including successive awards from the same organization, and record award
-      dates here rather than duplicating the same fact as a FUNDER organization role.
+      award, including successive awards from the same organization; this is the only
+      place a project's funder is recorded.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     owner: Project

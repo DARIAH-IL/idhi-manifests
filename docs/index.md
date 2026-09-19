@@ -32,6 +32,7 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Authorship](classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[EventAgentRole](classes/EventAgentRole.md) | A person or organization involved in the containing Event in a defined capaci... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FacilityAffiliation](classes/FacilityAffiliation.md) | A facility's affiliation with an organization, nested in a Facility so the fa... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FacilityProjectRole](classes/FacilityProjectRole.md) | A facility's engagement nested in a Project, so the project is inferred from ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationProjectRole](classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationStructure](classes/OrganizationStructure.md) | Formal containment of the containing Organization within a larger parent orga... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ProjectParticipation](classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |
@@ -75,8 +76,10 @@ Name: idhi
 | [events](slots/events.md) | All Event records in the index |
 | [extent](slots/extent.md) | Technical extent statements such as record, item, issue, image or file counts |
 | [facilities](slots/facilities.md) | All Facility records in the index |
+| [facility](slots/facility.md) | The facility referenced by a project role (by IDHI URN) |
 | [facility_affiliation_role](slots/facility_affiliation_role.md) | The organization's relationship to the containing facility |
 | [facility_affiliations](slots/facility_affiliations.md) | The organizations hosting or owning the containing facility, as reified Facil... |
+| [facility_roles](slots/facility_roles.md) | Facilities engaged in the containing project, as reified FacilityProjectRole ... |
 | [family_name](slots/family_name.md) | Family (last) name as multilingual text |
 | [funding](slots/funding.md) | Funding awards received by the project |
 | [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in the currency given ... |
@@ -100,7 +103,7 @@ Name: idhi
 | [media_type](slots/media_type.md) | Technical media type of the primary dataset distribution or training resource... |
 | [name](slots/name.md) | The multilingual name or title used to identify the entity |
 | [orcid](slots/orcid.md) | The person's persistent researcher identifier |
-| [org_project_role](slots/org_project_role.md) | The organization's function in the project: COORDINATOR leads the consortium,... |
+| [org_project_role](slots/org_project_role.md) | The organization's or facility's function in the project: COORDINATOR leads t... |
 | [organization](slots/organization.md) | The organization referenced by a person affiliation, facility affiliation or ... |
 | [organization_roles](slots/organization_roles.md) | Organizations engaged in the containing project, as reified OrganizationProje... |
 | [organization_structure](slots/organization_structure.md) | Formal parent relationships of the containing organization, with the parent a... |
@@ -170,7 +173,7 @@ Name: idhi
 | [FundingStatusEnum](enums/FundingStatusEnum.md) | IDHI-governed values for the current primary way a project is financially or ... |
 | [LicenseEnum](enums/LicenseEnum.md) | Common licenses for tools, datasets and training materials |
 | [OrganizationTypeEnum](enums/OrganizationTypeEnum.md) | Kinds of organization |
-| [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's role in a project (one instance per role) |
+| [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's or facility's role in a project (one instance per role) |
 | [PersonOrgRoleEnum](enums/PersonOrgRoleEnum.md) | A person's position within an organization (job/status) |
 | [ProjectRoleEnum](enums/ProjectRoleEnum.md) | A person's role in a project |
 | [PublicationTypeEnum](enums/PublicationTypeEnum.md) | The kind of publication, including journal article, book part, conference pap... |

@@ -181,6 +181,7 @@ URI: [cerif:Facility](https://w3id.org/cerif/model#Facility)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [FacilityProjectRole](../classes/FacilityProjectRole.md) | [facility](../slots/facility.md) | range | [Facility](../classes/Facility.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [facilities](../slots/facilities.md) | range | [Facility](../classes/Facility.md) |
 
 
