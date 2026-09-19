@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../FacilityAffiliation/">
+        <link rel="prev" href="../FacilityProjectRole/">
       
       
         <link rel="next" href="../IndexContainer/">
@@ -652,6 +652,33 @@
     
   
   Class: FacilityAffiliation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FacilityProjectRole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: FacilityProjectRole
 
     
   </span>
@@ -2757,6 +2784,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/facility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/facility_affiliation_role/" class="md-nav__link">
         
   
@@ -2792,6 +2846,33 @@
     
   
   Slot: facility_affiliations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/facility_roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility_roles
 
     
   </span>
@@ -5726,7 +5807,7 @@
                   
 
 <h1 id="class-funding">Class: Funding</h1>
-<p><em>A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. Use Funding when an award or grant is known; use an OrganizationProjectRole with FUNDER only when the funder's involvement is known but no distinct award can be described, and do not record the same funding fact in both structures. It is inlined within the funded Project and has no independent ID.</em></p>
+<p><em>A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. This is the only place to record a project's funder; do not add a funder role in organization_roles. It is inlined within the funded Project and has no independent ID.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://schema.org/MonetaryGrant">schema:MonetaryGrant</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -5929,10 +6010,9 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A distinct funding award for a project, identifying the organization</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">that provides it and recording available award metadata and its funding period.</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Use Funding when an award or grant is known; use an OrganizationProjectRole with</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">FUNDER only when the funder&#39;s involvement is known but no distinct award can be</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">described, and do not record the same funding fact in both structures. It is inlined</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">within the funded Project and has no independent ID.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">This is the only place to record a project&#39;s funder; do not add a funder role in</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">organization_roles. It is inlined within the funded Project and has no independent</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ID.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">funding_organization</span>
@@ -5952,10 +6032,9 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A distinct funding award for a project, identifying the organization</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">that provides it and recording available award metadata and its funding period.</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Use Funding when an award or grant is known; use an OrganizationProjectRole with</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">FUNDER only when the funder&#39;s involvement is known but no distinct award can be</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">described, and do not record the same funding fact in both structures. It is inlined</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">within the funded Project and has no independent ID.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">This is the only place to record a project&#39;s funder; do not add a funder role in</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">organization_roles. It is inlined within the funded Project and has no independent</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ID.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">funding_organization</span><span class="p">:</span>

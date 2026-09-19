@@ -671,6 +671,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../FacilityProjectRole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: FacilityProjectRole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Funding/" class="md-nav__link">
         
   
@@ -2768,6 +2795,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/facility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/facility_affiliation_role/" class="md-nav__link">
         
   
@@ -2803,6 +2857,33 @@
     
   
   Slot: facility_affiliations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/facility_roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility_roles
 
     
   </span>
@@ -5748,7 +5829,7 @@
                   
 
 <h1 id="class-organizationprojectrole">Class: OrganizationProjectRole</h1>
-<p><em>An organization's engagement nested in a Project, so the project is inferred from the containing record. Use one instance per role in Project.organization_roles and do not provide the containing project's ID. Represent a known distinct funding award with Funding rather than an additional FUNDER role; use FUNDER only when no award can be described.</em></p>
+<p><em>An organization's engagement nested in a Project, so the project is inferred from the containing record. Use one instance per role in Project.organization_roles and do not provide the containing project's ID. Record a funder with Project.funding, not with a role here.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/cerif/model#Project_OrganisationUnit">cerif:Project_OrganisationUnit</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -5832,7 +5913,7 @@
 <tr>
 <td><a href="../../slots/org_project_role/">org_project_role</a></td>
 <td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../enums/OrgProjectRoleEnum/">OrgProjectRoleEnum</a></td>
-<td><span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding.">The organization's function in the project: COORDINATOR leads the consortium,...</span></td>
+<td><span title="The organization's or facility's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here.">The organization's or facility's function in the project: COORDINATOR leads t...</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5898,9 +5979,8 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization&#39;s engagement nested in a Project, so the project is inferred</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">from the containing record. Use one instance per role in Project.organization_roles</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and do not provide the containing project&#39;s ID. Represent a known distinct funding</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">award with Funding rather than an additional FUNDER role; use FUNDER only when no</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">award can be described.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and do not provide the containing project&#39;s ID. Record a funder with Project.funding,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">not with a role here.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="nt">slots</span><span class="p">:</span>
@@ -5914,9 +5994,8 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization&#39;s engagement nested in a Project, so the project is inferred</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">from the containing record. Use one instance per role in Project.organization_roles</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and do not provide the containing project&#39;s ID. Represent a known distinct funding</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">award with Funding rather than an additional FUNDER role; use FUNDER only when no</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">award can be described.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and do not provide the containing project&#39;s ID. Record a funder with Project.funding,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">not with a role here.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -5936,17 +6015,17 @@
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">org_project_role</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org_project_role</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;The</span><span class="nv"> </span><span class="s">organization</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">function</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">project:</span><span class="nv"> </span><span class="s">COORDINATOR</span><span class="nv"> </span><span class="s">leads</span><span class="nv"> </span><span class="s">the</span>
-<span class="w">      </span><span class="s">consortium,</span><span class="nv"> </span><span class="s">PARTNER</span><span class="nv"> </span><span class="s">contributes</span><span class="nv"> </span><span class="s">work,</span><span class="nv"> </span><span class="s">DATA_PROVIDER</span><span class="nv"> </span><span class="s">supplies</span><span class="nv"> </span><span class="s">source</span><span class="nv"> </span><span class="s">data,</span><span class="nv"> </span><span class="s">FUNDER</span>
-<span class="w">      </span><span class="s">records</span><span class="nv"> </span><span class="s">funding</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">distinct</span><span class="nv"> </span><span class="s">award</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">described,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">HOST</span><span class="nv"> </span><span class="s">provides</span><span class="nv"> </span><span class="s">the</span>
-<span class="w">      </span><span class="s">institutional</span><span class="nv"> </span><span class="s">home.</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">relationship</span><span class="nv"> </span><span class="s">instance</span><span class="nv"> </span><span class="s">per</span><span class="nv"> </span><span class="s">role,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">duplicate</span>
-<span class="w">      </span><span class="s">an</span><span class="nv"> </span><span class="s">award</span><span class="nv"> </span><span class="s">already</span><span class="nv"> </span><span class="s">represented</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">funding.&#39;</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;The</span><span class="nv"> </span><span class="s">organization</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">facility</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">function</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">project:</span><span class="nv"> </span><span class="s">COORDINATOR</span>
+<span class="w">      </span><span class="s">leads</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">consortium,</span><span class="nv"> </span><span class="s">PARTNER</span><span class="nv"> </span><span class="s">contributes</span><span class="nv"> </span><span class="s">work,</span><span class="nv"> </span><span class="s">DATA_PROVIDER</span><span class="nv"> </span><span class="s">supplies</span><span class="nv"> </span><span class="s">source</span>
+<span class="w">      </span><span class="s">data,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">HOST</span><span class="nv"> </span><span class="s">provides</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">institutional</span><span class="nv"> </span><span class="s">home.</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">relationship</span><span class="nv"> </span><span class="s">instance</span>
+<span class="w">      </span><span class="s">per</span><span class="nv"> </span><span class="s">role;</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">funder</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Project.funding,</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">role</span><span class="nv"> </span><span class="s">here.&#39;</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:roleName</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FacilityProjectRole</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrgProjectRoleEnum</span>
 <span class="w">  </span><span class="nt">start_date</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start_date</span>

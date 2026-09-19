@@ -771,6 +771,33 @@
   
   
     <li class="md-nav__item">
+      <a href="./classes/FacilityProjectRole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: FacilityProjectRole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="./classes/Funding/" class="md-nav__link">
         
   
@@ -2697,6 +2724,33 @@
   
   
     <li class="md-nav__item">
+      <a href="./slots/facility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="./slots/facility_affiliation_role/" class="md-nav__link">
         
   
@@ -2732,6 +2786,33 @@
     
   
   Slot: facility_affiliations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./slots/facility_roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility_roles
 
     
   </span>
@@ -5703,6 +5784,10 @@
 <td>A facility's affiliation with an organization, nested in a Facility so the fa...</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="classes/FacilityProjectRole/">FacilityProjectRole</a></td>
+<td>A facility's engagement nested in a Project, so the project is inferred from ...</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="classes/OrganizationProjectRole/">OrganizationProjectRole</a></td>
 <td>An organization's engagement nested in a Project, so the project is inferred ...</td>
 </tr>
@@ -5858,12 +5943,20 @@
 <td>All Facility records in the index</td>
 </tr>
 <tr>
+<td><a href="slots/facility/">facility</a></td>
+<td>The facility referenced by a project role (by IDHI URN)</td>
+</tr>
+<tr>
 <td><a href="slots/facility_affiliation_role/">facility_affiliation_role</a></td>
 <td>The organization's relationship to the containing facility</td>
 </tr>
 <tr>
 <td><a href="slots/facility_affiliations/">facility_affiliations</a></td>
 <td>The organizations hosting or owning the containing facility, as reified Facil...</td>
+</tr>
+<tr>
+<td><a href="slots/facility_roles/">facility_roles</a></td>
+<td>Facilities engaged in the containing project, as reified FacilityProjectRole ...</td>
 </tr>
 <tr>
 <td><a href="slots/family_name/">family_name</a></td>
@@ -5959,7 +6052,7 @@
 </tr>
 <tr>
 <td><a href="slots/org_project_role/">org_project_role</a></td>
-<td>The organization's function in the project: COORDINATOR leads the consortium,...</td>
+<td>The organization's or facility's function in the project: COORDINATOR leads t...</td>
 </tr>
 <tr>
 <td><a href="slots/organization/">organization</a></td>
@@ -6226,7 +6319,7 @@
 </tr>
 <tr>
 <td><a href="enums/OrgProjectRoleEnum/">OrgProjectRoleEnum</a></td>
-<td>An organization's role in a project (one instance per role)</td>
+<td>An organization's or facility's role in a project (one instance per role)</td>
 </tr>
 <tr>
 <td><a href="enums/PersonOrgRoleEnum/">PersonOrgRoleEnum</a></td>

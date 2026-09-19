@@ -669,6 +669,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../classes/FacilityProjectRole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: FacilityProjectRole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -2707,6 +2734,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/facility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/facility_affiliation_role/" class="md-nav__link">
         
   
@@ -2742,6 +2796,33 @@
     
   
   Slot: facility_affiliations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/facility_roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: facility_roles
 
     
   </span>
@@ -5626,7 +5707,7 @@
                   
 
 <h1 id="enum-orgprojectroleenum">Enum: OrgProjectRoleEnum</h1>
-<p><em>An organization's role in a project (one instance per role).</em></p>
+<p><em>An organization's or facility's role in a project (one instance per role).</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://idhi_placeholder/linkml/enum/OrgProjectRoleEnum">idhi:enum/OrgProjectRoleEnum</a></p>
 <h2 id="permissible-values">Permissible Values</h2>
@@ -5652,12 +5733,7 @@
 <tr>
 <td>DATA_PROVIDER</td>
 <td><a href="http://schema.org/provider">schema:provider</a></td>
-<td><span title="Supplies a source collection or data used by the project without thereby acting as its host, coordinator or funder.">Supplies a source collection or data used by the project without thereby acti...</span></td>
-</tr>
-<tr>
-<td>FUNDER</td>
-<td>None</td>
-<td><span title="Provides funding for the project when no distinct award can be described; use Funding instead when grant metadata or award dates are known, and do not use both for the same funding fact.">Provides funding for the project when no distinct award can be described; use...</span></td>
+<td><span title="Supplies a source collection or data used by the project without thereby acting as its host or coordinator.">Supplies a source collection or data used by the project without thereby acti...</span></td>
 </tr>
 <tr>
 <td>HOST</td>
@@ -5677,7 +5753,7 @@
 <tbody>
 <tr>
 <td><a href="../../slots/org_project_role/">org_project_role</a></td>
-<td><span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, FUNDER records funding when no distinct award can be described, and HOST provides the institutional home. Create one relationship instance per role, and do not duplicate an award already represented in funding.">The organization's function in the project: COORDINATOR leads the consortium,...</span></td>
+<td><span title="The organization's or facility's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here.">The organization's or facility's function in the project: COORDINATOR leads t...</span></td>
 </tr>
 </tbody>
 </table>
@@ -5689,7 +5765,7 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrgProjectRoleEnum</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization&#39;s role in a project (one instance per role).</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization&#39;s or facility&#39;s role in a project (one instance per role).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">permissible_values</span><span class="p">:</span>
@@ -5702,13 +5778,8 @@
 <span class="w">  </span><span class="nt">DATA_PROVIDER</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA_PROVIDER</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Supplies a source collection or data used by the project without</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">thereby acting as its host, coordinator or funder.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">thereby acting as its host or coordinator.</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:provider</span>
-<span class="w">  </span><span class="nt">FUNDER</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FUNDER</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Provides funding for the project when no distinct award can be described;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">use Funding instead when grant metadata or award dates are known, and do not</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">use both for the same funding fact.</span>
 <span class="w">  </span><span class="nt">HOST</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HOST</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Provides the institutional/administrative home.</span>
