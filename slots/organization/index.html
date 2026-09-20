@@ -615,87 +615,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/Facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: Facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../classes/FacilityAffiliation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityAffiliation
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../classes/FacilityProjectRole/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityProjectRole
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -1320,33 +1239,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enums/FacilityAffiliationRoleEnum/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Enum: FacilityAffiliationRoleEnum
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../enums/FundingStatusEnum/" class="md-nav__link">
         
   
@@ -1409,6 +1301,33 @@
     
   
   Enum: OrgProjectRoleEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/OrganizationStructureRoleEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: OrganizationStructureRoleEnum
 
     
   </span>
@@ -2597,141 +2516,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../facilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facilities
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility_affiliation_role/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliation_role
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility_affiliations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliations
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility_roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_roles
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../family_name/" class="md-nav__link">
         
   
@@ -3591,6 +3375,33 @@
     
   
   Slot: organization_structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organization_structure_role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: organization_structure_role
 
     
   </span>
@@ -5785,7 +5596,7 @@
                   
 
 <h1 id="slot-organization">Slot: organization</h1>
-<p><em>The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.</em></p>
+<p><em>The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://idhi_placeholder/linkml/slot/organization">idhi:slot/organization</a></p>
 <!-- no inheritance hierarchy -->
@@ -5809,11 +5620,6 @@
 <td>An organization's engagement nested in a Project, so the project is inferred ...</td>
 <td>no</td>
 </tr>
-<tr>
-<td><a href="../../classes/FacilityAffiliation/">FacilityAffiliation</a></td>
-<td>A facility's affiliation with an organization, nested in a Facility so the fa...</td>
-<td>no</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -5832,7 +5638,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../../classes/Affiliation/">Affiliation</a>, <a href="../../classes/OrganizationProjectRole/">OrganizationProjectRole</a>, <a href="../../classes/FacilityAffiliation/">FacilityAffiliation</a></td>
+<td><a href="../../classes/Affiliation/">Affiliation</a>, <a href="../../classes/OrganizationProjectRole/">OrganizationProjectRole</a></td>
 </tr>
 </tbody>
 </table>
@@ -5878,15 +5684,14 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization referenced by a person affiliation, facility affiliation</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">or project role (by IDHI URN). The Person, Facility or Project containing the relationship</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">supplies its other endpoint.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization referenced by a person affiliation or project role (by</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">IDHI URN). The Person or Project containing the relationship supplies its other</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">endpoint.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Affiliation</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FacilityAffiliation</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>

@@ -629,87 +629,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/Facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: Facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../classes/FacilityAffiliation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityAffiliation
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../classes/FacilityProjectRole/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityProjectRole
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -1334,33 +1253,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enums/FacilityAffiliationRoleEnum/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Enum: FacilityAffiliationRoleEnum
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../enums/FundingStatusEnum/" class="md-nav__link">
         
   
@@ -1423,6 +1315,33 @@
     
   
   Enum: OrgProjectRoleEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/OrganizationStructureRoleEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: OrganizationStructureRoleEnum
 
     
   </span>
@@ -2609,141 +2528,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/facilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facilities
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_affiliation_role/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliation_role
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_affiliations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliations
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_roles
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../slots/family_name/" class="md-nav__link">
         
   
@@ -3454,6 +3238,33 @@
     
   
   Slot: organization_structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/organization_structure_role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: organization_structure_role
 
     
   </span>
@@ -5664,8 +5475,10 @@
 <span class="w">  </span><span class="nt">Organization</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">An organization of any kind.</span>
+<span class="w">      </span><span class="no">An organization of any kind, at any level of granularity.</span>
 <span class="w">      </span><span class="no">Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type.</span>
+<span class="w">      </span><span class="no">A unit inside a larger body is an Organization too: a university DH lab, a digitization studio or a library&#39;s digital collections department each get their own Organization record, typed RESEARCH_CENTER or GLAM_INSTITUTION, with organization_structure pointing at the parent university or institution.</span>
+<span class="w">      </span><span class="no">Create the sub-organization record whenever the unit has its own identity — a name researchers use, its own staff, services or tools — rather than folding it into its parent.</span>
 <span class="w">      </span><span class="no">All organizations use the idhi:organization:&lt;shortid&gt; URN form.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Organization</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -5681,28 +5494,6 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ror</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_type</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">address</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_email</span>
-
-<span class="w">  </span><span class="nt">Facility</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations.</span>
-<span class="w">      </span><span class="no">Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization.</span>
-<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cerif:Facility</span>
-<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;idhi:Facility&quot;</span>
-<span class="w">      </span><span class="nt">id</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">structured_pattern</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">syntax</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^idhi:facility:{shortid}$&quot;</span>
-<span class="w">          </span><span class="nt">interpolated</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facility_affiliations</span><span class="w"> </span><span class="c1"># reified Facility-Organization links</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">address</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services_offered</span>
@@ -5734,7 +5525,6 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studied_places</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project_participations</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_roles</span><span class="w"> </span><span class="c1"># reified Organization-Project links</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facility_roles</span><span class="w"> </span><span class="c1"># reified Facility-Project links</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uses_tools</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uses_services</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uses_datasets</span>
@@ -5777,7 +5567,7 @@
 <span class="w">  </span><span class="nt">Service</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support).</span>
+<span class="w">      </span><span class="no">A reusable, human- or organization-mediated service offered by an organization (e.g., digitization on demand, OCR consulting, data curation support).</span>
 <span class="w">      </span><span class="no">Use Service when the offering requires the provider to act; use Tool for self-service software.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Service</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -5935,11 +5725,13 @@
 <span class="w">  </span><span class="nt">OrganizationStructure</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Formal containment of the containing Organization within a larger parent organization, with optional validity dates.</span>
-<span class="w">      </span><span class="no">Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.</span>
+<span class="w">      </span><span class="no">Formal containment of the containing Organization within a larger parent organization, with an optional host/owner role and optional validity dates.</span>
+<span class="w">      </span><span class="no">Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; a university DH lab points at its university this way, and a jointly run lab gets one instance per parent.</span>
+<span class="w">      </span><span class="no">Do not use it for partnerships, project participation or informal association.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Role</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_organization</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure_role</span>
 
 <span class="w">  </span><span class="nt">ProjectParticipation</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
@@ -5971,16 +5763,6 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org_project_role</span>
 
-<span class="w">  </span><span class="nt">FacilityProjectRole</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">A facility&#39;s engagement nested in a Project, so the project is inferred from the containing record.</span>
-<span class="w">      </span><span class="no">Use one instance per role in Project.facility_roles and do not provide the containing project&#39;s ID. Record a funder with Project.funding, not with a role here.</span>
-<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Role</span>
-<span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facility</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org_project_role</span>
-
 <span class="w">  </span><span class="nt">Funding</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period.</span>
@@ -6008,16 +5790,6 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">author</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">author_order</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">authorship_role</span>
-
-<span class="w">  </span><span class="nt">FacilityAffiliation</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">A facility&#39;s affiliation with an organization, nested in a Facility so the facility is inferred from the containing record.</span>
-<span class="w">      </span><span class="no">Use one instance per hosting or owning organization in Facility.facility_affiliations and do not provide the containing facility&#39;s ID; joint labs get several.</span>
-<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cerif:Facility_OrganisationUnit</span>
-<span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facility_affiliation_role</span>
 
 <span class="w">  </span><span class="nt">EventAgentRole</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
@@ -6061,11 +5833,6 @@
 <span class="w">        </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">        </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">        </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
-<span class="w">      </span><span class="nt">facilities</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All Facility records in the index.</span>
-<span class="w">        </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">        </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">        </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
 <span class="w">      </span><span class="nt">tools</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All Tool records in the index.</span>
 <span class="w">        </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -6255,36 +6022,29 @@
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Formal parent relationships of the containing organization, with the parent and optional start and end dates.</span>
-<span class="w">      </span><span class="no">Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.</span>
+<span class="w">      </span><span class="no">Formal parent relationships of the containing organization, each with the parent, an optional host/owner role and optional start and end dates.</span>
+<span class="w">      </span><span class="no">Set this on every sub-organization: a university lab or institute names its university here, a museum&#39;s digital unit names the museum.</span>
+<span class="w">      </span><span class="no">Define each containment relationship only on the child organization; give a jointly run unit one instance per parent; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationStructure</span>
 <span class="w">  </span><span class="nt">location</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.</span>
+<span class="w">      </span><span class="no">Place name where the organization or event is physically situated (e.g. a city), as free multilingual text.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:location</span>
 
-<span class="w">  </span><span class="c1"># --- Facility ---</span>
-<span class="w">  </span><span class="nt">facility_affiliations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FacilityAffiliation</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">The organizations hosting or owning the containing facility, as reified FacilityAffiliation objects with a required relationship role and optional dates.</span>
-<span class="w">      </span><span class="no">Reference each organization and infer the facility from its containing record; define separate relationships if different organizations host and own the facility.</span>
 <span class="w">  </span><span class="nt">services_offered</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Services this facility offers to researchers.</span>
-<span class="w">      </span><span class="no">Reference Service records by id; the Service&#39;s own &#39;provider&#39; may still point at the parent Organization.</span>
+<span class="w">      </span><span class="no">Services this organization offers to researchers.</span>
+<span class="w">      </span><span class="no">Reference Service records by id; list them on the unit that actually delivers them — a lab&#39;s services belong on the lab&#39;s own record rather than on its parent university.</span>
 <span class="w">  </span><span class="nt">tools_provided</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Tools this facility maintains or gives access to (by id).</span>
+<span class="w">      </span><span class="no">Tools this organization maintains or gives access to (by id).</span>
 <span class="w">      </span><span class="no">Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.</span>
 
 <span class="w">  </span><span class="c1"># --- Project ---</span>
@@ -6325,13 +6085,6 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider or host role.</span>
 <span class="w">      </span><span class="no">Reference each organization and infer the project from its containing record; use Project.funding to record a funder, not a role here.</span>
-<span class="w">  </span><span class="nt">facility_roles</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FacilityProjectRole</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">Facilities engaged in the containing project, as reified FacilityProjectRole objects carrying a coordinator, partner, data provider or host role.</span>
-<span class="w">      </span><span class="no">Reference each facility and infer the project from its containing record.</span>
 <span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -6465,7 +6218,7 @@
 <span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">The organization formally responsible for delivering the service (the one you&#39;d contact or contract with) — set this even when the service is listed under a Facility.</span>
+<span class="w">      </span><span class="no">The organization formally responsible for delivering the service (the one you&#39;d contact or contract with) — name the unit that delivers it, which may be a sub-organization such as a lab rather than its parent institution.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:provider</span>
 
 <span class="w">  </span><span class="c1"># --- Publication ---</span>
@@ -6684,17 +6437,12 @@
 <span class="w">  </span><span class="nt">organization</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.</span>
-<span class="w">  </span><span class="nt">facility</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The facility referenced by a project role (by IDHI URN). Use only in FacilityProjectRole; the containing Project supplies the relationship&#39;s other endpoint.</span>
-<span class="w">  </span><span class="nt">facility_affiliation_role</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FacilityAffiliationRoleEnum</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.</span>
+<span class="w">  </span><span class="nt">organization_structure_role</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructureRoleEnum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">The organization&#39;s relationship to the containing facility.</span>
-<span class="w">      </span><span class="no">Use HOST when it provides the facility&#39;s institutional or operational home and OWNER when it legally or administratively owns the facility; create two relationships when distinct organizations fill those roles.</span>
+<span class="w">      </span><span class="no">The parent&#39;s relationship to the containing sub-organization, where the two differ.</span>
+<span class="w">      </span><span class="no">Use HOST when the parent provides the unit&#39;s institutional or operational home and OWNER when it legally or administratively owns it; create one relationship per parent when distinct organizations fill those roles, and omit the role for ordinary containment where host and owner are the same body.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:roleName</span>
 <span class="w">  </span><span class="nt">affiliation_role</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersonOrgRoleEnum</span>
@@ -6705,7 +6453,7 @@
 <span class="w">  </span><span class="nt">org_project_role</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrgProjectRoleEnum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">The organization&#39;s or facility&#39;s function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home.</span>
+<span class="w">      </span><span class="no">The organization&#39;s function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home.</span>
 <span class="w">      </span><span class="no">Create one relationship instance per role; record a funder with Project.funding, not with a role here.</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:roleName</span>
 <span class="w">  </span><span class="nt">author</span><span class="p">:</span>
@@ -6795,7 +6543,7 @@
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A gallery, library, archive or museum.</span>
 <span class="w">      </span><span class="nt">RESEARCH_CENTER</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">          </span><span class="no">A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_structure with that parent and any known dates.</span>
+<span class="w">          </span><span class="no">A research center, institute or lab, whether independent or within a larger body — a university DH lab, a digitization studio or a campus research unit all belong here; when it is structurally contained in another organization, also add organization_structure with that parent, any host/owner role and any known dates.</span>
 <span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:ResearchOrganization</span>
 <span class="w">      </span><span class="nt">FUNDER</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A body whose primary role is funding research.</span>
@@ -6860,18 +6608,18 @@
 <span class="w">      </span><span class="nt">EMPLOYEE</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Staff fallback when no finer value fits.</span>
 
-<span class="w">  </span><span class="nt">FacilityAffiliationRoleEnum</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">OrganizationStructureRoleEnum</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">      </span><span class="no">IDHI-governed roles distinguishing the organizations connected to a facility. Use one relationship per organization and role so hosting and ownership are not conflated.</span>
+<span class="w">      </span><span class="no">IDHI-governed roles distinguishing the parent organizations of a sub-organization. Use one relationship per parent and role so hosting and ownership are not conflated; leave the role unset for ordinary containment.</span>
 <span class="w">    </span><span class="nt">permissible_values</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">HOST</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization provides the facility&#39;s institutional or operational home; use OWNER instead when only legal or administrative ownership is asserted. No established controlled concept precisely captures this facility-host role.</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The parent provides the sub-organization&#39;s institutional or operational home; use OWNER instead when only legal or administrative ownership is asserted. No established controlled concept precisely captures this host role.</span>
 <span class="w">      </span><span class="nt">OWNER</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization legally or administratively owns the facility; use HOST instead when it operates or houses a facility it does not own.</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The parent legally or administratively owns the sub-organization; use HOST instead when it operates or houses a unit it does not own.</span>
 <span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:owns</span>
 
 <span class="w">  </span><span class="nt">OrgProjectRoleEnum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization&#39;s or facility&#39;s role in a project (one instance per role).</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization&#39;s role in a project (one instance per role).</span>
 <span class="w">    </span><span class="nt">permissible_values</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">COORDINATOR</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leads/coordinates the project or consortium.</span>

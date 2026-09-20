@@ -615,87 +615,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../classes/Facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: Facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../classes/FacilityAffiliation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityAffiliation
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../classes/FacilityProjectRole/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityProjectRole
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -1320,33 +1239,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enums/FacilityAffiliationRoleEnum/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Enum: FacilityAffiliationRoleEnum
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../enums/FundingStatusEnum/" class="md-nav__link">
         
   
@@ -1409,6 +1301,33 @@
     
   
   Enum: OrgProjectRoleEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/OrganizationStructureRoleEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: OrganizationStructureRoleEnum
 
     
   </span>
@@ -2597,141 +2516,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../facilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facilities
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility_affiliation_role/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliation_role
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility_affiliations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliations
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../facility_roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_roles
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../family_name/" class="md-nav__link">
         
   
@@ -3442,6 +3226,33 @@
     
   
   Slot: organization_structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organization_structure_role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: organization_structure_role
 
     
   </span>
@@ -5785,7 +5596,7 @@
                   
 
 <h1 id="slot-services_offered">Slot: services_offered</h1>
-<p><em>Services this facility offers to researchers. Reference Service records by id; the Service's own 'provider' may still point at the parent Organization.</em></p>
+<p><em>Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://idhi_placeholder/linkml/slot/services_offered">idhi:slot/services_offered</a></p>
 <!-- no inheritance hierarchy -->
@@ -5800,8 +5611,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/Facility/">Facility</a></td>
-<td>A physical or virtual facility such as a DH lab, digitization studio or resea...</td>
+<td><a href="../../classes/Organization/">Organization</a></td>
+<td>An organization of any kind, at any level of granularity</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -5822,7 +5633,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../../classes/Facility/">Facility</a></td>
+<td><a href="../../classes/Organization/">Organization</a></td>
 </tr>
 </tbody>
 </table>
@@ -5868,12 +5679,13 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services_offered</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services this facility offers to researchers. Reference Service records</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">by id; the Service&#39;s own &#39;provider&#39; may still point at the parent Organization.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services this organization offers to researchers. Reference Service records</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">by id; list them on the unit that actually delivers them — a lab&#39;s services belong</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">on the lab&#39;s own record rather than on its parent university.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>

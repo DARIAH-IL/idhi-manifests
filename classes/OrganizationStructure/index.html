@@ -617,87 +617,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: Facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FacilityAffiliation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityAffiliation
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FacilityProjectRole/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityProjectRole
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Funding/" class="md-nav__link">
         
   
@@ -1493,33 +1412,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enums/FacilityAffiliationRoleEnum/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Enum: FacilityAffiliationRoleEnum
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../enums/FundingStatusEnum/" class="md-nav__link">
         
   
@@ -1582,6 +1474,33 @@
     
   
   Enum: OrgProjectRoleEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/OrganizationStructureRoleEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: OrganizationStructureRoleEnum
 
     
   </span>
@@ -2768,141 +2687,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/facilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facilities
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_affiliation_role/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliation_role
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_affiliations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliations
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_roles
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../slots/family_name/" class="md-nav__link">
         
   
@@ -3613,6 +3397,33 @@
     
   
   Slot: organization_structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/organization_structure_role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: organization_structure_role
 
     
   </span>
@@ -5829,7 +5640,7 @@
                   
 
 <h1 id="class-organizationstructure">Class: OrganizationStructure</h1>
-<p><em>Formal containment of the containing Organization within a larger parent organization, with optional validity dates. Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.</em></p>
+<p><em>Formal containment of the containing Organization within a larger parent organization, with an optional host/owner role and optional validity dates. Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; a university DH lab points at its university this way, and a jointly run lab gets one instance per parent. Do not use it for partnerships, project participation or informal association.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://schema.org/Role">schema:Role</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -5841,6 +5652,19 @@
 
 
       OrganizationStructure : end_date
+
+      OrganizationStructure : organization_structure_role
+
+
+
+
+
+        OrganizationStructure --&gt; "0..1" OrganizationStructureRoleEnum : organization_structure_role
+
+        click OrganizationStructureRoleEnum href "../../enums/OrganizationStructureRoleEnum/"
+
+
+
 
       OrganizationStructure : parent_organization
 
@@ -5895,6 +5719,12 @@
 <td><a href="../../slots/parent_organization/">parent_organization</a></td>
 <td><span title="Required: exactly one value">1</span> <br/> <a href="../../classes/Organization/">Organization</a></td>
 <td><span title="The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent.">The larger organization containing the current child organization (by IDHI UR...</span></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/organization_structure_role/">organization_structure_role</a></td>
+<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../enums/OrganizationStructureRoleEnum/">OrganizationStructureRoleEnum</a></td>
+<td><span title="The parent's relationship to the containing sub-organization, where the two differ. Use HOST when the parent provides the unit's institutional or operational home and OWNER when it legally or administratively owns it; create one relationship per parent when distinct organizations fill those roles, and omit the role for ordinary containment where host and owner are the same body.">The parent's relationship to the containing sub-organization, where the two d...</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5959,14 +5789,16 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Formal containment of the containing Organization within a larger parent</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">organization, with optional validity dates. Use in Organization.organization_structure</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">for departments, laboratories, centers or subsidiaries that are structurally part</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">of another organization; do not use it for partnerships, project participation or</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">informal association.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">organization, with an optional host/owner role and optional validity dates. Use</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">in Organization.organization_structure for departments, laboratories, centers or</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">subsidiaries that are structurally part of another organization; a university DH</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">lab points at its university this way, and a jointly run lab gets one instance per</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">parent. Do not use it for partnerships, project participation or informal association.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_organization</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure_role</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Role</span>
 </code></pre></div>
 </details>
@@ -5974,10 +5806,11 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Formal containment of the containing Organization within a larger parent</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">organization, with optional validity dates. Use in Organization.organization_structure</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">for departments, laboratories, centers or subsidiaries that are structurally part</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">of another organization; do not use it for partnerships, project participation or</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">informal association.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">organization, with an optional host/owner role and optional validity dates. Use</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">in Organization.organization_structure for departments, laboratories, centers or</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">subsidiaries that are structurally part of another organization; a university DH</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">lab points at its university this way, and a jointly run lab gets one instance per</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">parent. Do not use it for partnerships, project participation or informal association.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -5994,6 +5827,20 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">organization_structure_role</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure_role</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The parent&#39;s relationship to the containing sub-organization, where</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the two differ. Use HOST when the parent provides the unit&#39;s institutional or</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operational home and OWNER when it legally or administratively owns it; create</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">one relationship per parent when distinct organizations fill those roles, and</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">omit the role for ordinary containment where host and owner are the same body.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:roleName</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructure</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationStructureRoleEnum</span>
 <span class="w">  </span><span class="nt">start_date</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start_date</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start of the event, of the project&#39;s runtime, or of a relationship&#39;s</span>

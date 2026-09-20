@@ -617,87 +617,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: Facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FacilityAffiliation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityAffiliation
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FacilityProjectRole/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: FacilityProjectRole
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Funding/" class="md-nav__link">
         
   
@@ -1504,33 +1423,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enums/FacilityAffiliationRoleEnum/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Enum: FacilityAffiliationRoleEnum
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../enums/FundingStatusEnum/" class="md-nav__link">
         
   
@@ -1593,6 +1485,33 @@
     
   
   Enum: OrgProjectRoleEnum
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/OrganizationStructureRoleEnum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enum: OrganizationStructureRoleEnum
 
     
   </span>
@@ -2779,141 +2698,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slots/facilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facilities
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_affiliation_role/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliation_role
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_affiliations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_affiliations
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/facility_roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: facility_roles
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../slots/family_name/" class="md-nav__link">
         
   
@@ -3624,6 +3408,33 @@
     
   
   Slot: organization_structure
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/organization_structure_role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: organization_structure_role
 
     
   </span>
@@ -5851,7 +5662,7 @@
                   
 
 <h1 id="class-organization">Class: Organization</h1>
-<p><em>An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form.</em></p>
+<p><em>An organization of any kind, at any level of granularity. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. A unit inside a larger body is an Organization too: a university DH lab, a digitization studio or a library's digital collections department each get their own Organization record, typed RESEARCH_CENTER or GLAM_INSTITUTION, with organization_structure pointing at the parent university or institution. Create the sub-organization record whenever the unit has its own identity — a name researchers use, its own staff, services or tools — rather than folding it into its parent. All organizations use the idhi:organization:<shortid> URN form.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -5954,7 +5765,33 @@
 
       Organization : same_as
 
+      Organization : services_offered
+
+
+
+
+
+        Organization --&gt; "*" Service : services_offered
+
+        click Service href "../../classes/Service/"
+
+
+
+
       Organization : tags
+
+      Organization : tools_provided
+
+
+
+
+
+        Organization --&gt; "*" Tool : tools_provided
+
+        click Tool href "../../classes/Tool/"
+
+
+
 
       Organization : type
 
@@ -6016,19 +5853,31 @@
 <tr>
 <td><a href="../../slots/organization_structure/">organization_structure</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/OrganizationStructure/">OrganizationStructure</a></td>
-<td><span title="Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, with the parent a...</span></td>
+<td><span title="Formal parent relationships of the containing organization, each with the parent, an optional host/owner role and optional start and end dates. Set this on every sub-organization: a university lab or institute names its university here, a museum's digital unit names the museum. Define each containment relationship only on the child organization; give a jointly run unit one instance per parent; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, each with the par...</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/location/">location</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
-<td><span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span></td>
+<td><span title="Place name where the organization or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization or event is physically situated (e</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/address/">address</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
 <td><span title="Postal address, multilingual.">Postal address, multilingual</span></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/services_offered/">services_offered</a></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Service/">Service</a></td>
+<td><span title="Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.">Services this organization offers to researchers</span></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/tools_provided/">tools_provided</a></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Tool/">Tool</a></td>
+<td><span title="Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.">Tools this organization maintains or gives access to (by id)</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -6147,12 +5996,6 @@
 <td><a href="../../classes/Organization/">Organization</a></td>
 </tr>
 <tr>
-<td><a href="../../classes/FacilityAffiliation/">FacilityAffiliation</a></td>
-<td><a href="../../slots/organization/">organization</a></td>
-<td>range</td>
-<td><a href="../../classes/Organization/">Organization</a></td>
-</tr>
-<tr>
 <td><a href="../../classes/IndexContainer/">IndexContainer</a></td>
 <td><a href="../../slots/organizations/">organizations</a></td>
 <td>range</td>
@@ -6192,9 +6035,15 @@
 <h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization of any kind. Its kind (academic institution, GLAM, research</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">center, funder, company, non-profit or informal group) is given by organization_type.</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">All organizations use the idhi:organization:&lt;shortid&gt; URN form.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;An</span><span class="nv"> </span><span class="s">organization</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">kind,</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">granularity.</span><span class="nv"> </span><span class="s">Its</span><span class="nv"> </span><span class="s">kind</span><span class="nv"> </span><span class="s">(academic</span>
+<span class="w">  </span><span class="s">institution,</span><span class="nv"> </span><span class="s">GLAM,</span><span class="nv"> </span><span class="s">research</span><span class="nv"> </span><span class="s">center,</span><span class="nv"> </span><span class="s">funder,</span><span class="nv"> </span><span class="s">company,</span><span class="nv"> </span><span class="s">non-profit</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">informal</span><span class="nv"> </span><span class="s">group)</span>
+<span class="w">  </span><span class="s">is</span><span class="nv"> </span><span class="s">given</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">organization_type.</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">inside</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">larger</span><span class="nv"> </span><span class="s">body</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">Organization</span><span class="nv"> </span><span class="s">too:</span>
+<span class="w">  </span><span class="s">a</span><span class="nv"> </span><span class="s">university</span><span class="nv"> </span><span class="s">DH</span><span class="nv"> </span><span class="s">lab,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">digitization</span><span class="nv"> </span><span class="s">studio</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">library</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">digital</span><span class="nv"> </span><span class="s">collections</span><span class="nv"> </span><span class="s">department</span>
+<span class="w">  </span><span class="s">each</span><span class="nv"> </span><span class="s">get</span><span class="nv"> </span><span class="s">their</span><span class="nv"> </span><span class="s">own</span><span class="nv"> </span><span class="s">Organization</span><span class="nv"> </span><span class="s">record,</span><span class="nv"> </span><span class="s">typed</span><span class="nv"> </span><span class="s">RESEARCH_CENTER</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">GLAM_INSTITUTION,</span>
+<span class="w">  </span><span class="s">with</span><span class="nv"> </span><span class="s">organization_structure</span><span class="nv"> </span><span class="s">pointing</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">parent</span><span class="nv"> </span><span class="s">university</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">institution.</span><span class="nv"> </span><span class="s">Create</span>
+<span class="w">  </span><span class="s">the</span><span class="nv"> </span><span class="s">sub-organization</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">whenever</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">own</span><span class="nv"> </span><span class="s">identity</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">researchers</span>
+<span class="w">  </span><span class="s">use,</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">own</span><span class="nv"> </span><span class="s">staff,</span><span class="nv"> </span><span class="s">services</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">tools</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">rather</span><span class="nv"> </span><span class="s">than</span><span class="nv"> </span><span class="s">folding</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">into</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">parent.</span>
+<span class="w">  </span><span class="s">All</span><span class="nv"> </span><span class="s">organizations</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">idhi:organization:&lt;shortid&gt;</span><span class="nv"> </span><span class="s">URN</span><span class="nv"> </span><span class="s">form.&#39;</span>
 <span class="nt">in_subset</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toplevel_entity</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
@@ -6206,6 +6055,8 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">address</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services_offered</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tools_provided</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_email</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
@@ -6223,9 +6074,15 @@
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An organization of any kind. Its kind (academic institution, GLAM, research</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">center, funder, company, non-profit or informal group) is given by organization_type.</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">All organizations use the idhi:organization:&lt;shortid&gt; URN form.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;An</span><span class="nv"> </span><span class="s">organization</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">kind,</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">granularity.</span><span class="nv"> </span><span class="s">Its</span><span class="nv"> </span><span class="s">kind</span><span class="nv"> </span><span class="s">(academic</span>
+<span class="w">  </span><span class="s">institution,</span><span class="nv"> </span><span class="s">GLAM,</span><span class="nv"> </span><span class="s">research</span><span class="nv"> </span><span class="s">center,</span><span class="nv"> </span><span class="s">funder,</span><span class="nv"> </span><span class="s">company,</span><span class="nv"> </span><span class="s">non-profit</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">informal</span><span class="nv"> </span><span class="s">group)</span>
+<span class="w">  </span><span class="s">is</span><span class="nv"> </span><span class="s">given</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">organization_type.</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">inside</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">larger</span><span class="nv"> </span><span class="s">body</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">Organization</span><span class="nv"> </span><span class="s">too:</span>
+<span class="w">  </span><span class="s">a</span><span class="nv"> </span><span class="s">university</span><span class="nv"> </span><span class="s">DH</span><span class="nv"> </span><span class="s">lab,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">digitization</span><span class="nv"> </span><span class="s">studio</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">library</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">digital</span><span class="nv"> </span><span class="s">collections</span><span class="nv"> </span><span class="s">department</span>
+<span class="w">  </span><span class="s">each</span><span class="nv"> </span><span class="s">get</span><span class="nv"> </span><span class="s">their</span><span class="nv"> </span><span class="s">own</span><span class="nv"> </span><span class="s">Organization</span><span class="nv"> </span><span class="s">record,</span><span class="nv"> </span><span class="s">typed</span><span class="nv"> </span><span class="s">RESEARCH_CENTER</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">GLAM_INSTITUTION,</span>
+<span class="w">  </span><span class="s">with</span><span class="nv"> </span><span class="s">organization_structure</span><span class="nv"> </span><span class="s">pointing</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">parent</span><span class="nv"> </span><span class="s">university</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">institution.</span><span class="nv"> </span><span class="s">Create</span>
+<span class="w">  </span><span class="s">the</span><span class="nv"> </span><span class="s">sub-organization</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">whenever</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">own</span><span class="nv"> </span><span class="s">identity</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">researchers</span>
+<span class="w">  </span><span class="s">use,</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">own</span><span class="nv"> </span><span class="s">staff,</span><span class="nv"> </span><span class="s">services</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">tools</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">rather</span><span class="nv"> </span><span class="s">than</span><span class="nv"> </span><span class="s">folding</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">into</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">parent.</span>
+<span class="w">  </span><span class="s">All</span><span class="nv"> </span><span class="s">organizations</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">idhi:organization:&lt;shortid&gt;</span><span class="nv"> </span><span class="s">URN</span><span class="nv"> </span><span class="s">form.&#39;</span>
 <span class="nt">in_subset</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toplevel_entity</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
@@ -6252,7 +6109,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
@@ -6292,12 +6148,15 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationTypeEnum</span>
 <span class="w">  </span><span class="nt">organization_structure</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization_structure</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Formal parent relationships of the containing organization, with</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the parent and optional start and end dates. Define each containment relationship</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">only on the child organization; use organization_roles for project partnerships</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and omit this slot for informal associations. This uses an IDHI-specific property</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">because established parent-organization properties point directly to the parent</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and cannot carry relationship dates.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Formal</span><span class="nv"> </span><span class="s">parent</span><span class="nv"> </span><span class="s">relationships</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">containing</span><span class="nv"> </span><span class="s">organization,</span><span class="nv"> </span><span class="s">each</span>
+<span class="w">      </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">parent,</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">optional</span><span class="nv"> </span><span class="s">host/owner</span><span class="nv"> </span><span class="s">role</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">optional</span><span class="nv"> </span><span class="s">start</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">dates.</span>
+<span class="w">      </span><span class="s">Set</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">every</span><span class="nv"> </span><span class="s">sub-organization:</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">university</span><span class="nv"> </span><span class="s">lab</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">institute</span><span class="nv"> </span><span class="s">names</span><span class="nv"> </span><span class="s">its</span>
+<span class="w">      </span><span class="s">university</span><span class="nv"> </span><span class="s">here,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">museum</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">digital</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">names</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">museum.</span><span class="nv"> </span><span class="s">Define</span><span class="nv"> </span><span class="s">each</span><span class="nv"> </span><span class="s">containment</span>
+<span class="w">      </span><span class="s">relationship</span><span class="nv"> </span><span class="s">only</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">child</span><span class="nv"> </span><span class="s">organization;</span><span class="nv"> </span><span class="s">give</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">jointly</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">instance</span>
+<span class="w">      </span><span class="s">per</span><span class="nv"> </span><span class="s">parent;</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">organization_roles</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">project</span><span class="nv"> </span><span class="s">partnerships</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">omit</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">slot</span>
+<span class="w">      </span><span class="s">for</span><span class="nv"> </span><span class="s">informal</span><span class="nv"> </span><span class="s">associations.</span><span class="nv"> </span><span class="s">This</span><span class="nv"> </span><span class="s">uses</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">IDHI-specific</span><span class="nv"> </span><span class="s">property</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">established</span>
+<span class="w">      </span><span class="s">parent-organization</span><span class="nv"> </span><span class="s">properties</span><span class="nv"> </span><span class="s">point</span><span class="nv"> </span><span class="s">directly</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">parent</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">cannot</span><span class="nv"> </span><span class="s">carry</span>
+<span class="w">      </span><span class="s">relationship</span><span class="nv"> </span><span class="s">dates.&#39;</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:organizationStructure</span>
@@ -6310,15 +6169,14 @@
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">location</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Place name where the organization, facility or event is physically</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">situated (e.g. a city), as free multilingual text.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Place name where the organization or event is physically situated</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">(e.g. a city), as free multilingual text.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:location</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -6333,12 +6191,35 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">services_offered</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services_offered</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services this organization offers to researchers. Reference Service</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">records by id; list them on the unit that actually delivers them — a lab&#39;s services</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">belong on the lab&#39;s own record rather than on its parent university.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">tools_provided</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tools_provided</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tools this organization maintains or gives access to (by id). Use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for hosted instances and lab-maintained software, not for every tool staff members</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">happen to use.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">additional_urls</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Further relevant web pages beyond the homepage (blog, social-media</span>
@@ -6350,7 +6231,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
@@ -6368,7 +6248,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
