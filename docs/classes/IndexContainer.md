@@ -52,19 +52,6 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
     
 
         
-      IndexContainer : facilities
-        
-          
-    
-        
-        
-        IndexContainer --> "*" Facility : facilities
-        
-        click Facility href "../../classes/Facility/"
-        
-    
-
-        
       IndexContainer : organizations
         
           
@@ -175,7 +162,6 @@ URI: [idhi:class/IndexContainer](https://idhi_placeholder/linkml/class/IndexCont
 | [persons](../slots/persons.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Person](../classes/Person.md) | <span title="All Person records in the index.">All Person records in the index</span> | direct |
 | [organizations](../slots/organizations.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Organization](../classes/Organization.md) | <span title="All Organization records in the index.">All Organization records in the index</span> | direct |
 | [projects](../slots/projects.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Project](../classes/Project.md) | <span title="All Project records in the index.">All Project records in the index</span> | direct |
-| [facilities](../slots/facilities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Facility](../classes/Facility.md) | <span title="All Facility records in the index.">All Facility records in the index</span> | direct |
 | [tools](../slots/tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="All Tool records in the index.">All Tool records in the index</span> | direct |
 | [services](../slots/services.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="All Service records in the index.">All Service records in the index</span> | direct |
 | [publications](../slots/publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="All Publication records in the index.">All Publication records in the index</span> | direct |
@@ -262,16 +248,6 @@ attributes:
     domain_of:
     - IndexContainer
     range: Project
-    multivalued: true
-    inlined_as_list: true
-  facilities:
-    name: facilities
-    description: All Facility records in the index.
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    domain_of:
-    - IndexContainer
-    range: Facility
     multivalued: true
     inlined_as_list: true
   tools:
@@ -383,18 +359,6 @@ attributes:
     domain_of:
     - IndexContainer
     range: Project
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  facilities:
-    name: facilities
-    description: All Facility records in the index.
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    owner: IndexContainer
-    domain_of:
-    - IndexContainer
-    range: Facility
     multivalued: true
     inlined: true
     inlined_as_list: true

@@ -122,8 +122,10 @@ classes:
   Organization:
     is_a: Agent
     description: >-
-      An organization of any kind.
+      An organization of any kind, at any level of granularity.
       Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type.
+      A unit inside a larger body is an Organization too: a university DH lab, a digitization studio or a library's digital collections department each get their own Organization record, typed RESEARCH_CENTER or GLAM_INSTITUTION, with organization_structure pointing at the parent university or institution.
+      Create the sub-organization record whenever the unit has its own identity — a name researchers use, its own staff, services or tools — rather than folding it into its parent.
       All organizations use the idhi:organization:<shortid> URN form.
     class_uri: foaf:Organization
     in_subset: [ toplevel_entity ]
@@ -139,28 +141,6 @@ classes:
       - ror
       - organization_type
       - organization_structure
-      - location
-      - address
-      - additional_urls
-      - contact_email
-
-  Facility:
-    is_a: Entity
-    description: >-
-      A physical or virtual facility such as a DH lab, digitization studio or research infrastructure, affiliated with one or more organizations.
-      Use Facility when the unit offers services/tools and has its own identity distinct from its host organization; otherwise just use the Organization.
-    class_uri: cerif:Facility
-    in_subset: [ toplevel_entity ]
-    slot_usage:
-      type:
-        equals_string: "idhi:Facility"
-      id:
-        structured_pattern:
-          syntax: "^idhi:facility:{shortid}$"
-          interpolated: true
-    slots:
-      - name
-      - facility_affiliations # reified Facility-Organization links
       - location
       - address
       - services_offered
@@ -192,7 +172,6 @@ classes:
       - studied_places
       - project_participations
       - organization_roles # reified Organization-Project links
-      - facility_roles # reified Facility-Project links
       - uses_tools
       - uses_services
       - uses_datasets
@@ -235,7 +214,7 @@ classes:
   Service:
     is_a: Entity
     description: >-
-      A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support).
+      A reusable, human- or organization-mediated service offered by an organization (e.g., digitization on demand, OCR consulting, data curation support).
       Use Service when the offering requires the provider to act; use Tool for self-service software.
     class_uri: schema:Service
     in_subset: [ toplevel_entity ]
@@ -393,11 +372,13 @@ classes:
   OrganizationStructure:
     is_a: Relationship
     description: >-
-      Formal containment of the containing Organization within a larger parent organization, with optional validity dates.
-      Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association.
+      Formal containment of the containing Organization within a larger parent organization, with an optional host/owner role and optional validity dates.
+      Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; a university DH lab points at its university this way, and a jointly run lab gets one instance per parent.
+      Do not use it for partnerships, project participation or informal association.
     class_uri: schema:Role
     slots:
       - parent_organization
+      - organization_structure_role
 
   ProjectParticipation:
     is_a: Relationship
@@ -429,16 +410,6 @@ classes:
       - organization
       - org_project_role
 
-  FacilityProjectRole:
-    is_a: Relationship
-    description: >-
-      A facility's engagement nested in a Project, so the project is inferred from the containing record.
-      Use one instance per role in Project.facility_roles and do not provide the containing project's ID. Record a funder with Project.funding, not with a role here.
-    class_uri: schema:Role
-    slots:
-      - facility
-      - org_project_role
-
   Funding:
     description: >-
       A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period.
@@ -466,16 +437,6 @@ classes:
       - author
       - author_order
       - authorship_role
-
-  FacilityAffiliation:
-    is_a: Relationship
-    description: >-
-      A facility's affiliation with an organization, nested in a Facility so the facility is inferred from the containing record.
-      Use one instance per hosting or owning organization in Facility.facility_affiliations and do not provide the containing facility's ID; joint labs get several.
-    class_uri: cerif:Facility_OrganisationUnit
-    slots:
-      - organization
-      - facility_affiliation_role
 
   EventAgentRole:
     is_a: Relationship
@@ -519,11 +480,6 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: Project
-      facilities:
-        description: All Facility records in the index.
-        multivalued: true
-        inlined_as_list: true
-        range: Facility
       tools:
         description: All Tool records in the index.
         multivalued: true
@@ -713,36 +669,29 @@ slots:
     multivalued: true
     inlined_as_list: true
     description: >-
-      Formal parent relationships of the containing organization, with the parent and optional start and end dates.
-      Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.
+      Formal parent relationships of the containing organization, each with the parent, an optional host/owner role and optional start and end dates.
+      Set this on every sub-organization: a university lab or institute names its university here, a museum's digital unit names the museum.
+      Define each containment relationship only on the child organization; give a jointly run unit one instance per parent; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.
     slot_uri: idhi:organizationStructure
   location:
     range: LangString
     multivalued: true
     inlined_as_list: true
     description: >-
-      Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.
+      Place name where the organization or event is physically situated (e.g. a city), as free multilingual text.
     slot_uri: schema:location
 
-  # --- Facility ---
-  facility_affiliations:
-    range: FacilityAffiliation
-    multivalued: true
-    inlined_as_list: true
-    description: >-
-      The organizations hosting or owning the containing facility, as reified FacilityAffiliation objects with a required relationship role and optional dates.
-      Reference each organization and infer the facility from its containing record; define separate relationships if different organizations host and own the facility.
   services_offered:
     range: Service
     multivalued: true
     description: >-
-      Services this facility offers to researchers.
-      Reference Service records by id; the Service's own 'provider' may still point at the parent Organization.
+      Services this organization offers to researchers.
+      Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.
   tools_provided:
     range: Tool
     multivalued: true
     description: >-
-      Tools this facility maintains or gives access to (by id).
+      Tools this organization maintains or gives access to (by id).
       Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.
 
   # --- Project ---
@@ -783,13 +732,6 @@ slots:
     description: >-
       Organizations engaged in the containing project, as reified OrganizationProjectRole objects carrying a coordinator, partner, data provider or host role.
       Reference each organization and infer the project from its containing record; use Project.funding to record a funder, not a role here.
-  facility_roles:
-    range: FacilityProjectRole
-    multivalued: true
-    inlined_as_list: true
-    description: >-
-      Facilities engaged in the containing project, as reified FacilityProjectRole objects carrying a coordinator, partner, data provider or host role.
-      Reference each facility and infer the project from its containing record.
   uses_tools:
     range: Tool
     multivalued: true
@@ -923,7 +865,7 @@ slots:
   provider:
     range: Organization
     description: >-
-      The organization formally responsible for delivering the service (the one you'd contact or contract with) — set this even when the service is listed under a Facility.
+      The organization formally responsible for delivering the service (the one you'd contact or contract with) — name the unit that delivers it, which may be a sub-organization such as a lab rather than its parent institution.
     slot_uri: schema:provider
 
   # --- Publication ---
@@ -1142,17 +1084,12 @@ slots:
   organization:
     range: Organization
     required: true
-    description: The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint.
-  facility:
-    range: Facility
-    required: true
-    description: The facility referenced by a project role (by IDHI URN). Use only in FacilityProjectRole; the containing Project supplies the relationship's other endpoint.
-  facility_affiliation_role:
-    range: FacilityAffiliationRoleEnum
-    required: true
+    description: The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.
+  organization_structure_role:
+    range: OrganizationStructureRoleEnum
     description: >-
-      The organization's relationship to the containing facility.
-      Use HOST when it provides the facility's institutional or operational home and OWNER when it legally or administratively owns the facility; create two relationships when distinct organizations fill those roles.
+      The parent's relationship to the containing sub-organization, where the two differ.
+      Use HOST when the parent provides the unit's institutional or operational home and OWNER when it legally or administratively owns it; create one relationship per parent when distinct organizations fill those roles, and omit the role for ordinary containment where host and owner are the same body.
     slot_uri: schema:roleName
   affiliation_role:
     range: PersonOrgRoleEnum
@@ -1163,7 +1100,7 @@ slots:
   org_project_role:
     range: OrgProjectRoleEnum
     description: >-
-      The organization's or facility's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home.
+      The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home.
       Create one relationship instance per role; record a funder with Project.funding, not with a role here.
     slot_uri: schema:roleName
   author:
@@ -1253,7 +1190,7 @@ enums:
         description: A gallery, library, archive or museum.
       RESEARCH_CENTER:
         description: >-
-          A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_structure with that parent and any known dates.
+          A research center, institute or lab, whether independent or within a larger body — a university DH lab, a digitization studio or a campus research unit all belong here; when it is structurally contained in another organization, also add organization_structure with that parent, any host/owner role and any known dates.
         meaning: schema:ResearchOrganization
       FUNDER:
         description: A body whose primary role is funding research.
@@ -1318,18 +1255,18 @@ enums:
       EMPLOYEE:
         description: Staff fallback when no finer value fits.
 
-  FacilityAffiliationRoleEnum:
+  OrganizationStructureRoleEnum:
     description: >-
-      IDHI-governed roles distinguishing the organizations connected to a facility. Use one relationship per organization and role so hosting and ownership are not conflated.
+      IDHI-governed roles distinguishing the parent organizations of a sub-organization. Use one relationship per parent and role so hosting and ownership are not conflated; leave the role unset for ordinary containment.
     permissible_values:
       HOST:
-        description: The organization provides the facility's institutional or operational home; use OWNER instead when only legal or administrative ownership is asserted. No established controlled concept precisely captures this facility-host role.
+        description: The parent provides the sub-organization's institutional or operational home; use OWNER instead when only legal or administrative ownership is asserted. No established controlled concept precisely captures this host role.
       OWNER:
-        description: The organization legally or administratively owns the facility; use HOST instead when it operates or houses a facility it does not own.
+        description: The parent legally or administratively owns the sub-organization; use HOST instead when it operates or houses a unit it does not own.
         meaning: schema:owns
 
   OrgProjectRoleEnum:
-    description: An organization's or facility's role in a project (one instance per role).
+    description: An organization's role in a project (one instance per role).
     permissible_values:
       COORDINATOR:
         description: Leads/coordinates the project or consortium.

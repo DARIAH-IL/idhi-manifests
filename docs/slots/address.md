@@ -25,8 +25,7 @@ URI: [schema:address](http://schema.org/address)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 
 
@@ -41,7 +40,7 @@ URI: [schema:address](http://schema.org/address)
 | Property | Value |
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Event](../classes/Event.md) |
+| Domain Of | [Organization](../classes/Organization.md), [Event](../classes/Event.md) |
 | Slot URI | [schema:address](http://schema.org/address) |
 
 ### Cardinality and Requirements
@@ -94,7 +93,6 @@ rank: 1000
 slot_uri: schema:address
 domain_of:
 - Organization
-- Facility
 - Event
 range: LangString
 multivalued: true

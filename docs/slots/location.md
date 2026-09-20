@@ -6,7 +6,7 @@ search:
 # Slot: location 
 
 
-_Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text._
+_Place name where the organization or event is physically situated (e.g. a city), as free multilingual text._
 
 
 
@@ -25,8 +25,7 @@ URI: [schema:location](http://schema.org/location)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 
 
@@ -41,7 +40,7 @@ URI: [schema:location](http://schema.org/location)
 | Property | Value |
 | --- | --- |
 | Range | [LangString](../classes/LangString.md) |
-| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Event](../classes/Event.md) |
+| Domain Of | [Organization](../classes/Organization.md), [Event](../classes/Event.md) |
 | Slot URI | [schema:location](http://schema.org/location) |
 
 ### Cardinality and Requirements
@@ -88,14 +87,13 @@ URI: [schema:location](http://schema.org/location)
 <details>
 ```yaml
 name: location
-description: Place name where the organization, facility or event is physically situated
-  (e.g. a city), as free multilingual text.
+description: Place name where the organization or event is physically situated (e.g.
+  a city), as free multilingual text.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:location
 domain_of:
 - Organization
-- Facility
 - Event
 range: LangString
 multivalued: true

@@ -25,11 +25,10 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 | [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
-| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
+| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
@@ -45,7 +44,7 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 | Property | Value |
 | --- | --- |
 | Range | [Uri](../types/Uri.md) |
-| Domain Of | [Organization](../classes/Organization.md), [Facility](../classes/Facility.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Event](../classes/Event.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
+| Domain Of | [Organization](../classes/Organization.md), [Project](../classes/Project.md), [Tool](../classes/Tool.md), [Service](../classes/Service.md), [Event](../classes/Event.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [foaf:page](http://xmlns.com/foaf/0.1/page) |
 
 ### Cardinality and Requirements
@@ -100,7 +99,6 @@ rank: 1000
 slot_uri: foaf:page
 domain_of:
 - Organization
-- Facility
 - Project
 - Tool
 - Service

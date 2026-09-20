@@ -25,7 +25,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 
 
 

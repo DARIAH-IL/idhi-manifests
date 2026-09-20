@@ -6,7 +6,7 @@ search:
 # Class: OrganizationStructure 
 
 
-_Formal containment of the containing Organization within a larger parent organization, with optional validity dates. Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; do not use it for partnerships, project participation or informal association._
+_Formal containment of the containing Organization within a larger parent organization, with an optional host/owner role and optional validity dates. Use in Organization.organization_structure for departments, laboratories, centers or subsidiaries that are structurally part of another organization; a university DH lab points at its university this way, and a jointly run lab gets one instance per parent. Do not use it for partnerships, project participation or informal association._
 
 
 
@@ -29,6 +29,19 @@ URI: [schema:Role](http://schema.org/Role)
       
 
       OrganizationStructure : end_date
+        
+      OrganizationStructure : organization_structure_role
+        
+          
+    
+        
+        
+        OrganizationStructure --> "0..1" OrganizationStructureRoleEnum : organization_structure_role
+        
+        click OrganizationStructureRoleEnum href "../../enums/OrganizationStructureRoleEnum/"
+        
+    
+
         
       OrganizationStructure : parent_organization
         
@@ -68,6 +81,7 @@ URI: [schema:Role](http://schema.org/Role)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [parent_organization](../slots/parent_organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The larger organization containing the current child organization (by IDHI URN). Use only in Organization.organization_structure; define the relationship on the child rather than the parent.">The larger organization containing the current child organization (by IDHI UR...</span> | direct |
+| [organization_structure_role](../slots/organization_structure_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrganizationStructureRoleEnum](../enums/OrganizationStructureRoleEnum.md) | <span title="The parent's relationship to the containing sub-organization, where the two differ. Use HOST when the parent provides the unit's institutional or operational home and OWNER when it legally or administratively owns it; create one relationship per parent when distinct organizations fill those roles, and omit the role for ordinary containment where host and owner are the same body.">The parent's relationship to the containing sub-organization, where the two d...</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
@@ -126,14 +140,16 @@ URI: [schema:Role](http://schema.org/Role)
 ```yaml
 name: OrganizationStructure
 description: Formal containment of the containing Organization within a larger parent
-  organization, with optional validity dates. Use in Organization.organization_structure
-  for departments, laboratories, centers or subsidiaries that are structurally part
-  of another organization; do not use it for partnerships, project participation or
-  informal association.
+  organization, with an optional host/owner role and optional validity dates. Use
+  in Organization.organization_structure for departments, laboratories, centers or
+  subsidiaries that are structurally part of another organization; a university DH
+  lab points at its university this way, and a jointly run lab gets one instance per
+  parent. Do not use it for partnerships, project participation or informal association.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
 - parent_organization
+- organization_structure_role
 class_uri: schema:Role
 
 ```
@@ -145,10 +161,11 @@ class_uri: schema:Role
 ```yaml
 name: OrganizationStructure
 description: Formal containment of the containing Organization within a larger parent
-  organization, with optional validity dates. Use in Organization.organization_structure
-  for departments, laboratories, centers or subsidiaries that are structurally part
-  of another organization; do not use it for partnerships, project participation or
-  informal association.
+  organization, with an optional host/owner role and optional validity dates. Use
+  in Organization.organization_structure for departments, laboratories, centers or
+  subsidiaries that are structurally part of another organization; a university DH
+  lab points at its university this way, and a jointly run lab gets one instance per
+  parent. Do not use it for partnerships, project participation or informal association.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
@@ -165,6 +182,20 @@ attributes:
     - OrganizationStructure
     range: Organization
     required: true
+  organization_structure_role:
+    name: organization_structure_role
+    description: The parent's relationship to the containing sub-organization, where
+      the two differ. Use HOST when the parent provides the unit's institutional or
+      operational home and OWNER when it legally or administratively owns it; create
+      one relationship per parent when distinct organizations fill those roles, and
+      omit the role for ordinary containment where host and owner are the same body.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:roleName
+    owner: OrganizationStructure
+    domain_of:
+    - OrganizationStructure
+    range: OrganizationStructureRoleEnum
   start_date:
     name: start_date
     description: Start of the event, of the project's runtime, or of a relationship's

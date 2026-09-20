@@ -6,7 +6,7 @@ search:
 # Class: Organization 
 
 
-_An organization of any kind. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. All organizations use the idhi:organization:<shortid> URN form._
+_An organization of any kind, at any level of granularity. Its kind (academic institution, GLAM, research center, funder, company, non-profit or informal group) is given by organization_type. A unit inside a larger body is an Organization too: a university DH lab, a digitization studio or a library's digital collections department each get their own Organization record, typed RESEARCH_CENTER or GLAM_INSTITUTION, with organization_structure pointing at the parent university or institution. Create the sub-organization record whenever the unit has its own identity — a name researchers use, its own staff, services or tools — rather than folding it into its parent. All organizations use the idhi:organization:<shortid> URN form._
 
 
 
@@ -120,7 +120,33 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
         
       Organization : same_as
         
+      Organization : services_offered
+        
+          
+    
+        
+        
+        Organization --> "*" Service : services_offered
+        
+        click Service href "../../classes/Service/"
+        
+    
+
+        
       Organization : tags
+        
+      Organization : tools_provided
+        
+          
+    
+        
+        
+        Organization --> "*" Tool : tools_provided
+        
+        click Tool href "../../classes/Tool/"
+        
+    
+
         
       Organization : type
         
@@ -150,9 +176,11 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [ror](../slots/ror.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The organization's persistent registry identifier. It supplements the IDHI record id. Record it whenever the organization is registered in ROR — most universities and research institutes are.">The organization's persistent registry identifier</span> | direct |
 | [organization_type](../slots/organization_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrganizationTypeEnum](../enums/OrganizationTypeEnum.md) | <span title="The kind of organization. Always set it.">The kind of organization</span> | direct |
-| [organization_structure](../slots/organization_structure.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationStructure](../classes/OrganizationStructure.md) | <span title="Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, with the parent a...</span> | direct |
-| [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
+| [organization_structure](../slots/organization_structure.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationStructure](../classes/OrganizationStructure.md) | <span title="Formal parent relationships of the containing organization, each with the parent, an optional host/owner role and optional start and end dates. Set this on every sub-organization: a university lab or institute names its university here, a museum's digital unit names the museum. Define each containment relationship only on the child organization; give a jointly run unit one instance per parent; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, each with the par...</span> | direct |
+| [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization or event is physically situated (e</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
+| [services_offered](../slots/services_offered.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.">Services this organization offers to researchers</span> | direct |
+| [tools_provided](../slots/tools_provided.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.">Tools this organization maintains or gives access to (by id)</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -179,7 +207,6 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 | [Affiliation](../classes/Affiliation.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [Funding](../classes/Funding.md) | [funding_organization](../slots/funding_organization.md) | range | [Organization](../classes/Organization.md) |
-| [FacilityAffiliation](../classes/FacilityAffiliation.md) | [organization](../slots/organization.md) | range | [Organization](../classes/Organization.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [organizations](../slots/organizations.md) | range | [Organization](../classes/Organization.md) |
 
 
@@ -232,9 +259,15 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 <details>
 ```yaml
 name: Organization
-description: An organization of any kind. Its kind (academic institution, GLAM, research
-  center, funder, company, non-profit or informal group) is given by organization_type.
-  All organizations use the idhi:organization:<shortid> URN form.
+description: 'An organization of any kind, at any level of granularity. Its kind (academic
+  institution, GLAM, research center, funder, company, non-profit or informal group)
+  is given by organization_type. A unit inside a larger body is an Organization too:
+  a university DH lab, a digitization studio or a library''s digital collections department
+  each get their own Organization record, typed RESEARCH_CENTER or GLAM_INSTITUTION,
+  with organization_structure pointing at the parent university or institution. Create
+  the sub-organization record whenever the unit has its own identity — a name researchers
+  use, its own staff, services or tools — rather than folding it into its parent.
+  All organizations use the idhi:organization:<shortid> URN form.'
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
@@ -246,6 +279,8 @@ slots:
 - organization_structure
 - location
 - address
+- services_offered
+- tools_provided
 - additional_urls
 - contact_email
 slot_usage:
@@ -267,9 +302,15 @@ class_uri: foaf:Organization
 <details>
 ```yaml
 name: Organization
-description: An organization of any kind. Its kind (academic institution, GLAM, research
-  center, funder, company, non-profit or informal group) is given by organization_type.
-  All organizations use the idhi:organization:<shortid> URN form.
+description: 'An organization of any kind, at any level of granularity. Its kind (academic
+  institution, GLAM, research center, funder, company, non-profit or informal group)
+  is given by organization_type. A unit inside a larger body is an Organization too:
+  a university DH lab, a digitization studio or a library''s digital collections department
+  each get their own Organization record, typed RESEARCH_CENTER or GLAM_INSTITUTION,
+  with organization_structure pointing at the parent university or institution. Create
+  the sub-organization record whenever the unit has its own identity — a name researchers
+  use, its own staff, services or tools — rather than folding it into its parent.
+  All organizations use the idhi:organization:<shortid> URN form.'
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
@@ -296,7 +337,6 @@ attributes:
     owner: Organization
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -336,12 +376,15 @@ attributes:
     range: OrganizationTypeEnum
   organization_structure:
     name: organization_structure
-    description: Formal parent relationships of the containing organization, with
-      the parent and optional start and end dates. Define each containment relationship
-      only on the child organization; use organization_roles for project partnerships
-      and omit this slot for informal associations. This uses an IDHI-specific property
-      because established parent-organization properties point directly to the parent
-      and cannot carry relationship dates.
+    description: 'Formal parent relationships of the containing organization, each
+      with the parent, an optional host/owner role and optional start and end dates.
+      Set this on every sub-organization: a university lab or institute names its
+      university here, a museum''s digital unit names the museum. Define each containment
+      relationship only on the child organization; give a jointly run unit one instance
+      per parent; use organization_roles for project partnerships and omit this slot
+      for informal associations. This uses an IDHI-specific property because established
+      parent-organization properties point directly to the parent and cannot carry
+      relationship dates.'
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: idhi:organizationStructure
@@ -354,15 +397,14 @@ attributes:
     inlined_as_list: true
   location:
     name: location
-    description: Place name where the organization, facility or event is physically
-      situated (e.g. a city), as free multilingual text.
+    description: Place name where the organization or event is physically situated
+      (e.g. a city), as free multilingual text.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:location
     owner: Organization
     domain_of:
     - Organization
-    - Facility
     - Event
     range: LangString
     multivalued: true
@@ -377,12 +419,35 @@ attributes:
     owner: Organization
     domain_of:
     - Organization
-    - Facility
     - Event
     range: LangString
     multivalued: true
     inlined: true
     inlined_as_list: true
+  services_offered:
+    name: services_offered
+    description: Services this organization offers to researchers. Reference Service
+      records by id; list them on the unit that actually delivers them — a lab's services
+      belong on the lab's own record rather than on its parent university.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    owner: Organization
+    domain_of:
+    - Organization
+    range: Service
+    multivalued: true
+  tools_provided:
+    name: tools_provided
+    description: Tools this organization maintains or gives access to (by id). Use
+      for hosted instances and lab-maintained software, not for every tool staff members
+      happen to use.
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    owner: Organization
+    domain_of:
+    - Organization
+    range: Tool
+    multivalued: true
   additional_urls:
     name: additional_urls
     description: Further relevant web pages beyond the homepage (blog, social-media
@@ -394,7 +459,6 @@ attributes:
     owner: Organization
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -412,7 +476,6 @@ attributes:
     owner: Organization
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service

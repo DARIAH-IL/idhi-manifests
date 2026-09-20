@@ -26,7 +26,7 @@ URI: [schema:softwareHelp](http://schema.org/softwareHelp)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
-| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
+| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |  no  |
 
 
 

@@ -14,14 +14,13 @@ Name: idhi
 | --- | --- |
 | [Entity](classes/Entity.md) | Root class for any identifiable IDHI entity |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Agent](classes/Agent.md) | A person or an organization |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Organization](classes/Organization.md) | An organization of any kind |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Organization](classes/Organization.md) | An organization of any kind, at any level of granularity |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dataset](classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Event](classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Facility](classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Project](classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Publication](classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Service](classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Service](classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tool](classes/Tool.md) | A reusable software tool, typically produced by a project |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TrainingMaterial](classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |
 | [Funding](classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |
@@ -31,8 +30,6 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Affiliation](classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Authorship](classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[EventAgentRole](classes/EventAgentRole.md) | A person or organization involved in the containing Event in a defined capaci... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FacilityAffiliation](classes/FacilityAffiliation.md) | A facility's affiliation with an organization, nested in a Facility so the fa... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FacilityProjectRole](classes/FacilityProjectRole.md) | A facility's engagement nested in a Project, so the project is inferred from ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationProjectRole](classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationStructure](classes/OrganizationStructure.md) | Formal containment of the containing Organization within a larger parent orga... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ProjectParticipation](classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |
@@ -75,11 +72,6 @@ Name: idhi
 | [event_type](slots/event_type.md) | The kind of scholarly event |
 | [events](slots/events.md) | All Event records in the index |
 | [extent](slots/extent.md) | Technical extent statements such as record, item, issue, image or file counts |
-| [facilities](slots/facilities.md) | All Facility records in the index |
-| [facility](slots/facility.md) | The facility referenced by a project role (by IDHI URN) |
-| [facility_affiliation_role](slots/facility_affiliation_role.md) | The organization's relationship to the containing facility |
-| [facility_affiliations](slots/facility_affiliations.md) | The organizations hosting or owning the containing facility, as reified Facil... |
-| [facility_roles](slots/facility_roles.md) | Facilities engaged in the containing project, as reified FacilityProjectRole ... |
 | [family_name](slots/family_name.md) | Family (last) name as multilingual text |
 | [funding](slots/funding.md) | Funding awards received by the project |
 | [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in the currency given ... |
@@ -98,15 +90,16 @@ Name: idhi
 | [language](slots/language.md) | BCP-47 language tag of the value, such as en, he, ar, de, yi or lad |
 | [learning_outcomes](slots/learning_outcomes.md) | Knowledge or skills a learner should gain by completing the material, as mult... |
 | [license](slots/license.md) | The license under which the tool, dataset or training material is released |
-| [location](slots/location.md) | Place name where the organization, facility or event is physically situated (... |
+| [location](slots/location.md) | Place name where the organization or event is physically situated (e |
 | [material_url](slots/material_url.md) | Direct landing or access URL for the instructional resource |
 | [media_type](slots/media_type.md) | Technical media type of the primary dataset distribution or training resource... |
 | [name](slots/name.md) | The multilingual name or title used to identify the entity |
 | [orcid](slots/orcid.md) | The person's persistent researcher identifier |
-| [org_project_role](slots/org_project_role.md) | The organization's or facility's function in the project: COORDINATOR leads t... |
-| [organization](slots/organization.md) | The organization referenced by a person affiliation, facility affiliation or ... |
+| [org_project_role](slots/org_project_role.md) | The organization's function in the project: COORDINATOR leads the consortium,... |
+| [organization](slots/organization.md) | The organization referenced by a person affiliation or project role (by IDHI ... |
 | [organization_roles](slots/organization_roles.md) | Organizations engaged in the containing project, as reified OrganizationProje... |
-| [organization_structure](slots/organization_structure.md) | Formal parent relationships of the containing organization, with the parent a... |
+| [organization_structure](slots/organization_structure.md) | Formal parent relationships of the containing organization, each with the par... |
+| [organization_structure_role](slots/organization_structure_role.md) | The parent's relationship to the containing sub-organization, where the two d... |
 | [organization_type](slots/organization_type.md) | The kind of organization |
 | [organizations](slots/organizations.md) | All Organization records in the index |
 | [outputs_datasets](slots/outputs_datasets.md) | Datasets produced or curated by this project (by id) |
@@ -140,7 +133,7 @@ Name: idhi
 | [same_as](slots/same_as.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... |
 | [service_type](slots/service_type.md) | The kind of service offered (digitization, consulting |
 | [services](slots/services.md) | All Service records in the index |
-| [services_offered](slots/services_offered.md) | Services this facility offers to researchers |
+| [services_offered](slots/services_offered.md) | Services this organization offers to researchers |
 | [start_date](slots/start_date.md) | Start of the event, of the project's runtime, or of a relationship's validity... |
 | [studied_periods](slots/studied_periods.md) | Historical period(s) the project studies (e |
 | [studied_places](slots/studied_places.md) | Geographic focus of the research (places studied), as free multilingual label... |
@@ -149,7 +142,7 @@ Name: idhi
 | [themes](slots/themes.md) | Thematic keywords for the dataset, multilingual |
 | [tool_type](slots/tool_type.md) | The delivery form of the tool (web app, library, CLI |
 | [tools](slots/tools.md) | All Tool records in the index |
-| [tools_provided](slots/tools_provided.md) | Tools this facility maintains or gives access to (by id) |
+| [tools_provided](slots/tools_provided.md) | Tools this organization maintains or gives access to (by id) |
 | [training_material_type](slots/training_material_type.md) | The material's primary didactic form |
 | [training_materials](slots/training_materials.md) | All TrainingMaterial records in the index, including tutorials, lessons and o... |
 | [type](slots/type.md) | Discriminator identifying the record's class; used for polymorphic serializat... |
@@ -169,11 +162,11 @@ Name: idhi
 | [DigitalHumanitiesActivityEnum](enums/DigitalHumanitiesActivityEnum.md) | Digital-humanities research activities: Analyzing, Capturing, Creating, Disse... |
 | [EventAgentRoleEnum](enums/EventAgentRoleEnum.md) | IDHI-governed roles for people and organizations involved in events |
 | [EventTypeEnum](enums/EventTypeEnum.md) | Kinds of scholarly events |
-| [FacilityAffiliationRoleEnum](enums/FacilityAffiliationRoleEnum.md) | IDHI-governed roles distinguishing the organizations connected to a facility |
 | [FundingStatusEnum](enums/FundingStatusEnum.md) | IDHI-governed values for the current primary way a project is financially or ... |
 | [LicenseEnum](enums/LicenseEnum.md) | Common licenses for tools, datasets and training materials |
+| [OrganizationStructureRoleEnum](enums/OrganizationStructureRoleEnum.md) | IDHI-governed roles distinguishing the parent organizations of a sub-organiza... |
 | [OrganizationTypeEnum](enums/OrganizationTypeEnum.md) | Kinds of organization |
-| [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's or facility's role in a project (one instance per role) |
+| [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's role in a project (one instance per role) |
 | [PersonOrgRoleEnum](enums/PersonOrgRoleEnum.md) | A person's position within an organization (job/status) |
 | [ProjectRoleEnum](enums/ProjectRoleEnum.md) | A person's role in a project |
 | [PublicationTypeEnum](enums/PublicationTypeEnum.md) | The kind of publication, including journal article, book part, conference pap... |

@@ -6,7 +6,7 @@ search:
 # Slot: provider 
 
 
-_The organization formally responsible for delivering the service (the one you'd contact or contract with) — set this even when the service is listed under a Facility._
+_The organization formally responsible for delivering the service (the one you'd contact or contract with) — name the unit that delivers it, which may be a sub-organization such as a lab rather than its parent institution._
 
 
 
@@ -25,7 +25,7 @@ URI: [schema:provider](http://schema.org/provider)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
+| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |  no  |
 
 
 
@@ -86,8 +86,8 @@ URI: [schema:provider](http://schema.org/provider)
 ```yaml
 name: provider
 description: The organization formally responsible for delivering the service (the
-  one you'd contact or contract with) — set this even when the service is listed under
-  a Facility.
+  one you'd contact or contract with) — name the unit that delivers it, which may
+  be a sub-organization such as a lab rather than its parent institution.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:provider

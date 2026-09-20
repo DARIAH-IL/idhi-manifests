@@ -6,7 +6,7 @@ search:
 # Slot: organization 
 
 
-_The organization referenced by a person affiliation, facility affiliation or project role (by IDHI URN). The Person, Facility or Project containing the relationship supplies its other endpoint._
+_The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint._
 
 
 
@@ -27,7 +27,6 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 | --- | --- | --- |
 | [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |  no  |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |  no  |
-| [FacilityAffiliation](../classes/FacilityAffiliation.md) | A facility's affiliation with an organization, nested in a Facility so the fa... |  no  |
 
 
 
@@ -41,7 +40,7 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 | Property | Value |
 | --- | --- |
 | Range | [Organization](../classes/Organization.md) |
-| Domain Of | [Affiliation](../classes/Affiliation.md), [OrganizationProjectRole](../classes/OrganizationProjectRole.md), [FacilityAffiliation](../classes/FacilityAffiliation.md) |
+| Domain Of | [Affiliation](../classes/Affiliation.md), [OrganizationProjectRole](../classes/OrganizationProjectRole.md) |
 
 ### Cardinality and Requirements
 
@@ -87,15 +86,14 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 <details>
 ```yaml
 name: organization
-description: The organization referenced by a person affiliation, facility affiliation
-  or project role (by IDHI URN). The Person, Facility or Project containing the relationship
-  supplies its other endpoint.
+description: The organization referenced by a person affiliation or project role (by
+  IDHI URN). The Person or Project containing the relationship supplies its other
+  endpoint.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
 - Affiliation
 - OrganizationProjectRole
-- FacilityAffiliation
 range: Organization
 required: true
 

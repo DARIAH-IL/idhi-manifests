@@ -25,7 +25,7 @@ URI: [schema:serviceType](http://schema.org/serviceType)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
+| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |  no  |
 
 
 

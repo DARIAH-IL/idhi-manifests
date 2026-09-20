@@ -66,10 +66,6 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 | [Organization](../classes/Organization.md) | [location](../slots/location.md) | range | [LangString](../classes/LangString.md) |
 | [Organization](../classes/Organization.md) | [address](../slots/address.md) | range | [LangString](../classes/LangString.md) |
 | [Organization](../classes/Organization.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
-| [Facility](../classes/Facility.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
-| [Facility](../classes/Facility.md) | [location](../slots/location.md) | range | [LangString](../classes/LangString.md) |
-| [Facility](../classes/Facility.md) | [address](../slots/address.md) | range | [LangString](../classes/LangString.md) |
-| [Facility](../classes/Facility.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [research_disciplines](../slots/research_disciplines.md) | range | [LangString](../classes/LangString.md) |
 | [Project](../classes/Project.md) | [studied_periods](../slots/studied_periods.md) | range | [LangString](../classes/LangString.md) |

@@ -6,7 +6,7 @@ search:
 # Slot: services_offered 
 
 
-_Services this facility offers to researchers. Reference Service records by id; the Service's own 'provider' may still point at the parent Organization._
+_Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university._
 
 
 
@@ -25,7 +25,7 @@ URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_
 | Property | Value |
 | --- | --- |
 | Range | [Service](../classes/Service.md) |
-| Domain Of | [Facility](../classes/Facility.md) |
+| Domain Of | [Organization](../classes/Organization.md) |
 
 ### Cardinality and Requirements
 
@@ -85,12 +85,13 @@ URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_
 <details>
 ```yaml
 name: services_offered
-description: Services this facility offers to researchers. Reference Service records
-  by id; the Service's own 'provider' may still point at the parent Organization.
+description: Services this organization offers to researchers. Reference Service records
+  by id; list them on the unit that actually delivers them — a lab's services belong
+  on the lab's own record rather than on its parent university.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
-- Facility
+- Organization
 range: Service
 multivalued: true
 

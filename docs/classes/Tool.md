@@ -179,7 +179,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Facility](../classes/Facility.md) | [tools_provided](../slots/tools_provided.md) | range | [Tool](../classes/Tool.md) |
+| [Organization](../classes/Organization.md) | [tools_provided](../slots/tools_provided.md) | range | [Tool](../classes/Tool.md) |
 | [Project](../classes/Project.md) | [uses_tools](../slots/uses_tools.md) | range | [Tool](../classes/Tool.md) |
 | [Project](../classes/Project.md) | [outputs_tools](../slots/outputs_tools.md) | range | [Tool](../classes/Tool.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_tools](../slots/related_tools.md) | range | [Tool](../classes/Tool.md) |
@@ -302,7 +302,6 @@ attributes:
     owner: Tool
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -404,7 +403,6 @@ attributes:
     owner: Tool
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -422,7 +420,6 @@ attributes:
     owner: Tool
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service

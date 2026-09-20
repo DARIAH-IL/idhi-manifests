@@ -6,7 +6,7 @@ search:
 # Class: Service 
 
 
-_A reusable, human- or organization-mediated service offered by a facility or organization (e.g., digitization on demand, OCR consulting, data curation support). Use Service when the offering requires the provider to act; use Tool for self-service software._
+_A reusable, human- or organization-mediated service offered by an organization (e.g., digitization on demand, OCR consulting, data curation support). Use Service when the offering requires the provider to act; use Tool for self-service software._
 
 
 
@@ -135,7 +135,7 @@ URI: [schema:Service](http://schema.org/Service)
 | ---  | --- | --- | --- |
 | [name](../slots/name.md) | <span title="Required: one or more values">1..*</span> <br/> [LangString](../classes/LangString.md) | <span title="The multilingual name or title used to identify the entity. Use one LangString per available language and do not repeat a language. Prefer the official localized name for organizations; for projects, tools and services, use localized names supplied by the team rather than translating branded names without authority.">The multilingual name or title used to identify the entity</span> | direct |
 | [service_type](../slots/service_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [ToolServiceTypeEnum](../enums/ToolServiceTypeEnum.md) | <span title="The kind of service offered (digitization, consulting...).">The kind of service offered (digitization, consulting</span> | direct |
-| [provider](../slots/provider.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally responsible for delivering the service (the one you'd contact or contract with) — set this even when the service is listed under a Facility.">The organization formally responsible for delivering the service (the one you...</span> | direct |
+| [provider](../slots/provider.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally responsible for delivering the service (the one you'd contact or contract with) — name the unit that delivers it, which may be a sub-organization such as a lab rather than its parent institution.">The organization formally responsible for delivering the service (the one you...</span> | direct |
 | [documentation_url](../slots/documentation_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="User or developer documentation for the tool or service (manual, wiki, API reference).">User or developer documentation for the tool or service (manual, wiki, API re...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
@@ -156,7 +156,7 @@ URI: [schema:Service](http://schema.org/Service)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Facility](../classes/Facility.md) | [services_offered](../slots/services_offered.md) | range | [Service](../classes/Service.md) |
+| [Organization](../classes/Organization.md) | [services_offered](../slots/services_offered.md) | range | [Service](../classes/Service.md) |
 | [Project](../classes/Project.md) | [uses_services](../slots/uses_services.md) | range | [Service](../classes/Service.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_services](../slots/related_services.md) | range | [Service](../classes/Service.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [services](../slots/services.md) | range | [Service](../classes/Service.md) |
@@ -211,10 +211,9 @@ URI: [schema:Service](http://schema.org/Service)
 <details>
 ```yaml
 name: Service
-description: A reusable, human- or organization-mediated service offered by a facility
-  or organization (e.g., digitization on demand, OCR consulting, data curation support).
-  Use Service when the offering requires the provider to act; use Tool for self-service
-  software.
+description: A reusable, human- or organization-mediated service offered by an organization
+  (e.g., digitization on demand, OCR consulting, data curation support). Use Service
+  when the offering requires the provider to act; use Tool for self-service software.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
@@ -246,10 +245,9 @@ class_uri: schema:Service
 <details>
 ```yaml
 name: Service
-description: A reusable, human- or organization-mediated service offered by a facility
-  or organization (e.g., digitization on demand, OCR consulting, data curation support).
-  Use Service when the offering requires the provider to act; use Tool for self-service
-  software.
+description: A reusable, human- or organization-mediated service offered by an organization
+  (e.g., digitization on demand, OCR consulting, data curation support). Use Service
+  when the offering requires the provider to act; use Tool for self-service software.
 in_subset:
 - toplevel_entity
 from_schema: https://idhi_placeholder/linkml/idhi
@@ -276,7 +274,6 @@ attributes:
     owner: Service
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -302,8 +299,8 @@ attributes:
   provider:
     name: provider
     description: The organization formally responsible for delivering the service
-      (the one you'd contact or contract with) — set this even when the service is
-      listed under a Facility.
+      (the one you'd contact or contract with) — name the unit that delivers it, which
+      may be a sub-organization such as a lab rather than its parent institution.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:provider
@@ -334,7 +331,6 @@ attributes:
     owner: Service
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -352,7 +348,6 @@ attributes:
     owner: Service
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service

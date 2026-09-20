@@ -27,7 +27,7 @@ URI: [dcterms:subject](http://purl.org/dc/terms/subject)
 | --- | --- | --- |
 | [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
-| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
+| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |  no  |
 | [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 

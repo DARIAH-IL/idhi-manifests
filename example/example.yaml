@@ -46,22 +46,21 @@ organizations:
     organization_structure:
       - parent_organization: idhi:organization:k3v9p2
         start_date: "2012-01-01"
-
-facilities:
-  - type: idhi:Facility
-    id: idhi:facility:l8m2q4
+  - type: idhi:Organization
+    id: idhi:organization:l8m2q4
     name:
       - {language: en, value: Example DH Lab}
+    organization_type: RESEARCH_CENTER
     homepage: https://dhlab.example.ac.il
     additional_urls:
       - https://twitter.com/exampledhlab
     contact_email: dhlab@example.ac.il
-    facility_affiliations:
-      - organization: idhi:organization:c8r2m5
-        facility_affiliation_role: HOST
+    organization_structure:
+      - parent_organization: idhi:organization:c8r2m5
+        organization_structure_role: HOST
         start_date: "2019-01-01"
-      - organization: idhi:organization:k3v9p2
-        facility_affiliation_role: OWNER
+      - parent_organization: idhi:organization:k3v9p2
+        organization_structure_role: OWNER
         start_date: "2019-01-01"
     services_offered:
       - idhi:service:s6b1z3
@@ -106,6 +105,8 @@ projects:
         org_project_role: HOST
       - organization: idhi:organization:k3v9p2
         org_project_role: DATA_PROVIDER
+      - organization: idhi:organization:l8m2q4
+        org_project_role: PARTNER
     uses_tools:
       - idhi:tool:u2k4m6
     uses_services:

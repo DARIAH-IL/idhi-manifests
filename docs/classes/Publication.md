@@ -301,7 +301,6 @@ attributes:
     owner: Publication
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service

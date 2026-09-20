@@ -439,7 +439,6 @@ attributes:
     owner: TrainingMaterial
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -715,7 +714,6 @@ attributes:
     owner: TrainingMaterial
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -733,7 +731,6 @@ attributes:
     owner: TrainingMaterial
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service

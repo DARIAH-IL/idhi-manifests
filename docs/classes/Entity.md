@@ -28,8 +28,6 @@ URI: [schema:Thing](http://schema.org/Thing)
 
       Entity <|-- Agent
         click Agent href "../../classes/Agent/"
-      Entity <|-- Facility
-        click Facility href "../../classes/Facility/"
       Entity <|-- Project
         click Project href "../../classes/Project/"
       Entity <|-- Tool
@@ -80,7 +78,6 @@ URI: [schema:Thing](http://schema.org/Thing)
 ## Inheritance
 * **Entity**
     * [Agent](../classes/Agent.md)
-    * [Facility](../classes/Facility.md)
     * [Project](../classes/Project.md)
     * [Tool](../classes/Tool.md)
     * [Service](../classes/Service.md)

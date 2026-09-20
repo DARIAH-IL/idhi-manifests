@@ -28,11 +28,10 @@ URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
 | [Entity](../classes/Entity.md) | Root class for any identifiable IDHI entity |  no  |
 | [Agent](../classes/Agent.md) | A person or an organization |  no  |
 | [Person](../classes/Person.md) | A human agent in the DH index: researcher, developer, librarian, student, etc |  no  |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
-| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 | [Project](../classes/Project.md) | A Digital Humanities research project, classified by its research activities ... |  no  |
 | [Tool](../classes/Tool.md) | A reusable software tool, typically produced by a project |  no  |
-| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by a facility or ... |  no  |
+| [Service](../classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |  no  |
 | [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 | [Event](../classes/Event.md) | A scholarly event: conference, workshop, seminar, lecture, hackathon or exhib... |  no  |
 | [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |

@@ -6,7 +6,7 @@ search:
 # Slot: organization_structure 
 
 
-_Formal parent relationships of the containing organization, with the parent and optional start and end dates. Define each containment relationship only on the child organization; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates._
+_Formal parent relationships of the containing organization, each with the parent, an optional host/owner role and optional start and end dates. Set this on every sub-organization: a university lab or institute names its university here, a museum's digital unit names the museum. Define each containment relationship only on the child organization; give a jointly run unit one instance per parent; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates._
 
 
 
@@ -25,7 +25,7 @@ URI: [idhi:organizationStructure](https://idhi_placeholder/linkml/organizationSt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organization](../classes/Organization.md) | An organization of any kind |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 
 
 
@@ -86,12 +86,14 @@ URI: [idhi:organizationStructure](https://idhi_placeholder/linkml/organizationSt
 <details>
 ```yaml
 name: organization_structure
-description: Formal parent relationships of the containing organization, with the
-  parent and optional start and end dates. Define each containment relationship only
-  on the child organization; use organization_roles for project partnerships and omit
-  this slot for informal associations. This uses an IDHI-specific property because
-  established parent-organization properties point directly to the parent and cannot
-  carry relationship dates.
+description: 'Formal parent relationships of the containing organization, each with
+  the parent, an optional host/owner role and optional start and end dates. Set this
+  on every sub-organization: a university lab or institute names its university here,
+  a museum''s digital unit names the museum. Define each containment relationship
+  only on the child organization; give a jointly run unit one instance per parent;
+  use organization_roles for project partnerships and omit this slot for informal
+  associations. This uses an IDHI-specific property because established parent-organization
+  properties point directly to the parent and cannot carry relationship dates.'
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: idhi:organizationStructure

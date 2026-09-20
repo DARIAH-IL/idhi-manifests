@@ -6,7 +6,7 @@ search:
 # Slot: tools_provided 
 
 
-_Tools this facility maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use._
+_Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use._
 
 
 
@@ -25,7 +25,7 @@ URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Facility](../classes/Facility.md) | A physical or virtual facility such as a DH lab, digitization studio or resea... |  no  |
+| [Organization](../classes/Organization.md) | An organization of any kind, at any level of granularity |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provi
 | Property | Value |
 | --- | --- |
 | Range | [Tool](../classes/Tool.md) |
-| Domain Of | [Facility](../classes/Facility.md) |
+| Domain Of | [Organization](../classes/Organization.md) |
 
 ### Cardinality and Requirements
 
@@ -85,13 +85,13 @@ URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provi
 <details>
 ```yaml
 name: tools_provided
-description: Tools this facility maintains or gives access to (by id). Use for hosted
-  instances and lab-maintained software, not for every tool staff members happen to
-  use.
+description: Tools this organization maintains or gives access to (by id). Use for
+  hosted instances and lab-maintained software, not for every tool staff members happen
+  to use.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 domain_of:
-- Facility
+- Organization
 range: Tool
 multivalued: true
 

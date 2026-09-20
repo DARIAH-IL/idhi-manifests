@@ -21,7 +21,7 @@ URI: [idhi:enum/OrganizationTypeEnum](https://idhi_placeholder/linkml/enum/Organ
 | --- | --- | --- |
 | ACADEMIC_INSTITUTION | [schema:CollegeOrUniversity](http://schema.org/CollegeOrUniversity) | <span title="A degree-granting university or college.">A degree-granting university or college</span> |
 | GLAM_INSTITUTION | None | <span title="A gallery, library, archive or museum.">A gallery, library, archive or museum</span> |
-| RESEARCH_CENTER | [schema:ResearchOrganization](http://schema.org/ResearchOrganization) | <span title="A research center or institute, whether independent or within a university; when it is structurally contained in another organization, also add organization_structure with that parent and any known dates.">A research center or institute, whether independent or within a university; w...</span> |
+| RESEARCH_CENTER | [schema:ResearchOrganization](http://schema.org/ResearchOrganization) | <span title="A research center, institute or lab, whether independent or within a larger body — a university DH lab, a digitization studio or a campus research unit all belong here; when it is structurally contained in another organization, also add organization_structure with that parent, any host/owner role and any known dates.">A research center, institute or lab, whether independent or within a larger b...</span> |
 | FUNDER | [schema:FundingScheme](http://schema.org/FundingScheme) | <span title="A body whose primary role is funding research.">A body whose primary role is funding research</span> |
 | COMPANY | [schema:Corporation](http://schema.org/Corporation) | <span title="A commercial company.">A commercial company</span> |
 | NON_PROFIT | [schema:NGO](http://schema.org/NGO) | <span title="A non-profit organization / NGO.">A non-profit organization / NGO</span> |
@@ -80,9 +80,11 @@ permissible_values:
     description: A gallery, library, archive or museum.
   RESEARCH_CENTER:
     text: RESEARCH_CENTER
-    description: A research center or institute, whether independent or within a university;
-      when it is structurally contained in another organization, also add organization_structure
-      with that parent and any known dates.
+    description: A research center, institute or lab, whether independent or within
+      a larger body — a university DH lab, a digitization studio or a campus research
+      unit all belong here; when it is structurally contained in another organization,
+      also add organization_structure with that parent, any host/owner role and any
+      known dates.
     meaning: schema:ResearchOrganization
   FUNDER:
     text: FUNDER

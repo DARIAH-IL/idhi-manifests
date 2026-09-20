@@ -34,12 +34,8 @@ URI: [schema:Role](http://schema.org/Role)
         click Affiliation href "../../classes/Affiliation/"
       Relationship <|-- OrganizationProjectRole
         click OrganizationProjectRole href "../../classes/OrganizationProjectRole/"
-      Relationship <|-- FacilityProjectRole
-        click FacilityProjectRole href "../../classes/FacilityProjectRole/"
       Relationship <|-- Authorship
         click Authorship href "../../classes/Authorship/"
-      Relationship <|-- FacilityAffiliation
-        click FacilityAffiliation href "../../classes/FacilityAffiliation/"
       Relationship <|-- EventAgentRole
         click EventAgentRole href "../../classes/EventAgentRole/"
       Relationship <|-- ResourceContribution
@@ -62,9 +58,7 @@ URI: [schema:Role](http://schema.org/Role)
     * [ProjectParticipation](../classes/ProjectParticipation.md)
     * [Affiliation](../classes/Affiliation.md)
     * [OrganizationProjectRole](../classes/OrganizationProjectRole.md)
-    * [FacilityProjectRole](../classes/FacilityProjectRole.md)
     * [Authorship](../classes/Authorship.md)
-    * [FacilityAffiliation](../classes/FacilityAffiliation.md)
     * [EventAgentRole](../classes/EventAgentRole.md)
     * [ResourceContribution](../classes/ResourceContribution.md)
 

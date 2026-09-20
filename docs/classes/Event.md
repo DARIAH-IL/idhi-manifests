@@ -152,7 +152,7 @@ URI: [schema:Event](http://schema.org/Event)
 | [event_type](../slots/event_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [EventTypeEnum](../enums/EventTypeEnum.md) | <span title="The kind of scholarly event.">The kind of scholarly event</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | direct |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | direct |
-| [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization, facility or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization, facility or event is physically situated (...</span> | direct |
+| [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization or event is physically situated (e</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
 | [event_agent_roles](../slots/event_agent_roles.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [EventAgentRole](../classes/EventAgentRole.md) | <span title="People and organizations involved in the containing event, with their role and optional relationship dates. Define each involvement only on the Event; use Publication.authorships for authorship and presented_at for the event at which a publication was presented.">People and organizations involved in the containing event, with their role an...</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
@@ -291,7 +291,6 @@ attributes:
     owner: Event
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -345,15 +344,14 @@ attributes:
     range: date
   location:
     name: location
-    description: Place name where the organization, facility or event is physically
-      situated (e.g. a city), as free multilingual text.
+    description: Place name where the organization or event is physically situated
+      (e.g. a city), as free multilingual text.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:location
     owner: Event
     domain_of:
     - Organization
-    - Facility
     - Event
     range: LangString
     multivalued: true
@@ -368,7 +366,6 @@ attributes:
     owner: Event
     domain_of:
     - Organization
-    - Facility
     - Event
     range: LangString
     multivalued: true
@@ -401,7 +398,6 @@ attributes:
     owner: Event
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
@@ -419,7 +415,6 @@ attributes:
     owner: Event
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service

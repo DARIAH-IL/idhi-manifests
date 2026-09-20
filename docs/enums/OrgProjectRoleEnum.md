@@ -8,7 +8,7 @@ search:
 
 
 
-_An organization's or facility's role in a project (one instance per role)._
+_An organization's role in a project (one instance per role)._
 
 
 
@@ -31,7 +31,7 @@ URI: [idhi:enum/OrgProjectRoleEnum](https://idhi_placeholder/linkml/enum/OrgProj
 
 | Name | Description |
 | ---  | --- |
-| [org_project_role](../slots/org_project_role.md) | <span title="The organization's or facility's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here.">The organization's or facility's function in the project: COORDINATOR leads t...</span> |
+| [org_project_role](../slots/org_project_role.md) | <span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here.">The organization's function in the project: COORDINATOR leads the consortium,...</span> |
 
 
 
@@ -63,7 +63,7 @@ URI: [idhi:enum/OrgProjectRoleEnum](https://idhi_placeholder/linkml/enum/OrgProj
 <details>
 ```yaml
 name: OrgProjectRoleEnum
-description: An organization's or facility's role in a project (one instance per role).
+description: An organization's role in a project (one instance per role).
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 permissible_values:

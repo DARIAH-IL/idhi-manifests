@@ -23,7 +23,7 @@ Each class carries a `class_uri` mapping it to an existing ontology class — e.
 Two special kinds of classes to know:
 
 - **`LangString`** — a `{language, value}` pair. Localizable human-readable fields, including names, descriptions, addresses and themes, are *lists* of these. Language accepts syntactically valid BCP-47 tags, so one field can hold parallel English, Hebrew, Arabic, German, Yiddish, Ladino or other localized text. Technical or discovery strings such as IDHI URNs, media types, programming languages and tags remain plain strings.
-- **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `FacilityAffiliation`, `OrganizationStructure`, `EventAgentRole`, `ResourceContribution`) — see "Reified relationships" below.
+- **Relationship classes** (`ProjectParticipation`, `Affiliation`, `OrganizationProjectRole`, `Authorship`, `OrganizationStructure`, `EventAgentRole`, `ResourceContribution`) — see "Reified relationships" below.
 - **`Funding`** — an inlined project funding award that records its funder, amount and currency, multilingual award and programme names, grant number, award URL and funding dates. Multiple awards from the same funder remain separate entries.
 
 `IndexContainer` is the *tree root*: a data file is one `IndexContainer` whose lists (`persons:`, `projects:`, ...) hold each big entity exactly once.
@@ -35,6 +35,8 @@ Two special kinds of classes to know:
 Tools and datasets can record named `resource_contributions` with creator, developer, maintainer, data-curator or contributor roles and optional dates. Use these for responsibility for a specific resource; use `Project.project_participations` for work described only at project level and `Dataset.publisher` for the organization formally releasing a dataset.
 
 Projects distinguish inputs from outputs. `uses_tools`, `uses_services` and `uses_datasets` identify resources consumed by the work, while the `outputs_*` slots identify resources produced by it. Do not record the same project-resource connection as both an input and an output unless the project genuinely consumed an existing resource and produced a distinct new version represented by another entity.
+
+`Organization` covers every institutional actor at every level of granularity, from a whole university down to a single DH lab. A unit gets its own `Organization` record whenever it has an identity researchers recognize — its own name, staff, services or tools — and names its parent through `organization_structure`: an `Example DH Lab` typed `RESEARCH_CENTER` sits under `Example University` typed `ACADEMIC_INSTITUTION`, and a jointly run lab gets one `OrganizationStructure` entry per parent, optionally distinguishing the `HOST` that provides its operational home from the `OWNER` that holds it administratively. Because a sub-organization is an ordinary `Organization`, it can do everything its parent can: employ people through `Affiliation`, take a project role, publish a dataset, contribute to a tool, and list its own `services_offered` and `tools_provided`. Put those offerings on the unit that actually delivers them rather than on the parent.
 
 `Project.funding_status` records the project's current primary support model, while `funding` preserves its award history. Use `Funding` whenever a distinct grant is known. Use an organization role of `FUNDER` only when the funding relationship is known but no award can be described, and never duplicate the same fact in both places. Host-less projects are valid: independent practitioners remain `Person` records, while `INFORMAL_GROUP` is available only for a named collective that needs its own Organization record.
 
@@ -98,8 +100,7 @@ The relationship classes and their canonical owners are:
 | `Affiliation` | `Person.affiliations` | `organization` | position (professor...), dates |
 | `OrganizationProjectRole` | `Project.organization_roles` | `organization` | role (coordinator, partner, data provider, funder, host), dates |
 | `Authorship` | `Publication.authorships` | `author` | byline order, role |
-| `FacilityAffiliation` | `Facility.facility_affiliations` | `organization` | host or owner role, dates |
-| `OrganizationStructure` | `Organization.organization_structure` | `parent_organization` | dates of formal containment |
+| `OrganizationStructure` | `Organization.organization_structure` | `parent_organization` | optional host or owner role, dates of formal containment |
 | `EventAgentRole` | `Event.event_agent_roles` | `event_agent` | organizer, host, speaker, panelist, participant or sponsor role, dates |
 | `ResourceContribution` | `Tool.resource_contributions` or `Dataset.resource_contributions` | `contributor` | creator, developer, maintainer, data-curator or contributor role, dates |
 
@@ -112,7 +113,7 @@ Use one `OrganizationProjectRole` instance per (pair, role). If an organization 
 - **`Tool` vs `Service`** — self-service software vs a human-mediated offering.
 - **`TrainingMaterial` vs `Publication` vs `Tool`** — a resource intended to teach vs a scholarly communication vs software that performs the action.
 - **`affiliations` vs `project_participations`** — institutional home vs project involvement.
-- **`organization_structure` vs `affiliations`/`organization_roles`** — formal containment of one organization within another vs a person's institutional position or an organization's role in a project.
+- **`organization_structure` vs `affiliations`/`organization_roles`** — formal containment of one organization within another (a lab inside its university) vs a person's institutional position or an organization's role in a project.
 - **`uses_*` vs `outputs_*`** — resources consumed by a project vs resources produced by it.
 - **`resource_contributions` vs `project_participations`** — responsibility for a particular tool or dataset vs a person's role in the project as a whole.
 - **`homepage` vs `additional_urls` vs `same_as`** — the entity's own main page vs further pages about it (blog, socials, registry entries) vs records about the same entity in other systems ([Wikidata](https://www.wikidata.org/), [PeriodO](https://perio.do/)...).

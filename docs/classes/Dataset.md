@@ -388,7 +388,6 @@ attributes:
     owner: Dataset
     domain_of:
     - Organization
-    - Facility
     - Project
     - Tool
     - Service
