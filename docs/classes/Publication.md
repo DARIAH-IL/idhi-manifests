@@ -349,6 +349,7 @@ attributes:
       only here on its Publication; do not duplicate it on the Person.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: dcterms:creator
     owner: Publication
     domain_of:
     - Publication

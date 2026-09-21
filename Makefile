@@ -23,7 +23,7 @@ gen-json-schema: gen-materialize
 
 gen-owl: gen-materialize
 	@mkdir -p $(GEN)
-	uv run gen-owl $(GEN_INPUT) > $(GEN)/idhi.owl.ttl
+	uv run gen-owl $(GEN_INPUT) | uv run python scripts/enrich_owl.py -s $(GEN_INPUT) > $(GEN)/idhi.owl.ttl
 
 gen-docs: gen-materialize
 	rm -rf $(DOCS)/classes $(DOCS)/slots $(DOCS)/enums $(DOCS)/types $(DOCS)/schemas $(DOCS)/index.md

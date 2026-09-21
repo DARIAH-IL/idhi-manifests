@@ -14,7 +14,7 @@ _Training materials produced by this project (by IDHI URN); use only for project
 
 
 
-URI: [dcterms:relation](http://purl.org/dc/terms/relation)
+URI: [schema:producer](http://schema.org/producer)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [dcterms:relation](http://purl.org/dc/terms/relation)
 | --- | --- |
 | Range | [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Domain Of | [Project](../classes/Project.md) |
-| Slot URI | [dcterms:relation](http://purl.org/dc/terms/relation) |
+| Slot URI | [schema:producer](http://schema.org/producer) |
 
 ### Cardinality and Requirements
 
@@ -75,7 +75,7 @@ URI: [dcterms:relation](http://purl.org/dc/terms/relation)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | dcterms:relation |
+| self | schema:producer |
 | native | idhi:outputs_training_materials |
 
 
@@ -90,7 +90,7 @@ description: Training materials produced by this project (by IDHI URN); use only
   project outputs, not materials merely used by the project.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
-slot_uri: dcterms:relation
+slot_uri: schema:producer
 domain_of:
 - Project
 range: TrainingMaterial

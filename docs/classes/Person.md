@@ -308,6 +308,7 @@ attributes:
       and must not be repeated in each relationship.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: schema:affiliation
     owner: Person
     domain_of:
     - Person

@@ -14,7 +14,7 @@ _The person taking part in the containing project (by IDHI URN). Use in Project.
 
 
 
-URI: [idhi:slot/participant](https://idhi_placeholder/linkml/slot/participant)
+URI: [schema:participant](http://schema.org/participant)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/participant](https://idhi_placeholder/linkml/slot/participant)
 | --- | --- |
 | Range | [Person](../classes/Person.md) |
 | Domain Of | [ProjectParticipation](../classes/ProjectParticipation.md) |
+| Slot URI | [schema:participant](http://schema.org/participant) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/participant](https://idhi_placeholder/linkml/slot/participant)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:participant |
+| self | schema:participant |
 | native | idhi:participant |
 
 
@@ -89,6 +90,7 @@ description: The person taking part in the containing project (by IDHI URN). Use
   Project.project_participations; do not define the relationship on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:participant
 domain_of:
 - ProjectParticipation
 range: Person

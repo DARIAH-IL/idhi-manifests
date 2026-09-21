@@ -14,7 +14,7 @@ _Publications resulting from this project (by id)._
 
 
 
-URI: [idhi:slot/outputs_publications](https://idhi_placeholder/linkml/slot/outputs_publications)
+URI: [schema:producer](http://schema.org/producer)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/outputs_publications](https://idhi_placeholder/linkml/slot/outpu
 | --- | --- |
 | Range | [Publication](../classes/Publication.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [schema:producer](http://schema.org/producer) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/outputs_publications](https://idhi_placeholder/linkml/slot/outpu
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:outputs_publications |
+| self | schema:producer |
 | native | idhi:outputs_publications |
 
 
@@ -88,6 +89,7 @@ name: outputs_publications
 description: Publications resulting from this project (by id).
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:producer
 domain_of:
 - Project
 range: Publication

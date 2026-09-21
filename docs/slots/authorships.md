@@ -14,7 +14,7 @@ _People who contributed to the containing publication, as reified Authorship obj
 
 
 
-URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
+URI: [dcterms:creator](http://purl.org/dc/terms/creator)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
 | --- | --- |
 | Range | [Authorship](../classes/Authorship.md) |
 | Domain Of | [Publication](../classes/Publication.md) |
+| Slot URI | [dcterms:creator](http://purl.org/dc/terms/creator) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/authorships](https://idhi_placeholder/linkml/slot/authorships)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:authorships |
+| self | dcterms:creator |
 | native | idhi:authorships |
 
 
@@ -90,6 +91,7 @@ description: People who contributed to the containing publication, as reified Au
   on its Publication; do not duplicate it on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: dcterms:creator
 domain_of:
 - Publication
 range: Authorship

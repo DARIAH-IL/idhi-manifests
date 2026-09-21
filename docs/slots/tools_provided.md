@@ -6,7 +6,7 @@ search:
 # Slot: tools_provided 
 
 
-_Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use._
+_Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use. This uses an IDHI-specific property because the relation is custodial rather than authorial, so foaf:made and schema:producer would both overstate it._
 
 
 
@@ -14,7 +14,7 @@ _Tools this organization maintains or gives access to (by id). Use for hosted in
 
 
 
-URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provided)
+URI: [idhi:toolsProvided](https://idhi_placeholder/linkml/toolsProvided)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provi
 | --- | --- |
 | Range | [Tool](../classes/Tool.md) |
 | Domain Of | [Organization](../classes/Organization.md) |
+| Slot URI | [idhi:toolsProvided](https://idhi_placeholder/linkml/toolsProvided) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provi
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:tools_provided |
+| self | idhi:toolsProvided |
 | native | idhi:tools_provided |
 
 
@@ -87,9 +88,11 @@ URI: [idhi:slot/tools_provided](https://idhi_placeholder/linkml/slot/tools_provi
 name: tools_provided
 description: Tools this organization maintains or gives access to (by id). Use for
   hosted instances and lab-maintained software, not for every tool staff members happen
-  to use.
+  to use. This uses an IDHI-specific property because the relation is custodial rather
+  than authorial, so foaf:made and schema:producer would both overstate it.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: idhi:toolsProvided
 domain_of:
 - Organization
 range: Tool

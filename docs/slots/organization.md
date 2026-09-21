@@ -6,7 +6,7 @@ search:
 # Slot: organization 
 
 
-_The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint._
+_The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both._
 
 
 
@@ -14,7 +14,7 @@ _The organization referenced by a person affiliation or project role (by IDHI UR
 
 
 
-URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
+URI: [idhi:relatedOrganization](https://idhi_placeholder/linkml/relatedOrganization)
 <!-- no inheritance hierarchy -->
 
 
@@ -41,6 +41,7 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 | --- | --- |
 | Range | [Organization](../classes/Organization.md) |
 | Domain Of | [Affiliation](../classes/Affiliation.md), [OrganizationProjectRole](../classes/OrganizationProjectRole.md) |
+| Slot URI | [idhi:relatedOrganization](https://idhi_placeholder/linkml/relatedOrganization) |
 
 ### Cardinality and Requirements
 
@@ -75,7 +76,7 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:organization |
+| self | idhi:relatedOrganization |
 | native | idhi:organization |
 
 
@@ -88,9 +89,12 @@ URI: [idhi:slot/organization](https://idhi_placeholder/linkml/slot/organization)
 name: organization
 description: The organization referenced by a person affiliation or project role (by
   IDHI URN). The Person or Project containing the relationship supplies its other
-  endpoint.
+  endpoint. This uses an IDHI-specific property because one slot serves two relationship
+  types whose external terms differ (schema:affiliation for Affiliation, schema:participant
+  for OrganizationProjectRole), so neither can be asserted for both.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: idhi:relatedOrganization
 domain_of:
 - Affiliation
 - OrganizationProjectRole

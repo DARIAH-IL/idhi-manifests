@@ -14,7 +14,7 @@ _The person contributing to the containing publication (by IDHI URN). Use in Pub
 
 
 
-URI: [idhi:slot/author](https://idhi_placeholder/linkml/slot/author)
+URI: [dcterms:creator](http://purl.org/dc/terms/creator)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/author](https://idhi_placeholder/linkml/slot/author)
 | --- | --- |
 | Range | [Person](../classes/Person.md) |
 | Domain Of | [Authorship](../classes/Authorship.md) |
+| Slot URI | [dcterms:creator](http://purl.org/dc/terms/creator) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/author](https://idhi_placeholder/linkml/slot/author)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:author |
+| self | dcterms:creator |
 | native | idhi:author |
 
 
@@ -89,6 +90,7 @@ description: The person contributing to the containing publication (by IDHI URN)
   Use in Publication.authorships; do not define the relationship on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: dcterms:creator
 domain_of:
 - Authorship
 range: Person

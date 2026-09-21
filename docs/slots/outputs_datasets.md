@@ -14,7 +14,7 @@ _Datasets produced or curated by this project (by id)._
 
 
 
-URI: [idhi:slot/outputs_datasets](https://idhi_placeholder/linkml/slot/outputs_datasets)
+URI: [schema:producer](http://schema.org/producer)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/outputs_datasets](https://idhi_placeholder/linkml/slot/outputs_d
 | --- | --- |
 | Range | [Dataset](../classes/Dataset.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [schema:producer](http://schema.org/producer) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/outputs_datasets](https://idhi_placeholder/linkml/slot/outputs_d
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:outputs_datasets |
+| self | schema:producer |
 | native | idhi:outputs_datasets |
 
 
@@ -88,6 +89,7 @@ name: outputs_datasets
 description: Datasets produced or curated by this project (by id).
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:producer
 domain_of:
 - Project
 range: Dataset

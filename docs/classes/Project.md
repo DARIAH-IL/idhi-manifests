@@ -563,6 +563,7 @@ attributes:
       here on its Project; do not duplicate it on the Person.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: schema:participant
     owner: Project
     domain_of:
     - Project
@@ -578,6 +579,7 @@ attributes:
       to record a funder, not a role here.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: schema:participant
     owner: Project
     domain_of:
     - Project
@@ -640,6 +642,7 @@ attributes:
     description: Datasets produced or curated by this project (by id).
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: schema:producer
     owner: Project
     domain_of:
     - Project
@@ -650,6 +653,7 @@ attributes:
     description: Publications resulting from this project (by id).
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: schema:producer
     owner: Project
     domain_of:
     - Project
@@ -661,7 +665,7 @@ attributes:
       for project outputs, not materials merely used by the project.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
-    slot_uri: dcterms:relation
+    slot_uri: schema:producer
     owner: Project
     domain_of:
     - Project
@@ -674,6 +678,7 @@ attributes:
       place a project's funder is recorded.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: schema:funding
     owner: Project
     domain_of:
     - Project

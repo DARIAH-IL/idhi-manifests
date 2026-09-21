@@ -14,7 +14,7 @@ _Organizations engaged in the containing project, as reified OrganizationProject
 
 
 
-URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organization_roles)
+URI: [schema:participant](http://schema.org/participant)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organiz
 | --- | --- |
 | Range | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [schema:participant](http://schema.org/participant) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/organization_roles](https://idhi_placeholder/linkml/slot/organiz
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:organization_roles |
+| self | schema:participant |
 | native | idhi:organization_roles |
 
 
@@ -91,6 +92,7 @@ description: Organizations engaged in the containing project, as reified Organiz
   to record a funder, not a role here.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:participant
 domain_of:
 - Project
 range: OrganizationProjectRole

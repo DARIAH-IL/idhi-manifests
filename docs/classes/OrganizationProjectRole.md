@@ -80,7 +80,7 @@ URI: [cerif:Project_OrganisationUnit](https://w3id.org/cerif/model#Project_Organ
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.">The organization referenced by a person affiliation or project role (by IDHI ...</span> | direct |
+| [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.">The organization referenced by a person affiliation or project role (by IDHI ...</span> | direct |
 | [org_project_role](../slots/org_project_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [OrgProjectRoleEnum](../enums/OrgProjectRoleEnum.md) | <span title="The organization's function in the project: COORDINATOR leads the consortium, PARTNER contributes work, DATA_PROVIDER supplies source data, and HOST provides the institutional home. Create one relationship instance per role; record a funder with Project.funding, not with a role here.">The organization's function in the project: COORDINATOR leads the consortium,...</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
@@ -169,9 +169,13 @@ attributes:
     name: organization
     description: The organization referenced by a person affiliation or project role
       (by IDHI URN). The Person or Project containing the relationship supplies its
-      other endpoint.
+      other endpoint. This uses an IDHI-specific property because one slot serves
+      two relationship types whose external terms differ (schema:affiliation for Affiliation,
+      schema:participant for OrganizationProjectRole), so neither can be asserted
+      for both.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: idhi:relatedOrganization
     owner: OrganizationProjectRole
     domain_of:
     - Affiliation

@@ -179,8 +179,8 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 | [organization_structure](../slots/organization_structure.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [OrganizationStructure](../classes/OrganizationStructure.md) | <span title="Formal parent relationships of the containing organization, each with the parent, an optional host/owner role and optional start and end dates. Set this on every sub-organization: a university lab or institute names its university here, a museum's digital unit names the museum. Define each containment relationship only on the child organization; give a jointly run unit one instance per parent; use organization_roles for project partnerships and omit this slot for informal associations. This uses an IDHI-specific property because established parent-organization properties point directly to the parent and cannot carry relationship dates.">Formal parent relationships of the containing organization, each with the par...</span> | direct |
 | [location](../slots/location.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Place name where the organization or event is physically situated (e.g. a city), as free multilingual text.">Place name where the organization or event is physically situated (e</span> | direct |
 | [address](../slots/address.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Postal address, multilingual.">Postal address, multilingual</span> | direct |
-| [services_offered](../slots/services_offered.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.">Services this organization offers to researchers</span> | direct |
-| [tools_provided](../slots/tools_provided.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.">Tools this organization maintains or gives access to (by id)</span> | direct |
+| [services_offered](../slots/services_offered.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university. This uses an IDHI-specific property because schema.org offers only schema:makesOffer, whose range is an Offer rather than the service itself, and no other vocabulary has a provider-to-service property.">Services this organization offers to researchers</span> | direct |
+| [tools_provided](../slots/tools_provided.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use. This uses an IDHI-specific property because the relation is custodial rather than authorial, so foaf:made and schema:producer would both overstate it.">Tools this organization maintains or gives access to (by id)</span> | direct |
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
@@ -428,9 +428,13 @@ attributes:
     name: services_offered
     description: Services this organization offers to researchers. Reference Service
       records by id; list them on the unit that actually delivers them — a lab's services
-      belong on the lab's own record rather than on its parent university.
+      belong on the lab's own record rather than on its parent university. This uses
+      an IDHI-specific property because schema.org offers only schema:makesOffer,
+      whose range is an Offer rather than the service itself, and no other vocabulary
+      has a provider-to-service property.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: idhi:servicesOffered
     owner: Organization
     domain_of:
     - Organization
@@ -440,9 +444,12 @@ attributes:
     name: tools_provided
     description: Tools this organization maintains or gives access to (by id). Use
       for hosted instances and lab-maintained software, not for every tool staff members
-      happen to use.
+      happen to use. This uses an IDHI-specific property because the relation is custodial
+      rather than authorial, so foaf:made and schema:producer would both overstate
+      it.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
+    slot_uri: idhi:toolsProvided
     owner: Organization
     domain_of:
     - Organization

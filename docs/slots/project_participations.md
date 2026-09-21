@@ -14,7 +14,7 @@ _People involved in the containing project, as reified ProjectParticipation obje
 
 
 
-URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/project_participations)
+URI: [schema:participant](http://schema.org/participant)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 | --- | --- |
 | Range | [ProjectParticipation](../classes/ProjectParticipation.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [schema:participant](http://schema.org/participant) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/project_participations](https://idhi_placeholder/linkml/slot/pro
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:project_participations |
+| self | schema:participant |
 | native | idhi:project_participations |
 
 
@@ -90,6 +91,7 @@ description: People involved in the containing project, as reified ProjectPartic
   on its Project; do not duplicate it on the Person.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:participant
 domain_of:
 - Project
 range: ProjectParticipation

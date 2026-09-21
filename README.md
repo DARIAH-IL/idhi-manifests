@@ -69,6 +69,8 @@ IDHI uses two flavors:
 
 ## Identifiers
 
+`gen-owl` emits every slot in the `idhi:` namespace and silently drops its `slot_uri`, because LinkML's OWL generator asserts a mapping for `class_uri` but has no equivalent step for slots. Switching it to non-native URIs is not an option here: five relationship classes share `schema:Role` and would collapse into one class. So `make gen-owl` pipes the generator's output through `scripts/enrich_owl.py`, which adds an `rdfs:subPropertyOf` from each IDHI property to its external `slot_uri` — 96 of them, to Dublin Core Terms, schema.org, DCAT, PROV, FOAF, BIBO, FRAPO, SKOS and RDF. That makes the alignment *entailing*: a consumer reading `idhi:serves_datasets` also derives `dcat:servesDataset`. The six IDHI-minted `slot_uri` values (`idhi:organizationStructure`, `idhi:servicesOffered`, `idhi:toolsProvided`, `idhi:fundingStatus`, `idhi:fundingProgram`, `idhi:relatedOrganization`) are skipped, since aligning the namespace to itself would only create dangling terms; each one's description says why no external term fit. Classes keep the `skos:exactMatch` that `gen-owl` already emits; upgrading those to `owl:equivalentClass` would wrongly make all five `schema:Role` classes equivalent to each other.
+
 Every entity's primary `id` is a URN minted by IDHI: `idhi:<class name>:<random short alphanumeric id>`, e.g. `idhi:person:x7k2m9`. The class token is the lowercase snake_case class name. The random segment is 4–12 characters of `[0-9a-z]`, and each class enforces its own token via a per-class `structured_pattern`. Ids are permanent — never reused, never changed. The URNs are plain strings, not URIs: when publishing linked data (including `gen-owl` output of instance data), map them to resolvable URIs (`idhi:person:x7k2m9` → `https://idhi.co.il/id/person/x7k2m9`) at export time.
 
 ## Reified relationships (relations with roles)
@@ -188,7 +190,7 @@ Each pipeline step is a `make` target:
 make lint
 make gen-materialize
 make gen-json-schema
-make gen-owl
+make gen-owl      # gen-owl, then scripts/enrich_owl.py restores the slot_uri alignments
 make gen-docs
 make gen-all      # all of the gen-* targets above
 

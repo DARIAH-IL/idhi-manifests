@@ -6,7 +6,7 @@ search:
 # Slot: services_offered 
 
 
-_Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university._
+_Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university. This uses an IDHI-specific property because schema.org offers only schema:makesOffer, whose range is an Offer rather than the service itself, and no other vocabulary has a provider-to-service property._
 
 
 
@@ -14,7 +14,7 @@ _Services this organization offers to researchers. Reference Service records by 
 
 
 
-URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_offered)
+URI: [idhi:servicesOffered](https://idhi_placeholder/linkml/servicesOffered)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_
 | --- | --- |
 | Range | [Service](../classes/Service.md) |
 | Domain Of | [Organization](../classes/Organization.md) |
+| Slot URI | [idhi:servicesOffered](https://idhi_placeholder/linkml/servicesOffered) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:services_offered |
+| self | idhi:servicesOffered |
 | native | idhi:services_offered |
 
 
@@ -87,9 +88,13 @@ URI: [idhi:slot/services_offered](https://idhi_placeholder/linkml/slot/services_
 name: services_offered
 description: Services this organization offers to researchers. Reference Service records
   by id; list them on the unit that actually delivers them — a lab's services belong
-  on the lab's own record rather than on its parent university.
+  on the lab's own record rather than on its parent university. This uses an IDHI-specific
+  property because schema.org offers only schema:makesOffer, whose range is an Offer
+  rather than the service itself, and no other vocabulary has a provider-to-service
+  property.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: idhi:servicesOffered
 domain_of:
 - Organization
 range: Service

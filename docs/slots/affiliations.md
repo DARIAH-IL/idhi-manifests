@@ -14,7 +14,7 @@ _The containing person's institutional affiliations, as reified Affiliation obje
 
 
 
-URI: [idhi:slot/affiliations](https://idhi_placeholder/linkml/slot/affiliations)
+URI: [schema:affiliation](http://schema.org/affiliation)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/affiliations](https://idhi_placeholder/linkml/slot/affiliations)
 | --- | --- |
 | Range | [Affiliation](../classes/Affiliation.md) |
 | Domain Of | [Person](../classes/Person.md) |
+| Slot URI | [schema:affiliation](http://schema.org/affiliation) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/affiliations](https://idhi_placeholder/linkml/slot/affiliations)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:affiliations |
+| self | schema:affiliation |
 | native | idhi:affiliations |
 
 
@@ -91,6 +92,7 @@ description: The containing person's institutional affiliations, as reified Affi
   be repeated in each relationship.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:affiliation
 domain_of:
 - Person
 range: Affiliation

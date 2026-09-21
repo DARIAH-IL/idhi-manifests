@@ -14,7 +14,7 @@ _Funding awards received by the project. Use one entry per distinct award, inclu
 
 
 
-URI: [idhi:slot/funding](https://idhi_placeholder/linkml/slot/funding)
+URI: [schema:funding](http://schema.org/funding)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [idhi:slot/funding](https://idhi_placeholder/linkml/slot/funding)
 | --- | --- |
 | Range | [Funding](../classes/Funding.md) |
 | Domain Of | [Project](../classes/Project.md) |
+| Slot URI | [schema:funding](http://schema.org/funding) |
 
 ### Cardinality and Requirements
 
@@ -74,7 +75,7 @@ URI: [idhi:slot/funding](https://idhi_placeholder/linkml/slot/funding)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | idhi:funding |
+| self | schema:funding |
 | native | idhi:funding |
 
 
@@ -90,6 +91,7 @@ description: Funding awards received by the project. Use one entry per distinct 
   project's funder is recorded.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
+slot_uri: schema:funding
 domain_of:
 - Project
 range: Funding

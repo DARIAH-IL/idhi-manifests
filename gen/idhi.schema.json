@@ -19,9 +19,9 @@
           "x-termUri": "schema:endDate"
         },
         "organization": {
-          "description": "The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.",
+          "description": "The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.",
           "type": "string",
-          "x-termUri": "idhi:organization"
+          "x-termUri": "idhi:relatedOrganization"
         },
         "start_date": {
           "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
@@ -122,7 +122,7 @@
         "author": {
           "description": "The person contributing to the containing publication (by IDHI URN). Use in Publication.authorships; do not define the relationship on the Person.",
           "type": "string",
-          "x-termUri": "idhi:author"
+          "x-termUri": "dcterms:creator"
         },
         "author_order": {
           "description": "Position in the byline; 1 = first author.",
@@ -1492,7 +1492,7 @@
           "x-termUri": "schema:sameAs"
         },
         "services_offered": {
-          "description": "Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.",
+          "description": "Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university. This uses an IDHI-specific property because schema.org offers only schema:makesOffer, whose range is an Offer rather than the service itself, and no other vocabulary has a provider-to-service property.",
           "items": {
             "type": "string"
           },
@@ -1500,7 +1500,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:services_offered"
+          "x-termUri": "idhi:servicesOffered"
         },
         "tags": {
           "description": "Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.",
@@ -1514,7 +1514,7 @@
           "x-termUri": "dcat:keyword"
         },
         "tools_provided": {
-          "description": "Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.",
+          "description": "Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use. This uses an IDHI-specific property because the relation is custodial rather than authorial, so foaf:made and schema:producer would both overstate it.",
           "items": {
             "type": "string"
           },
@@ -1522,7 +1522,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:tools_provided"
+          "x-termUri": "idhi:toolsProvided"
         },
         "type": {
           "const": "idhi:Organization",
@@ -1559,9 +1559,9 @@
           "x-termUri": "schema:roleName"
         },
         "organization": {
-          "description": "The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.",
+          "description": "The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.",
           "type": "string",
-          "x-termUri": "idhi:organization"
+          "x-termUri": "idhi:relatedOrganization"
         },
         "start_date": {
           "description": "Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.",
@@ -1666,7 +1666,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:affiliations"
+          "x-termUri": "schema:affiliation"
         },
         "description": {
           "description": "Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).",
@@ -1860,7 +1860,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:funding"
+          "x-termUri": "schema:funding"
         },
         "funding_status": {
           "$ref": "#/$defs/FundingStatusEnum",
@@ -1907,7 +1907,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:organization_roles"
+          "x-termUri": "schema:participant"
         },
         "outputs_datasets": {
           "description": "Datasets produced or curated by this project (by id).",
@@ -1918,7 +1918,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:outputs_datasets"
+          "x-termUri": "schema:producer"
         },
         "outputs_publications": {
           "description": "Publications resulting from this project (by id).",
@@ -1929,7 +1929,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:outputs_publications"
+          "x-termUri": "schema:producer"
         },
         "outputs_tools": {
           "description": "Tools produced by this project (by id).",
@@ -1951,7 +1951,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "dcterms:relation"
+          "x-termUri": "schema:producer"
         },
         "project_participations": {
           "description": "People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person.",
@@ -1962,7 +1962,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:project_participations"
+          "x-termUri": "schema:participant"
         },
         "research_disciplines": {
           "description": "Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade.",
@@ -2094,7 +2094,7 @@
         "participant": {
           "description": "The person taking part in the containing project (by IDHI URN). Use in Project.project_participations; do not define the relationship on the Person.",
           "type": "string",
-          "x-termUri": "idhi:participant"
+          "x-termUri": "schema:participant"
         },
         "participation_role": {
           "$ref": "#/$defs/ProjectRoleEnum",
@@ -2155,7 +2155,7 @@
             "array",
             "null"
           ],
-          "x-termUri": "idhi:authorships"
+          "x-termUri": "dcterms:creator"
         },
         "date_issued": {
           "description": "Formal publication date (or year-01-01 if only the year is known).",
