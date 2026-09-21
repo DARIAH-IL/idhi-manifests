@@ -4291,6 +4291,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/serves_datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: serves_datasets
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/service_type/" class="md-nav__link">
         
   
@@ -5662,7 +5689,7 @@
                   
 
 <h1 id="class-tool">Class: Tool</h1>
-<p><em>A reusable software tool, typically produced by a project. Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.</em></p>
+<p><em>A reusable software tool, typically produced by a project. Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead. Software whose purpose is to expose a body of data — a library catalog's search interface, a corpus browser, a gazetteer API — is a Tool over a Dataset: register the content as a Dataset, this record as the software, and link them with serves_datasets.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://schema.org/SoftwareApplication">schema:SoftwareApplication</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -5757,6 +5784,19 @@
 
 
       Tool : same_as
+
+      Tool : serves_datasets
+
+
+
+
+
+        Tool --&gt; "*" Dataset : serves_datasets
+
+        click Dataset href "../../classes/Dataset/"
+
+
+
 
       Tool : tags
 
@@ -5867,6 +5907,12 @@
 <td><a href="../../slots/digital_humanities_activities/">digital_humanities_activities</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../enums/DigitalHumanitiesActivityEnum/">DigitalHumanitiesActivityEnum</a></td>
 <td><span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/serves_datasets/">serves_datasets</a></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Dataset/">Dataset</a></td>
+<td><span title="Datasets this tool provides access to — the catalog, corpus, database or gazetteer that its browse interface, query endpoint or API exposes (by IDHI URN). Use it whenever the same content is registered twice, once as the data and once as the software over it, so a library catalog's search interface points at the catalog Dataset rather than being modeled as a dataset itself. Use Project.uses_datasets for data a project merely consumes, Dataset.datasets for catalog aggregation and Dataset.derived_from for dataset-to-dataset provenance.">Datasets this tool provides access to — the catalog, corpus, database or gaze...</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5994,9 +6040,12 @@
 <h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A reusable software tool, typically produced by a project. Use Tool for</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">software that others can install, run or call; for a human-mediated offering use</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Service instead.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;A</span><span class="nv"> </span><span class="s">reusable</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">tool,</span><span class="nv"> </span><span class="s">typically</span><span class="nv"> </span><span class="s">produced</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">project.</span><span class="nv"> </span><span class="s">Use</span><span class="nv"> </span><span class="s">Tool</span>
+<span class="w">  </span><span class="s">for</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">others</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">install,</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">call;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">human-mediated</span><span class="nv"> </span><span class="s">offering</span>
+<span class="w">  </span><span class="s">use</span><span class="nv"> </span><span class="s">Service</span><span class="nv"> </span><span class="s">instead.</span><span class="nv"> </span><span class="s">Software</span><span class="nv"> </span><span class="s">whose</span><span class="nv"> </span><span class="s">purpose</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">expose</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">body</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">library</span>
+<span class="w">  </span><span class="s">catalog</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">search</span><span class="nv"> </span><span class="s">interface,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">corpus</span><span class="nv"> </span><span class="s">browser,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">gazetteer</span><span class="nv"> </span><span class="s">API</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Tool</span><span class="nv"> </span><span class="s">over</span>
+<span class="w">  </span><span class="s">a</span><span class="nv"> </span><span class="s">Dataset:</span><span class="nv"> </span><span class="s">register</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">content</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Dataset,</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">link</span>
+<span class="w">  </span><span class="s">them</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">serves_datasets.&#39;</span>
 <span class="nt">in_subset</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toplevel_entity</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
@@ -6012,6 +6061,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_email</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">digital_humanities_activities</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">serves_datasets</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resource_contributions</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span>
@@ -6028,9 +6078,12 @@
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A reusable software tool, typically produced by a project. Use Tool for</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">software that others can install, run or call; for a human-mediated offering use</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Service instead.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;A</span><span class="nv"> </span><span class="s">reusable</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">tool,</span><span class="nv"> </span><span class="s">typically</span><span class="nv"> </span><span class="s">produced</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">project.</span><span class="nv"> </span><span class="s">Use</span><span class="nv"> </span><span class="s">Tool</span>
+<span class="w">  </span><span class="s">for</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">others</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">install,</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">call;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">human-mediated</span><span class="nv"> </span><span class="s">offering</span>
+<span class="w">  </span><span class="s">use</span><span class="nv"> </span><span class="s">Service</span><span class="nv"> </span><span class="s">instead.</span><span class="nv"> </span><span class="s">Software</span><span class="nv"> </span><span class="s">whose</span><span class="nv"> </span><span class="s">purpose</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">expose</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">body</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">library</span>
+<span class="w">  </span><span class="s">catalog</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">search</span><span class="nv"> </span><span class="s">interface,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">corpus</span><span class="nv"> </span><span class="s">browser,</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">gazetteer</span><span class="nv"> </span><span class="s">API</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Tool</span><span class="nv"> </span><span class="s">over</span>
+<span class="w">  </span><span class="s">a</span><span class="nv"> </span><span class="s">Dataset:</span><span class="nv"> </span><span class="s">register</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">content</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Dataset,</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">link</span>
+<span class="w">  </span><span class="s">them</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">serves_datasets.&#39;</span>
 <span class="nt">in_subset</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toplevel_entity</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
@@ -6198,6 +6251,23 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DigitalHumanitiesActivityEnum</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">serves_datasets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">serves_datasets</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Datasets this tool provides access to — the catalog, corpus, database</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or gazetteer that its browse interface, query endpoint or API exposes (by IDHI</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">URN). Use it whenever the same content is registered twice, once as the data</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and once as the software over it, so a library catalog&#39;s search interface points</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the catalog Dataset rather than being modeled as a dataset itself. Use Project.uses_datasets</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for data a project merely consumes, Dataset.datasets for catalog aggregation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and Dataset.derived_from for dataset-to-dataset provenance.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:servesDataset</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">resource_contributions</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resource_contributions</span>

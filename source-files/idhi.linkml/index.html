@@ -4121,6 +4121,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/serves_datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: serves_datasets
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/service_type/" class="md-nav__link">
         
   
@@ -5542,6 +5569,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">A reusable software tool, typically produced by a project.</span>
 <span class="w">      </span><span class="no">Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.</span>
+<span class="w">      </span><span class="no">Software whose purpose is to expose a body of data — a library catalog&#39;s search interface, a corpus browser, a gazetteer API — is a Tool over a Dataset: register the content as a Dataset, this record as the software, and link them with serves_datasets.</span>
 <span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:SoftwareApplication</span>
 <span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">toplevel_entity</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">slot_usage</span><span class="p">:</span>
@@ -5562,6 +5590,7 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_email</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">digital_humanities_activities</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">serves_datasets</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resource_contributions</span>
 
 <span class="w">  </span><span class="nt">Service</span><span class="p">:</span>
@@ -6200,6 +6229,14 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">      </span><span class="no">User or developer documentation for the tool or service (manual, wiki, API reference).</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:softwareHelp</span>
+<span class="w">  </span><span class="nt">serves_datasets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">Datasets this tool provides access to — the catalog, corpus, database or gazetteer that its browse interface, query endpoint or API exposes (by IDHI URN).</span>
+<span class="w">      </span><span class="no">Use it whenever the same content is registered twice, once as the data and once as the software over it, so a library catalog&#39;s search interface points at the catalog Dataset rather than being modeled as a dataset itself.</span>
+<span class="w">      </span><span class="no">Use Project.uses_datasets for data a project merely consumes, Dataset.datasets for catalog aggregation and Dataset.derived_from for dataset-to-dataset provenance.</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:servesDataset</span>
 
 <span class="w">  </span><span class="nt">resource_contributions</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ResourceContribution</span>
@@ -6717,7 +6754,7 @@
 <span class="w">      </span><span class="nt">ANNOTATION_SET</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standalone annotations, labels or enrichments applied to other data; use CORPUS when annotations are inseparable from the primary collected content.</span>
 <span class="w">      </span><span class="nt">METADATA_CATALOG</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records.</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records. Where the catalog is also browsable or queryable software, keep this record for the records themselves and register the interface as a Tool pointing back with serves_datasets.</span>
 <span class="w">      </span><span class="nt">OTHER_RESEARCH_DATA</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Research data that fits none of the more specific forms; use only after the digital-edition, corpus, database, gazetteer, image-collection, annotation-set and metadata-catalog values have been considered.</span>
 
