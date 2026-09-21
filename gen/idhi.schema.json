@@ -349,7 +349,7 @@
           "x-termUri": "skos:prefLabel"
         },
         "publisher": {
-          "description": "The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.",
+          "description": "The organization formally publishing the dataset or training material (by IDHI URN); use creators for responsibility for making a training material and Publication.publisher_name for the press that released a publication.",
           "type": [
             "string",
             "null"
@@ -2253,10 +2253,13 @@
           ],
           "x-termUri": "schema:isPartOf"
         },
-        "publisher": {
-          "description": "The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.",
+        "publisher_name": {
+          "description": "Name of the press, imprint or issuing body that released the publication, as free multilingual text. Use this rather than an IDHI URN, since commercial publishers are not indexed as Organization records; use published_in for the journal, book or proceedings the work appeared in.",
+          "items": {
+            "$ref": "#/$defs/LangString"
+          },
           "type": [
-            "string",
+            "array",
             "null"
           ],
           "x-termUri": "dcterms:publisher"
@@ -3142,7 +3145,7 @@
           "x-termUri": "schema:coursePrerequisites"
         },
         "publisher": {
-          "description": "The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.",
+          "description": "The organization formally publishing the dataset or training material (by IDHI URN); use creators for responsibility for making a training material and Publication.publisher_name for the press that released a publication.",
           "type": [
             "string",
             "null"

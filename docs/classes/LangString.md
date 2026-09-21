@@ -77,6 +77,7 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 | [Service](../classes/Service.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 | [Publication](../classes/Publication.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Publication](../classes/Publication.md) | [published_in](../slots/published_in.md) | range | [LangString](../classes/LangString.md) |
+| [Publication](../classes/Publication.md) | [publisher_name](../slots/publisher_name.md) | range | [LangString](../classes/LangString.md) |
 | [Publication](../classes/Publication.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 | [Event](../classes/Event.md) | [name](../slots/name.md) | range | [LangString](../classes/LangString.md) |
 | [Event](../classes/Event.md) | [location](../slots/location.md) | range | [LangString](../classes/LangString.md) |

@@ -202,13 +202,6 @@ organizations:
     organization_type: FUNDER
     homepage: https://www.digis-berlin.de
 
-  - type: idhi:Organization
-    id: idhi:organization:nomos
-    name:
-      - {language: en, value: Nomos Verlagsgesellschaft}
-    organization_type: COMPANY
-    homepage: https://www.nomos.de
-
 projects:
   - type: idhi:Project
     id: idhi:project:sandstars
@@ -383,6 +376,7 @@ publications:
         author_order: 5
         authorship_role: EDITOR
     date_issued: "2025-01-01"
-    publisher: idhi:organization:nomos
+    publisher_name:
+      - {language: en, value: Nomos Verlagsgesellschaft}
     description:
       - {language: en, value: "Open-access trilingual print edition (German 188 pp., English 109 pp., Hebrew 84 pp.), CC BY, edited by Avnir, Halpern, Lau, Pigorsch and Wilke."}

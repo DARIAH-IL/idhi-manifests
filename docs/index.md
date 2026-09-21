@@ -121,7 +121,8 @@ Name: idhi
 | [publication_type](slots/publication_type.md) | The kind of publication (journal article, book part, conference paper, thesis |
 | [publications](slots/publications.md) | All Publication records in the index |
 | [published_in](slots/published_in.md) | Name of the journal, book or proceedings the publication appeared in, as free... |
-| [publisher](slots/publisher.md) | The organization formally publishing the dataset, publication or training mat... |
+| [publisher](slots/publisher.md) | The organization formally publishing the dataset or training material (by IDH... |
+| [publisher_name](slots/publisher_name.md) | Name of the press, imprint or issuing body that released the publication, as ... |
 | [related_datasets](slots/related_datasets.md) | Datasets used as the subject or worked example of the material (by IDHI URN) |
 | [related_publications](slots/related_publications.md) | Publications that are counterparts or direct scholarly companions of the data... |
 | [related_services](slots/related_services.md) | Services that the material explains how to access or use (by IDHI URN) |

@@ -200,7 +200,6 @@ URI: [foaf:Organization](http://xmlns.com/foaf/0.1/Organization)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Service](../classes/Service.md) | [provider](../slots/provider.md) | range | [Organization](../classes/Organization.md) |
-| [Publication](../classes/Publication.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [Dataset](../classes/Dataset.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [publisher](../slots/publisher.md) | range | [Organization](../classes/Organization.md) |
 | [OrganizationStructure](../classes/OrganizationStructure.md) | [parent_organization](../slots/parent_organization.md) | range | [Organization](../classes/Organization.md) |

@@ -206,6 +206,8 @@ publications:
     date_issued: "2024-03-15"
     published_in:
       - {language: en, value: Journal of Example Digital Humanities}
+    publisher_name:
+      - {language: en, value: Example University Press}
     presented_at:
       - idhi:event:e2c6v0
 

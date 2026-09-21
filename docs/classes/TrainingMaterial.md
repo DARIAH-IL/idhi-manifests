@@ -273,7 +273,7 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
 | [doi](../slots/doi.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="The publication, dataset, tool or training material's DOI persistent identifier. Record it whenever one exists; it is the preferred deduplication key and is supplementary to the IDHI URN.">The publication, dataset, tool or training material's DOI persistent identifi...</span> | direct |
 | [training_material_type](../slots/training_material_type.md) | <span title="Optional: at most one value">0..1</span> <br/> [TrainingMaterialTypeEnum](../enums/TrainingMaterialTypeEnum.md) | <span title="The material's primary didactic form. Choose the single value that best describes how learners engage with it, not its file format.">The material's primary didactic form</span> | direct |
 | [creators](../slots/creators.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Agent](../classes/Agent.md) | <span title="People or organizations responsible for creating the training material (by IDHI URN). Use publisher for the organization that formally releases it when that differs from its creators.">People or organizations responsible for creating the training material (by ID...</span> | direct |
-| [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.">The organization formally publishing the dataset, publication or training mat...</span> | direct |
+| [publisher](../slots/publisher.md) | <span title="Optional: at most one value">0..1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization formally publishing the dataset or training material (by IDHI URN); use creators for responsibility for making a training material and Publication.publisher_name for the press that released a publication.">The organization formally publishing the dataset or training material (by IDH...</span> | direct |
 | [learning_outcomes](../slots/learning_outcomes.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Knowledge or skills a learner should gain by completing the material, as multilingual statements. Use one entry per distinct outcome; do not use this for prerequisites.">Knowledge or skills a learner should gain by completing the material, as mult...</span> | direct |
 | [target_audiences](../slots/target_audiences.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Intended learner groups, as multilingual labels such as researchers, librarians or students. Use educational_level separately for the expected level of study or expertise.">Intended learner groups, as multilingual labels such as researchers, libraria...</span> | direct |
 | [prerequisites](../slots/prerequisites.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Knowledge, skills, software or prior material learners should have before starting, expressed as multilingual text. Omit when no prerequisites apply.">Knowledge, skills, software or prior material learners should have before sta...</span> | direct |
@@ -495,15 +495,14 @@ attributes:
     multivalued: true
   publisher:
     name: publisher
-    description: The organization formally publishing the dataset, publication or
-      training material (by IDHI URN); use creators for responsibility for making
-      a training material.
+    description: The organization formally publishing the dataset or training material
+      (by IDHI URN); use creators for responsibility for making a training material
+      and Publication.publisher_name for the press that released a publication.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:publisher
     owner: TrainingMaterial
     domain_of:
-    - Publication
     - Dataset
     - TrainingMaterial
     range: Organization

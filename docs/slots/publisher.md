@@ -6,7 +6,7 @@ search:
 # Slot: publisher 
 
 
-_The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material._
+_The organization formally publishing the dataset or training material (by IDHI URN); use creators for responsibility for making a training material and Publication.publisher_name for the press that released a publication._
 
 
 
@@ -25,7 +25,6 @@ URI: [dcterms:publisher](http://purl.org/dc/terms/publisher)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Publication](../classes/Publication.md) | An academic publication: journal article, book, chapter, conference paper, th... |  no  |
 | [Dataset](../classes/Dataset.md) | A dataset or dataset-like intellectual object produced or curated by a projec... |  no  |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |  no  |
 
@@ -41,7 +40,7 @@ URI: [dcterms:publisher](http://purl.org/dc/terms/publisher)
 | Property | Value |
 | --- | --- |
 | Range | [Organization](../classes/Organization.md) |
-| Domain Of | [Publication](../classes/Publication.md), [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
+| Domain Of | [Dataset](../classes/Dataset.md), [TrainingMaterial](../classes/TrainingMaterial.md) |
 | Slot URI | [dcterms:publisher](http://purl.org/dc/terms/publisher) |
 
 ### Cardinality and Requirements
@@ -87,13 +86,13 @@ URI: [dcterms:publisher](http://purl.org/dc/terms/publisher)
 <details>
 ```yaml
 name: publisher
-description: The organization formally publishing the dataset, publication or training
-  material (by IDHI URN); use creators for responsibility for making a training material.
+description: The organization formally publishing the dataset or training material
+  (by IDHI URN); use creators for responsibility for making a training material and
+  Publication.publisher_name for the press that released a publication.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:publisher
 domain_of:
-- Publication
 - Dataset
 - TrainingMaterial
 range: Organization

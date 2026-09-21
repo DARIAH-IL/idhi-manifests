@@ -257,7 +257,7 @@ classes:
       - authorships
       - date_issued
       - published_in
-      - publisher
+      - publisher_name
       - part_of
       - presented_at
 
@@ -914,6 +914,13 @@ slots:
     description: >-
       Name of the journal, book or proceedings the publication appeared in, as free multilingual text. If the container work has its own IDHI record or external URI, also link it via part_of.
     slot_uri: schema:isPartOf
+  publisher_name:
+    range: LangString
+    multivalued: true
+    inlined_as_list: true
+    description: >-
+      Name of the press, imprint or issuing body that released the publication, as free multilingual text. Use this rather than an IDHI URN, since commercial publishers are not indexed as Organization records; use published_in for the journal, book or proceedings the work appeared in.
+    slot_uri: dcterms:publisher
   presented_at:
     range: Event
     multivalued: true
@@ -976,7 +983,7 @@ slots:
     slot_uri: prov:wasDerivedFrom
   publisher:
     range: Organization
-    description: The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.
+    description: The organization formally publishing the dataset or training material (by IDHI URN); use creators for responsibility for making a training material and Publication.publisher_name for the press that released a publication.
     slot_uri: dcterms:publisher
   themes:
     range: LangString
