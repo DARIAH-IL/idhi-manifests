@@ -12,7 +12,7 @@
         <link rel="prev" href="../published_in/">
       
       
-        <link rel="next" href="../related_datasets/">
+        <link rel="next" href="../publisher_name/">
       
       
         
@@ -4015,6 +4015,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../publisher_name/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: publisher_name
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../related_datasets/" class="md-nav__link">
         
   
@@ -5623,7 +5650,7 @@
                   
 
 <h1 id="slot-publisher">Slot: publisher</h1>
-<p><em>The organization formally publishing the dataset, publication or training material (by IDHI URN); use creators for responsibility for making a training material.</em></p>
+<p><em>The organization formally publishing the dataset or training material (by IDHI URN); use creators for responsibility for making a training material and Publication.publisher_name for the press that released a publication.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></p>
 <!-- no inheritance hierarchy -->
@@ -5637,11 +5664,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../../classes/Publication/">Publication</a></td>
-<td>An academic publication: journal article, book, chapter, conference paper, th...</td>
-<td>no</td>
-</tr>
 <tr>
 <td><a href="../../classes/Dataset/">Dataset</a></td>
 <td>A dataset or dataset-like intellectual object produced or curated by a projec...</td>
@@ -5670,7 +5692,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../../classes/Publication/">Publication</a>, <a href="../../classes/Dataset/">Dataset</a>, <a href="../../classes/TrainingMaterial/">TrainingMaterial</a></td>
+<td><a href="../../classes/Dataset/">Dataset</a>, <a href="../../classes/TrainingMaterial/">TrainingMaterial</a></td>
 </tr>
 <tr>
 <td>Slot URI</td>
@@ -5720,13 +5742,13 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">publisher</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization formally publishing the dataset, publication or training</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">material (by IDHI URN); use creators for responsibility for making a training material.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization formally publishing the dataset or training material</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(by IDHI URN); use creators for responsibility for making a training material and</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Publication.publisher_name for the press that released a publication.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:publisher</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publication</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
