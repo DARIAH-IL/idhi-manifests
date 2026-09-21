@@ -5399,9 +5399,9 @@
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:endDate&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:organization&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:relatedOrganization&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start of the event, of the project&#39;s runtime, or of a relationship&#39;s validity, such as when participation, affiliation, maintenance responsibility or formal containment began.&quot;</span><span class="p">,</span>
@@ -5502,7 +5502,7 @@
 <span class="w">        </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The person contributing to the containing publication (by IDHI URN). Use in Publication.authorships; do not define the relationship on the Person.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:author&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dcterms:creator&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;author_order&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Position in the byline; 1 = first author.&quot;</span><span class="p">,</span>
@@ -6872,7 +6872,7 @@
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:sameAs&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;services_offered&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab&#39;s services belong on the lab&#39;s own record rather than on its parent university.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab&#39;s services belong on the lab&#39;s own record rather than on its parent university. This uses an IDHI-specific property because schema.org offers only schema:makesOffer, whose range is an Offer rather than the service itself, and no other vocabulary has a provider-to-service property.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">          </span><span class="p">},</span>
@@ -6880,7 +6880,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:services_offered&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:servicesOffered&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Free-text tags for discovery, filtering and grouping; usable on any top-level entity. Deliberately NOT a controlled enum, but prefer wording that matches a concept in an established ontology or thesaurus (e.g. Wikidata, Getty AAT, TaDiRAH) so tags can later be reconciled against it.&quot;</span><span class="p">,</span>
@@ -6894,7 +6894,7 @@
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dcat:keyword&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;tools_provided&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use. This uses an IDHI-specific property because the relation is custodial rather than authorial, so foaf:made and schema:producer would both overstate it.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <span class="w">          </span><span class="p">},</span>
@@ -6902,7 +6902,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:tools_provided&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:toolsProvided&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:Organization&quot;</span><span class="p">,</span>
@@ -6939,9 +6939,9 @@
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:roleName&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:organization&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:relatedOrganization&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start of the event, of the project&#39;s runtime, or of a relationship&#39;s validity, such as when participation, affiliation, maintenance responsibility or formal containment began.&quot;</span><span class="p">,</span>
@@ -7046,7 +7046,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:affiliations&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:affiliation&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).&quot;</span><span class="p">,</span>
@@ -7240,7 +7240,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:funding&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:funding&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;funding_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/FundingStatusEnum&quot;</span><span class="p">,</span>
@@ -7287,7 +7287,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:organization_roles&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:participant&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;outputs_datasets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Datasets produced or curated by this project (by id).&quot;</span><span class="p">,</span>
@@ -7298,7 +7298,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:outputs_datasets&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:producer&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;outputs_publications&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Publications resulting from this project (by id).&quot;</span><span class="p">,</span>
@@ -7309,7 +7309,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:outputs_publications&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:producer&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;outputs_tools&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tools produced by this project (by id).&quot;</span><span class="p">,</span>
@@ -7331,7 +7331,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dcterms:relation&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:producer&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;project_participations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person.&quot;</span><span class="p">,</span>
@@ -7342,7 +7342,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:project_participations&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:participant&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;research_disciplines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Humanities discipline(s) of the project (history, linguistics, archaeology...). Free multilingual text for now; a controlled vocabulary is a planned upgrade.&quot;</span><span class="p">,</span>
@@ -7474,7 +7474,7 @@
 <span class="w">        </span><span class="nt">&quot;participant&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The person taking part in the containing project (by IDHI URN). Use in Project.project_participations; do not define the relationship on the Person.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:participant&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:participant&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;participation_role&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/ProjectRoleEnum&quot;</span><span class="p">,</span>
@@ -7535,7 +7535,7 @@
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="s2">&quot;null&quot;</span>
 <span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:authorships&quot;</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dcterms:creator&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;date_issued&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Formal publication date (or year-01-01 if only the year is known).&quot;</span><span class="p">,</span>

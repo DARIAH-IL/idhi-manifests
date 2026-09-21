@@ -5623,9 +5623,9 @@
                   
 
 <h1 id="slot-services_offered">Slot: services_offered</h1>
-<p><em>Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.</em></p>
+<p><em>Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university. This uses an IDHI-specific property because schema.org offers only schema:makesOffer, whose range is an Offer rather than the service itself, and no other vocabulary has a provider-to-service property.</em></p>
 <div data-search-exclude="data-search-exclude">
-<p>URI: <a href="https://idhi_placeholder/linkml/slot/services_offered">idhi:slot/services_offered</a></p>
+<p>URI: <a href="https://idhi_placeholder/linkml/servicesOffered">idhi:servicesOffered</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -5662,6 +5662,10 @@
 <td>Domain Of</td>
 <td><a href="../../classes/Organization/">Organization</a></td>
 </tr>
+<tr>
+<td>Slot URI</td>
+<td><a href="https://idhi_placeholder/linkml/servicesOffered">idhi:servicesOffered</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
@@ -5695,7 +5699,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>idhi:services_offered</td>
+<td>idhi:servicesOffered</td>
 </tr>
 <tr>
 <td>native</td>
@@ -5708,9 +5712,13 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services_offered</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services this organization offers to researchers. Reference Service records</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">by id; list them on the unit that actually delivers them — a lab&#39;s services belong</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">on the lab&#39;s own record rather than on its parent university.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">on the lab&#39;s own record rather than on its parent university. This uses an IDHI-specific</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">property because schema.org offers only schema:makesOffer, whose range is an Offer</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rather than the service itself, and no other vocabulary has a provider-to-service</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">property.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:servicesOffered</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>

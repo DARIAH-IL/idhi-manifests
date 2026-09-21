@@ -5625,7 +5625,7 @@
 <h1 id="slot-project_participations">Slot: project_participations</h1>
 <p><em>People involved in the containing project, as reified ProjectParticipation objects carrying participant, role and dates. Define each participation only here on its Project; do not duplicate it on the Person.</em></p>
 <div data-search-exclude="data-search-exclude">
-<p>URI: <a href="https://idhi_placeholder/linkml/slot/project_participations">idhi:slot/project_participations</a></p>
+<p>URI: <a href="http://schema.org/participant">schema:participant</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -5662,6 +5662,10 @@
 <td>Domain Of</td>
 <td><a href="../../classes/Project/">Project</a></td>
 </tr>
+<tr>
+<td>Slot URI</td>
+<td><a href="http://schema.org/participant">schema:participant</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
@@ -5695,7 +5699,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>idhi:project_participations</td>
+<td>schema:participant</td>
 </tr>
 <tr>
 <td>native</td>
@@ -5711,6 +5715,7 @@
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">on its Project; do not duplicate it on the Person.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:participant</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProjectParticipation</span>

@@ -5745,7 +5745,7 @@
 <tr>
 <td><a href="../../slots/organization/">organization</a></td>
 <td><span title="Required: exactly one value">1</span> <br/> <a href="../../classes/Organization/">Organization</a></td>
-<td><span title="The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.">The organization referenced by a person affiliation or project role (by IDHI ...</span></td>
+<td><span title="The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.">The organization referenced by a person affiliation or project role (by IDHI ...</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -5841,9 +5841,13 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization referenced by a person affiliation or project role</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">(by IDHI URN). The Person or Project containing the relationship supplies its</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">other endpoint.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">other endpoint. This uses an IDHI-specific property because one slot serves</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">two relationship types whose external terms differ (schema:affiliation for Affiliation,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">schema:participant for OrganizationProjectRole), so neither can be asserted</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for both.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:relatedOrganization</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Affiliation</span>

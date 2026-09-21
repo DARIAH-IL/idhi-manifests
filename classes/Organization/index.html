@@ -5898,13 +5898,13 @@
 <tr>
 <td><a href="../../slots/services_offered/">services_offered</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Service/">Service</a></td>
-<td><span title="Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university.">Services this organization offers to researchers</span></td>
+<td><span title="Services this organization offers to researchers. Reference Service records by id; list them on the unit that actually delivers them — a lab's services belong on the lab's own record rather than on its parent university. This uses an IDHI-specific property because schema.org offers only schema:makesOffer, whose range is an Offer rather than the service itself, and no other vocabulary has a provider-to-service property.">Services this organization offers to researchers</span></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../../slots/tools_provided/">tools_provided</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Tool/">Tool</a></td>
-<td><span title="Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.">Tools this organization maintains or gives access to (by id)</span></td>
+<td><span title="Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use. This uses an IDHI-specific property because the relation is custodial rather than authorial, so foaf:made and schema:producer would both overstate it.">Tools this organization maintains or gives access to (by id)</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -6227,9 +6227,13 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services_offered</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services this organization offers to researchers. Reference Service</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">records by id; list them on the unit that actually delivers them — a lab&#39;s services</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">belong on the lab&#39;s own record rather than on its parent university.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">belong on the lab&#39;s own record rather than on its parent university. This uses</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">an IDHI-specific property because schema.org offers only schema:makesOffer,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">whose range is an Offer rather than the service itself, and no other vocabulary</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">has a provider-to-service property.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:servicesOffered</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
@@ -6239,9 +6243,12 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tools_provided</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tools this organization maintains or gives access to (by id). Use</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for hosted instances and lab-maintained software, not for every tool staff members</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">happen to use.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">happen to use. This uses an IDHI-specific property because the relation is custodial</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">rather than authorial, so foaf:made and schema:producer would both overstate</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">it.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:toolsProvided</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>

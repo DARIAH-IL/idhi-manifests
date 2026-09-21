@@ -5625,7 +5625,7 @@
 <h1 id="slot-author">Slot: author</h1>
 <p><em>The person contributing to the containing publication (by IDHI URN). Use in Publication.authorships; do not define the relationship on the Person.</em></p>
 <div data-search-exclude="data-search-exclude">
-<p>URI: <a href="https://idhi_placeholder/linkml/slot/author">idhi:slot/author</a></p>
+<p>URI: <a href="http://purl.org/dc/terms/creator">dcterms:creator</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -5662,6 +5662,10 @@
 <td>Domain Of</td>
 <td><a href="../../classes/Authorship/">Authorship</a></td>
 </tr>
+<tr>
+<td>Slot URI</td>
+<td><a href="http://purl.org/dc/terms/creator">dcterms:creator</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
@@ -5695,7 +5699,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>idhi:author</td>
+<td>dcterms:creator</td>
 </tr>
 <tr>
 <td>native</td>
@@ -5710,6 +5714,7 @@
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Use in Publication.authorships; do not define the relationship on the Person.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:creator</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Authorship</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>

@@ -5623,9 +5623,9 @@
                   
 
 <h1 id="slot-organization">Slot: organization</h1>
-<p><em>The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint.</em></p>
+<p><em>The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.</em></p>
 <div data-search-exclude="data-search-exclude">
-<p>URI: <a href="https://idhi_placeholder/linkml/slot/organization">idhi:slot/organization</a></p>
+<p>URI: <a href="https://idhi_placeholder/linkml/relatedOrganization">idhi:relatedOrganization</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -5667,6 +5667,10 @@
 <td>Domain Of</td>
 <td><a href="../../classes/Affiliation/">Affiliation</a>, <a href="../../classes/OrganizationProjectRole/">OrganizationProjectRole</a></td>
 </tr>
+<tr>
+<td>Slot URI</td>
+<td><a href="https://idhi_placeholder/linkml/relatedOrganization">idhi:relatedOrganization</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
@@ -5700,7 +5704,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>idhi:organization</td>
+<td>idhi:relatedOrganization</td>
 </tr>
 <tr>
 <td>native</td>
@@ -5713,9 +5717,12 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">organization</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The organization referenced by a person affiliation or project role (by</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">IDHI URN). The Person or Project containing the relationship supplies its other</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">endpoint.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">endpoint. This uses an IDHI-specific property because one slot serves two relationship</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">types whose external terms differ (schema:affiliation for Affiliation, schema:participant</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">for OrganizationProjectRole), so neither can be asserted for both.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:relatedOrganization</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Affiliation</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationProjectRole</span>

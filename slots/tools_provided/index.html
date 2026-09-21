@@ -5623,9 +5623,9 @@
                   
 
 <h1 id="slot-tools_provided">Slot: tools_provided</h1>
-<p><em>Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use.</em></p>
+<p><em>Tools this organization maintains or gives access to (by id). Use for hosted instances and lab-maintained software, not for every tool staff members happen to use. This uses an IDHI-specific property because the relation is custodial rather than authorial, so foaf:made and schema:producer would both overstate it.</em></p>
 <div data-search-exclude="data-search-exclude">
-<p>URI: <a href="https://idhi_placeholder/linkml/slot/tools_provided">idhi:slot/tools_provided</a></p>
+<p>URI: <a href="https://idhi_placeholder/linkml/toolsProvided">idhi:toolsProvided</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -5662,6 +5662,10 @@
 <td>Domain Of</td>
 <td><a href="../../classes/Organization/">Organization</a></td>
 </tr>
+<tr>
+<td>Slot URI</td>
+<td><a href="https://idhi_placeholder/linkml/toolsProvided">idhi:toolsProvided</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
@@ -5695,7 +5699,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>idhi:tools_provided</td>
+<td>idhi:toolsProvided</td>
 </tr>
 <tr>
 <td>native</td>
@@ -5708,9 +5712,11 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tools_provided</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tools this organization maintains or gives access to (by id). Use for</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">hosted instances and lab-maintained software, not for every tool staff members happen</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to use.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to use. This uses an IDHI-specific property because the relation is custodial rather</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">than authorial, so foaf:made and schema:producer would both overstate it.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idhi:toolsProvided</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
