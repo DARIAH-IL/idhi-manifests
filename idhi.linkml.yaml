@@ -189,6 +189,7 @@ classes:
     description: >-
       A reusable software tool, typically produced by a project.
       Use Tool for software that others can install, run or call; for a human-mediated offering use Service instead.
+      Software whose purpose is to expose a body of data — a library catalog's search interface, a corpus browser, a gazetteer API — is a Tool over a Dataset: register the content as a Dataset, this record as the software, and link them with serves_datasets.
     class_uri: schema:SoftwareApplication
     in_subset: [ toplevel_entity ]
     slot_usage:
@@ -209,6 +210,7 @@ classes:
       - additional_urls
       - contact_email
       - digital_humanities_activities
+      - serves_datasets
       - resource_contributions
 
   Service:
@@ -847,6 +849,14 @@ slots:
     description: >-
       User or developer documentation for the tool or service (manual, wiki, API reference).
     slot_uri: schema:softwareHelp
+  serves_datasets:
+    range: Dataset
+    multivalued: true
+    description: >-
+      Datasets this tool provides access to — the catalog, corpus, database or gazetteer that its browse interface, query endpoint or API exposes (by IDHI URN).
+      Use it whenever the same content is registered twice, once as the data and once as the software over it, so a library catalog's search interface points at the catalog Dataset rather than being modeled as a dataset itself.
+      Use Project.uses_datasets for data a project merely consumes, Dataset.datasets for catalog aggregation and Dataset.derived_from for dataset-to-dataset provenance.
+    slot_uri: dcat:servesDataset
 
   resource_contributions:
     range: ResourceContribution
@@ -1364,7 +1374,7 @@ enums:
       ANNOTATION_SET:
         description: Standalone annotations, labels or enrichments applied to other data; use CORPUS when annotations are inseparable from the primary collected content.
       METADATA_CATALOG:
-        description: Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records.
+        description: Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records. Where the catalog is also browsable or queryable software, keep this record for the records themselves and register the interface as a Tool pointing back with serves_datasets.
       OTHER_RESEARCH_DATA:
         description: Research data that fits none of the more specific forms; use only after the digital-edition, corpus, database, gazetteer, image-collection, annotation-set and metadata-catalog values have been considered.
 

@@ -32,6 +32,8 @@ Two special kinds of classes to know:
 
 `Dataset` covers digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs through `dataset_type`. Dataset records can carry a DOI, derivation links, technical extent and byte size, data languages, media types and related publications. `datasets` means catalog aggregation; `derived_from` means provenance, such as source OCR → re-OCRed corpus → cleaned derivative. A digital edition can use its Dataset record as the intellectual object: `homepage` is its web presentation, `distribution_url` and `doi` identify its archived digital form, and `related_publications` links a print counterpart.
 
+Data and the software over it are two records, not one. A library catalog, a corpus browser or a gazetteer API is a `Tool` whose `serves_datasets` points at the `Dataset` holding the content, so the catalog records keep their DCAT identity while the interface keeps its `tool_type`, `code_repository` and documentation. Register both only when the interface is itself worth finding; a dataset whose `distribution_url` is simply a download needs no Tool record.
+
 Tools and datasets can record named `resource_contributions` with creator, developer, maintainer, data-curator or contributor roles and optional dates. Use these for responsibility for a specific resource; use `Project.project_participations` for work described only at project level and `Dataset.publisher` for the organization formally releasing a dataset.
 
 Projects distinguish inputs from outputs. `uses_tools`, `uses_services` and `uses_datasets` identify resources consumed by the work, while the `outputs_*` slots identify resources produced by it. Do not record the same project-resource connection as both an input and an output unless the project genuinely consumed an existing resource and produced a distinct new version represented by another entity.
@@ -120,6 +122,7 @@ Use one `OrganizationProjectRole` instance per (pair, role). If an organization 
 - **`emails` vs `contact_email`** — a person's own published addresses vs an entity's contact mailbox (office, team, service desk).
 - **`id` vs `orcid`/`ror`/`doi`** — the `id` is always an IDHI-minted URN (`idhi:<class>:<shortid>`); [ORCID](https://orcid.org/), [ROR](https://ror.org/) and [DOI](https://www.doi.org/) are *supplementary* external identifiers in their own slots and are never used as the primary id.
 - **`datasets` vs `derived_from`** — datasets aggregated by a catalog vs immediate source datasets from which a dataset was transformed.
+- **`Dataset` vs `Tool` vs `serves_datasets`** — the content you can extract vs the software you browse and query it through vs the link between them; a library catalog is both, recorded as two linked entities rather than forced into one class.
 - **`dataset_type` vs `media_type`** — the intellectual form (`DIGITAL_EDITION`, `CORPUS`, `GAZETTEER`...) vs the technical serialization (`application/tei+xml`, `application/vnd.apache.parquet`...).
 - **`funding` vs a `FUNDER` organization role** — a distinct award with available metadata vs a funding relationship for which no distinct award can be described; do not record the same fact in both.
 

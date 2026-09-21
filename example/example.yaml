@@ -169,6 +169,18 @@ tools:
     tags:
       - image matching
       - computer vision
+  - type: idhi:Tool
+    id: idhi:tool:c8h3q7
+    name:
+      - {language: en, value: Example Fragments Archive catalog}
+    description:
+      - {language: en, value: "Browse and search interface over the Example Fragments Archive catalog records, with faceting and export."}
+    tool_type: WEB_APPLICATION
+    homepage: https://fragments.example.ac.il
+    digital_humanities_activities:
+      - tadirah:discovering
+    serves_datasets:
+      - idhi:dataset:q6r1v5
 
 services:
   - type: idhi:Service

@@ -184,6 +184,8 @@ tools:
     documentation_url: https://data.geo-kima.org/api/swagger/ui
     digital_humanities_activities:
       - tadirah:enriching
+    serves_datasets:
+      - idhi:dataset:kimadata
     tags:
       - REST
       - geocoding
@@ -197,6 +199,8 @@ tools:
     tool_type: API_SERVICE
     digital_humanities_activities:
       - tadirah:enriching
+    serves_datasets:
+      - idhi:dataset:kimadata
     tags:
       - OpenRefine
       - reconciliation

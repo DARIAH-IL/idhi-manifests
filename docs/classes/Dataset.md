@@ -250,6 +250,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | ---  | --- | --- | --- |
 | [Project](../classes/Project.md) | [uses_datasets](../slots/uses_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Project](../classes/Project.md) | [outputs_datasets](../slots/outputs_datasets.md) | range | [Dataset](../classes/Dataset.md) |
+| [Tool](../classes/Tool.md) | [serves_datasets](../slots/serves_datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Dataset](../classes/Dataset.md) | [datasets](../slots/datasets.md) | range | [Dataset](../classes/Dataset.md) |
 | [Dataset](../classes/Dataset.md) | [derived_from](../slots/derived_from.md) | range | [Dataset](../classes/Dataset.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_datasets](../slots/related_datasets.md) | range | [Dataset](../classes/Dataset.md) |

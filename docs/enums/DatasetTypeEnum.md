@@ -25,7 +25,7 @@ URI: [idhi:enum/DatasetTypeEnum](https://idhi_placeholder/linkml/enum/DatasetTyp
 | GAZETTEER | None | <span title="Structured place-name or geographic authority data connecting names, places and often historical attestations; use DATABASE for non-geographic structured data.">Structured place-name or geographic authority data connecting names, places a...</span> |
 | IMAGE_COLLECTION | None | <span title="A curated collection whose primary research objects are digital images; use CORPUS when images are one modality in an analytically assembled corpus.">A curated collection whose primary research objects are digital images; use C...</span> |
 | ANNOTATION_SET | None | <span title="Standalone annotations, labels or enrichments applied to other data; use CORPUS when annotations are inseparable from the primary collected content.">Standalone annotations, labels or enrichments applied to other data; use CORP...</span> |
-| METADATA_CATALOG | None | <span title="Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records.">Metadata records whose primary purpose is to describe or aggregate other reso...</span> |
+| METADATA_CATALOG | None | <span title="Metadata records whose primary purpose is to describe or aggregate other resources; use datasets to link the datasets it catalogs and DATABASE for non-catalog structured records. Where the catalog is also browsable or queryable software, keep this record for the records themselves and register the interface as a Tool pointing back with serves_datasets.">Metadata records whose primary purpose is to describe or aggregate other reso...</span> |
 | OTHER_RESEARCH_DATA | None | <span title="Research data that fits none of the more specific forms; use only after the digital-edition, corpus, database, gazetteer, image-collection, annotation-set and metadata-catalog values have been considered.">Research data that fits none of the more specific forms; use only after the d...</span> |
 
 
@@ -104,7 +104,9 @@ permissible_values:
     text: METADATA_CATALOG
     description: Metadata records whose primary purpose is to describe or aggregate
       other resources; use datasets to link the datasets it catalogs and DATABASE
-      for non-catalog structured records.
+      for non-catalog structured records. Where the catalog is also browsable or queryable
+      software, keep this record for the records themselves and register the interface
+      as a Tool pointing back with serves_datasets.
   OTHER_RESEARCH_DATA:
     text: OTHER_RESEARCH_DATA
     description: Research data that fits none of the more specific forms; use only

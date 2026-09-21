@@ -131,6 +131,7 @@ Name: idhi
 | [resource_contributions](slots/resource_contributions.md) | Named contributions to the containing Tool or Dataset, with contributor, role... |
 | [ror](slots/ror.md) | The organization's persistent registry identifier |
 | [same_as](slots/same_as.md) | URIs of records in OTHER systems describing the same real-world entity (Wikid... |
+| [serves_datasets](slots/serves_datasets.md) | Datasets this tool provides access to — the catalog, corpus, database or gaze... |
 | [service_type](slots/service_type.md) | The kind of service offered (digitization, consulting |
 | [services](slots/services.md) | All Service records in the index |
 | [services_offered](slots/services_offered.md) | Services this organization offers to researchers |
