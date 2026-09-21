@@ -42,9 +42,9 @@ For any change to `idhi.linkml.yaml`:
 4. Every example must validate: ask the human to run `make validate DATA=<example-path>` for each YAML file under `example/` rather than validating only `example/example.yaml`.
 5. Update `README.md` if the change affects anything it describes (new class/slot semantics, id scheme, enum policy, confused pairs, build workflow).
 
-**Versioning policy (semver-ish; NOT enforced while the schema is a draft — don't bump `version:` or keep a changelog yet):**
-- PATCH (0.3.x): descriptions, comments, metadata, doc-only fixes.
-- MINOR (0.x.0): backwards-compatible additions — new optional slots, classes, enum values.
+**Versioning policy (semver; enforced from 1.0.0 onwards — bump `version:` in `idhi.linkml.yaml` and `pyproject.toml` together):**
+- PATCH (1.0.x): descriptions, comments, metadata, doc-only fixes.
+- MINOR (1.x.0): backwards-compatible additions — new optional slots, classes, enum values.
 - MAJOR (x.0.0): anything that can invalidate existing data — renaming or removing slots/classes/enum values, tightening required/patterns, changing the id scheme.
 
 ## Common tasks
@@ -64,7 +64,7 @@ For any change to `idhi.linkml.yaml`:
 
 ## Escalate to a human when
 
-- A change would be MAJOR under the versioning policy (post-draft only; while drafting, breaking changes are routine).
+- A change would be MAJOR under the versioning policy.
 - An external vocabulary update removes concepts that existing data may use.
 - A requested change conflicts with an invariant above.
 - Licensing, governance, or the id scheme itself is in question.
