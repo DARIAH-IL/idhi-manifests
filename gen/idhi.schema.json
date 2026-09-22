@@ -2,11 +2,11 @@
   "$defs": {
     "Affiliation": {
       "additionalProperties": false,
-      "description": "A person's employment or membership at an organization, nested in a Person so the member is inferred from the containing record. Use in Person.affiliations for the person's institutional home(s), independent of any project; do not provide the containing person's ID in the relationship.",
+      "description": "A person's formal relationship with an organization, nested in a Person so the person is inferred from the containing record. Use in Person.affiliations for employment, faculty, study, membership, ownership and other organization-level statuses independent of any project; do not provide the containing person's ID in the relationship.",
       "properties": {
         "affiliation_role": {
           "$ref": "#/$defs/PersonOrgRoleEnum",
-          "description": "The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.",
+          "description": "The person's role or status in the organization, not their role in a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only when no finer role fits, and create separate Affiliation instances when materially distinct roles coexist or apply during different dates.",
           "x-termUri": "schema:roleName"
         },
         "end_date": {
@@ -193,14 +193,6 @@
       "additionalProperties": false,
       "description": "A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.",
       "properties": {
-        "byte_size": {
-          "description": "Total size of the described dataset distribution in bytes. Use an exact or documented aggregate byte count and omit it when only an unreliable estimate is available.",
-          "type": [
-            "integer",
-            "null"
-          ],
-          "x-termUri": "dcat:byteSize"
-        },
         "dataset_type": {
           "$ref": "#/$defs/DatasetTypeEnum",
           "description": "The dataset's primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization.",
@@ -279,9 +271,9 @@
           "x-termUri": "bibo:doi"
         },
         "extent": {
-          "description": "Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.",
+          "description": "Quantitative measures of the dataset's size or scope, including total bytes and record, item, issue, image or file counts. Use one inlined Extent per measure and omit estimates that are too unreliable to support discovery or comparison.",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/Extent"
           },
           "type": [
             "array",
@@ -1099,6 +1091,32 @@
         "CONFERENCE": "bibo:Conference"
       }
     },
+    "Extent": {
+      "additionalProperties": false,
+      "description": "A quantitative measure of a dataset's size or scope, expressed as a numeric quantity and one or more localized unit labels. Use one Extent for each independently useful measure, including bytes, records, files, images or duration; do not combine multiple measures or explanatory prose in one instance.",
+      "properties": {
+        "quantity": {
+          "description": "The numeric magnitude of an Extent measure. Use an integer when the measure is a count or an exact byte total, and a decimal only when the chosen unit requires one; put the unit in the accompanying unit slot.",
+          "type": "number",
+          "x-termUri": "schema:value"
+        },
+        "unit": {
+          "description": "Localized labels for the unit of an Extent quantity, such as byte, record, image, file or hour. Use one LangString per available language, prefer a concise singular unit label rather than a sentence, and keep qualifications in the Dataset description or another extent measure.",
+          "items": {
+            "$ref": "#/$defs/LangString"
+          },
+          "type": "array",
+          "x-termUri": "schema:unitText"
+        }
+      },
+      "required": [
+        "quantity",
+        "unit"
+      ],
+      "title": "Extent",
+      "type": "object",
+      "x-termUri": "schema:QuantitativeValue"
+    },
     "Funding": {
       "additionalProperties": false,
       "description": "A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. This is the only place to record a project's funder; do not add a funder role in organization_roles. It is inlined within the funded Project and has no independent ID.",
@@ -1658,7 +1676,7 @@
       "description": "A human agent in the DH index: researcher, developer, librarian, student, etc.",
       "properties": {
         "affiliations": {
-          "description": "The containing person's institutional affiliations, as reified Affiliation objects with organization, position and dates. Use for employment or formal membership, not for project involvement; the containing person's ID is inferred and must not be repeated in each relationship.",
+          "description": "The containing person's formal organization-level relationships, as reified Affiliation objects with organization, role and dates. Use for employment, faculty, study, membership, ownership or another defined affiliation status, not for project involvement; the containing person's ID is inferred and must not be repeated in each relationship.",
           "items": {
             "$ref": "#/$defs/Affiliation"
           },
@@ -1784,14 +1802,21 @@
       "x-termUri": "foaf:Person"
     },
     "PersonOrgRoleEnum": {
-      "description": "A person's position within an organization (job/status).",
+      "description": "IDHI-governed roles and statuses for a person's formal relationship with an organization. Choose the most specific applicable role, use separate Affiliation instances for distinct concurrent or successive roles, and keep project-specific responsibilities in ProjectParticipation.",
       "enum": [
-        "PROFESSOR",
-        "ASSOCIATE",
+        "EMPLOYEE",
+        "FACULTY",
+        "RESEARCHER",
+        "STUDENT",
+        "INTERN",
+        "FOUNDER",
+        "OWNER",
+        "ADVISOR",
+        "CONTRACTOR",
+        "VOLUNTEER",
         "MEMBER",
-        "MANAGER",
-        "AFFILIATE",
-        "EMPLOYEE"
+        "FELLOW",
+        "AFFILIATE"
       ],
       "title": "PersonOrgRoleEnum",
       "type": "string"
@@ -3376,6 +3401,6 @@
   },
   "title": "idhi",
   "type": "object",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "x-termUri": "idhi:IndexContainer"
 }

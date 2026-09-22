@@ -6,7 +6,7 @@ search:
 # Slot: affiliation_role 
 
 
-_The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment._
+_The person's role or status in the organization, not their role in a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only when no finer role fits, and create separate Affiliation instances when materially distinct roles coexist or apply during different dates._
 
 
 
@@ -25,7 +25,7 @@ URI: [schema:roleName](http://schema.org/roleName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's formal relationship with an organization, nested in a Person so th... |  no  |
 
 
 
@@ -85,9 +85,10 @@ URI: [schema:roleName](http://schema.org/roleName)
 <details>
 ```yaml
 name: affiliation_role
-description: The person's position at the organization (their job/status, not their
-  project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association
-  without employment.
+description: The person's role or status in the organization, not their role in a
+  project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only
+  when no finer role fits, and create separate Affiliation instances when materially
+  distinct roles coexist or apply during different dates.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: schema:roleName

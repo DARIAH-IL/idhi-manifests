@@ -25,7 +25,7 @@ URI: [idhi:relatedOrganization](https://idhi_placeholder/linkml/relatedOrganizat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's formal relationship with an organization, nested in a Person so th... |  no  |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |  no  |
 
 

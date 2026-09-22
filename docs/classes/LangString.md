@@ -58,6 +58,7 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Entity](../classes/Entity.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
+| [Extent](../classes/Extent.md) | [unit](../slots/unit.md) | range | [LangString](../classes/LangString.md) |
 | [Agent](../classes/Agent.md) | [description](../slots/description.md) | range | [LangString](../classes/LangString.md) |
 | [Person](../classes/Person.md) | [given_name](../slots/given_name.md) | range | [LangString](../classes/LangString.md) |
 | [Person](../classes/Person.md) | [family_name](../slots/family_name.md) | range | [LangString](../classes/LangString.md) |

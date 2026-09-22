@@ -23,11 +23,12 @@ Name: idhi
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Service](classes/Service.md) | A reusable, human- or organization-mediated service offered by an organizatio... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tool](classes/Tool.md) | A reusable software tool, typically produced by a project |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TrainingMaterial](classes/TrainingMaterial.md) | A tutorial, lesson or other didactic resource that explains how to perform an... |
+| [Extent](classes/Extent.md) | A quantitative measure of a dataset's size or scope, expressed as a numeric q... |
 | [Funding](classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |
 | [IndexContainer](classes/IndexContainer.md) | Top-level holder for all IDHI records |
 | [LangString](classes/LangString.md) | A single language-tagged text value |
 | [Relationship](classes/Relationship.md) | Abstract base for reified relationships that carry their own role or validity... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Affiliation](classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Affiliation](classes/Affiliation.md) | A person's formal relationship with an organization, nested in a Person so th... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Authorship](classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[EventAgentRole](classes/EventAgentRole.md) | A person or organization involved in the containing Event in a defined capaci... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganizationProjectRole](classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |
@@ -43,13 +44,12 @@ Name: idhi
 | --- | --- |
 | [additional_urls](slots/additional_urls.md) | Further relevant web pages beyond the homepage (blog, social-media profile, r... |
 | [address](slots/address.md) | Postal address, multilingual |
-| [affiliation_role](slots/affiliation_role.md) | The person's position at the organization (their job/status, not their projec... |
-| [affiliations](slots/affiliations.md) | The containing person's institutional affiliations, as reified Affiliation ob... |
+| [affiliation_role](slots/affiliation_role.md) | The person's role or status in the organization, not their role in a project |
+| [affiliations](slots/affiliations.md) | The containing person's formal organization-level relationships, as reified A... |
 | [author](slots/author.md) | The person contributing to the containing publication (by IDHI URN) |
 | [author_order](slots/author_order.md) | Position in the byline; 1 = first author |
 | [authorship_role](slots/authorship_role.md) | The kind of contribution |
 | [authorships](slots/authorships.md) | People who contributed to the containing publication, as reified Authorship o... |
-| [byte_size](slots/byte_size.md) | Total size of the described dataset distribution in bytes |
 | [code_repository](slots/code_repository.md) | Source-code repository URL (GitHub, GitLab |
 | [contact_email](slots/contact_email.md) | A published contact address for the entity (office, team or service-desk mail... |
 | [contributor](slots/contributor.md) | The person or organization contributing to the containing Tool or Dataset (by... |
@@ -71,7 +71,7 @@ Name: idhi
 | [event_agent_roles](slots/event_agent_roles.md) | People and organizations involved in the containing event, with their role an... |
 | [event_type](slots/event_type.md) | The kind of scholarly event |
 | [events](slots/events.md) | All Event records in the index |
-| [extent](slots/extent.md) | Technical extent statements such as record, item, issue, image or file counts |
+| [extent](slots/extent.md) | Quantitative measures of the dataset's size or scope, including total bytes a... |
 | [family_name](slots/family_name.md) | Family (last) name as multilingual text |
 | [funding](slots/funding.md) | Funding awards received by the project |
 | [funding_amount](slots/funding_amount.md) | Amount awarded by the funding organization, if public, in the currency given ... |
@@ -123,6 +123,7 @@ Name: idhi
 | [published_in](slots/published_in.md) | Name of the journal, book or proceedings the publication appeared in, as free... |
 | [publisher](slots/publisher.md) | The organization formally publishing the dataset or training material (by IDH... |
 | [publisher_name](slots/publisher_name.md) | Name of the press, imprint or issuing body that released the publication, as ... |
+| [quantity](slots/quantity.md) | The numeric magnitude of an Extent measure |
 | [related_datasets](slots/related_datasets.md) | Datasets used as the subject or worked example of the material (by IDHI URN) |
 | [related_publications](slots/related_publications.md) | Publications that are counterparts or direct scholarly companions of the data... |
 | [related_services](slots/related_services.md) | Services that the material explains how to access or use (by IDHI URN) |
@@ -148,6 +149,7 @@ Name: idhi
 | [training_material_type](slots/training_material_type.md) | The material's primary didactic form |
 | [training_materials](slots/training_materials.md) | All TrainingMaterial records in the index, including tutorials, lessons and o... |
 | [type](slots/type.md) | Discriminator identifying the record's class; used for polymorphic serializat... |
+| [unit](slots/unit.md) | Localized labels for the unit of an Extent quantity, such as byte, record, im... |
 | [uses_datasets](slots/uses_datasets.md) | Existing datasets used as research inputs by the containing project (by IDHI ... |
 | [uses_services](slots/uses_services.md) | Services used by the containing project (by IDHI URN) |
 | [uses_tools](slots/uses_tools.md) | Tools used to conduct the containing project (by IDHI URN) |
@@ -169,7 +171,7 @@ Name: idhi
 | [OrganizationStructureRoleEnum](enums/OrganizationStructureRoleEnum.md) | IDHI-governed roles distinguishing the parent organizations of a sub-organiza... |
 | [OrganizationTypeEnum](enums/OrganizationTypeEnum.md) | Kinds of organization |
 | [OrgProjectRoleEnum](enums/OrgProjectRoleEnum.md) | An organization's role in a project (one instance per role) |
-| [PersonOrgRoleEnum](enums/PersonOrgRoleEnum.md) | A person's position within an organization (job/status) |
+| [PersonOrgRoleEnum](enums/PersonOrgRoleEnum.md) | IDHI-governed roles and statuses for a person's formal relationship with an o... |
 | [ProjectRoleEnum](enums/ProjectRoleEnum.md) | A person's role in a project |
 | [PublicationTypeEnum](enums/PublicationTypeEnum.md) | The kind of publication, including journal article, book part, conference pap... |
 | [ResourceContributionRoleEnum](enums/ResourceContributionRoleEnum.md) | Roles for named contributions to tools and datasets |

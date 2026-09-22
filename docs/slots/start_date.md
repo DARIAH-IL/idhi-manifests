@@ -31,7 +31,7 @@ URI: [schema:startDate](http://schema.org/startDate)
 | [Funding](../classes/Funding.md) | A distinct funding award for a project, identifying the organization that pro... |  no  |
 | [OrganizationStructure](../classes/OrganizationStructure.md) | Formal containment of the containing Organization within a larger parent orga... |  no  |
 | [ProjectParticipation](../classes/ProjectParticipation.md) | A person's participation nested in a Project, so the project is inferred from... |  no  |
-| [Affiliation](../classes/Affiliation.md) | A person's employment or membership at an organization, nested in a Person so... |  no  |
+| [Affiliation](../classes/Affiliation.md) | A person's formal relationship with an organization, nested in a Person so th... |  no  |
 | [OrganizationProjectRole](../classes/OrganizationProjectRole.md) | An organization's engagement nested in a Project, so the project is inferred ... |  no  |
 | [Authorship](../classes/Authorship.md) | A person's contribution nested in a Publication, so the publication is inferr... |  no  |
 | [EventAgentRole](../classes/EventAgentRole.md) | A person or organization involved in the containing Event in a defined capaci... |  no  |

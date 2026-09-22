@@ -6,7 +6,7 @@ search:
 # Class: Affiliation 
 
 
-_A person's employment or membership at an organization, nested in a Person so the member is inferred from the containing record. Use in Person.affiliations for the person's institutional home(s), independent of any project; do not provide the containing person's ID in the relationship._
+_A person's formal relationship with an organization, nested in a Person so the person is inferred from the containing record. Use in Person.affiliations for employment, faculty, study, membership, ownership and other organization-level statuses independent of any project; do not provide the containing person's ID in the relationship._
 
 
 
@@ -81,7 +81,7 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [organization](../slots/organization.md) | <span title="Required: exactly one value">1</span> <br/> [Organization](../classes/Organization.md) | <span title="The organization referenced by a person affiliation or project role (by IDHI URN). The Person or Project containing the relationship supplies its other endpoint. This uses an IDHI-specific property because one slot serves two relationship types whose external terms differ (schema:affiliation for Affiliation, schema:participant for OrganizationProjectRole), so neither can be asserted for both.">The organization referenced by a person affiliation or project role (by IDHI ...</span> | direct |
-| [affiliation_role](../slots/affiliation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [PersonOrgRoleEnum](../enums/PersonOrgRoleEnum.md) | <span title="The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.">The person's position at the organization (their job/status, not their projec...</span> | direct |
+| [affiliation_role](../slots/affiliation_role.md) | <span title="Optional: at most one value">0..1</span> <br/> [PersonOrgRoleEnum](../enums/PersonOrgRoleEnum.md) | <span title="The person's role or status in the organization, not their role in a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only when no finer role fits, and create separate Affiliation instances when materially distinct roles coexist or apply during different dates.">The person's role or status in the organization, not their role in a project</span> | direct |
 | [start_date](../slots/start_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span> | [Relationship](../classes/Relationship.md) |
 | [end_date](../slots/end_date.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span> | [Relationship](../classes/Relationship.md) |
 
@@ -139,10 +139,11 @@ URI: [cerif:Person_OrganisationUnit](https://w3id.org/cerif/model#Person_Organis
 <details>
 ```yaml
 name: Affiliation
-description: A person's employment or membership at an organization, nested in a Person
-  so the member is inferred from the containing record. Use in Person.affiliations
-  for the person's institutional home(s), independent of any project; do not provide
-  the containing person's ID in the relationship.
+description: A person's formal relationship with an organization, nested in a Person
+  so the person is inferred from the containing record. Use in Person.affiliations
+  for employment, faculty, study, membership, ownership and other organization-level
+  statuses independent of any project; do not provide the containing person's ID in
+  the relationship.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 slots:
@@ -158,10 +159,11 @@ class_uri: cerif:Person_OrganisationUnit
 <details>
 ```yaml
 name: Affiliation
-description: A person's employment or membership at an organization, nested in a Person
-  so the member is inferred from the containing record. Use in Person.affiliations
-  for the person's institutional home(s), independent of any project; do not provide
-  the containing person's ID in the relationship.
+description: A person's formal relationship with an organization, nested in a Person
+  so the person is inferred from the containing record. Use in Person.affiliations
+  for employment, faculty, study, membership, ownership and other organization-level
+  statuses independent of any project; do not provide the containing person's ID in
+  the relationship.
 from_schema: https://idhi_placeholder/linkml/idhi
 is_a: Relationship
 attributes:
@@ -184,9 +186,10 @@ attributes:
     required: true
   affiliation_role:
     name: affiliation_role
-    description: The person's position at the organization (their job/status, not
-      their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for
-      formal association without employment.
+    description: The person's role or status in the organization, not their role in
+      a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER
+      only when no finer role fits, and create separate Affiliation instances when
+      materially distinct roles coexist or apply during different dates.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:roleName

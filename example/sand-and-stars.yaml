@@ -21,7 +21,7 @@ persons:
       - {language: he, value: הלפרן}
     affiliations:
       - organization: idhi:organization:huji
-        affiliation_role: ASSOCIATE
+        affiliation_role: RESEARCHER
 
   - type: idhi:Person
     id: idhi:person:avnir
@@ -33,7 +33,7 @@ persons:
       - {language: he, value: אבניר}
     affiliations:
       - organization: idhi:organization:huji
-        affiliation_role: PROFESSOR
+        affiliation_role: FACULTY
 
   - type: idhi:Person
     id: idhi:person:laud
@@ -332,7 +332,9 @@ datasets:
     date_issued: "2026-02-19"
     distribution_url: https://zenodo.org/records/18704331
     extent:
-      - Three aligned language versions
+      - quantity: 3
+        unit:
+          - {language: en, value: language version}
     in_languages:
       - de
       - he

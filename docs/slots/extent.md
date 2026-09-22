@@ -6,7 +6,7 @@ search:
 # Slot: extent 
 
 
-_Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes._
+_Quantitative measures of the dataset's size or scope, including total bytes and record, item, issue, image or file counts. Use one inlined Extent per measure and omit estimates that are too unreliable to support discovery or comparison._
 
 
 
@@ -38,7 +38,7 @@ URI: [dcterms:extent](http://purl.org/dc/terms/extent)
 
 | Property | Value |
 | --- | --- |
-| Range | [String](../types/String.md) |
+| Range | [Extent](../classes/Extent.md) |
 | Domain Of | [Dataset](../classes/Dataset.md) |
 | Slot URI | [dcterms:extent](http://purl.org/dc/terms/extent) |
 
@@ -86,16 +86,18 @@ URI: [dcterms:extent](http://purl.org/dc/terms/extent)
 <details>
 ```yaml
 name: extent
-description: Technical extent statements such as record, item, issue, image or file
-  counts. Use one concise statement per measure, include its unit, and use byte_size
-  rather than prose for total bytes.
+description: Quantitative measures of the dataset's size or scope, including total
+  bytes and record, item, issue, image or file counts. Use one inlined Extent per
+  measure and omit estimates that are too unreliable to support discovery or comparison.
 from_schema: https://idhi_placeholder/linkml/idhi
 rank: 1000
 slot_uri: dcterms:extent
 domain_of:
 - Dataset
-range: string
+range: Extent
 multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details></div>

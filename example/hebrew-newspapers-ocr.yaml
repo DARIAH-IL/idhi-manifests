@@ -10,7 +10,7 @@ persons:
       - {language: he, value: גולדשטיין}
     affiliations:
       - organization: idhi:organization:telhai
-        affiliation_role: PROFESSOR
+        affiliation_role: FACULTY
 
   - type: idhi:Person
     id: idhi:person:rusinek
@@ -244,10 +244,18 @@ datasets:
     date_issued: "2025-02-01"
     distribution_url: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus
     extent:
-      - 2,739,218 items
-      - 17,957 newspaper issues
-      - 50 Parquet files
-    byte_size: 3400000000
+      - quantity: 2739218
+        unit:
+          - {language: en, value: item}
+      - quantity: 17957
+        unit:
+          - {language: en, value: newspaper issue}
+      - quantity: 50
+        unit:
+          - {language: en, value: file}
+      - quantity: 3400000000
+        unit:
+          - {language: en, value: byte}
     in_languages:
       - he
     media_type:
@@ -274,8 +282,12 @@ datasets:
     date_issued: "2025-05-05"
     distribution_url: https://huggingface.co/datasets/yoad/heb_news_ocr_corpus_transformed
     extent:
-      - 2,618,671 items
-    byte_size: 3100000000
+      - quantity: 2618671
+        unit:
+          - {language: en, value: item}
+      - quantity: 3100000000
+        unit:
+          - {language: en, value: byte}
     in_languages:
       - he
     media_type:

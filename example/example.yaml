@@ -17,7 +17,7 @@ persons:
       - {language: he, value: כהן}
     affiliations:
       - organization: idhi:organization:k3v9p2
-        affiliation_role: PROFESSOR
+        affiliation_role: FACULTY
         start_date: "2015-10-01"
 
 organizations:
@@ -251,8 +251,14 @@ datasets:
     date_issued: "2024-01-10"
     distribution_url: https://data.idhi.co.il/fragments/v1.zip
     extent:
-      - 12,500 annotated images
-    byte_size: 2400000000
+      - quantity: 12500
+        unit:
+          - {language: en, value: image}
+          - {language: he, value: תמונה}
+          - {language: ar, value: صورة}
+      - quantity: 2400000000
+        unit:
+          - {language: en, value: byte}
     in_languages:
       - he
       - ar

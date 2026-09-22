@@ -167,9 +167,15 @@ datasets:
     dataset_type: GAZETTEER
     distribution_url: https://data.geo-kima.org/api/swagger/ui
     extent:
-      - 48,124 places
-      - 150,018 name variants
-      - 235,867 textual attestations
+      - quantity: 48124
+        unit:
+          - {language: en, value: place}
+      - quantity: 150018
+        unit:
+          - {language: en, value: name variant}
+      - quantity: 235867
+        unit:
+          - {language: en, value: textual attestation}
     themes:
       - {language: en, value: place names}
       - {language: en, value: historical geography}

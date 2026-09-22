@@ -28,8 +28,6 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
       
 
-      Dataset : byte_size
-        
       Dataset : dataset_type
         
           
@@ -98,6 +96,17 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
       Dataset : doi
         
       Dataset : extent
+        
+          
+    
+        
+        
+        Dataset --> "*" Extent : extent
+        
+        click Extent href "../../classes/Extent/"
+        
+    
+
         
       Dataset : homepage
         
@@ -225,8 +234,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
 | [distribution_url](../slots/distribution_url.md) | <span title="Optional: at most one value">0..1</span> <br/> [Uri](../types/Uri.md) | <span title="Direct download or access URL for the dataset.">Direct download or access URL for the dataset</span> | direct |
-| [extent](../slots/extent.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.">Technical extent statements such as record, item, issue, image or file counts</span> | direct |
-| [byte_size](../slots/byte_size.md) | <span title="Optional: at most one value">0..1</span> <br/> [Integer](../types/Integer.md) | <span title="Total size of the described dataset distribution in bytes. Use an exact or documented aggregate byte count and omit it when only an unreliable estimate is available.">Total size of the described dataset distribution in bytes</span> | direct |
+| [extent](../slots/extent.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Extent](../classes/Extent.md) | <span title="Quantitative measures of the dataset's size or scope, including total bytes and record, item, issue, image or file counts. Use one inlined Extent per measure and omit estimates that are too unreliable to support discovery or comparison.">Quantitative measures of the dataset's size or scope, including total bytes a...</span> | direct |
 | [in_languages](../slots/in_languages.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Languages substantially represented in a dataset or in which instructional content is available, using BCP-47 tags. For training material, record every complete language version and do not include a language used only in captions or examples; for datasets, record the languages of the data rather than its metadata page.">Languages substantially represented in a dataset or in which instructional co...</span> | direct |
 | [media_type](../slots/media_type.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [String](../types/String.md) | <span title="Technical media type of the primary dataset distribution or training resource, preferably an IANA media type such as text/html, application/pdf, application/vnd.apache.parquet or video/mp4. Dataset records may list multiple formats; do not use this for an intellectual or didactic form, which belongs in dataset_type or training_material_type.">Technical media type of the primary dataset distribution or training resource...</span> | direct |
 | [related_publications](../slots/related_publications.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Publication](../classes/Publication.md) | <span title="Publications that are counterparts or direct scholarly companions of the dataset, such as the print counterpart of a digital edition. Reference Publication records by IDHI URN; use outputs_publications on Project for outputs that are related only by their project of origin.">Publications that are counterparts or direct scholarly companions of the data...</span> | direct |
@@ -327,7 +335,6 @@ slots:
 - date_issued
 - distribution_url
 - extent
-- byte_size
 - in_languages
 - media_type
 - related_publications
@@ -526,29 +533,20 @@ attributes:
     range: uri
   extent:
     name: extent
-    description: Technical extent statements such as record, item, issue, image or
-      file counts. Use one concise statement per measure, include its unit, and use
-      byte_size rather than prose for total bytes.
+    description: Quantitative measures of the dataset's size or scope, including total
+      bytes and record, item, issue, image or file counts. Use one inlined Extent
+      per measure and omit estimates that are too unreliable to support discovery
+      or comparison.
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: dcterms:extent
     owner: Dataset
     domain_of:
     - Dataset
-    range: string
+    range: Extent
     multivalued: true
-  byte_size:
-    name: byte_size
-    description: Total size of the described dataset distribution in bytes. Use an
-      exact or documented aggregate byte count and omit it when only an unreliable
-      estimate is available.
-    from_schema: https://idhi_placeholder/linkml/idhi
-    rank: 1000
-    slot_uri: dcat:byteSize
-    owner: Dataset
-    domain_of:
-    - Dataset
-    range: integer
+    inlined: true
+    inlined_as_list: true
   in_languages:
     name: in_languages
     description: Languages substantially represented in a dataset or in which instructional
