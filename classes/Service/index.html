@@ -5791,6 +5791,19 @@
 
 
 
+      Service : related_tools
+
+
+
+
+
+        Service --&gt; "*" Tool : related_tools
+
+        click Tool href "../../classes/Tool/"
+
+
+
+
       Service : same_as
 
       Service : service_type
@@ -5884,6 +5897,12 @@
 <td><a href="../../slots/digital_humanities_activities/">digital_humanities_activities</a></td>
 <td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../enums/DigitalHumanitiesActivityEnum/">DigitalHumanitiesActivityEnum</a></td>
 <td><span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/related_tools/">related_tools</a></td>
+<td><span title="Optional: zero or more values allowed">*</span> <br/> <a href="../../classes/Tool/">Tool</a></td>
+<td><span title="Tools that the containing resource centers on (by IDHI URN): those whose use a training material teaches or demonstrates, and those a service supports, hosts, trains people in or runs on the requester's behalf. Do not use it for software that is merely how the material was produced or how the service is delivered behind the scenes; the test is whether someone who found the tool would want this record returned alongside it.">Tools that the containing resource centers on (by IDHI URN): those whose use ...</span></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -6014,6 +6033,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">additional_urls</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_email</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">digital_humanities_activities</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">related_tools</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
@@ -6155,6 +6175,23 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DigitalHumanitiesActivityEnum</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">related_tools</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">related_tools</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Tools</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">containing</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">centers</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">(by</span><span class="nv"> </span><span class="s">IDHI</span><span class="nv"> </span><span class="s">URN):</span><span class="nv"> </span><span class="s">those</span>
+<span class="w">      </span><span class="s">whose</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">training</span><span class="nv"> </span><span class="s">material</span><span class="nv"> </span><span class="s">teaches</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">demonstrates,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">those</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">service</span><span class="nv"> </span><span class="s">supports,</span>
+<span class="w">      </span><span class="s">hosts,</span><span class="nv"> </span><span class="s">trains</span><span class="nv"> </span><span class="s">people</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">runs</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">requester</span><span class="se">&#39;&#39;</span><span class="s">s</span><span class="nv"> </span><span class="s">behalf.</span><span class="nv"> </span><span class="s">Do</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">for</span>
+<span class="w">      </span><span class="s">software</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">merely</span><span class="nv"> </span><span class="s">how</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">material</span><span class="nv"> </span><span class="s">was</span><span class="nv"> </span><span class="s">produced</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">how</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">service</span><span class="nv"> </span><span class="s">is</span>
+<span class="w">      </span><span class="s">delivered</span><span class="nv"> </span><span class="s">behind</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">scenes;</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">whether</span><span class="nv"> </span><span class="s">someone</span><span class="nv"> </span><span class="s">who</span><span class="nv"> </span><span class="s">found</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">tool</span>
+<span class="w">      </span><span class="s">would</span><span class="nv"> </span><span class="s">want</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">returned</span><span class="nv"> </span><span class="s">alongside</span><span class="nv"> </span><span class="s">it.&#39;</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:about</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrainingMaterial</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tool</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
