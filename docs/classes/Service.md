@@ -92,6 +92,19 @@ URI: [schema:Service](http://schema.org/Service)
     
 
         
+      Service : related_tools
+        
+          
+    
+        
+        
+        Service --> "*" Tool : related_tools
+        
+        click Tool href "../../classes/Tool/"
+        
+    
+
+        
       Service : same_as
         
       Service : service_type
@@ -140,6 +153,7 @@ URI: [schema:Service](http://schema.org/Service)
 | [additional_urls](../slots/additional_urls.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Uri](../types/Uri.md) | <span title="Further relevant web pages beyond the homepage (blog, social-media profile, registry entry, press coverage...). For records describing the same entity in other systems use same_as instead.">Further relevant web pages beyond the homepage (blog, social-media profile, r...</span> | direct |
 | [contact_email](../slots/contact_email.md) | <span title="Optional: at most one value">0..1</span> <br/> [String](../types/String.md) | <span title="A published contact address for the entity (office, team or service-desk mailbox). For a person's own addresses use 'emails'.">A published contact address for the entity (office, team or service-desk mail...</span> | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span> | direct |
+| [related_tools](../slots/related_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools that the containing resource centers on (by IDHI URN): those whose use a training material teaches or demonstrates, and those a service supports, hosts, trains people in or runs on the requester's behalf. Do not use it for software that is merely how the material was produced or how the service is delivered behind the scenes; the test is whether someone who found the tool would want this record returned alongside it.">Tools that the containing resource centers on (by IDHI URN): those whose use ...</span> | direct |
 | [type](../slots/type.md) | <span title="Required: exactly one value">1</span> <br/> [Curie](../types/Curie.md) | <span title="Discriminator identifying the record's class; used for polymorphic serialization and deserialization.">Discriminator identifying the record's class; used for polymorphic serializat...</span> | [Entity](../classes/Entity.md) |
 | [id](../slots/id.md) | <span title="Required: exactly one value">1</span> <br/> [String](../types/String.md) | <span title="The entity's primary identifier: an IDHI URN of the form&#10;  idhi:&lt;class name>:&lt;random short alphanumeric id>&#10;e.g. idhi:person:x7k2m9 or idhi:project:a83bq1. Minted by IDHI at record creation and never reused or changed. The class token is the lowercase snake_case class name; each concrete class enforces its own token via slot_usage. External identifiers (ORCID, ROR, DOI...) are supplementary and go in their dedicated slots — never here.">The entity's primary identifier: an IDHI URN of the form</span> | [Entity](../classes/Entity.md) |
 | [description](../slots/description.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [LangString](../classes/LangString.md) | <span title="Multilingual free-text description (a few sentences aimed at index visitors, not internal notes).">Multilingual free-text description (a few sentences aimed at index visitors, ...</span> | [Entity](../classes/Entity.md) |
@@ -226,6 +240,7 @@ slots:
 - additional_urls
 - contact_email
 - digital_humanities_activities
+- related_tools
 slot_usage:
   type:
     name: type
@@ -371,6 +386,23 @@ attributes:
     - Dataset
     - TrainingMaterial
     range: DigitalHumanitiesActivityEnum
+    multivalued: true
+  related_tools:
+    name: related_tools
+    description: 'Tools that the containing resource centers on (by IDHI URN): those
+      whose use a training material teaches or demonstrates, and those a service supports,
+      hosts, trains people in or runs on the requester''s behalf. Do not use it for
+      software that is merely how the material was produced or how the service is
+      delivered behind the scenes; the test is whether someone who found the tool
+      would want this record returned alongside it.'
+    from_schema: https://idhi_placeholder/linkml/idhi
+    rank: 1000
+    slot_uri: schema:about
+    owner: Service
+    domain_of:
+    - Service
+    - TrainingMaterial
+    range: Tool
     multivalued: true
   type:
     name: type

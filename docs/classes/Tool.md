@@ -196,6 +196,7 @@ URI: [schema:SoftwareApplication](http://schema.org/SoftwareApplication)
 | [Organization](../classes/Organization.md) | [tools_provided](../slots/tools_provided.md) | range | [Tool](../classes/Tool.md) |
 | [Project](../classes/Project.md) | [uses_tools](../slots/uses_tools.md) | range | [Tool](../classes/Tool.md) |
 | [Project](../classes/Project.md) | [outputs_tools](../slots/outputs_tools.md) | range | [Tool](../classes/Tool.md) |
+| [Service](../classes/Service.md) | [related_tools](../slots/related_tools.md) | range | [Tool](../classes/Tool.md) |
 | [TrainingMaterial](../classes/TrainingMaterial.md) | [related_tools](../slots/related_tools.md) | range | [Tool](../classes/Tool.md) |
 | [IndexContainer](../classes/IndexContainer.md) | [tools](../slots/tools.md) | range | [Tool](../classes/Tool.md) |
 

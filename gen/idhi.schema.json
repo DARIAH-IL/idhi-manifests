@@ -2713,6 +2713,17 @@
           ],
           "x-termUri": "schema:provider"
         },
+        "related_tools": {
+          "description": "Tools that the containing resource centers on (by IDHI URN): those whose use a training material teaches or demonstrates, and those a service supports, hosts, trains people in or runs on the requester's behalf. Do not use it for software that is merely how the material was produced or how the service is delivered behind the scenes; the test is whether someone who found the tool would want this record returned alongside it.",
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "x-termUri": "schema:about"
+        },
         "same_as": {
           "description": "URIs of records in OTHER systems describing the same real-world entity (Wikidata, PeriodO, GeoNames...). Use for linked-data alignment, not for the entity's own pages (use homepage).",
           "items": {
@@ -3175,7 +3186,7 @@
           "x-termUri": "schema:about"
         },
         "related_tools": {
-          "description": "Tools whose use the material teaches or demonstrates (by IDHI URN). Do not use this merely for software used to produce the material.",
+          "description": "Tools that the containing resource centers on (by IDHI URN): those whose use a training material teaches or demonstrates, and those a service supports, hosts, trains people in or runs on the requester's behalf. Do not use it for software that is merely how the material was produced or how the service is delivered behind the scenes; the test is whether someone who found the tool would want this record returned alongside it.",
           "items": {
             "type": "string"
           },
@@ -3365,6 +3376,6 @@
   },
   "title": "idhi",
   "type": "object",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "x-termUri": "idhi:IndexContainer"
 }

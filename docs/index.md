@@ -126,7 +126,7 @@ Name: idhi
 | [related_datasets](slots/related_datasets.md) | Datasets used as the subject or worked example of the material (by IDHI URN) |
 | [related_publications](slots/related_publications.md) | Publications that are counterparts or direct scholarly companions of the data... |
 | [related_services](slots/related_services.md) | Services that the material explains how to access or use (by IDHI URN) |
-| [related_tools](slots/related_tools.md) | Tools whose use the material teaches or demonstrates (by IDHI URN) |
+| [related_tools](slots/related_tools.md) | Tools that the containing resource centers on (by IDHI URN): those whose use ... |
 | [research_disciplines](slots/research_disciplines.md) | Humanities discipline(s) of the project (history, linguistics, archaeology |
 | [resource_contribution_role](slots/resource_contribution_role.md) | The contributor's responsibility for the containing Tool or Dataset |
 | [resource_contributions](slots/resource_contributions.md) | Named contributions to the containing Tool or Dataset, with contributor, role... |

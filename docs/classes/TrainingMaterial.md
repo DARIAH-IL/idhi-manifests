@@ -284,7 +284,7 @@ URI: [schema:LearningResource](http://schema.org/LearningResource)
 | [license](../slots/license.md) | <span title="Optional: at most one value">0..1</span> <br/> [LicenseEnum](../enums/LicenseEnum.md) | <span title="The license under which the tool, dataset or training material is released. Required for anything advertised as reusable; omit only if genuinely unknown.">The license under which the tool, dataset or training material is released</span> | direct |
 | [date_issued](../slots/date_issued.md) | <span title="Optional: at most one value">0..1</span> <br/> [Date](../types/Date.md) | <span title="Formal publication date (or year-01-01 if only the year is known).">Formal publication date (or year-01-01 if only the year is known)</span> | direct |
 | [digital_humanities_activities](../slots/digital_humanities_activities.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [DigitalHumanitiesActivityEnum](../enums/DigitalHumanitiesActivityEnum.md) | <span title="Digital-humanities research activities practiced in this project, tool, service or dataset, or taught by this training material. Prefer the most specific applicable activity; multiple values are expected. This is the primary DH-facet for discovery.">Digital-humanities research activities practiced in this project, tool, servi...</span> | direct |
-| [related_tools](../slots/related_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools whose use the material teaches or demonstrates (by IDHI URN). Do not use this merely for software used to produce the material.">Tools whose use the material teaches or demonstrates (by IDHI URN)</span> | direct |
+| [related_tools](../slots/related_tools.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Tool](../classes/Tool.md) | <span title="Tools that the containing resource centers on (by IDHI URN): those whose use a training material teaches or demonstrates, and those a service supports, hosts, trains people in or runs on the requester's behalf. Do not use it for software that is merely how the material was produced or how the service is delivered behind the scenes; the test is whether someone who found the tool would want this record returned alongside it.">Tools that the containing resource centers on (by IDHI URN): those whose use ...</span> | direct |
 | [related_services](../slots/related_services.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Service](../classes/Service.md) | <span title="Services that the material explains how to access or use (by IDHI URN). Do not use this for the organization publishing the material.">Services that the material explains how to access or use (by IDHI URN)</span> | direct |
 | [related_datasets](../slots/related_datasets.md) | <span title="Optional: zero or more values allowed">*</span> <br/> [Dataset](../classes/Dataset.md) | <span title="Datasets used as the subject or worked example of the material (by IDHI URN). Do not use this for incidental source data that learners never encounter.">Datasets used as the subject or worked example of the material (by IDHI URN)</span> | direct |
 | [part_of_training_material](../slots/part_of_training_material.md) | <span title="Optional: at most one value">0..1</span> <br/> [TrainingMaterial](../classes/TrainingMaterial.md) | <span title="The larger training material of which this resource is a module or lesson (by IDHI URN). Use only for formal instructional containment, not loose topical similarity.">The larger training material of which this resource is a module or lesson (by...</span> | direct |
@@ -656,13 +656,18 @@ attributes:
     multivalued: true
   related_tools:
     name: related_tools
-    description: Tools whose use the material teaches or demonstrates (by IDHI URN).
-      Do not use this merely for software used to produce the material.
+    description: 'Tools that the containing resource centers on (by IDHI URN): those
+      whose use a training material teaches or demonstrates, and those a service supports,
+      hosts, trains people in or runs on the requester''s behalf. Do not use it for
+      software that is merely how the material was produced or how the service is
+      delivered behind the scenes; the test is whether someone who found the tool
+      would want this record returned alongside it.'
     from_schema: https://idhi_placeholder/linkml/idhi
     rank: 1000
     slot_uri: schema:about
     owner: TrainingMaterial
     domain_of:
+    - Service
     - TrainingMaterial
     range: Tool
     multivalued: true

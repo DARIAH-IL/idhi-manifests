@@ -11,7 +11,7 @@ title: Israeli Digital Humanities Index Schema
 description: >-
   A LinkML schema for an index of Digital Humanities (DH) research in Israel. Entities and properties reuse established vocabularies (FOAF, schema.org, Dublin Core Terms, BIBO, DCAT, PROV, EDM, SKOS, CERIF); DH projects are classified with TaDiRAH 2.0 research-activity concepts (dynamic enum over the full taxonomy). Free text supports any syntactically valid BCP-47 language tag. All entities are identified by IDHI URNs (idhi:<class>:<shortid>); external PIDs are supplementary.
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.0.0
+version: 1.1.0
 
 # ------------------------- PREFIXES ----------------------------------
 prefixes:
@@ -235,6 +235,7 @@ classes:
       - additional_urls
       - contact_email
       - digital_humanities_activities
+      - related_tools
 
   Publication:
     is_a: Entity
@@ -1073,7 +1074,8 @@ slots:
     range: Tool
     multivalued: true
     description: >-
-      Tools whose use the material teaches or demonstrates (by IDHI URN). Do not use this merely for software used to produce the material.
+      Tools that the containing resource centers on (by IDHI URN): those whose use a training material teaches or demonstrates, and those a service supports, hosts, trains people in or runs on the requester's behalf.
+      Do not use it for software that is merely how the material was produced or how the service is delivered behind the scenes; the test is whether someone who found the tool would want this record returned alongside it.
     slot_uri: schema:about
   related_services:
     range: Service
