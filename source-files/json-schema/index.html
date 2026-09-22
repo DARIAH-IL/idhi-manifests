@@ -629,6 +629,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../classes/Extent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: Extent
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -1888,33 +1915,6 @@
     
   
   Slot: authorships
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/byte_size/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: byte_size
 
     
   </span>
@@ -3905,6 +3905,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/quantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: quantity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/related_datasets/" class="md-nav__link">
         
   
@@ -4561,6 +4588,33 @@
     
   
   Slot: type
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: unit
 
     
   </span>
@@ -5409,11 +5463,11 @@
 <span class="w">  </span><span class="nt">&quot;$defs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;Affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A person&#39;s employment or membership at an organization, nested in a Person so the member is inferred from the containing record. Use in Person.affiliations for the person&#39;s institutional home(s), independent of any project; do not provide the containing person&#39;s ID in the relationship.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A person&#39;s formal relationship with an organization, nested in a Person so the person is inferred from the containing record. Use in Person.affiliations for employment, faculty, study, membership, ownership and other organization-level statuses independent of any project; do not provide the containing person&#39;s ID in the relationship.&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;affiliation_role&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/PersonOrgRoleEnum&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The person&#39;s position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The person&#39;s role or status in the organization, not their role in a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only when no finer role fits, and create separate Affiliation instances when materially distinct roles coexist or apply during different dates.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:roleName&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -5600,14 +5654,6 @@
 <span class="w">      </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A dataset or dataset-like intellectual object produced or curated by a project: digital editions, corpora, databases, gazetteers, image collections, annotation sets and metadata catalogs. Use Dataset for research data, digital scholarly editions and catalogs that describe other resources; a catalog can link the datasets it aggregates through datasets.&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;byte_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Total size of the described dataset distribution in bytes. Use an exact or documented aggregate byte count and omit it when only an unreliable estimate is available.&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;null&quot;</span>
-<span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dcat:byteSize&quot;</span>
-<span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;dataset_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/DatasetTypeEnum&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The dataset&#39;s primary intellectual or collection form. Use this for discovery categories such as digital edition, corpus or gazetteer; use media_type for its technical serialization.&quot;</span><span class="p">,</span>
@@ -5686,9 +5732,9 @@
 <span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bibo:doi&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;extent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Quantitative measures of the dataset&#39;s size or scope, including total bytes and record, item, issue, image or file counts. Use one inlined Extent per measure and omit estimates that are too unreliable to support discovery or comparison.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/Extent&quot;</span>
 <span class="w">          </span><span class="p">},</span>
 <span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -6506,6 +6552,32 @@
 <span class="w">        </span><span class="nt">&quot;CONFERENCE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bibo:Conference&quot;</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Extent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A quantitative measure of a dataset&#39;s size or scope, expressed as a numeric quantity and one or more localized unit labels. Use one Extent for each independently useful measure, including bytes, records, files, images or duration; do not combine multiple measures or explanatory prose in one instance.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The numeric magnitude of an Extent measure. Use an integer when the measure is a count or an exact byte total, and a decimal only when the chosen unit requires one; put the unit in the accompanying unit slot.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:value&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Localized labels for the unit of an Extent quantity, such as byte, record, image, file or hour. Use one LangString per available language, prefer a concise singular unit label rather than a sentence, and keep qualifications in the Dataset description or another extent measure.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/LangString&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:unitText&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;quantity&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;unit&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Extent&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;schema:QuantitativeValue&quot;</span>
+<span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;Funding&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A distinct funding award for a project, identifying the organization that provides it and recording available award metadata and its funding period. This is the only place to record a project&#39;s funder; do not add a funder role in organization_roles. It is inlined within the funded Project and has no independent ID.&quot;</span><span class="p">,</span>
@@ -7065,7 +7137,7 @@
 <span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A human agent in the DH index: researcher, developer, librarian, student, etc.&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;affiliations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The containing person&#39;s institutional affiliations, as reified Affiliation objects with organization, position and dates. Use for employment or formal membership, not for project involvement; the containing person&#39;s ID is inferred and must not be repeated in each relationship.&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The containing person&#39;s formal organization-level relationships, as reified Affiliation objects with organization, role and dates. Use for employment, faculty, study, membership, ownership or another defined affiliation status, not for project involvement; the containing person&#39;s ID is inferred and must not be repeated in each relationship.&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/$defs/Affiliation&quot;</span>
 <span class="w">          </span><span class="p">},</span>
@@ -7191,14 +7263,21 @@
 <span class="w">      </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foaf:Person&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;PersonOrgRoleEnum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A person&#39;s position within an organization (job/status).&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IDHI-governed roles and statuses for a person&#39;s formal relationship with an organization. Choose the most specific applicable role, use separate Affiliation instances for distinct concurrent or successive roles, and keep project-specific responsibilities in ProjectParticipation.&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;PROFESSOR&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;ASSOCIATE&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;EMPLOYEE&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;FACULTY&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;RESEARCHER&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;STUDENT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;INTERN&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;FOUNDER&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;OWNER&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;ADVISOR&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;CONTRACTOR&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;VOLUNTEER&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="s2">&quot;MEMBER&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;MANAGER&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;AFFILIATE&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;EMPLOYEE&quot;</span>
+<span class="w">        </span><span class="s2">&quot;FELLOW&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;AFFILIATE&quot;</span>
 <span class="w">      </span><span class="p">],</span>
 <span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PersonOrgRoleEnum&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
@@ -8783,7 +8862,7 @@
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.0&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;x-termUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idhi:IndexContainer&quot;</span>
 <span class="p">}</span>
 </code></pre></div>

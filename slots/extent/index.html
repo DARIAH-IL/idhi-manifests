@@ -615,6 +615,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../classes/Extent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: Extent
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -1876,33 +1903,6 @@
     
   
   Slot: authorships
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../byte_size/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: byte_size
 
     
   </span>
@@ -4042,6 +4042,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../quantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: quantity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../related_datasets/" class="md-nav__link">
         
   
@@ -4698,6 +4725,33 @@
     
   
   Slot: type
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: unit
 
     
   </span>
@@ -5650,7 +5704,7 @@
                   
 
 <h1 id="slot-extent">Slot: extent</h1>
-<p><em>Technical extent statements such as record, item, issue, image or file counts. Use one concise statement per measure, include its unit, and use byte_size rather than prose for total bytes.</em></p>
+<p><em>Quantitative measures of the dataset's size or scope, including total bytes and record, item, issue, image or file counts. Use one inlined Extent per measure and omit estimates that are too unreliable to support discovery or comparison.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://purl.org/dc/terms/extent">dcterms:extent</a></p>
 <!-- no inheritance hierarchy -->
@@ -5683,7 +5737,7 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="../../types/String/">String</a></td>
+<td><a href="../../classes/Extent/">Extent</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
@@ -5737,16 +5791,18 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">extent</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Technical extent statements such as record, item, issue, image or file</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">counts. Use one concise statement per measure, include its unit, and use byte_size</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rather than prose for total bytes.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Quantitative measures of the dataset&#39;s size or scope, including total</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">bytes and record, item, issue, image or file counts. Use one inlined Extent per</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">measure and omit estimates that are too unreliable to support discovery or comparison.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:extent</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 </div>

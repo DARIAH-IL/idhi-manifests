@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Event/">
+        <link rel="prev" href="../EventAgentRole/">
       
       
-        <link rel="next" href="../Extent/">
+        <link rel="next" href="../Funding/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Class: EventAgentRole - Israeli Digital Humanities Index Schema</title>
+        <title>Class: Extent - Israeli Digital Humanities Index Schema</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-eventagentrole" class="md-skip">
+        <a href="#class-extent" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class: EventAgentRole
+              Class: Extent
             
           </span>
         </div>
@@ -587,6 +587,33 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../EventAgentRole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: EventAgentRole
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -608,7 +635,7 @@
   <span class="md-ellipsis">
     
   
-  Class: EventAgentRole
+  Class: Extent
 
     
   </span>
@@ -625,7 +652,7 @@
   <span class="md-ellipsis">
     
   
-  Class: EventAgentRole
+  Class: Extent
 
     
   </span>
@@ -649,17 +676,6 @@
       On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Inheritance
-      </span>
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#class-properties" class="md-nav__link">
@@ -776,33 +792,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Extent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Class: Extent
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -5611,17 +5600,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Inheritance
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#class-properties" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -5747,56 +5725,32 @@
                 
                   
 
-<h1 id="class-eventagentrole">Class: EventAgentRole</h1>
-<p><em>A person or organization involved in the containing Event in a defined capacity, with optional dates when the involvement covers only part of a multi-day event or programme. Use in Event.event_agent_roles for organizers, hosts, speakers, panelists, participants or sponsors; do not use it merely because an agent authored a publication presented at the event.</em></p>
+<h1 id="class-extent">Class: Extent</h1>
+<p><em>A quantitative measure of a dataset's size or scope, expressed as a numeric quantity and one or more localized unit labels. Use one Extent for each independently useful measure, including bytes, records, files, images or duration; do not combine multiple measures or explanatory prose in one instance.</em></p>
 <div data-search-exclude="data-search-exclude">
-<p>URI: <a href="http://schema.org/Role">schema:Role</a></p>
+<p>URI: <a href="http://schema.org/QuantitativeValue">schema:QuantitativeValue</a></p>
 <pre class="mermaid"><code> classDiagram
-    class EventAgentRole
-      Relationship &lt;|-- EventAgentRole
-        click Relationship href "../../classes/Relationship/"
+    class Extent
 
 
 
 
-      EventAgentRole : end_date
+      Extent : quantity
 
-      EventAgentRole : event_agent
-
-
-
-
-
-        EventAgentRole --&gt; "1" Agent : event_agent
-
-        click Agent href "../../classes/Agent/"
-
-
-
-
-      EventAgentRole : event_agent_role
+      Extent : unit
 
 
 
 
 
-        EventAgentRole --&gt; "1" EventAgentRoleEnum : event_agent_role
+        Extent --&gt; "1..*" LangString : unit
 
-        click EventAgentRoleEnum href "../../enums/EventAgentRoleEnum/"
-
-
+        click LangString href "../../classes/LangString/"
 
 
-      EventAgentRole : start_date
+
 
 </code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><a href="../../classes/Relationship/">Relationship</a><ul>
-<li><strong>EventAgentRole</strong></li>
-</ul>
-</li>
-</ul>
 <h2 id="class-properties">Class Properties</h2>
 <table>
 <thead>
@@ -5808,7 +5762,7 @@
 <tbody>
 <tr>
 <td>Class URI</td>
-<td><a href="http://schema.org/Role">schema:Role</a></td>
+<td><a href="http://schema.org/QuantitativeValue">schema:QuantitativeValue</a></td>
 </tr>
 </tbody>
 </table>
@@ -5824,28 +5778,16 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../../slots/event_agent/">event_agent</a></td>
-<td><span title="Required: exactly one value">1</span> <br/> <a href="../../classes/Agent/">Agent</a></td>
-<td><span title="The person or organization involved in the containing event (by IDHI URN). Use only in Event.event_agent_roles; do not duplicate the relationship on the Agent.">The person or organization involved in the containing event (by IDHI URN)</span></td>
+<td><a href="../../slots/quantity/">quantity</a></td>
+<td><span title="Required: exactly one value">1</span> <br/> <a href="../../types/Decimal/">Decimal</a></td>
+<td><span title="The numeric magnitude of an Extent measure. Use an integer when the measure is a count or an exact byte total, and a decimal only when the chosen unit requires one; put the unit in the accompanying unit slot.">The numeric magnitude of an Extent measure</span></td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../../slots/event_agent_role/">event_agent_role</a></td>
-<td><span title="Required: exactly one value">1</span> <br/> <a href="../../enums/EventAgentRoleEnum/">EventAgentRoleEnum</a></td>
-<td><span title="The capacity in which the agent is involved in the containing event. Choose the most specific applicable role and create separate relationships when the same agent has multiple roles.">The capacity in which the agent is involved in the containing event</span></td>
+<td><a href="../../slots/unit/">unit</a></td>
+<td><span title="Required: one or more values">1..*</span> <br/> <a href="../../classes/LangString/">LangString</a></td>
+<td><span title="Localized labels for the unit of an Extent quantity, such as byte, record, image, file or hour. Use one LangString per available language, prefer a concise singular unit label rather than a sentence, and keep qualifications in the Dataset description or another extent measure.">Localized labels for the unit of an Extent quantity, such as byte, record, im...</span></td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../../slots/start_date/">start_date</a></td>
-<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Date/">Date</a></td>
-<td><span title="Start of the event, of the project's runtime, or of a relationship's validity, such as when participation, affiliation, maintenance responsibility or formal containment began.">Start of the event, of the project's runtime, or of a relationship's validity...</span></td>
-<td><a href="../../classes/Relationship/">Relationship</a></td>
-</tr>
-<tr>
-<td><a href="../../slots/end_date/">end_date</a></td>
-<td><span title="Optional: at most one value">0..1</span> <br/> <a href="../../types/Date/">Date</a></td>
-<td><span title="End of the event, project runtime or relationship. Omit for ongoing relationships and open-ended projects.">End of the event, project runtime or relationship</span></td>
-<td><a href="../../classes/Relationship/">Relationship</a></td>
 </tr>
 </tbody>
 </table>
@@ -5861,10 +5803,10 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/Event/">Event</a></td>
-<td><a href="../../slots/event_agent_roles/">event_agent_roles</a></td>
+<td><a href="../../classes/Dataset/">Dataset</a></td>
+<td><a href="../../slots/extent/">extent</a></td>
 <td>range</td>
-<td><a href="../../classes/EventAgentRole/">EventAgentRole</a></td>
+<td><a href="../../classes/Extent/">Extent</a></td>
 </tr>
 </tbody>
 </table>
@@ -5884,98 +5826,69 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:Role</td>
+<td>schema:QuantitativeValue</td>
 </tr>
 <tr>
 <td>native</td>
-<td>idhi:EventAgentRole</td>
+<td>idhi:Extent</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <h3 id="direct">Direct</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person or organization involved in the containing Event in a defined</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">capacity, with optional dates when the involvement covers only part of a multi-day</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">event or programme. Use in Event.event_agent_roles for organizers, hosts, speakers,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">panelists, participants or sponsors; do not use it merely because an agent authored</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">a publication presented at the event.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A quantitative measure of a dataset&#39;s size or scope, expressed as a numeric</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">quantity and one or more localized unit labels. Use one Extent for each independently</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">useful measure, including bytes, records, files, images or duration; do not combine</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">multiple measures or explanatory prose in one instance.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event_agent</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event_agent_role</span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Role</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quantity</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:QuantitativeValue</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person or organization involved in the containing Event in a defined</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">capacity, with optional dates when the involvement covers only part of a multi-day</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">event or programme. Use in Event.event_agent_roles for organizers, hosts, speakers,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">panelists, participants or sponsors; do not use it merely because an agent authored</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">a publication presented at the event.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A quantitative measure of a dataset&#39;s size or scope, expressed as a numeric</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">quantity and one or more localized unit labels. Use one Extent for each independently</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">useful measure, including bytes, records, files, images or duration; do not combine</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">multiple measures or explanatory prose in one instance.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">event_agent</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event_agent</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The person or organization involved in the containing event (by IDHI</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">URN). Use only in Event.event_agent_roles; do not duplicate the relationship</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">on the Agent.</span>
+<span class="w">  </span><span class="nt">quantity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quantity</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The numeric magnitude of an Extent measure. Use an integer when the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">measure is a count or an exact byte total, and a decimal only when the chosen</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">unit requires one; put the unit in the accompanying unit slot.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:agent</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:value</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decimal</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">event_agent_role</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event_agent_role</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The capacity in which the agent is involved in the containing event.</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Choose the most specific applicable role and create separate relationships when</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the same agent has multiple roles.</span>
+<span class="w">  </span><span class="nt">unit</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Localized labels for the unit of an Extent quantity, such as byte,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">record, image, file or hour. Use one LangString per available language, prefer</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a concise singular unit label rather than a sentence, and keep qualifications</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in the Dataset description or another extent measure.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:roleName</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:unitText</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRoleEnum</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LangString</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">start_date</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start_date</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start of the event, of the project&#39;s runtime, or of a relationship&#39;s</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">validity, such as when participation, affiliation, maintenance responsibility</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or formal containment began.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:startDate</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
-<span class="w">  </span><span class="nt">end_date</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end_date</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">End of the event, project runtime or relationship. Omit for ongoing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">relationships and open-ended projects.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:endDate</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EventAgentRole</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Funding</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Role</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:QuantitativeValue</span>
 </code></pre></div>
 </details>
 </div>

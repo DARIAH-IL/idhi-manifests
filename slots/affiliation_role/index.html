@@ -615,6 +615,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../classes/Extent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: Extent
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -2025,33 +2052,6 @@
     
   
   Slot: authorships
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../byte_size/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: byte_size
 
     
   </span>
@@ -4042,6 +4042,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../quantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: quantity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../related_datasets/" class="md-nav__link">
         
   
@@ -4698,6 +4725,33 @@
     
   
   Slot: type
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: unit
 
     
   </span>
@@ -5650,7 +5704,7 @@
                   
 
 <h1 id="slot-affiliation_role">Slot: affiliation_role</h1>
-<p><em>The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.</em></p>
+<p><em>The person's role or status in the organization, not their role in a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only when no finer role fits, and create separate Affiliation instances when materially distinct roles coexist or apply during different dates.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="http://schema.org/roleName">schema:roleName</a></p>
 <!-- no inheritance hierarchy -->
@@ -5666,7 +5720,7 @@
 <tbody>
 <tr>
 <td><a href="../../classes/Affiliation/">Affiliation</a></td>
-<td>A person's employment or membership at an organization, nested in a Person so...</td>
+<td>A person's formal relationship with an organization, nested in a Person so th...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -5737,9 +5791,10 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affiliation_role</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The person&#39;s position at the organization (their job/status, not their</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">without employment.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The person&#39;s role or status in the organization, not their role in a</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">when no finer role fits, and create separate Affiliation instances when materially</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">distinct roles coexist or apply during different dates.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:roleName</span>

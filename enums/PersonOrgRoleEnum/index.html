@@ -615,6 +615,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../classes/Extent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Class: Extent
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../classes/Funding/" class="md-nav__link">
         
   
@@ -1986,33 +2013,6 @@
     
   
   Slot: authorships
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../slots/byte_size/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Slot: byte_size
 
     
   </span>
@@ -4003,6 +4003,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../slots/quantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: quantity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../slots/related_datasets/" class="md-nav__link">
         
   
@@ -4659,6 +4686,33 @@
     
   
   Slot: type
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slots/unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Slot: unit
 
     
   </span>
@@ -5572,7 +5626,7 @@
                   
 
 <h1 id="enum-personorgroleenum">Enum: PersonOrgRoleEnum</h1>
-<p><em>A person's position within an organization (job/status).</em></p>
+<p><em>IDHI-governed roles and statuses for a person's formal relationship with an organization. Choose the most specific applicable role, use separate Affiliation instances for distinct concurrent or successive roles, and keep project-specific responsibilities in ProjectParticipation.</em></p>
 <div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://idhi_placeholder/linkml/enum/PersonOrgRoleEnum">idhi:enum/PersonOrgRoleEnum</a></p>
 <h2 id="permissible-values">Permissible Values</h2>
@@ -5586,34 +5640,69 @@
 </thead>
 <tbody>
 <tr>
-<td>PROFESSOR</td>
+<td>EMPLOYEE</td>
 <td>None</td>
-<td><span title="Faculty member of any professorial rank.">Faculty member of any professorial rank</span></td>
+<td><span title="A person employed by the organization when no more specific affiliation role applies; use FACULTY or RESEARCHER for those appointments and CONTRACTOR for external contract work.">A person employed by the organization when no more specific affiliation role ...</span></td>
 </tr>
 <tr>
-<td>ASSOCIATE</td>
+<td>FACULTY</td>
 <td>None</td>
-<td><span title="Research associate / postdoc.">Research associate / postdoc</span></td>
+<td><span title="A person holding a faculty appointment of any academic rank; use this instead of EMPLOYEE even when the appointment includes research, and use RESEARCHER for non-faculty research staff.">A person holding a faculty appointment of any academic rank; use this instead...</span></td>
+</tr>
+<tr>
+<td>RESEARCHER</td>
+<td>None</td>
+<td><span title="A person holding a non-faculty research appointment, including a research associate or postdoctoral position; use FACULTY for faculty and ProjectParticipation for research performed only within a particular project.">A person holding a non-faculty research appointment, including a research ass...</span></td>
+</tr>
+<tr>
+<td>STUDENT</td>
+<td>None</td>
+<td><span title="A person formally enrolled at the organization; use INTERN when the organizational relationship is specifically a training placement rather than ordinary enrollment.">A person formally enrolled at the organization; use INTERN when the organizat...</span></td>
+</tr>
+<tr>
+<td>INTERN</td>
+<td>None</td>
+<td><span title="A person in a time-limited supervised training or work-placement role; do not use merely because an enrolled student works on a project.">A person in a time-limited supervised training or work-placement role; do not...</span></td>
+</tr>
+<tr>
+<td>FOUNDER</td>
+<td>None</td>
+<td><span title="A person who established or co-established the organization; record OWNER separately when they also hold ownership, and do not use for someone who merely joined early.">A person who established or co-established the organization; record OWNER sep...</span></td>
+</tr>
+<tr>
+<td>OWNER</td>
+<td>None</td>
+<td><span title="A person with a formal legal or equity ownership interest in the organization; record FOUNDER separately when they also established it, and do not use for managerial responsibility without ownership.">A person with a formal legal or equity ownership interest in the organization...</span></td>
+</tr>
+<tr>
+<td>ADVISOR</td>
+<td>None</td>
+<td><span title="A person with a formal ongoing advisory relationship to the organization; use ProjectParticipation for advice limited to a project and CONTRACTOR for bounded paid professional work.">A person with a formal ongoing advisory relationship to the organization; use...</span></td>
+</tr>
+<tr>
+<td>CONTRACTOR</td>
+<td>None</td>
+<td><span title="A person engaged by the organization under an external service or independent-work contract; use EMPLOYEE for staff employment and ADVISOR for an ongoing advisory appointment.">A person engaged by the organization under an external service or independent...</span></td>
+</tr>
+<tr>
+<td>VOLUNTEER</td>
+<td>None</td>
+<td><span title="A person formally contributing unpaid service to the organization; use MEMBER when the relationship is membership without a defined volunteer role.">A person formally contributing unpaid service to the organization; use MEMBER...</span></td>
 </tr>
 <tr>
 <td>MEMBER</td>
 <td>None</td>
-<td><span title="Formal member of a center, lab or society.">Formal member of a center, lab or society</span></td>
+<td><span title="A formal member of a center, lab, society or similar organization when no more specific affiliation role applies; do not use as a generic substitute for employment or informal participation.">A formal member of a center, lab, society or similar organization when no mor...</span></td>
 </tr>
 <tr>
-<td>MANAGER</td>
+<td>FELLOW</td>
 <td>None</td>
-<td><span title="Administrative or lab manager.">Administrative or lab manager</span></td>
+<td><span title="A person holding a formally designated fellowship at the organization; use RESEARCHER or STUDENT when no fellowship status exists and MEMBER for membership without a fellowship appointment.">A person holding a formally designated fellowship at the organization; use RE...</span></td>
 </tr>
 <tr>
 <td>AFFILIATE</td>
 <td>None</td>
-<td><span title="Formal association without employment.">Formal association without employment</span></td>
-</tr>
-<tr>
-<td>EMPLOYEE</td>
-<td>None</td>
-<td><span title="Staff fallback when no finer value fits.">Staff fallback when no finer value fits</span></td>
+<td><span title="A person with a formal organizational association that is neither employment, enrollment, membership, fellowship nor another listed role; do not use for informal collaboration or project-only participation.">A person with a formal organizational association that is neither employment,...</span></td>
 </tr>
 </tbody>
 </table>
@@ -5628,7 +5717,7 @@
 <tbody>
 <tr>
 <td><a href="../../slots/affiliation_role/">affiliation_role</a></td>
-<td><span title="The person's position at the organization (their job/status, not their project role). Use EMPLOYEE when no finer value fits; AFFILIATE is for formal association without employment.">The person's position at the organization (their job/status, not their projec...</span></td>
+<td><span title="The person's role or status in the organization, not their role in a project. Prefer the most specific applicable value, use EMPLOYEE or MEMBER only when no finer role fits, and create separate Affiliation instances when materially distinct roles coexist or apply during different dates.">The person's role or status in the organization, not their role in a project</span></td>
 </tr>
 </tbody>
 </table>
@@ -5640,28 +5729,76 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersonOrgRoleEnum</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person&#39;s position within an organization (job/status).</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IDHI-governed roles and statuses for a person&#39;s formal relationship with</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">an organization. Choose the most specific applicable role, use separate Affiliation</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">instances for distinct concurrent or successive roles, and keep project-specific</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">responsibilities in ProjectParticipation.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idhi_placeholder/linkml/idhi</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">permissible_values</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">PROFESSOR</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PROFESSOR</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Faculty member of any professorial rank.</span>
-<span class="w">  </span><span class="nt">ASSOCIATE</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ASSOCIATE</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Research associate / postdoc.</span>
-<span class="w">  </span><span class="nt">MEMBER</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MEMBER</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Formal member of a center, lab or society.</span>
-<span class="w">  </span><span class="nt">MANAGER</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MANAGER</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Administrative or lab manager.</span>
-<span class="w">  </span><span class="nt">AFFILIATE</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AFFILIATE</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Formal association without employment.</span>
 <span class="w">  </span><span class="nt">EMPLOYEE</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EMPLOYEE</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Staff fallback when no finer value fits.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person employed by the organization when no more specific affiliation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">role applies; use FACULTY or RESEARCHER for those appointments and CONTRACTOR</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for external contract work.</span>
+<span class="w">  </span><span class="nt">FACULTY</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FACULTY</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person holding a faculty appointment of any academic rank; use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">this instead of EMPLOYEE even when the appointment includes research, and use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">RESEARCHER for non-faculty research staff.</span>
+<span class="w">  </span><span class="nt">RESEARCHER</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RESEARCHER</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person holding a non-faculty research appointment, including a</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">research associate or postdoctoral position; use FACULTY for faculty and ProjectParticipation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for research performed only within a particular project.</span>
+<span class="w">  </span><span class="nt">STUDENT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STUDENT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person formally enrolled at the organization; use INTERN when the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">organizational relationship is specifically a training placement rather than</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ordinary enrollment.</span>
+<span class="w">  </span><span class="nt">INTERN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INTERN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person in a time-limited supervised training or work-placement</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">role; do not use merely because an enrolled student works on a project.</span>
+<span class="w">  </span><span class="nt">FOUNDER</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FOUNDER</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person who established or co-established the organization; record</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">OWNER separately when they also hold ownership, and do not use for someone who</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">merely joined early.</span>
+<span class="w">  </span><span class="nt">OWNER</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OWNER</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person with a formal legal or equity ownership interest in the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">organization; record FOUNDER separately when they also established it, and do</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">not use for managerial responsibility without ownership.</span>
+<span class="w">  </span><span class="nt">ADVISOR</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ADVISOR</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person with a formal ongoing advisory relationship to the organization;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">use ProjectParticipation for advice limited to a project and CONTRACTOR for</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">bounded paid professional work.</span>
+<span class="w">  </span><span class="nt">CONTRACTOR</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CONTRACTOR</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person engaged by the organization under an external service or</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">independent-work contract; use EMPLOYEE for staff employment and ADVISOR for</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">an ongoing advisory appointment.</span>
+<span class="w">  </span><span class="nt">VOLUNTEER</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOLUNTEER</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person formally contributing unpaid service to the organization;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">use MEMBER when the relationship is membership without a defined volunteer role.</span>
+<span class="w">  </span><span class="nt">MEMBER</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MEMBER</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A formal member of a center, lab, society or similar organization</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">when no more specific affiliation role applies; do not use as a generic substitute</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for employment or informal participation.</span>
+<span class="w">  </span><span class="nt">FELLOW</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FELLOW</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person holding a formally designated fellowship at the organization;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">use RESEARCHER or STUDENT when no fellowship status exists and MEMBER for membership</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">without a fellowship appointment.</span>
+<span class="w">  </span><span class="nt">AFFILIATE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AFFILIATE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person with a formal organizational association that is neither</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">employment, enrollment, membership, fellowship nor another listed role; do not</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">use for informal collaboration or project-only participation.</span>
 </code></pre></div>
 </details>
 </div>
